@@ -10,7 +10,7 @@ public class IndexController {
 		return "login";
 	}*/
 	
-	@GetMapping(value="/home")
+	@GetMapping(value= {"/home","/"})
 	public String home() {
 		return "index";
 	}
