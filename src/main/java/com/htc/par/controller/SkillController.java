@@ -71,7 +71,7 @@ public class SkillController {
 	}
 
 	/**
-	 * Request handler to update active skill
+	 * Request handler to update active skill 
 	 * @param skillTO
 	 * @return
 	 * @throws ResourceNotFoundException

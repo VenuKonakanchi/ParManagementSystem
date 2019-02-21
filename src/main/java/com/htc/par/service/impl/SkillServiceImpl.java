@@ -89,7 +89,7 @@ public class SkillServiceImpl implements SkillService {
 	 */
 	@Override
 	public SkillTO updateSkill(SkillTO skillTO) throws ResourceNotFoundException, ResourceNotUpdatedException {
-		SkillTO updatedSkillTO=null; 
+		SkillTO updatedSkillTO = null;
 		try {
 			Optional<Skill> skillOptional = skillRepository.findBySkillIdAndSkillActive(skillTO.getSkillId(), true);
 			if (!skillOptional.isPresent())
@@ -112,10 +112,18 @@ public class SkillServiceImpl implements SkillService {
 	@Override
 	public SkillTO createSkill(SkillTO skillTO) throws ResourceDuplicateException, ResourceNotCreatedException {
 		try {
-			skillTO.setSkillActive(true);
-			Skill skill = getSkill(skillTO);
+			Optional<Skill> skillOptional = skillRepository.findBySkillName(skillTO.getSkillName());
+			Skill skill = null;
+			if (!skillOptional.isPresent()) {
+				skillTO.setSkillActive(true);
+				skill = getSkill(skillTO);
+			} else {
+				skill = skillOptional.get();
+				skill.setSkillActive(true);
+				skillTO.setSkillActive(true);
+			}
 			skill = skillRepository.save(skill);
-			skillTO.setSkillId(skill.getSkillId());
+			skillTO = getSkillTO(skill);
 		} catch (DataIntegrityViolationException die) {
 			throw new ResourceDuplicateException(String.format("Skill: %s Already Exist.", skillTO.getSkillName()));
 		} catch (DataAccessException dae) {
