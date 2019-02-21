@@ -13,7 +13,7 @@
         <ul class="dropdown-menu">
           <li><a href="areaAndProductForm">Area/Product</a></li>
           <li><a href="candidateMaster">Candidate Master</a></li>
-          <li><a href="candidateRole">Candidate Role</a></li>
+          <li><a href="candidateRole"> Role Information</a></li>
           <li><a href="externalStaffingInfoForm">External Staffing Info</a></li>
           <li><a href="preScreener">Pre-Screener(s)</a></li>
           <li><a href="recruiterForm">Recruiter(s)</a></li>
