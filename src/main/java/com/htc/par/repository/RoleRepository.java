@@ -5,12 +5,12 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.htc.par.entity.AppRole;
+import com.htc.par.entity.AppUserRole;
 
 @Repository
-public interface RoleRepository extends JpaRepository<AppRole, Integer>{
+public interface RoleRepository extends JpaRepository<AppUserRole, Integer>{
 	
-	List<AppRole> findByRole(String role);
+	List<AppUserRole> findByRoleName(String roleName);
 	
 	
 }
