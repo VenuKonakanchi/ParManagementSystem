@@ -16,7 +16,7 @@ public class PreScreener {
 	@Column(name = "pre_scr_id")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "preScreener_seq")
 	@SequenceGenerator(name = "preScreener_seq", sequenceName = "preScreener_seq", initialValue = 8000, allocationSize = 1)
-	private int preScreenerId;
+	private Integer preScreenerId;
 
 	@Column(name = "pre_scr_nm")
 	private String preScreenerName;
@@ -25,15 +25,15 @@ public class PreScreener {
 	private String preScreenerPhoneNumber;
 
 	@Column(name = "pre_scr_active")
-	private boolean preScreenerActive;
+	private Boolean preScreenerActive;
 
 	public PreScreener() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public PreScreener(int preScreenerId, String preScreenerName, String preScreenerPhoneNumber,
-			boolean preScreenerActive) {
+	public PreScreener(Integer preScreenerId, String preScreenerName, String preScreenerPhoneNumber,
+			Boolean preScreenerActive) {
 		super();
 		this.preScreenerId = preScreenerId;
 		this.preScreenerName = preScreenerName;
@@ -41,11 +41,11 @@ public class PreScreener {
 		this.preScreenerActive = preScreenerActive;
 	}
 
-	public int getPreScreenerId() {
+	public Integer getPreScreenerId() {
 		return preScreenerId;
 	}
 
-	public void setPreScreenerId(int preScreenerId) {
+	public void setPreScreenerId(Integer preScreenerId) {
 		this.preScreenerId = preScreenerId;
 	}
 
@@ -65,11 +65,11 @@ public class PreScreener {
 		this.preScreenerPhoneNumber = preScreenerPhoneNumber;
 	}
 
-	public boolean isPreScreenerActive() {
+	public Boolean getPreScreenerActive() {
 		return preScreenerActive;
 	}
 
-	public void setPreScreenerActive(boolean preScreenerActive) {
+	public void setPreScreenerActive(Boolean preScreenerActive) {
 		this.preScreenerActive = preScreenerActive;
 	}
 

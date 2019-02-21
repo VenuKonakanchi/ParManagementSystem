@@ -21,37 +21,28 @@ import com.htc.par.exceptions.ResourceNotUpdatedException;
 import com.htc.par.service.PreScreenerService;
 import com.htc.par.to.PreScreenerTO;
 
-/* @author - Shyam
- * Rest controller for Pre-Screener's information. */
+/** Rest controller for PreScreener service **/
 
 @RestController
 @RequestMapping("/par")
 public class PreScreenerController {
-
-	/**
-	 * Rest controller for PreScreener service
-	 *
-	 */
 
 	@Autowired
 	private PreScreenerService preScreenerService;
 
 	/**
 	 * Request handler to get preScreener by id
-	 * 
 	 * @param preScreenerId
 	 * @return
 	 * @throws ResourceNotFoundException
 	 */
 	@GetMapping("/preScreeners/{preScreenerId}")
-	public ResponseEntity<PreScreenerTO> getPreScreenerById(@PathVariable("preScreenerId") int preScreenerId)
-			throws ResourceNotFoundException {
+	public ResponseEntity<PreScreenerTO> getPreScreenerById(@PathVariable("preScreenerId") int preScreenerId) throws ResourceNotFoundException {
 		return ResponseEntity.ok(preScreenerService.getPreScreenerById(preScreenerId));
 	}
 
 	/**
-	 * Request handler to get all preScreeners
-	 * 
+	 * Request handler to get all preScreeners 
 	 * @return
 	 * @throws ResourceNotFoundException
 	 */
@@ -62,7 +53,6 @@ public class PreScreenerController {
 
 	/**
 	 * Request handler to new active preScreener
-	 * 
 	 * @param preScreenerTO
 	 * @return
 	 * @throws ResourceNotCreatedException
@@ -75,29 +65,27 @@ public class PreScreenerController {
 	}
 
 	/**
-	 * Request handler to update active preScreener
-	 * 
+	 * Request handler to update active preScreener 
 	 * @param preScreenerTO
 	 * @return
 	 * @throws ResourceNotFoundException
 	 * @throws ResourceNotUpdatedException
 	 */
 	@PutMapping("/preScreeners")
-	public ResponseEntity<PreScreenerTO> updateProduct(@RequestBody PreScreenerTO preScreenerTO)
+	public ResponseEntity<PreScreenerTO> updatePreScreener(@RequestBody PreScreenerTO preScreenerTO)
 			throws ResourceNotFoundException, ResourceNotUpdatedException {
 		return ResponseEntity.ok(preScreenerService.updatePreScreener(preScreenerTO));
 	}
 
 	/**
 	 * Request handler to delete preScreener
-	 * 
 	 * @param preScreenerId
 	 * @return
 	 * @throws ResourceNotFoundException
 	 * @throws ResourceNotDeletedException
 	 */
 	@DeleteMapping("/preScreeners/{preScreenerId}")
-	public ResponseEntity<Boolean> deleteProduct(@PathVariable("preScreenerId") int preScreenerId)
+	public ResponseEntity<Boolean> deletePreScreener(@PathVariable("preScreenerId") int preScreenerId)
 			throws ResourceNotFoundException, ResourceNotDeletedException {
 		return ResponseEntity.ok(preScreenerService.deletePreScreener(preScreenerId));
 	}
