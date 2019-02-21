@@ -18,10 +18,8 @@ import com.htc.par.exceptions.ResourceNotCreatedException;
 import com.htc.par.exceptions.ResourceNotDeletedException;
 import com.htc.par.exceptions.ResourceNotFoundException;
 import com.htc.par.exceptions.ResourceNotUpdatedException;
-import com.htc.par.repository.RecruiterRepository;
-import com.htc.par.service.SkillService;
+import com.htc.par.service.RecruiterService;
 import com.htc.par.to.RecruiterTO;
-import com.htc.par.to.SkillTO;
 
 /**
  * @author Ram
@@ -31,9 +29,6 @@ import com.htc.par.to.SkillTO;
 @RestController
 @RequestMapping("/par")
 public class RecruiterController {
-	
-	@Autowired
-	RecruiterRepository recruiterRepository;
 	
 	@Autowired
 	private RecruiterService recruiterService;
@@ -46,56 +41,56 @@ public class RecruiterController {
 	 */
 	@GetMapping("/recruiter/{recruiterId}")
 	public ResponseEntity<RecruiterTO> getRecruiterById(@PathVariable("recruiterId") int recruiterId) throws ResourceNotFoundException {
-		return ResponseEntity.ok(skillService.getSkillById(skillId));
+		return ResponseEntity.ok(recruiterService.getRecruiterById(recruiterId));
 	}
 
 	/**
-	 * Request handler to get all skills 
+	 * Request handler to get all recruiters 
 	 * @return
 	 * @throws ResourceNotFoundException
 	 */
-	@GetMapping("/skills")
-	public ResponseEntity<List<SkillTO>> getSkills() throws ResourceNotFoundException {
-		return ResponseEntity.ok(skillService.getAllSkills());
+	@GetMapping("/recruiters")
+	public ResponseEntity<List<RecruiterTO>> getRecruiters() throws ResourceNotFoundException {
+		return ResponseEntity.ok(recruiterService.getAllRecruiters());
 	}
 
 	/**
-	 * Request handler to new active skill
-	 * @param skillTO
+	 * Request handler to create new Recruiter entry
+	 * @param RecruiterTO
 	 * @return
 	 * @throws ResourceNotCreatedException
 	 * @throws ResourceDuplicateException
 	 */
-	@PostMapping("/skills")
-	public ResponseEntity<SkillTO> createSkill(@RequestBody SkillTO skillTO)
+	@PostMapping("/recruiters")
+	public ResponseEntity<RecruiterTO> createRecruiter(@RequestBody RecruiterTO recruiterTO)
 			throws ResourceNotCreatedException, ResourceDuplicateException {
-		return ResponseEntity.created(null).body(skillService.createSkill(skillTO));
+		return ResponseEntity.created(null).body(recruiterService.createRecruiter(recruiterTO));
 	}
 
 	/**
-	 * Request handler to update active skill
-	 * @param skillTO
+	 * Request handler to update active recruiter
+	 * @param RecruiterTO
 	 * @return
 	 * @throws ResourceNotFoundException
 	 * @throws ResourceNotUpdatedException
 	 */
-	@PutMapping("/skills")
-	public ResponseEntity<SkillTO> updateProduct(@RequestBody SkillTO skillTO)
+	@PutMapping("/recruiters")
+	public ResponseEntity<RecruiterTO> updateRecruiter(@RequestBody RecruiterTO recruiterTO)
 			throws ResourceNotFoundException, ResourceNotUpdatedException {
-		return ResponseEntity.ok(skillService.updateSkill(skillTO));
+		return ResponseEntity.ok(recruiterService.updateRecruiter(recruiterTO));
 	}
 
 	/**
-	 * Request handler to delete skill
-	 * @param skillId
+	 * Request handler to delete recruiter
+	 * @param RecruiterId
 	 * @return
 	 * @throws ResourceNotFoundException
 	 * @throws ResourceNotDeletedException
 	 */
-	@DeleteMapping("/skills/{skillId}")
-	public ResponseEntity<Boolean> deleteProduct(@PathVariable("skillId") int skillId)
+	@DeleteMapping("/recruiters/{recruiterId}")
+	public ResponseEntity<Boolean> deleteRecruiter(@PathVariable("recruiterId") int recruiterId)
 			throws ResourceNotFoundException, ResourceNotDeletedException {
-		return ResponseEntity.ok(skillService.deleteSkill(skillId));
+		return ResponseEntity.ok(recruiterService.deleteRecruiter(recruiterId));
 	}
 	
 }

@@ -7,7 +7,7 @@ public class RecruiterTO {
 	private String recruiterPhoneNumber;
 	private String recruiterEmail;
 	private Boolean recruiterEmailFlag;
-	private Boolean isRecruiterActive;
+	private Boolean recruiterActive;
 	
 	public Integer getRecruiterId() {
 		return recruiterId;
@@ -39,12 +39,23 @@ public class RecruiterTO {
 	public void setRecruiterEmailFlag(Boolean recruiterEmailFlag) {
 		this.recruiterEmailFlag = recruiterEmailFlag;
 	}
-	public Boolean getIsRecruiterActive() {
-		return isRecruiterActive;
+	public Boolean getRecruiterActive() {
+		return recruiterActive;
 	}
-	public void setIsRecruiterActive(Boolean isRecruiterActive) {
-		this.isRecruiterActive = isRecruiterActive;
+	public void setRecruiterActive(Boolean recruiterActive) {
+		this.recruiterActive = recruiterActive;
+	}
+	public RecruiterTO(Integer recruiterId, String recruiterName, String recruiterPhoneNumber, String recruiterEmail,
+			Boolean recruiterEmailFlag, Boolean recruiterActive) {
+		super();
+		this.recruiterId = recruiterId;
+		this.recruiterName = recruiterName;
+		this.recruiterPhoneNumber = recruiterPhoneNumber;
+		this.recruiterEmail = recruiterEmail;
+		this.recruiterEmailFlag = recruiterEmailFlag;
+		this.recruiterActive = recruiterActive;
+	}
+	public RecruiterTO() {
 	}
 
-	
 }
