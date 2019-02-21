@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.htc.par.repository.RecruiterRepository;
@@ -20,6 +21,11 @@ public class RecruiterController {
 
 	@GetMapping("/par/recruiter")
 	public List<RecruiterTO> getRecruiters() {
+		return null;
+	}
+
+	@PostMapping("/par/recruiter")
+	public List<RecruiterTO> getRecruitersInfo() {
 		return null;
 	}
 	
