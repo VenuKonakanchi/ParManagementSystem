@@ -78,7 +78,7 @@ public class SkillController {
 	 * @throws ResourceNotUpdatedException
 	 */
 	@PutMapping("/skills")
-	public ResponseEntity<SkillTO> updateProduct(@RequestBody SkillTO skillTO)
+	public ResponseEntity<SkillTO> updateSkill(@RequestBody SkillTO skillTO)
 			throws ResourceNotFoundException, ResourceNotUpdatedException {
 		return ResponseEntity.ok(skillService.updateSkill(skillTO));
 	}
@@ -91,7 +91,7 @@ public class SkillController {
 	 * @throws ResourceNotDeletedException
 	 */
 	@DeleteMapping("/skills/{skillId}")
-	public ResponseEntity<Boolean> deleteProduct(@PathVariable("skillId") int skillId)
+	public ResponseEntity<Boolean> deleteSkill(@PathVariable("skillId") int skillId)
 			throws ResourceNotFoundException, ResourceNotDeletedException {
 		return ResponseEntity.ok(skillService.deleteSkill(skillId));
 	}
