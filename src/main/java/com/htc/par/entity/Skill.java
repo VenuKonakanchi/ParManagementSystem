@@ -25,36 +25,37 @@ public class Skill {
 	@Column(name="skill_id")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "skill_seq")
 	@SequenceGenerator(name="skill_seq", sequenceName="skill_seq",initialValue = 8000, allocationSize=1)
-	private int skillId;
+	private Integer skillId;
 	
 	@Column(name="skill_nm")
 	private String skillName;
 	
 	@Column(name="skill_active")
-	private boolean isSkillActive;
+	private Boolean skillActive;
 
 	public Skill() {
 		super();
 	}
 
-	public Skill(String skillName, boolean isSkillActive) {
+	public Skill(String skillName, Boolean skillActive) {
 		super();
 		this.skillName = skillName;
-		this.isSkillActive = isSkillActive;
+		this.skillActive = skillActive;
 	}
 
-	public Skill(int skillId, String skillName, boolean isSkillActive) {
+	public Skill(Integer skillId, String skillName, Boolean skillActive) {
 		super();
 		this.skillId = skillId;
 		this.skillName = skillName;
-		this.isSkillActive = isSkillActive;
+		this.skillActive = skillActive;
 	}
 
-	public int getSkillId() {
+
+	public Integer getSkillId() {
 		return skillId;
 	}
 
-	public void setSkillId(int skillId) {
+	public void setSkillId(Integer skillId) {
 		this.skillId = skillId;
 	}
 
@@ -66,17 +67,16 @@ public class Skill {
 		this.skillName = skillName;
 	}
 
-	public boolean isSkillActive() {
-		return isSkillActive;
+	public Boolean getSkillActive() {
+		return skillActive;
 	}
 
-	public void setSkillActive(boolean skillActive) {
-		this.isSkillActive = skillActive;
+	public void setSkillActive(Boolean skillActive) {
+		this.skillActive = skillActive;
 	}
 
 	@Override
 	public String toString() {
-		return "Skill [skillId=" + skillId + ", skillName=" + skillName + ", skillActive=" + isSkillActive + "]";
+		return "Skill [skillId=" + skillId + ", skillName=" + skillName + ", skillActive=" + skillActive + "]";
 	}
-	
 }
