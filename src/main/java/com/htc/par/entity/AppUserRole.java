@@ -19,7 +19,7 @@ public class AppUserRole {
 	@Column(name="USER_ROLE_ID")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "user_role_seq")
 	@SequenceGenerator(name="user_role_seq", sequenceName="user_role_seq",initialValue = 11000, allocationSize=1)
-	private int roleId;
+	private Integer roleId;
 	
 	@Column(name="USER_ROLE_NM")
 	private String roleName;
@@ -29,35 +29,36 @@ public class AppUserRole {
 	
 	public AppUserRole() {}
 
-	public AppUserRole(int roleId, String roleName) {
-		super();
-		this.roleId = roleId;
-		this.roleName = roleName;
-	}
-
-	public int getRoleId() {
+	
+	public Integer getRoleId() {
 		return roleId;
 	}
 
-	public void setRoleId(int roleId) {
+
+	public void setRoleId(Integer roleId) {
 		this.roleId = roleId;
 	}
+
 
 	public String getRoleName() {
 		return roleName;
 	}
 
+
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
 	}
+
 
 	public AppUser getUser() {
 		return user;
 	}
 
+
 	public void setUser(AppUser user) {
 		this.user = user;
 	}
+	
 
 	@Override
 	public String toString() {
