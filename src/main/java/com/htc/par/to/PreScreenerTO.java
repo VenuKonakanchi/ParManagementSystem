@@ -1,24 +1,24 @@
 package com.htc.par.to;
 
-public class PreScreener {
+public class PreScreenerTO {
 
 	private int preScreenerId;
 	private String preScreenerName;
 	private String preScreenerPhoneNumber;
-	private boolean preScreenerActive;
+	private boolean isPreScreenerActive;
 
-	public PreScreener() {
+	public PreScreenerTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public PreScreener(int preScreenerId, String preScreenerName, String preScreenerPhoneNumber,
-			boolean preScreenerActive) {
+	public PreScreenerTO(int preScreenerId, String preScreenerName, String preScreenerPhoneNumber,
+			boolean isPreScreenerActive) {
 		super();
 		this.preScreenerId = preScreenerId;
 		this.preScreenerName = preScreenerName;
 		this.preScreenerPhoneNumber = preScreenerPhoneNumber;
-		this.preScreenerActive = preScreenerActive;
+		this.isPreScreenerActive = isPreScreenerActive;
 	}
 
 	public int getPreScreenerId() {
@@ -46,17 +46,17 @@ public class PreScreener {
 	}
 
 	public boolean isPreScreenerActive() {
-		return preScreenerActive;
+		return isPreScreenerActive;
 	}
 
-	public void setPreScreenerActive(boolean preScreenerActive) {
-		this.preScreenerActive = preScreenerActive;
+	public void setPreScreenerActive(boolean isPreScreenerActive) {
+		this.isPreScreenerActive = isPreScreenerActive;
 	}
 
 	@Override
 	public String toString() {
-		return "PreScreeners [preScreenerId=" + preScreenerId + ", preScreenerName=" + preScreenerName
-				+ ", preScreenerPhoneNumber=" + preScreenerPhoneNumber + ", preScreenerActive=" + preScreenerActive
+		return "PreScreenerTO [preScreenerId=" + preScreenerId + ", preScreenerName=" + preScreenerName
+				+ ", preScreenerPhoneNumber=" + preScreenerPhoneNumber + ", isPreScreenerActive=" + isPreScreenerActive
 				+ "]";
 	}
 
