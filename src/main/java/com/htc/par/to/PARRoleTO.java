@@ -2,24 +2,24 @@ package com.htc.par.to;
 
 public class PARRoleTO {
 	
-	private int roleId;
+	private Integer roleId;
 	private String roleName;
-	private boolean roleActive;
+	private Boolean RoleActive;
 	
 	public PARRoleTO() {}
 
-	public PARRoleTO(int roleId, String roleName, boolean roleActive) {
+	public PARRoleTO(Integer roleId, String roleName, Boolean roleActive) {
 		super();
 		this.roleId = roleId;
 		this.roleName = roleName;
-		this.roleActive = roleActive;
+		RoleActive = roleActive;
 	}
 
-	public int getRoleId() {
+	public Integer getRoleId() {
 		return roleId;
 	}
 
-	public void setRoleId(int roleId) {
+	public void setRoleId(Integer roleId) {
 		this.roleId = roleId;
 	}
 
@@ -31,19 +31,20 @@ public class PARRoleTO {
 		this.roleName = roleName;
 	}
 
-	public boolean isRoleActive() {
-		return roleActive;
+	public Boolean getRoleActive() {
+		return RoleActive;
 	}
 
-	public void setRoleActive(boolean roleActive) {
-		this.roleActive = roleActive;
+	public void setRoleActive(Boolean roleActive) {
+		RoleActive = roleActive;
 	}
 
 	@Override
 	public String toString() {
-		return "PARRoleTO [roleId=" + roleId + ", roleName=" + roleName + ", roleActive=" + roleActive + "]";
+		return "PARRoleTO [roleId=" + roleId + ", roleName=" + roleName + ", RoleActive=" + RoleActive + "]";
 	}
 
+	
 	
 
 }

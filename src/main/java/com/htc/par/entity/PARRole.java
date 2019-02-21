@@ -2,7 +2,10 @@ package com.htc.par.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -11,26 +14,30 @@ public class PARRole {
 	
 	@Id
 	@Column(name = "role_id")
-	private int roleId;
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "role_seq")
+	@SequenceGenerator(name="role_seq", sequenceName="role_seq",initialValue = 6000, allocationSize=1)
+	private Integer roleId;
+	
 	@Column(name ="role_nm")
 	private String roleName;
+	
 	@Column(name = "role_active")
-	private boolean roleActive;
+	private Boolean roleActive;
 	
 	public PARRole() {}
 
-	public PARRole(int roleId, String roleName, boolean roleActive) {
+	public PARRole(Integer roleId, String roleName, Boolean roleActive) {
 		super();
 		this.roleId = roleId;
 		this.roleName = roleName;
 		this.roleActive = roleActive;
 	}
 
-	public int getRoleId() {
+	public Integer getRoleId() {
 		return roleId;
 	}
 
-	public void setRoleId(int roleId) {
+	public void setRoleId(Integer roleId) {
 		this.roleId = roleId;
 	}
 
@@ -42,11 +49,11 @@ public class PARRole {
 		this.roleName = roleName;
 	}
 
-	public boolean isRoleActive() {
+	public Boolean getRoleActive() {
 		return roleActive;
 	}
 
-	public void setRoleActive(boolean roleActive) {
+	public void setRoleActive(Boolean roleActive) {
 		this.roleActive = roleActive;
 	}
 
@@ -55,7 +62,7 @@ public class PARRole {
 		return "PARRole [roleId=" + roleId + ", roleName=" + roleName + ", roleActive=" + roleActive + "]";
 	}
 
-	
+		
 	
 
 }
