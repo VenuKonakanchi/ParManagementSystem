@@ -150,3 +150,227 @@
 2019-Feb-20 16:53:34.573 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
 2019-Feb-20 16:53:34.573 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
 2019-Feb-20 16:53:34.573 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-21 11:16:31.896 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:16:31.896 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:16:31.896 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:16:31.897 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:16:31.897 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:16:31.901 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:16:31.901 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:16:31.901 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:16:31.901 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:16:31.901 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:16:31.906 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:16:31.906 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:16:31.907 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:16:31.910 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:16:31.910 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:16:31.910 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:17:28.745 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:17:28.747 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:17:28.747 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:17:28.747 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:17:28.748 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:17:28.749 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:17:28.749 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:17:28.749 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:17:28.749 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:17:28.749 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:17:28.749 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:17:28.749 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:17:28.749 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:17:28.749 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:17:28.750 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:17:28.750 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:17:35.620 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:17:35.621 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:17:35.621 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:17:35.621 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:17:35.621 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:17:35.621 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:17:35.621 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:17:35.621 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:17:35.622 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:17:35.622 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:17:35.622 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:17:35.622 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:17:35.622 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:17:35.622 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:17:35.622 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:17:35.622 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:17:46.219 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:17:46.219 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:17:46.219 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:17:46.219 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:17:46.220 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:17:46.220 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:17:46.220 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:17:46.220 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:17:46.220 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:17:46.220 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:17:46.220 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:17:46.221 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:17:46.221 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:17:46.221 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:17:46.221 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:17:46.221 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:18:06.898 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:18:06.900 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:18:06.900 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:18:06.900 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:18:06.900 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:18:06.900 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:18:06.900 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:18:06.901 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:18:06.901 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:18:06.901 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:18:06.901 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:18:06.901 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:18:06.901 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:18:06.901 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:18:06.901 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:18:06.902 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:18:12.335 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method areaAndProductForm() begins with []
+2019-Feb-21 11:18:12.335 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.ParMasterController
+2019-Feb-21 11:18:12.335 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature name : areaAndProductForm
+2019-Feb-21 11:18:12.335 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:18:12.335 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.ParMasterController
+2019-Feb-21 11:18:12.341 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method areaAndProductForm() ends with areaAndProductForm
+2019-Feb-21 11:18:12.341 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Exiting from Method :areaAndProductForm
+2019-Feb-21 11:18:12.341 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Return value :areaAndProductForm
+2019-Feb-21 11:18:33.125 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:18:33.126 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:18:33.127 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:18:33.127 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:18:33.127 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:18:33.127 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:18:33.128 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:18:33.128 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:18:33.128 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:18:33.128 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:18:33.128 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:18:33.128 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:18:33.128 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:18:33.128 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:18:33.129 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:18:33.129 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:18:40.481 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:18:40.481 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:18:40.482 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:18:40.482 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:18:40.482 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:18:40.482 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:18:40.482 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:18:40.482 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:18:40.482 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:18:40.482 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:18:40.483 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:18:40.483 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:18:40.483 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:18:40.483 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:18:40.483 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:18:40.483 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:35:39.640 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:35:39.641 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:35:39.641 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:35:39.641 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:35:39.641 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:35:39.649 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:35:39.649 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:35:39.649 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:35:39.649 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:35:39.649 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:35:39.653 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:35:39.654 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:35:39.654 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:35:39.657 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:35:39.658 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:35:39.658 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:35:57.920 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - The method areaAndProductForm() begins with []
+2019-Feb-21 11:35:57.921 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.ParMasterController
+2019-Feb-21 11:35:57.921 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Signature name : areaAndProductForm
+2019-Feb-21 11:35:57.921 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:35:57.921 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.ParMasterController
+2019-Feb-21 11:35:57.928 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - The method areaAndProductForm() ends with areaAndProductForm
+2019-Feb-21 11:35:57.929 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Exiting from Method :areaAndProductForm
+2019-Feb-21 11:35:57.929 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Return value :areaAndProductForm
+2019-Feb-21 11:36:28.252 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:36:28.252 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:36:28.252 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:36:28.252 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:36:28.252 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:36:28.252 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:36:28.252 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:36:28.253 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:36:28.253 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:36:28.253 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:36:28.253 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:36:28.253 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:36:28.253 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:36:28.253 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:36:28.253 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:36:28.254 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:36:31.253 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:36:31.253 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:36:31.253 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:36:31.253 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:36:31.253 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:36:31.253 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:36:31.253 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:36:31.254 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:36:31.254 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:36:31.254 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:36:31.254 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:36:31.254 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:36:31.254 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:36:31.254 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:36:31.254 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:36:31.255 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:37:06.695 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:37:06.695 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:37:06.696 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:37:06.696 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:37:06.696 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:37:06.696 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:37:06.696 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:37:06.696 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:37:06.696 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:37:06.697 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:37:06.697 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:37:06.697 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:37:06.697 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:37:06.697 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:37:06.697 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:37:06.697 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:38:44.806 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:38:44.807 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:38:44.807 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:38:44.807 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:38:44.808 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:38:44.813 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:38:44.813 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:38:44.813 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:38:44.814 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:38:44.814 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:38:44.818 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:38:44.819 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:38:44.819 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:38:44.822 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:38:44.823 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:38:44.823 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:40:08.500 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:40:08.515 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:40:08.515 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:40:08.515 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:40:08.515 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:40:08.515 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:40:08.515 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:40:08.516 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:40:08.516 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:40:08.516 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:40:08.516 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:40:08.516 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:40:08.516 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:40:08.516 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:40:08.516 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:40:08.517 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>

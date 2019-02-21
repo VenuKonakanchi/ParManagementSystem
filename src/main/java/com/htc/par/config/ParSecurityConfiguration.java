@@ -2,19 +2,20 @@ package com.htc.par.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+/*import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;*/
 
 import com.htc.par.service.AppUserDetailService;
 
 @Configuration
-public class ParSecurityConfiguration extends  WebSecurityConfigurerAdapter{
-
+//extends  WebSecurityConfigurerAdapter
+public class ParSecurityConfiguration {
+/*
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.authenticationProvider(getAuthenticationProvider());
@@ -45,10 +46,10 @@ public class ParSecurityConfiguration extends  WebSecurityConfigurerAdapter{
 		http.authorizeRequests()
 			.antMatchers("/login").permitAll()
 			.antMatchers("/skillForm").hasRole("ADMIN")
-			/*.antMatchers("/customerForm").hasRole("EDITOR")
+			.antMatchers("/customerForm").hasRole("EDITOR")
 			.antMatchers("/viewCustomerForm").hasRole("USER")
 			.antMatchers("/policyForm").hasAnyRole("ADMIN","EDITOR")
-			.antMatchers("/claimForm").hasRole("ADMIN")*/
+			.antMatchers("/claimForm").hasRole("ADMIN")
 			.anyRequest()
 			.authenticated()
             .and().csrf().disable()
@@ -66,7 +67,7 @@ public class ParSecurityConfiguration extends  WebSecurityConfigurerAdapter{
             		.exceptionHandling()
             	.accessDeniedPage("/Access_Denied");
 	}
-	
+	*/
 	
 
 }

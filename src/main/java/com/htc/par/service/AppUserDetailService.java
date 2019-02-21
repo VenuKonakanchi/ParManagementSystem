@@ -4,23 +4,24 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
+/*import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;*/
 import org.springframework.stereotype.Service;
 
 import com.htc.par.entity.AppUser;
 import com.htc.par.repository.AppUserRepository;
 
 @Service
-public class AppUserDetailService implements UserDetailsService{
+//implements UserDetailsService
+public class AppUserDetailService {
 
 	@Autowired
 	AppUserRepository userRepository;
-	
+/*	
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -38,5 +39,5 @@ public class AppUserDetailService implements UserDetailsService{
 		
 		return new User(appUser.getUsername(), appUser.getPassword(), appUser.isEnabled(), true, true, true, authorities);
 	}
-
+*/
 }

@@ -1,21 +1,23 @@
 package com.htc.par.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
+/*import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;*/
 import org.springframework.stereotype.Service;
 
 import com.htc.par.entity.AppUser;
 import com.htc.par.entity.Area;
 import com.htc.par.repository.AreaRepository;
 import com.htc.par.to.AreaTo;
+ 
  
  
  
@@ -26,6 +28,8 @@ public class AreaService {
 	
 	@Autowired
 	AreaRepository arearepository;
+	
+	static List<Area> areas = new ArrayList<Area>();
 	
 	
 	
@@ -47,6 +51,8 @@ public class AreaService {
 	// CRUD get
 	
 	
+ 
+	
 	public AreaTo getArea(Integer areaid) {
 		
 		System.out.println("Inside area service get area");
@@ -63,7 +69,13 @@ public class AreaService {
  
 	}
 	
+ 	public List<Area> getAreas() {
+ 		return areas;
+ 	}
 	
+	
+ 	/*
+ 	
 	public List <AreaTo> getAreas() {
 		
 		List <Area> arealist = arearepository.findAll();
@@ -74,6 +86,8 @@ public class AreaService {
 
 		return arealistTo;
 	}
+	
+	*/
 	
 	// CRUD save
 	

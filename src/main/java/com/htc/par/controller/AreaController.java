@@ -36,6 +36,57 @@ public class AreaController {
 	public String area() {
 		return "areaAndProductForm";
 	}
+
+	
+	// GET METHODS
+
+	@GetMapping(value="/Areas", produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Area>> getAreas() {
+		
+		List<Area> areas = areaservice.getAreas();
+
+		HttpHeaders header = new HttpHeaders();
+		header.add("Access-Control-Allow-Origin", "*");
+		header.add("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+		header.add("Access-Control-Allow-Headers", "Content-Type");
+
+		if(areas.isEmpty()) {
+			ResponseEntity<List<Area>> response = new ResponseEntity<List<Area>>(header, HttpStatus.NO_CONTENT);
+			return response;
+		}
+		else {
+			ResponseEntity<List<Area>> response = new ResponseEntity<List<Area>>(areas, header, HttpStatus.OK);
+			return response;
+		}
+	}
+	
+	
+	
+	// GET AREA ID
+	
+	@GetMapping(value="/Areas/{areaId}",  produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<AreaTo> getArea(@PathVariable("areaId") Integer areaId) {
+		
+		System.out.println("Inside get map");
+		AreaTo areaTo = areaservice.getArea(areaId);
+		System.out.println(areaTo);
+		HttpHeaders header = new HttpHeaders();
+		header.add("Access-Control-Allow-Origin", "*");
+		header.add("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+		header.add("Access-Control-Allow-Headers", "Content-Type");
+
+		if(areaTo == null) {
+			ResponseEntity<AreaTo> response = new ResponseEntity<AreaTo>(header, HttpStatus.NO_CONTENT);
+			return response;
+		}
+		else {
+			ResponseEntity<AreaTo> response = new ResponseEntity<AreaTo>(areaTo, header, HttpStatus.OK);
+			return response;
+		}
+	}
+	
+	
+	
  
 
 	@PostMapping(value="/Areas", consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE )
