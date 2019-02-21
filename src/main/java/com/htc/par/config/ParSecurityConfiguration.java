@@ -10,7 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import com.htc.par.service.AppUserDetailService;
+import com.htc.par.service.impl.AppUserDetailService;
 
 @Configuration
 public class ParSecurityConfiguration extends  WebSecurityConfigurerAdapter{
@@ -44,7 +44,7 @@ public class ParSecurityConfiguration extends  WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 			.antMatchers("/login").permitAll()
-			.antMatchers("/skillForm").hasRole("ADMIN")
+			//.antMatchers("/skillForm").hasRole("ADMIN")
 			/*.antMatchers("/customerForm").hasRole("EDITOR")
 			.antMatchers("/viewCustomerForm").hasRole("USER")
 			.antMatchers("/policyForm").hasAnyRole("ADMIN","EDITOR")
