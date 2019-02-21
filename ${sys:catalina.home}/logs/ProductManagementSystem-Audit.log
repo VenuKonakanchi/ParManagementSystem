@@ -1,0 +1,152 @@
+2019-Feb-20 13:47:38.674 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() begins with []
+2019-Feb-20 13:47:38.675 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-20 13:47:38.675 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAuthenticationProvider
+2019-Feb-20 13:47:38.676 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-20 13:47:38.676 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$57da308b
+2019-Feb-20 13:47:38.762 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAppUserDetailService() begins with []
+2019-Feb-20 13:47:38.762 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-20 13:47:38.762 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAppUserDetailService
+2019-Feb-20 13:47:38.763 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-20 13:47:38.763 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$57da308b
+2019-Feb-20 13:47:38.763 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAppUserDetailService() ends with com.htc.par.service.AppUserDetailService@17c7d336
+2019-Feb-20 13:47:38.764 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getAppUserDetailService
+2019-Feb-20 13:47:38.764 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :com.htc.par.service.AppUserDetailService@17c7d336
+2019-Feb-20 13:47:38.772 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getPasswordEncoder() begins with []
+2019-Feb-20 13:47:38.773 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-20 13:47:38.773 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getPasswordEncoder
+2019-Feb-20 13:47:38.773 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-20 13:47:38.773 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$57da308b
+2019-Feb-20 13:47:38.774 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getPasswordEncoder() ends with org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder@252a5f4e
+2019-Feb-20 13:47:38.774 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getPasswordEncoder
+2019-Feb-20 13:47:38.774 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder@252a5f4e
+2019-Feb-20 13:47:38.775 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() ends with org.springframework.security.authentication.dao.DaoAuthenticationProvider@8b7fb6b
+2019-Feb-20 13:47:38.776 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getAuthenticationProvider
+2019-Feb-20 13:47:38.776 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :org.springframework.security.authentication.dao.DaoAuthenticationProvider@8b7fb6b
+2019-Feb-20 13:48:30.088 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 13:48:30.088 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 13:48:30.088 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 13:48:30.088 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 13:48:30.088 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 13:48:30.093 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 13:48:30.094 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 13:48:30.094 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-20 16:49:34.298 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() begins with []
+2019-Feb-20 16:49:34.319 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-20 16:49:34.319 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAuthenticationProvider
+2019-Feb-20 16:49:34.319 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-20 16:49:34.319 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$d1b27bab
+2019-Feb-20 16:49:34.367 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAppUserDetailService() begins with []
+2019-Feb-20 16:49:34.367 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-20 16:49:34.367 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAppUserDetailService
+2019-Feb-20 16:49:34.367 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-20 16:49:34.367 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$d1b27bab
+2019-Feb-20 16:49:34.367 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAppUserDetailService() ends with com.htc.par.service.AppUserDetailService@3fa28412
+2019-Feb-20 16:49:34.367 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getAppUserDetailService
+2019-Feb-20 16:49:34.368 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :com.htc.par.service.AppUserDetailService@3fa28412
+2019-Feb-20 16:49:34.373 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getPasswordEncoder() begins with []
+2019-Feb-20 16:49:34.373 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-20 16:49:34.373 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getPasswordEncoder
+2019-Feb-20 16:49:34.373 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-20 16:49:34.374 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$d1b27bab
+2019-Feb-20 16:49:34.374 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getPasswordEncoder() ends with org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder@418f9344
+2019-Feb-20 16:49:34.374 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getPasswordEncoder
+2019-Feb-20 16:49:34.374 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder@418f9344
+2019-Feb-20 16:49:34.375 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() ends with org.springframework.security.authentication.dao.DaoAuthenticationProvider@10487253
+2019-Feb-20 16:49:34.375 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getAuthenticationProvider
+2019-Feb-20 16:49:34.375 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :org.springframework.security.authentication.dao.DaoAuthenticationProvider@10487253
+2019-Feb-20 16:50:16.019 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 16:50:16.020 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:16.020 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 16:50:16.020 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 16:50:16.020 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:16.024 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 16:50:16.024 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 16:50:16.024 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-20 16:50:22.608 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 16:50:22.608 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:22.608 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 16:50:22.609 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 16:50:22.609 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:22.609 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 16:50:22.609 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 16:50:22.609 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-20 16:50:31.437 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 16:50:31.438 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:31.438 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 16:50:31.438 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 16:50:31.438 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:31.438 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 16:50:31.438 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 16:50:31.438 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-20 16:50:38.479 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 16:50:38.479 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:38.480 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 16:50:38.480 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 16:50:38.480 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:38.480 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 16:50:38.480 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 16:50:38.480 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-20 16:50:40.187 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 16:50:40.188 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:40.188 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 16:50:40.188 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 16:50:40.188 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:40.188 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 16:50:40.188 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 16:50:40.188 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-20 16:50:45.063 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 16:50:45.063 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:45.064 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 16:50:45.064 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 16:50:45.064 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:45.064 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 16:50:45.064 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 16:50:45.064 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-20 16:50:45.996 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 16:50:45.996 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:45.996 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 16:50:45.996 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 16:50:45.996 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:45.996 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 16:50:45.996 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 16:50:45.997 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-20 16:50:46.491 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 16:50:46.491 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:46.491 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 16:50:46.491 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 16:50:46.492 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:46.492 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 16:50:46.492 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 16:50:46.492 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-20 16:50:53.454 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 16:50:53.454 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:53.454 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 16:50:53.454 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 16:50:53.454 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:53.454 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 16:50:53.455 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 16:50:53.455 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-20 16:50:59.152 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 16:50:59.152 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:59.152 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 16:50:59.152 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 16:50:59.152 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:59.152 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 16:50:59.152 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 16:50:59.153 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-20 16:51:26.080 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 16:51:26.080 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 16:51:26.081 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 16:51:26.081 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 16:51:26.081 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 16:51:26.081 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 16:51:26.081 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 16:51:26.081 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-20 16:53:34.572 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 16:53:34.572 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 16:53:34.573 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 16:53:34.573 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 16:53:34.573 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 16:53:34.573 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 16:53:34.573 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 16:53:34.573 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Return value :login
