@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.htc.par.entity.Area;
 import com.htc.par.repository.AreaRepository;
-import com.htc.par.service.AreaService;
+import com.htc.par.service.impl.AreaServiceImpl;
 import com.htc.par.to.AreaTo;
  
 /*
@@ -30,7 +30,7 @@ public class AreaController {
 	
 	
 	@Autowired
-	AreaService areaservice;
+	AreaServiceImpl areaservice;
 	
 	@GetMapping(value="/area")
 	public String area() {

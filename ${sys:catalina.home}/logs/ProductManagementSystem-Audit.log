@@ -374,3 +374,10 @@
 2019-Feb-21 11:40:08.516 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
 2019-Feb-21 11:40:08.516 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
 2019-Feb-21 11:40:08.517 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 14:11:42.371 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() begins with []
+2019-Feb-21 14:11:42.372 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-21 14:11:42.372 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAuthenticationProvider
+2019-Feb-21 14:11:42.372 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 14:11:42.372 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$7339750a
+2019-Feb-21 14:11:42.379 ERROR [restartedMain] com.htc.par.logging.LoggingAspect - An exception has been thrown in getAuthenticationProvider()
+2019-Feb-21 14:11:42.379 ERROR [restartedMain] com.htc.par.logging.LoggingAspect - Cause :null
