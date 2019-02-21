@@ -20,7 +20,7 @@ import com.htc.par.entity.Skill;
 @Repository
 public interface SkillRepository extends JpaRepository<Skill, Integer>{
 	
-	public Optional<Skill> findBySkillIdAndIsSkillActive(@Param("skillId") Integer skillId,@Param("isSkillActive") boolean isSkillActive);
+	public Optional<Skill> findBySkillIdAndSkillActive(@Param("skillId") Integer skillId,@Param("skillActive") boolean skillActive);
 
-	public List<Skill> findAllByIsSkillActive(@Param("isSkillActive") boolean isSkillActive);
+	public List<Skill> findAllBySkillActive(@Param("skillActive") boolean skillActive);
 }

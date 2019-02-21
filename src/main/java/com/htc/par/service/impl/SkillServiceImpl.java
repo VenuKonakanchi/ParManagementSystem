@@ -37,13 +37,13 @@ public class SkillServiceImpl implements SkillService {
 
 	@Override
 	public SkillTO getSkillTO(Skill skill) {
-		SkillTO skillTO = new SkillTO(skill.getSkillId(), skill.getSkillName(), skill.isSkillActive());
+		SkillTO skillTO = new SkillTO(skill.getSkillId(), skill.getSkillName(), skill.getSkillActive());
 		return skillTO;
 	}
 
 	@Override
 	public Skill getSkill(SkillTO skillTO) {
-		Skill skill = new Skill(skillTO.getSkillId(), skillTO.getSkillName(), skillTO.isSkillActive());
+		Skill skill = new Skill(skillTO.getSkillId(), skillTO.getSkillName(), skillTO.getSkillActive());
 		return skill;
 	}
 
@@ -56,7 +56,7 @@ public class SkillServiceImpl implements SkillService {
 	 */
 	@Override
 	public SkillTO getSkillById(int skillId) throws ResourceNotFoundException {
-		Optional<Skill> skillOptional = skillRepository.findBySkillIdAndIsSkillActive(skillId, true);
+		Optional<Skill> skillOptional = skillRepository.findBySkillIdAndSkillActive(skillId, true);
 		SkillTO skillTO = null;
 		if (!skillOptional.isPresent())
 			throw new ResourceNotFoundException(String.format("Skill Id: %s not found.", skillId));
@@ -72,7 +72,7 @@ public class SkillServiceImpl implements SkillService {
 	 */
 	@Override
 	public List<SkillTO> getAllSkills() throws ResourceNotFoundException {
-		List<Skill> skillEntities = skillRepository.findAllByIsSkillActive(true);
+		List<Skill> skillEntities = skillRepository.findAllBySkillActive(true);
 		if (CollectionUtils.isEmpty(skillEntities))
 			throw new ResourceNotFoundException("No Skills Found.");
 		List<SkillTO> skillList = skillEntities.stream().map(skill -> {
@@ -91,7 +91,7 @@ public class SkillServiceImpl implements SkillService {
 	public SkillTO updateSkill(SkillTO skillTO) throws ResourceNotFoundException, ResourceNotUpdatedException {
 		SkillTO updatedSkillTO=null; 
 		try {
-			Optional<Skill> skillOptional = skillRepository.findBySkillIdAndIsSkillActive(skillTO.getSkillId(), true);
+			Optional<Skill> skillOptional = skillRepository.findBySkillIdAndSkillActive(skillTO.getSkillId(), true);
 			if (!skillOptional.isPresent())
 				throw new ResourceNotFoundException(String.format("Skill: %s Not Found.", skillTO.getSkillName()));
 			Skill skill = skillOptional.get();
@@ -112,6 +112,7 @@ public class SkillServiceImpl implements SkillService {
 	@Override
 	public SkillTO createSkill(SkillTO skillTO) throws ResourceDuplicateException, ResourceNotCreatedException {
 		try {
+			skillTO.setSkillActive(true);
 			Skill skill = getSkill(skillTO);
 			skill = skillRepository.save(skill);
 			skillTO.setSkillId(skill.getSkillId());
@@ -132,7 +133,7 @@ public class SkillServiceImpl implements SkillService {
 	@Override
 	public boolean deleteSkill(int skillId) throws ResourceNotFoundException, ResourceNotDeletedException {
 		try {
-			Optional<Skill> skillOptional = skillRepository.findBySkillIdAndIsSkillActive(skillId, true);
+			Optional<Skill> skillOptional = skillRepository.findBySkillIdAndSkillActive(skillId, true);
 			if (!skillOptional.isPresent())
 				throw new ResourceNotFoundException("Skill not found.");
 			Skill skill = skillOptional.get();
