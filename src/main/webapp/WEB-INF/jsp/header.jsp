@@ -1,8 +1,8 @@
 <input type="hidden" id="contextPath" value="${pageContext.request.contextPath}"/>
 <nav class="navbar navbar-inverse navbar-light bg-light">
-   <a class="navbar-brand" href="#" style="margin-top:-0.6em;">
+<!--    <a class="navbar-brand" href="#" style="margin-top:-0.6em;">
     <img src="static/app/images/PAR_HTC_LOGO.png" width="40" height="40" class="d-inline-block align-top" alt="">
-  </a> 
+  </a> --> 
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#" style="color:#007fff">PAR <I>FULFILLMENT</I></a>
@@ -28,6 +28,9 @@
         </ul>
       </li>
       <li><a href="reports">Reports</a></li>
+    </ul>
+        <ul class="nav navbar-nav navbar-right">
+      <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
     </ul>
   </div>
 </nav>
