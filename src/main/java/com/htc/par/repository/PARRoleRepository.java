@@ -17,8 +17,10 @@ import com.htc.par.entity.PARRole;
 @Repository
 public interface PARRoleRepository extends JpaRepository<PARRole, Integer> {
 	
-	public Optional<PARRole> findByRoleIdAndIsRoleActive(@Param("roleId") Integer skillId,@Param("isRoleActive") boolean isSkillActive);
+	public Optional<PARRole> findByRoleIdAndRoleActive(@Param("roleId") Integer skillId,@Param("roleActive") boolean roleActive);
 
-	public List<PARRole> findAllByIsRoleActive(@Param("isRoleActive") boolean isRoleActive);
+	public List<PARRole> findAllByRoleActive(@Param("roleActive") boolean roleActive);
+	
+	public Optional<PARRole> findByRoleName(@Param("roleName") String roleName);
 
 }

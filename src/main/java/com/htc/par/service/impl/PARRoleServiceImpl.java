@@ -55,7 +55,7 @@ public class PARRoleServiceImpl implements PARRoleService{
 	
 	@Override
 	public PARRoleTO getPARRoleById(int roleId) throws ResourceNotFoundException {
-		Optional<PARRole> roleOptional = parRoleRepository.findByRoleIdAndIsRoleActive(roleId, true);
+		Optional<PARRole> roleOptional = parRoleRepository.findByRoleIdAndRoleActive(roleId, true);
 		PARRoleTO parRoleTO = null;
 		if (!roleOptional.isPresent())
 			throw new ResourceNotFoundException(String.format("Role Id: %s not found.", roleId));
@@ -72,7 +72,7 @@ public class PARRoleServiceImpl implements PARRoleService{
 	
 	@Override
 	public List<PARRoleTO> getAllPARRoles() throws ResourceNotUpdatedException {
-		List<PARRole> roleEntities = parRoleRepository.findAllByIsRoleActive(true);
+		List<PARRole> roleEntities = parRoleRepository.findAllByRoleActive(true);
 		if (CollectionUtils.isEmpty(roleEntities))
 			throw new ResourceNotFoundException("No Roles Found.");
 		List<PARRoleTO> roleList = roleEntities.stream().map(role -> {
@@ -91,9 +91,18 @@ public class PARRoleServiceImpl implements PARRoleService{
 	@Override
 	public PARRoleTO createPARRole(PARRoleTO parRoleTO) throws ResourceDuplicateException, ResourceNotCreatedException {
 		try {
-			PARRole role = getPARRole(parRoleTO);
-			role = parRoleRepository.save(role);
-			parRoleTO.setRoleId(role.getRoleId());
+			Optional<PARRole> roleOptional = parRoleRepository.findByRoleName(parRoleTO.getRoleName());
+			PARRole parRole = null;
+			if (!roleOptional.isPresent()) {
+				parRoleTO.setRoleActive(true);
+				parRole = getPARRole(parRoleTO);
+			} else {
+				parRole = roleOptional.get();
+				parRole.setRoleActive(true);
+				parRoleTO.setRoleActive(true);
+			}
+			parRole = parRoleRepository.save(parRole);
+			parRoleTO = getPARRoleTO(parRole);
 		} catch (DataIntegrityViolationException die) {
 			throw new ResourceDuplicateException(String.format("Role: %s Already Exist.", parRoleTO.getRoleName()));
 		} catch (DataAccessException dae) {
@@ -113,7 +122,7 @@ public class PARRoleServiceImpl implements PARRoleService{
 	@Override
 	public boolean deletePARRole(int roleId) throws ResourceNotFoundException, ResourceNotDeletedException {
 		try {
-			Optional<PARRole> roleOptional = parRoleRepository.findByRoleIdAndIsRoleActive(roleId, true);
+			Optional<PARRole> roleOptional = parRoleRepository.findByRoleIdAndRoleActive(roleId, true);
 			if (!roleOptional.isPresent())
 				throw new ResourceNotFoundException("Role not found.");
 			PARRole role = roleOptional.get();
@@ -136,7 +145,7 @@ public class PARRoleServiceImpl implements PARRoleService{
 	public PARRoleTO updatePARRole(PARRoleTO parRoleTO) throws ResourceNotUpdatedException {
 		PARRoleTO updatedparRoleTO=null; 
 		try {
-			Optional<PARRole> roleOptional = parRoleRepository.findByRoleIdAndIsRoleActive(parRoleTO.getRoleId(), true);
+			Optional<PARRole> roleOptional = parRoleRepository.findByRoleIdAndRoleActive(parRoleTO.getRoleId(), true);
 			if (!roleOptional.isPresent())
 				throw new ResourceNotFoundException(String.format("Role: %s Not Found.", parRoleTO.getRoleName()));
 			PARRole role = roleOptional.get();
