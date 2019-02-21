@@ -1,7 +1,7 @@
-package com.htc.par.service;
+package com.htc.par.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 /*import org.springframework.security.core.GrantedAuthority;
@@ -26,18 +26,17 @@ public class AppUserDetailService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		AppUser appUser = userRepository.findByUsername(username);
+		AppUser appUser = userRepository.findByUserNameAndUserActive(username, true);
 		
 
 		if(appUser == null)
 			throw new UsernameNotFoundException("Username not found");
 		
-		List<GrantedAuthority> authorities = appUser.getRoles().stream()
-												    .map(role -> {return new SimpleGrantedAuthority("ROLE_"+role.getRole());})
-												    .collect(Collectors.toList());
+		List<GrantedAuthority> authorities = new ArrayList<>();
 		
-		
-		return new User(appUser.getUsername(), appUser.getPassword(), appUser.isEnabled(), true, true, true, authorities);
+		authorities.add(new  SimpleGrantedAuthority("ROLE_"+appUser.getRole().getRoleName()));
+			
+		return new User(appUser.getUserName(), appUser.getPassword(), appUser.isUserActive(), true, true, true, authorities);
 	}
 */
 }
