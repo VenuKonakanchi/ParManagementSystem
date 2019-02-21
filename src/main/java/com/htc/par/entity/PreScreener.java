@@ -14,8 +14,8 @@ public class PreScreener {
 
 	@Id
 	@Column(name = "pre_scr_id")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "preScreener_seq")
-	@SequenceGenerator(name = "preScreener_seq", sequenceName = "preScreener_seq", initialValue = 8000, allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pre_scr_seq")
+	@SequenceGenerator(name = "pre_scr_seq", sequenceName = "pre_scr_seq", initialValue = 4000, allocationSize = 1)
 	private Integer preScreenerId;
 
 	@Column(name = "pre_scr_nm")
