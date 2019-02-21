@@ -14,13 +14,16 @@ public class PARRole {
 	private int roleId;
 	@Column(name ="role_nm")
 	private String roleName;
+	@Column(name = "role_active")
+	private boolean roleActive;
 	
 	public PARRole() {}
 
-	public PARRole(int roleId, String roleName) {
+	public PARRole(int roleId, String roleName, boolean roleActive) {
 		super();
 		this.roleId = roleId;
 		this.roleName = roleName;
+		this.roleActive = roleActive;
 	}
 
 	public int getRoleId() {
@@ -39,11 +42,19 @@ public class PARRole {
 		this.roleName = roleName;
 	}
 
+	public boolean isRoleActive() {
+		return roleActive;
+	}
+
+	public void setRoleActive(boolean roleActive) {
+		this.roleActive = roleActive;
+	}
+
 	@Override
 	public String toString() {
-		return "PARRole [roleId=" + roleId + ", roleName=" + roleName + "]";
+		return "PARRole [roleId=" + roleId + ", roleName=" + roleName + ", roleActive=" + roleActive + "]";
 	}
-	
+
 	
 	
 

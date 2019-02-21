@@ -4,13 +4,15 @@ public class PARRoleTO {
 	
 	private int roleId;
 	private String roleName;
+	private boolean roleActive;
 	
 	public PARRoleTO() {}
 
-	public PARRoleTO(int roleId, String roleName) {
+	public PARRoleTO(int roleId, String roleName, boolean roleActive) {
 		super();
 		this.roleId = roleId;
 		this.roleName = roleName;
+		this.roleActive = roleActive;
 	}
 
 	public int getRoleId() {
@@ -29,11 +31,19 @@ public class PARRoleTO {
 		this.roleName = roleName;
 	}
 
+	public boolean isRoleActive() {
+		return roleActive;
+	}
+
+	public void setRoleActive(boolean roleActive) {
+		this.roleActive = roleActive;
+	}
+
 	@Override
 	public String toString() {
-		return "PARRoleTO [roleId=" + roleId + ", roleName=" + roleName + "]";
+		return "PARRoleTO [roleId=" + roleId + ", roleName=" + roleName + ", roleActive=" + roleActive + "]";
 	}
-	
+
 	
 
 }
