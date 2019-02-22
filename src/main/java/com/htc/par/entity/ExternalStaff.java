@@ -18,7 +18,7 @@ public class ExternalStaff {
 	@Column(name="ext_staff_id")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "ext_staff_seq")
 	@SequenceGenerator(name="ext_staff_seq", sequenceName="ext_staff_seq",initialValue = 7000, allocationSize=1)
-	private int extStaffId ;
+	private Integer extStaffId ;
 	
 	@Column(name="ext_staff_nm")
 	private String extStaffName;
@@ -28,7 +28,7 @@ public class ExternalStaff {
 	private Area area;
 	
 	@Column(name="ext_staff_active")
-	private boolean IsExtStaffActive ;
+	private Boolean extStaffActive ;
 	
 	
 	public ExternalStaff() {
@@ -36,12 +36,12 @@ public class ExternalStaff {
 	}
 
 
-	public int getExtStaffId() {
+	public Integer getExtStaffId() {
 		return extStaffId;
 	}
 
 
-	public void setExtStaffId(int extStaffId) {
+	public void setExtStaffId(Integer extStaffId) {
 		this.extStaffId = extStaffId;
 	}
 
@@ -66,15 +66,85 @@ public class ExternalStaff {
 	}
 
 
-	public boolean IsExtStaffActive() {
-		return IsExtStaffActive;
+	public Boolean getExtStaffActive() {
+		return extStaffActive;
 	}
 
 
-	public void setIsExtStaffActive(boolean isExtStaffActive) {
-		IsExtStaffActive = isExtStaffActive;
+	public void setExtStaffActive(Boolean extStaffActive) {
+		this.extStaffActive = extStaffActive;
+	}
+
+
+	public ExternalStaff(Integer extStaffId, String extStaffName, Area area, Boolean extStaffActive) {
+		super();
+		this.extStaffId = extStaffId;
+		this.extStaffName = extStaffName;
+		this.area = area;
+		this.extStaffActive = extStaffActive;
 	}
 	
+	public ExternalStaff(String extStaffName, Area area, Boolean extStaffActive) {
+		super();
+		this.extStaffName = extStaffName;
+		this.area = area;
+		this.extStaffActive = extStaffActive;
+	}
+
+
+	@Override
+	public String toString() {
+		return "ExternalStaff [extStaffId=" + extStaffId + ", extStaffName=" + extStaffName + ", area=" + area
+				+ ", extStaffActive=" + extStaffActive + "]";
+	}
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((area == null) ? 0 : area.hashCode());
+		result = prime * result + ((extStaffActive == null) ? 0 : extStaffActive.hashCode());
+		result = prime * result + ((extStaffId == null) ? 0 : extStaffId.hashCode());
+		result = prime * result + ((extStaffName == null) ? 0 : extStaffName.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ExternalStaff other = (ExternalStaff) obj;
+		if (area == null) {
+			if (other.area != null)
+				return false;
+		} else if (!area.equals(other.area))
+			return false;
+		if (extStaffActive == null) {
+			if (other.extStaffActive != null)
+				return false;
+		} else if (!extStaffActive.equals(other.extStaffActive))
+			return false;
+		if (extStaffId == null) {
+			if (other.extStaffId != null)
+				return false;
+		} else if (!extStaffId.equals(other.extStaffId))
+			return false;
+		if (extStaffName == null) {
+			if (other.extStaffName != null)
+				return false;
+		} else if (!extStaffName.equals(other.extStaffName))
+			return false;
+		return true;
+	}
+
+
+
 	
 
 }

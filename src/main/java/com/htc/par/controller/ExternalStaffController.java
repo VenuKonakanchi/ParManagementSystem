@@ -19,72 +19,73 @@ import com.htc.par.exceptions.ResourceNotDeletedException;
 import com.htc.par.exceptions.ResourceNotFoundException;
 import com.htc.par.exceptions.ResourceNotUpdatedException;
 import com.htc.par.service.ExternalStaffService;
+import com.htc.par.to.ExternalStaffTO;
 import com.htc.par.to.SkillTO;
 
 @RestController
-@RequestMapping
+@RequestMapping("/par")
 public class ExternalStaffController {
 	@Autowired
 	private ExternalStaffService externalStaffService;
 
 	/**
-	 * Request handler to get skill by id
+	 * Request handler to get External Staff by id
 	 * @param ExternalStaffId
 	 * @return
 	 * @throws ResourceNotFoundException
 	 */
-	@GetMapping("/externalstaffs/{staffId}")
-	public ResponseEntity<SkillTO> getSkillById(@PathVariable("staffId") int skilstaffId) throws ResourceNotFoundException {
-		return ResponseEntity.ok(externalStaffService.getExternalStaffById(skilstaffId));
+	@GetMapping("/externalstaffs/{extStaffId}")
+	public ResponseEntity<ExternalStaffTO> getExtStaffById(@PathVariable("extStaffId") int extStaffId) throws ResourceNotFoundException {
+		return ResponseEntity.ok(externalStaffService.getExternalStaffById(extStaffId));
 	}
 
 	/**
-	 * Request handler to get all skills 
+	 * Request handler to get all External Staff
 	 * @return
 	 * @throws ResourceNotFoundException
 	 */
-	@GetMapping("/skills")
-	public ResponseEntity<List<SkillTO>> getSkills() throws ResourceNotFoundException {
-		return ResponseEntity.ok(skillService.getAllSkills());
+	@GetMapping("/externalstaffs")
+	public ResponseEntity<List<ExternalStaffTO>> getAllExtStaff() throws ResourceNotFoundException {
+		return ResponseEntity.ok(externalStaffService.getAllExternalStaff());
 	}
 
 	/**
-	 * Request handler to new active skill
-	 * @param skillTO
+	 * Request handler to new External Staff
+	 * @param ExternalStaffTO
 	 * @return
 	 * @throws ResourceNotCreatedException
 	 * @throws ResourceDuplicateException
 	 */
-	@PostMapping("/skills")
-	public ResponseEntity<SkillTO> createSkill(@RequestBody SkillTO skillTO)
+	@PostMapping("/externalstaffs")
+	public ResponseEntity<ExternalStaffTO> createExtStaff(@RequestBody ExternalStaffTO externalStaffTO)
 			throws ResourceNotCreatedException, ResourceDuplicateException {
-		return ResponseEntity.created(null).body(skillService.createSkill(skillTO));
+		return ResponseEntity.created(null).body(externalStaffService.createExternalStaff(externalStaffTO));
 	}
 
 	/**
-	 * Request handler to update active skill
-	 * @param skillTO
+	 * Request handler to update External Staff
+	 * @param ExternalStaffTO
 	 * @return
 	 * @throws ResourceNotFoundException
 	 * @throws ResourceNotUpdatedException
 	 */
-	@PutMapping("/skills")
-	public ResponseEntity<SkillTO> updateProduct(@RequestBody SkillTO skillTO)
+	@PutMapping("/externalstaffs")
+	public ResponseEntity<ExternalStaffTO> updateExtStaff(@RequestBody ExternalStaffTO externalStaffTO)
 			throws ResourceNotFoundException, ResourceNotUpdatedException {
-		return ResponseEntity.ok(skillService.updateSkill(skillTO));
+		return ResponseEntity.ok(externalStaffService.updateExternalStaff(externalStaffTO));
 	}
 
 	/**
-	 * Request handler to delete skill
-	 * @param skillId
+	 * Request handler to delete External Staff
+	 * @param extStaffId
 	 * @return
 	 * @throws ResourceNotFoundException
 	 * @throws ResourceNotDeletedException
 	 */
-	@DeleteMapping("/skills/{skillId}")
-	public ResponseEntity<Boolean> deleteProduct(@PathVariable("skillId") int skillId)
+	@DeleteMapping("/externalstaffs/{extStaffId}")
+	public ResponseEntity<Boolean> deleteProduct(@PathVariable("extStaffId") int extStaffId)
 			throws ResourceNotFoundException, ResourceNotDeletedException {
-		return ResponseEntity.ok(skillService.deleteSkill(skillId));
+		return ResponseEntity.ok(externalStaffService.deleteExternalStaff(extStaffId));
 	}
 	
 

@@ -1,49 +1,119 @@
 package com.htc.par.service.impl;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import com.htc.par.entity.ExternalStaff;
+import com.htc.par.entity.Skill;
 import com.htc.par.exceptions.ResourceDuplicateException;
 import com.htc.par.exceptions.ResourceNotCreatedException;
 import com.htc.par.exceptions.ResourceNotDeletedException;
 import com.htc.par.exceptions.ResourceNotFoundException;
 import com.htc.par.exceptions.ResourceNotUpdatedException;
+import com.htc.par.repository.ExternalStaffRepository;
+import com.htc.par.repository.SkillRepository;
 import com.htc.par.service.ExternalStaffService;
 import com.htc.par.to.ExternalStaffTO;
+import com.htc.par.to.SkillTO;
+import com.htc.par.utilities.NullAwareBeanUtil;
 
+@Service
 public class ExternalStaffServiceImpl implements ExternalStaffService {
   
+	@Autowired
+	private ExternalStaffRepository externalStaffRepository;
 	
 	@Override
 	public ExternalStaffTO getExternalStaffById(int externalStaffId) throws ResourceNotFoundException {
 		// TODO Auto-generated method stub
-		return null;
+		Optional<ExternalStaff> extStaffOptional = externalStaffRepository.findByExtStaffIdAndExtStaffActive(externalStaffId, true);
+		ExternalStaffTO externalStaffTO = null;
+		if (!extStaffOptional.isPresent())
+			throw new ResourceNotFoundException(String.format("External Staff Id : %s not found.", externalStaffId));
+		externalStaffTO = getExternalStaffTO(extStaffOptional.get());
+		return externalStaffTO;
+	
 	}
 
 	@Override
 	public List<ExternalStaffTO> getAllExternalStaff() throws ResourceNotFoundException {
 		// TODO Auto-generated method stub
-		return null;
+		List<ExternalStaff> externalStaffs = externalStaffRepository.findAllByExtStaffActive(true);
+		if (CollectionUtils.isEmpty(externalStaffs))
+			throw new ResourceNotFoundException("No External Staff Found.");
+		List<ExternalStaffTO> externalStaffTOs = externalStaffs.stream().map(ExternalStaff -> {
+																						return getExternalStaffTO(ExternalStaff);
+																					  }).collect(Collectors.toList());
+		return externalStaffTOs;
+	
 	}
 
 	@Override
 	public ExternalStaffTO updateExternalStaff(ExternalStaffTO externalStaffTO) throws ResourceNotUpdatedException {
 		// TODO Auto-generated method stub
-		return null;
-	}
+		ExternalStaffTO updatedExternalStaffTO = null;
+		try {
+				Optional<ExternalStaff> extStaffOptional = externalStaffRepository.findByExtStaffIdAndExtStaffActive(externalStaffTO.getExtStaffId(),
+																													true);
+				if (!extStaffOptional.isPresent())
+					throw new ResourceNotFoundException(String.format("External Staff: %s Not Found.", externalStaffTO.getExtStaffName()));
+				ExternalStaff externalStaff = extStaffOptional.get();
+				NullAwareBeanUtil.copyProperties(externalStaffTO, externalStaff);
+				updatedExternalStaffTO = getExternalStaffTO(externalStaffRepository.save(externalStaff));
+		} catch (DataAccessException dae) {
+			throw new ResourceNotUpdatedException(String.format("External Staff : %s Not Found.", externalStaffTO.getExtStaffName()));
+		}
+		return updatedExternalStaffTO;
+    }
 
 	@Override
 	public ExternalStaffTO createExternalStaff(ExternalStaffTO externalStaffTO)
 			throws ResourceDuplicateException, ResourceNotCreatedException {
 		// TODO Auto-generated method stub
-		return null;
-	}
+		try {
+			Optional<ExternalStaff> extStaffOptional = externalStaffRepository.findByExtStaffName(externalStaffTO.getExtStaffName());
+			ExternalStaff externalStaff = null;
+			if (!extStaffOptional.isPresent()) {
+				externalStaffTO.setExtStaffActive(true);
+				externalStaff = getExternalStaff(externalStaffTO);
+			} else {
+				externalStaff = extStaffOptional.get();
+				externalStaff.setExtStaffActive(true);
+				externalStaffTO.setExtStaffActive(true);
+			}
+			externalStaff = externalStaffRepository.save(externalStaff);
+			externalStaffTO = getExternalStaffTO(externalStaff);
+		} catch (DataIntegrityViolationException die) {
+			throw new ResourceDuplicateException(String.format("External Staff: %s Already Exist.",externalStaffTO.getExtStaffName() ));
+		} catch (DataAccessException dae) {
+			throw new ResourceNotCreatedException(String.format("External Staff: %s not created.", externalStaffTO.getExtStaffName() ));
+		}
+		return externalStaffTO;
+    }
 
 	@Override
 	public boolean deleteExternalStaff(int externalStaffId)
 			throws ResourceNotFoundException, ResourceNotDeletedException {
 		// TODO Auto-generated method stub
-		return false;
+		try {
+			Optional<ExternalStaff> extStaffOptional = externalStaffRepository.findByExtStaffIdAndExtStaffActive(externalStaffId, true);
+			if (!extStaffOptional.isPresent())
+				throw new ResourceNotFoundException("External Staff is not found.");
+			ExternalStaff externalStaff = extStaffOptional.get();
+			externalStaff.setExtStaffActive(false);
+			externalStaffRepository.save(externalStaff);
+		} catch (DataAccessException dae) {
+			throw new ResourceNotDeletedException("External Staff is not deleted.");
+		}
+		return true;
+	
 	}
 
 	@Override
@@ -53,13 +123,15 @@ public class ExternalStaffServiceImpl implements ExternalStaffService {
 		return new ExternalStaffTO(externalStaff.getExtStaffId(),
 								   externalStaff.getExtStaffName(),
 								   externalStaff.getArea(),
-								   externalStaff.IsExtStaffActive());
+								   externalStaff.getExtStaffActive());
 	}
 
 	@Override
 	public ExternalStaff getExternalStaff(ExternalStaffTO externalStaffTO) {
 		// TODO Auto-generated method stub
-		return null;
+		return new ExternalStaff(externalStaffTO.getExtStaffName(),
+				   				 externalStaffTO.getArea(),
+				   				 externalStaffTO.getExtStaffActive());
 	}
 
 	public ExternalStaffServiceImpl() {
