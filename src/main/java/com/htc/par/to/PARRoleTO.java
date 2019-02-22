@@ -1,9 +1,16 @@
 package com.htc.par.to;
 
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Positive;
+
 public class PARRoleTO {
 	
+	@Positive
 	private Integer roleId;
+	@NotEmpty(message="Role name cannot be empty")
 	private String roleName;
+	
 	private Boolean RoleActive;
 	
 	public PARRoleTO() {}
