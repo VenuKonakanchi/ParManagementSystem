@@ -2,7 +2,10 @@ package com.htc.par.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /*
@@ -10,7 +13,7 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table
+@Table (name="area_lkup")
 
 public class Area {
 	
@@ -18,6 +21,8 @@ public class Area {
  
 	@Id
 	@Column (name ="area_id")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "area_seq")
+	@SequenceGenerator(name="area_seq", sequenceName="area_seq",initialValue = 8000, allocationSize=1)
 	private Integer areaId;
 	
 	@Column (name ="area_nm")

@@ -1,133 +1,60 @@
 package com.htc.par.to;
 
-import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /*
  * Area entity class for Area application flow
  */
-
- 
-
-public class AreaTo implements Serializable{
-	
-	// Data entities
- 
- 
-	 
-	@NotEmpty(message="Area id is mandatory")
+public class AreaTO {
 	private Integer areaId;
-	
-	@NotEmpty(message="Area Name is mandatory")
+	@NotNull
+	@NotEmpty(message="Area name is mandatory")
+	@Size(min=2, max=30)
 	private String areaName;
  
-	
 	private Boolean areaActive;
 
-
-	
-	
-
 	// CONSTRUCTORS
- 
-	
-	
-	public AreaTo() {
+	public AreaTO() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-
-
-
-	public AreaTo(Integer areaId,
+	public AreaTO(Integer areaId,
 					String areaName, Boolean areaActive) {
 		super();
 		this.areaId = areaId;
 		this.areaName = areaName;
 		this.areaActive = areaActive;
 	}
-	
-	
-
-	public AreaTo(String areaName, Boolean areaActive) {
+	public AreaTO(String areaName, Boolean areaActive) {
 		super();
 
 		this.areaName = areaName;
 		this.areaActive = areaActive;
 	}
-
-
-	
-
-	// GETTER SETTER
-	
-
-
 	public Integer getAreaId() {
 		return areaId;
 	}
-
-
-
-
-
 	public void setAreaId(Integer areaId) {
 		this.areaId = areaId;
 	}
-
-
-
-
-
 	public String getAreaName() {
 		return areaName;
 	}
-
-
-
-
-
 	public void setAreaName(String areaName) {
 		this.areaName = areaName;
 	}
-
-
-
-
-
 	public Boolean getAreaActive() {
 		return areaActive;
 	}
-
-
-
-
-
 	public void setAreaActive(Boolean areaActive) {
 		this.areaActive = areaActive;
 	}
-
-
-
-
-	
-	// OVER RIDE TO STRING
-
-
 	@Override
 	public String toString() {
 		return "AreaTo [areaId=" + areaId + ", areaName=" + areaName + ", areaActive=" + areaActive + "]";
 	}
-
-	
-	// OVER RIDE HASHCODE
-	
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -137,9 +64,6 @@ public class AreaTo implements Serializable{
 		result = prime * result + ((areaName == null) ? 0 : areaName.hashCode());
 		return result;
 	}
-
-
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -148,7 +72,7 @@ public class AreaTo implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		AreaTo other = (AreaTo) obj;
+		AreaTO other = (AreaTO) obj;
 		if (areaActive == null) {
 			if (other.areaActive != null)
 				return false;
@@ -166,12 +90,4 @@ public class AreaTo implements Serializable{
 			return false;
 		return true;
 	}
-	
-
- 
-
-
-	 
-	
-
 }
