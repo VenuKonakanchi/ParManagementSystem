@@ -18,77 +18,79 @@ import com.htc.par.exceptions.ResourceNotCreatedException;
 import com.htc.par.exceptions.ResourceNotDeletedException;
 import com.htc.par.exceptions.ResourceNotFoundException;
 import com.htc.par.exceptions.ResourceNotUpdatedException;
-import com.htc.par.service.UserService;
-import com.htc.par.to.UserTO;
+import com.htc.par.service.impl.PARRoleServiceImpl;
+import com.htc.par.to.PARRoleTO;
 
-/*
- * This controller is for application user services
+/*@author - Fazlur Rahman
+ * Controller to handle Role information
  */
-
 @RestController
 @RequestMapping("/par")
-public class UserController {
-
+public class PARRoleController {
+	
+	
 	@Autowired
-	private UserService userService;
-
+	PARRoleServiceImpl parRoleService;
+	
+	
 	/**
-	 * Request handler to get skill by id
-	 * @param skillId
+	 * Request handler to get Role by id
+	 * @param roleId
 	 * @return
 	 * @throws ResourceNotFoundException
 	 */
-	@GetMapping("/users/{userId}")
-	public ResponseEntity<UserTO> getUserById(@PathVariable("userId") int userId) throws ResourceNotFoundException {
-		return ResponseEntity.ok(userService.getUserById(userId));
+	@GetMapping("/parroles/{roleId}")
+	public ResponseEntity<PARRoleTO> getPARRoleById(@PathVariable("roleId") int roleId) throws ResourceNotFoundException {
+		return ResponseEntity.ok(parRoleService.getPARRoleById(roleId));
 	}
-
+	
 	/**
-	 * Request handler to get all skills 
+	 * Request handler to get all Roles 
 	 * @return
 	 * @throws ResourceNotFoundException
 	 */
-	@GetMapping("/users")
-	public ResponseEntity<List<UserTO>> getUsers() throws ResourceNotFoundException {
-		return ResponseEntity.ok(userService.getAllUsers());
+	@GetMapping("/parroles")
+	public ResponseEntity<List<PARRoleTO>> getPARRoles() throws ResourceNotFoundException {
+		return ResponseEntity.ok(parRoleService.getAllPARRoles());
 	}
 
 	/**
-	 * Request handler to new active skill
-	 * @param skillTO
+	 * Request handler to Add new skill
+	 * @param PARRoleTO
 	 * @return
 	 * @throws ResourceNotCreatedException
 	 * @throws ResourceDuplicateException
 	 */
-	@PostMapping("/users")
-	public ResponseEntity<UserTO> createUser(@RequestBody UserTO userTO)
+	@PostMapping("/parroles")
+	public ResponseEntity<PARRoleTO> createPARRole(@RequestBody PARRoleTO parRoleTO)
 			throws ResourceNotCreatedException, ResourceDuplicateException {
-		return ResponseEntity.created(null).body(userService.createUser(userTO));
+		return ResponseEntity.created(null).body(parRoleService.createPARRole(parRoleTO));
 	}
 
 	/**
-	 * Request handler to update active skill 
-	 * @param skillTO
+	 * Request handler to update active Role
+	 * @param PARRoleTO
 	 * @return
 	 * @throws ResourceNotFoundException
 	 * @throws ResourceNotUpdatedException
 	 */
-	@PutMapping("/users")
-	public ResponseEntity<UserTO> updateUser(@RequestBody UserTO userTO)
+	@PutMapping("/parroles")
+	public ResponseEntity<PARRoleTO> updatePARRole(@RequestBody PARRoleTO parRoleTO)
 			throws ResourceNotFoundException, ResourceNotUpdatedException {
-		return ResponseEntity.ok(userService.updateUser(userTO));
+		return ResponseEntity.ok(parRoleService.updatePARRole(parRoleTO));
 	}
 
 	/**
-	 * Request handler to delete skill
-	 * @param skillId
+	 * Request handler to delete/deactivate Role
+	 * @param roleId
 	 * @return
 	 * @throws ResourceNotFoundException
 	 * @throws ResourceNotDeletedException
 	 */
-	@DeleteMapping("/users/{userId}")
-	public ResponseEntity<Boolean> deleteSkill(@PathVariable("userId") int userId)
+	@DeleteMapping("/parroles/{roleId}")
+	public ResponseEntity<Boolean> deletePARRole(@PathVariable("roleId") int roleId)
 			throws ResourceNotFoundException, ResourceNotDeletedException {
-		return ResponseEntity.ok(userService.deleteUser(userId));
+		return ResponseEntity.ok(parRoleService.deletePARRole(roleId));
 	}
+	
 }
