@@ -2,7 +2,10 @@ package com.htc.par.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -10,6 +13,8 @@ import javax.persistence.Table;
 public class Recruiter {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "recruit_seq")
+	@SequenceGenerator(name="recruit_seq", sequenceName="recruit_seq",initialValue = 8000, allocationSize=1)
 	@Column(name="recruit_id")
 	private Integer recruiterId;
 	

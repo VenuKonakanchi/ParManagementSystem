@@ -126,7 +126,7 @@ public class RecruiterServiceImpl implements RecruiterService {
 			recruiter = recruiterRepository.save(recruiter);
 			recruiterTO = getRecruiterTO(recruiter);
 		} catch (DataIntegrityViolationException die) {
-			throw new ResourceDuplicateException(String.format("Recruiter: %s Already Exist.", recruiterTO.getRecruiterName()));
+			throw new ResourceDuplicateException(String.format("Recruiter Phone number: %s already exists.", recruiterTO.getRecruiterPhoneNumber()));
 		} catch (DataAccessException dae) {
 			throw new ResourceNotCreatedException(String.format("Unable to create Recruiter: %s.", recruiterTO.getRecruiterName()));
 		}

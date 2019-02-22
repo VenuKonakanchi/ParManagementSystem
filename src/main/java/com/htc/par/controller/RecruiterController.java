@@ -2,6 +2,8 @@ package com.htc.par.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -62,7 +64,7 @@ public class RecruiterController {
 	 * @throws ResourceDuplicateException
 	 */
 	@PostMapping("/recruiters")
-	public ResponseEntity<RecruiterTO> createRecruiter(@RequestBody RecruiterTO recruiterTO)
+	public ResponseEntity<RecruiterTO> createRecruiter(@Valid @RequestBody RecruiterTO recruiterTO)
 			throws ResourceNotCreatedException, ResourceDuplicateException {
 		return ResponseEntity.created(null).body(recruiterService.createRecruiter(recruiterTO));
 	}
@@ -75,7 +77,7 @@ public class RecruiterController {
 	 * @throws ResourceNotUpdatedException
 	 */
 	@PutMapping("/recruiters")
-	public ResponseEntity<RecruiterTO> updateRecruiter(@RequestBody RecruiterTO recruiterTO)
+	public ResponseEntity<RecruiterTO> updateRecruiter(@Valid @RequestBody RecruiterTO recruiterTO)
 			throws ResourceNotFoundException, ResourceNotUpdatedException {
 		return ResponseEntity.ok(recruiterService.updateRecruiter(recruiterTO));
 	}

@@ -1,10 +1,17 @@
 package com.htc.par.to;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+
 public class RecruiterTO {
 	
 	private Integer recruiterId;
+	@NotEmpty(message="Recruiter Name cannot be empty.")
 	private String recruiterName;
+	@Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$",message="Invalid Phone number.")
 	private String recruiterPhoneNumber;
+	@Email(message="Invalid Email address.")
 	private String recruiterEmail;
 	private Boolean recruiterEmailFlag;
 	private Boolean recruiterActive;
