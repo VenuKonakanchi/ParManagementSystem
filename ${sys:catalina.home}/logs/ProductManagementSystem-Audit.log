@@ -1,0 +1,1003 @@
+2019-Feb-20 13:47:38.674 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() begins with []
+2019-Feb-20 13:47:38.675 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-20 13:47:38.675 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAuthenticationProvider
+2019-Feb-20 13:47:38.676 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-20 13:47:38.676 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$57da308b
+2019-Feb-20 13:47:38.762 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAppUserDetailService() begins with []
+2019-Feb-20 13:47:38.762 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-20 13:47:38.762 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAppUserDetailService
+2019-Feb-20 13:47:38.763 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-20 13:47:38.763 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$57da308b
+2019-Feb-20 13:47:38.763 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAppUserDetailService() ends with com.htc.par.service.AppUserDetailService@17c7d336
+2019-Feb-20 13:47:38.764 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getAppUserDetailService
+2019-Feb-20 13:47:38.764 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :com.htc.par.service.AppUserDetailService@17c7d336
+2019-Feb-20 13:47:38.772 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getPasswordEncoder() begins with []
+2019-Feb-20 13:47:38.773 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-20 13:47:38.773 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getPasswordEncoder
+2019-Feb-20 13:47:38.773 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-20 13:47:38.773 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$57da308b
+2019-Feb-20 13:47:38.774 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getPasswordEncoder() ends with org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder@252a5f4e
+2019-Feb-20 13:47:38.774 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getPasswordEncoder
+2019-Feb-20 13:47:38.774 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder@252a5f4e
+2019-Feb-20 13:47:38.775 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() ends with org.springframework.security.authentication.dao.DaoAuthenticationProvider@8b7fb6b
+2019-Feb-20 13:47:38.776 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getAuthenticationProvider
+2019-Feb-20 13:47:38.776 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :org.springframework.security.authentication.dao.DaoAuthenticationProvider@8b7fb6b
+2019-Feb-20 13:48:30.088 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 13:48:30.088 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 13:48:30.088 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 13:48:30.088 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 13:48:30.088 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 13:48:30.093 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 13:48:30.094 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 13:48:30.094 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-20 16:49:34.298 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() begins with []
+2019-Feb-20 16:49:34.319 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-20 16:49:34.319 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAuthenticationProvider
+2019-Feb-20 16:49:34.319 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-20 16:49:34.319 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$d1b27bab
+2019-Feb-20 16:49:34.367 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAppUserDetailService() begins with []
+2019-Feb-20 16:49:34.367 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-20 16:49:34.367 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAppUserDetailService
+2019-Feb-20 16:49:34.367 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-20 16:49:34.367 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$d1b27bab
+2019-Feb-20 16:49:34.367 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAppUserDetailService() ends with com.htc.par.service.AppUserDetailService@3fa28412
+2019-Feb-20 16:49:34.367 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getAppUserDetailService
+2019-Feb-20 16:49:34.368 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :com.htc.par.service.AppUserDetailService@3fa28412
+2019-Feb-20 16:49:34.373 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getPasswordEncoder() begins with []
+2019-Feb-20 16:49:34.373 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-20 16:49:34.373 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getPasswordEncoder
+2019-Feb-20 16:49:34.373 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-20 16:49:34.374 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$d1b27bab
+2019-Feb-20 16:49:34.374 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getPasswordEncoder() ends with org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder@418f9344
+2019-Feb-20 16:49:34.374 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getPasswordEncoder
+2019-Feb-20 16:49:34.374 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder@418f9344
+2019-Feb-20 16:49:34.375 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() ends with org.springframework.security.authentication.dao.DaoAuthenticationProvider@10487253
+2019-Feb-20 16:49:34.375 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getAuthenticationProvider
+2019-Feb-20 16:49:34.375 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :org.springframework.security.authentication.dao.DaoAuthenticationProvider@10487253
+2019-Feb-20 16:50:16.019 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 16:50:16.020 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:16.020 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 16:50:16.020 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 16:50:16.020 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:16.024 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 16:50:16.024 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 16:50:16.024 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-20 16:50:22.608 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 16:50:22.608 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:22.608 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 16:50:22.609 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 16:50:22.609 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:22.609 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 16:50:22.609 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 16:50:22.609 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-20 16:50:31.437 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 16:50:31.438 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:31.438 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 16:50:31.438 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 16:50:31.438 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:31.438 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 16:50:31.438 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 16:50:31.438 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-20 16:50:38.479 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 16:50:38.479 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:38.480 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 16:50:38.480 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 16:50:38.480 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:38.480 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 16:50:38.480 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 16:50:38.480 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-20 16:50:40.187 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 16:50:40.188 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:40.188 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 16:50:40.188 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 16:50:40.188 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:40.188 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 16:50:40.188 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 16:50:40.188 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-20 16:50:45.063 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 16:50:45.063 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:45.064 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 16:50:45.064 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 16:50:45.064 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:45.064 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 16:50:45.064 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 16:50:45.064 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-20 16:50:45.996 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 16:50:45.996 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:45.996 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 16:50:45.996 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 16:50:45.996 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:45.996 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 16:50:45.996 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 16:50:45.997 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-20 16:50:46.491 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 16:50:46.491 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:46.491 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 16:50:46.491 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 16:50:46.492 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:46.492 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 16:50:46.492 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 16:50:46.492 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-20 16:50:53.454 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 16:50:53.454 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:53.454 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 16:50:53.454 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 16:50:53.454 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:53.454 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 16:50:53.455 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 16:50:53.455 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-20 16:50:59.152 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 16:50:59.152 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:59.152 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 16:50:59.152 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 16:50:59.152 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 16:50:59.152 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 16:50:59.152 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 16:50:59.153 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-20 16:51:26.080 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 16:51:26.080 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 16:51:26.081 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 16:51:26.081 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 16:51:26.081 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 16:51:26.081 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 16:51:26.081 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 16:51:26.081 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-20 16:53:34.572 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - The method loginPage() begins with [null, null, {}]
+2019-Feb-20 16:53:34.572 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.LoginController
+2019-Feb-20 16:53:34.573 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Signature name : loginPage
+2019-Feb-20 16:53:34.573 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Arguments : [null, null, {}]
+2019-Feb-20 16:53:34.573 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.LoginController
+2019-Feb-20 16:53:34.573 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - The method loginPage() ends with login
+2019-Feb-20 16:53:34.573 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Exiting from Method :loginPage
+2019-Feb-20 16:53:34.573 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Return value :login
+2019-Feb-21 11:16:31.896 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:16:31.896 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:16:31.896 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:16:31.897 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:16:31.897 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:16:31.901 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:16:31.901 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:16:31.901 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:16:31.901 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:16:31.901 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:16:31.906 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:16:31.906 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:16:31.907 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:16:31.910 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:16:31.910 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:16:31.910 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:17:28.745 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:17:28.747 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:17:28.747 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:17:28.747 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:17:28.748 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:17:28.749 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:17:28.749 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:17:28.749 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:17:28.749 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:17:28.749 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:17:28.749 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:17:28.749 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:17:28.749 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:17:28.749 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:17:28.750 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:17:28.750 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:17:35.620 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:17:35.621 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:17:35.621 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:17:35.621 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:17:35.621 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:17:35.621 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:17:35.621 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:17:35.621 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:17:35.622 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:17:35.622 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:17:35.622 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:17:35.622 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:17:35.622 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:17:35.622 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:17:35.622 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:17:35.622 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:17:46.219 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:17:46.219 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:17:46.219 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:17:46.219 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:17:46.220 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:17:46.220 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:17:46.220 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:17:46.220 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:17:46.220 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:17:46.220 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:17:46.220 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:17:46.221 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:17:46.221 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:17:46.221 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:17:46.221 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:17:46.221 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:18:06.898 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:18:06.900 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:18:06.900 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:18:06.900 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:18:06.900 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:18:06.900 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:18:06.900 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:18:06.901 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:18:06.901 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:18:06.901 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:18:06.901 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:18:06.901 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:18:06.901 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:18:06.901 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:18:06.901 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:18:06.902 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:18:12.335 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method areaAndProductForm() begins with []
+2019-Feb-21 11:18:12.335 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.ParMasterController
+2019-Feb-21 11:18:12.335 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature name : areaAndProductForm
+2019-Feb-21 11:18:12.335 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:18:12.335 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.ParMasterController
+2019-Feb-21 11:18:12.341 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method areaAndProductForm() ends with areaAndProductForm
+2019-Feb-21 11:18:12.341 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Exiting from Method :areaAndProductForm
+2019-Feb-21 11:18:12.341 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Return value :areaAndProductForm
+2019-Feb-21 11:18:33.125 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:18:33.126 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:18:33.127 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:18:33.127 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:18:33.127 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:18:33.127 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:18:33.128 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:18:33.128 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:18:33.128 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:18:33.128 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:18:33.128 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:18:33.128 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:18:33.128 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:18:33.128 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:18:33.129 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:18:33.129 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:18:40.481 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:18:40.481 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:18:40.482 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:18:40.482 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:18:40.482 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:18:40.482 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:18:40.482 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:18:40.482 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:18:40.482 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:18:40.482 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:18:40.483 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:18:40.483 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:18:40.483 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:18:40.483 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:18:40.483 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:18:40.483 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:35:39.640 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:35:39.641 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:35:39.641 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:35:39.641 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:35:39.641 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:35:39.649 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:35:39.649 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:35:39.649 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:35:39.649 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:35:39.649 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:35:39.653 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:35:39.654 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:35:39.654 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:35:39.657 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:35:39.658 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:35:39.658 INFO  [http-nio-8080-exec-8] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:35:57.920 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - The method areaAndProductForm() begins with []
+2019-Feb-21 11:35:57.921 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.ParMasterController
+2019-Feb-21 11:35:57.921 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Signature name : areaAndProductForm
+2019-Feb-21 11:35:57.921 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:35:57.921 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.ParMasterController
+2019-Feb-21 11:35:57.928 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - The method areaAndProductForm() ends with areaAndProductForm
+2019-Feb-21 11:35:57.929 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Exiting from Method :areaAndProductForm
+2019-Feb-21 11:35:57.929 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Return value :areaAndProductForm
+2019-Feb-21 11:36:28.252 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:36:28.252 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:36:28.252 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:36:28.252 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:36:28.252 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:36:28.252 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:36:28.252 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:36:28.253 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:36:28.253 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:36:28.253 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:36:28.253 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:36:28.253 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:36:28.253 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:36:28.253 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:36:28.253 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:36:28.254 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:36:31.253 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:36:31.253 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:36:31.253 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:36:31.253 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:36:31.253 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:36:31.253 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:36:31.253 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:36:31.254 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:36:31.254 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:36:31.254 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:36:31.254 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:36:31.254 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:36:31.254 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:36:31.254 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:36:31.254 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:36:31.255 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:37:06.695 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:37:06.695 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:37:06.696 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:37:06.696 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:37:06.696 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:37:06.696 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:37:06.696 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:37:06.696 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:37:06.696 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:37:06.697 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:37:06.697 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:37:06.697 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:37:06.697 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:37:06.697 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:37:06.697 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:37:06.697 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:38:44.806 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:38:44.807 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:38:44.807 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:38:44.807 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:38:44.808 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:38:44.813 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:38:44.813 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:38:44.813 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:38:44.814 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:38:44.814 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:38:44.818 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:38:44.819 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:38:44.819 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:38:44.822 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:38:44.823 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:38:44.823 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:40:08.500 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:40:08.515 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 11:40:08.515 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:40:08.515 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:40:08.515 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 11:40:08.515 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 11:40:08.515 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.AreaService
+2019-Feb-21 11:40:08.516 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 11:40:08.516 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 11:40:08.516 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.AreaService
+2019-Feb-21 11:40:08.516 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 11:40:08.516 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:40:08.516 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 11:40:08.516 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 11:40:08.516 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 11:40:08.517 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 14:11:42.371 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() begins with []
+2019-Feb-21 14:11:42.372 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-21 14:11:42.372 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAuthenticationProvider
+2019-Feb-21 14:11:42.372 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 14:11:42.372 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$7339750a
+2019-Feb-21 14:11:42.379 ERROR [restartedMain] com.htc.par.logging.LoggingAspect - An exception has been thrown in getAuthenticationProvider()
+2019-Feb-21 14:11:42.379 ERROR [restartedMain] com.htc.par.logging.LoggingAspect - Cause :null
+2019-Feb-21 15:04:27.770 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() begins with []
+2019-Feb-21 15:04:27.770 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-21 15:04:27.770 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAuthenticationProvider
+2019-Feb-21 15:04:27.770 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 15:04:27.771 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$63f2966f
+2019-Feb-21 15:04:27.791 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAppUserDetailService() begins with []
+2019-Feb-21 15:04:27.791 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-21 15:04:27.791 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAppUserDetailService
+2019-Feb-21 15:04:27.791 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 15:04:27.791 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$63f2966f
+2019-Feb-21 15:04:27.791 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAppUserDetailService() ends with com.htc.par.service.impl.AppUserDetailService@1a0d4d8
+2019-Feb-21 15:04:27.791 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getAppUserDetailService
+2019-Feb-21 15:04:27.792 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :com.htc.par.service.impl.AppUserDetailService@1a0d4d8
+2019-Feb-21 15:04:27.796 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getPasswordEncoder() begins with []
+2019-Feb-21 15:04:27.797 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-21 15:04:27.797 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getPasswordEncoder
+2019-Feb-21 15:04:27.797 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 15:04:27.797 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$63f2966f
+2019-Feb-21 15:04:27.797 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getPasswordEncoder() ends with org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder@6a87e7c2
+2019-Feb-21 15:04:27.798 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getPasswordEncoder
+2019-Feb-21 15:04:27.798 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder@6a87e7c2
+2019-Feb-21 15:04:27.799 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() ends with org.springframework.security.authentication.dao.DaoAuthenticationProvider@2002fb71
+2019-Feb-21 15:04:27.799 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getAuthenticationProvider
+2019-Feb-21 15:04:27.799 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :org.springframework.security.authentication.dao.DaoAuthenticationProvider@2002fb71
+2019-Feb-21 15:04:44.610 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method home() begins with []
+2019-Feb-21 15:04:44.611 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.IndexController
+2019-Feb-21 15:04:44.611 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature name : home
+2019-Feb-21 15:04:44.611 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 15:04:44.611 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.IndexController
+2019-Feb-21 15:04:44.616 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method home() ends with index
+2019-Feb-21 15:04:44.616 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Exiting from Method :home
+2019-Feb-21 15:04:44.616 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Return value :index
+2019-Feb-21 15:04:58.402 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 15:04:58.403 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 15:04:58.403 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 15:04:58.403 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 15:04:58.403 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 15:04:58.410 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 15:04:58.410 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 15:04:58.410 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 15:04:58.410 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 15:04:58.410 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 15:04:58.417 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - The method getAreas() ends with []
+2019-Feb-21 15:04:58.417 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 15:04:58.417 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Return value :[]
+2019-Feb-21 15:04:58.420 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 15:04:58.420 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 15:04:58.421 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Return value :<204 NO_CONTENT No Content,[Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET,PUT,POST,DELETE,OPTIONS", Access-Control-Allow-Headers:"Content-Type"]>
+2019-Feb-21 16:03:57.310 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() begins with []
+2019-Feb-21 16:03:57.356 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-21 16:03:57.356 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAuthenticationProvider
+2019-Feb-21 16:03:57.356 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 16:03:57.356 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$33be5ba2
+2019-Feb-21 16:03:57.376 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAppUserDetailService() begins with []
+2019-Feb-21 16:03:57.376 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-21 16:03:57.376 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAppUserDetailService
+2019-Feb-21 16:03:57.376 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 16:03:57.376 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$33be5ba2
+2019-Feb-21 16:03:57.377 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAppUserDetailService() ends with com.htc.par.service.impl.AppUserDetailService@676a6e99
+2019-Feb-21 16:03:57.377 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getAppUserDetailService
+2019-Feb-21 16:03:57.377 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :com.htc.par.service.impl.AppUserDetailService@676a6e99
+2019-Feb-21 16:03:57.382 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getPasswordEncoder() begins with []
+2019-Feb-21 16:03:57.382 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-21 16:03:57.382 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getPasswordEncoder
+2019-Feb-21 16:03:57.382 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 16:03:57.382 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$33be5ba2
+2019-Feb-21 16:03:57.382 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getPasswordEncoder() ends with org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder@51dd78e0
+2019-Feb-21 16:03:57.383 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getPasswordEncoder
+2019-Feb-21 16:03:57.383 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder@51dd78e0
+2019-Feb-21 16:03:57.384 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() ends with org.springframework.security.authentication.dao.DaoAuthenticationProvider@2da44954
+2019-Feb-21 16:03:57.384 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getAuthenticationProvider
+2019-Feb-21 16:03:57.384 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :org.springframework.security.authentication.dao.DaoAuthenticationProvider@2da44954
+2019-Feb-21 16:04:42.078 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - The method home() begins with []
+2019-Feb-21 16:04:42.078 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.IndexController
+2019-Feb-21 16:04:42.078 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Signature name : home
+2019-Feb-21 16:04:42.078 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 16:04:42.078 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.IndexController
+2019-Feb-21 16:04:42.082 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - The method home() ends with index
+2019-Feb-21 16:04:42.082 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Exiting from Method :home
+2019-Feb-21 16:04:42.082 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Return value :index
+2019-Feb-21 16:05:02.002 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 16:05:02.002 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 16:05:02.002 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 16:05:02.002 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 16:05:02.003 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 16:05:02.007 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - The method getAllAreas() begins with []
+2019-Feb-21 16:05:02.007 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 16:05:02.007 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Signature name : getAllAreas
+2019-Feb-21 16:05:02.007 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 16:05:02.007 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 16:05:02.011 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - The method getAllAreas() ends with null
+2019-Feb-21 16:05:02.011 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Exiting from Method :getAllAreas
+2019-Feb-21 16:05:02.011 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Return value :null
+2019-Feb-21 16:05:02.013 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <200 OK OK,[]>
+2019-Feb-21 16:05:02.013 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 16:05:02.013 INFO  [http-nio-8080-exec-9] com.htc.par.logging.LoggingAspect - Return value :<200 OK OK,[]>
+2019-Feb-21 16:06:49.444 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 16:06:49.444 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 16:06:49.444 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 16:06:49.444 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 16:06:49.444 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 16:06:49.444 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAllAreas() begins with []
+2019-Feb-21 16:06:49.444 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 16:06:49.444 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature name : getAllAreas
+2019-Feb-21 16:06:49.445 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 16:06:49.445 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 16:06:49.445 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAllAreas() ends with null
+2019-Feb-21 16:06:49.445 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Exiting from Method :getAllAreas
+2019-Feb-21 16:06:49.445 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Return value :null
+2019-Feb-21 16:06:49.445 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <200 OK OK,[]>
+2019-Feb-21 16:06:49.445 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 16:06:49.445 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Return value :<200 OK OK,[]>
+2019-Feb-21 16:07:03.989 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 16:07:03.989 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 16:07:03.989 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 16:07:03.989 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 16:07:03.989 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 16:07:03.989 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method getAllAreas() begins with []
+2019-Feb-21 16:07:03.989 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 16:07:03.989 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature name : getAllAreas
+2019-Feb-21 16:07:03.989 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 16:07:03.990 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 16:07:03.990 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method getAllAreas() ends with null
+2019-Feb-21 16:07:03.990 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Exiting from Method :getAllAreas
+2019-Feb-21 16:07:03.990 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Return value :null
+2019-Feb-21 16:07:03.990 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <200 OK OK,[]>
+2019-Feb-21 16:07:03.990 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 16:07:03.990 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Return value :<200 OK OK,[]>
+2019-Feb-21 16:08:40.005 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 16:08:40.006 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 16:08:40.006 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 16:08:40.006 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 16:08:40.006 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 16:08:40.006 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - The method getAllAreas() begins with []
+2019-Feb-21 16:08:40.006 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 16:08:40.006 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Signature name : getAllAreas
+2019-Feb-21 16:08:40.006 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 16:08:40.006 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 16:08:40.007 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - The method getAllAreas() ends with null
+2019-Feb-21 16:08:40.007 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Exiting from Method :getAllAreas
+2019-Feb-21 16:08:40.007 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Return value :null
+2019-Feb-21 16:08:40.007 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <200 OK OK,[]>
+2019-Feb-21 16:08:40.007 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 16:08:40.007 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Return value :<200 OK OK,[]>
+2019-Feb-21 16:08:52.791 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 16:08:52.791 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 16:08:52.791 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 16:08:52.792 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 16:08:52.792 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 16:08:52.792 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - The method getAllAreas() begins with []
+2019-Feb-21 16:08:52.792 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 16:08:52.792 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Signature name : getAllAreas
+2019-Feb-21 16:08:52.792 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 16:08:52.792 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 16:08:52.792 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - The method getAllAreas() ends with null
+2019-Feb-21 16:08:52.793 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Exiting from Method :getAllAreas
+2019-Feb-21 16:08:52.793 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Return value :null
+2019-Feb-21 16:08:52.793 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <200 OK OK,[]>
+2019-Feb-21 16:08:52.793 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 16:08:52.793 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Return value :<200 OK OK,[]>
+2019-Feb-21 16:09:00.423 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 16:09:00.423 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 16:09:00.423 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 16:09:00.424 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 16:09:00.424 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 16:09:00.424 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method getAllAreas() begins with []
+2019-Feb-21 16:09:00.425 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 16:09:00.425 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature name : getAllAreas
+2019-Feb-21 16:09:00.425 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 16:09:00.425 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 16:09:00.426 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method getAllAreas() ends with null
+2019-Feb-21 16:09:00.426 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Exiting from Method :getAllAreas
+2019-Feb-21 16:09:00.426 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Return value :null
+2019-Feb-21 16:09:00.426 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <200 OK OK,[]>
+2019-Feb-21 16:09:00.427 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 16:09:00.429 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Return value :<200 OK OK,[]>
+2019-Feb-21 16:09:14.956 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 16:09:14.956 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 16:09:14.956 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 16:09:14.957 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 16:09:14.957 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 16:09:14.957 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAllAreas() begins with []
+2019-Feb-21 16:09:14.957 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 16:09:14.957 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Signature name : getAllAreas
+2019-Feb-21 16:09:14.957 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 16:09:14.957 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 16:09:14.957 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAllAreas() ends with null
+2019-Feb-21 16:09:14.958 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Exiting from Method :getAllAreas
+2019-Feb-21 16:09:14.958 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Return value :null
+2019-Feb-21 16:09:14.958 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <200 OK OK,[]>
+2019-Feb-21 16:09:14.958 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 16:09:14.958 INFO  [http-nio-8080-exec-6] com.htc.par.logging.LoggingAspect - Return value :<200 OK OK,[]>
+2019-Feb-21 16:14:40.252 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() begins with []
+2019-Feb-21 16:14:40.252 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-21 16:14:40.252 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAuthenticationProvider
+2019-Feb-21 16:14:40.253 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 16:14:40.253 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$bdb5a2e0
+2019-Feb-21 16:14:40.280 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAppUserDetailService() begins with []
+2019-Feb-21 16:14:40.280 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-21 16:14:40.280 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAppUserDetailService
+2019-Feb-21 16:14:40.281 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 16:14:40.281 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$bdb5a2e0
+2019-Feb-21 16:14:40.281 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAppUserDetailService() ends with com.htc.par.service.impl.AppUserDetailService@58cbffed
+2019-Feb-21 16:14:40.281 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getAppUserDetailService
+2019-Feb-21 16:14:40.281 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :com.htc.par.service.impl.AppUserDetailService@58cbffed
+2019-Feb-21 16:14:40.288 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getPasswordEncoder() begins with []
+2019-Feb-21 16:14:40.288 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-21 16:14:40.288 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getPasswordEncoder
+2019-Feb-21 16:14:40.288 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 16:14:40.288 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$bdb5a2e0
+2019-Feb-21 16:14:40.289 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getPasswordEncoder() ends with org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder@7ddb8da3
+2019-Feb-21 16:14:40.289 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getPasswordEncoder
+2019-Feb-21 16:14:40.289 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder@7ddb8da3
+2019-Feb-21 16:14:40.290 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() ends with org.springframework.security.authentication.dao.DaoAuthenticationProvider@7977775a
+2019-Feb-21 16:14:40.290 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getAuthenticationProvider
+2019-Feb-21 16:14:40.290 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :org.springframework.security.authentication.dao.DaoAuthenticationProvider@7977775a
+2019-Feb-21 16:15:14.282 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 16:15:14.283 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 16:15:14.283 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 16:15:14.283 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 16:15:14.283 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 16:15:14.289 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - The method getAllAreas() begins with []
+2019-Feb-21 16:15:14.289 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 16:15:14.289 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Signature name : getAllAreas
+2019-Feb-21 16:15:14.289 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 16:15:14.289 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 16:15:14.294 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - The method getAllAreas() ends with null
+2019-Feb-21 16:15:14.295 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Exiting from Method :getAllAreas
+2019-Feb-21 16:15:14.295 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Return value :null
+2019-Feb-21 16:15:14.299 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <200 OK OK,[]>
+2019-Feb-21 16:15:14.299 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 16:15:14.299 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Return value :<200 OK OK,[]>
+2019-Feb-21 21:09:27.299 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() begins with []
+2019-Feb-21 21:09:27.354 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-21 21:09:27.354 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAuthenticationProvider
+2019-Feb-21 21:09:27.354 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 21:09:27.354 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$49903d00
+2019-Feb-21 21:09:27.437 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAppUserDetailService() begins with []
+2019-Feb-21 21:09:27.437 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-21 21:09:27.437 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAppUserDetailService
+2019-Feb-21 21:09:27.437 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 21:09:27.437 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$49903d00
+2019-Feb-21 21:09:27.438 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAppUserDetailService() ends with com.htc.par.service.impl.AppUserDetailService@734d46c0
+2019-Feb-21 21:09:27.438 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getAppUserDetailService
+2019-Feb-21 21:09:27.438 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :com.htc.par.service.impl.AppUserDetailService@734d46c0
+2019-Feb-21 21:09:27.442 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getPasswordEncoder() begins with []
+2019-Feb-21 21:09:27.442 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-21 21:09:27.442 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getPasswordEncoder
+2019-Feb-21 21:09:27.443 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 21:09:27.443 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$49903d00
+2019-Feb-21 21:09:27.443 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getPasswordEncoder() ends with org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder@34be115a
+2019-Feb-21 21:09:27.443 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getPasswordEncoder
+2019-Feb-21 21:09:27.444 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder@34be115a
+2019-Feb-21 21:09:27.444 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() ends with org.springframework.security.authentication.dao.DaoAuthenticationProvider@7c61091
+2019-Feb-21 21:09:27.445 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getAuthenticationProvider
+2019-Feb-21 21:09:27.445 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :org.springframework.security.authentication.dao.DaoAuthenticationProvider@7c61091
+2019-Feb-21 21:09:58.199 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-21 21:09:58.200 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 21:09:58.200 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-21 21:09:58.200 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 21:09:58.200 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 21:09:58.206 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method getAllAreas() begins with []
+2019-Feb-21 21:09:58.207 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 21:09:58.207 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature name : getAllAreas
+2019-Feb-21 21:09:58.207 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-21 21:09:58.207 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 21:09:58.211 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method getAllAreas() ends with null
+2019-Feb-21 21:09:58.211 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Exiting from Method :getAllAreas
+2019-Feb-21 21:09:58.212 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Return value :null
+2019-Feb-21 21:09:58.215 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <200 OK OK,[]>
+2019-Feb-21 21:09:58.216 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-21 21:09:58.216 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Return value :<200 OK OK,[]>
+2019-Feb-21 21:10:13.841 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - The method getAreaById() begins with [9000]
+2019-Feb-21 21:10:13.841 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 21:10:13.841 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Signature name : getAreaById
+2019-Feb-21 21:10:13.841 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Arguments : [9000]
+2019-Feb-21 21:10:13.841 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 21:10:13.842 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - The method getAreaById() begins with [9000]
+2019-Feb-21 21:10:13.842 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 21:10:13.842 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Signature name : getAreaById
+2019-Feb-21 21:10:13.842 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Arguments : [9000]
+2019-Feb-21 21:10:13.842 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 21:10:14.153 ERROR [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - An exception has been thrown in getAreaById()
+2019-Feb-21 21:10:14.153 ERROR [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Cause :null
+2019-Feb-21 21:10:14.154 ERROR [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - An exception has been thrown in getAreaById()
+2019-Feb-21 21:10:14.154 ERROR [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Cause :null
+2019-Feb-21 21:10:24.391 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method getAreaById() begins with [9001]
+2019-Feb-21 21:10:24.391 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 21:10:24.391 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature name : getAreaById
+2019-Feb-21 21:10:24.391 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Arguments : [9001]
+2019-Feb-21 21:10:24.391 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 21:10:24.391 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method getAreaById() begins with [9001]
+2019-Feb-21 21:10:24.392 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 21:10:24.392 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature name : getAreaById
+2019-Feb-21 21:10:24.392 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Arguments : [9001]
+2019-Feb-21 21:10:24.392 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 21:10:24.433 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method getAreaById() ends with AreaTo [areaId=9001, areaName=Health, areaActive=true]
+2019-Feb-21 21:10:24.434 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreaById
+2019-Feb-21 21:10:24.434 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Return value :AreaTo [areaId=9001, areaName=Health, areaActive=true]
+2019-Feb-21 21:10:24.434 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method getAreaById() ends with <200 OK OK,AreaTo [areaId=9001, areaName=Health, areaActive=true],[]>
+2019-Feb-21 21:10:24.434 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreaById
+2019-Feb-21 21:10:24.434 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Return value :<200 OK OK,AreaTo [areaId=9001, areaName=Health, areaActive=true],[]>
+2019-Feb-21 21:20:59.149 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method createArea() begins with [AreaTo [areaId=null, areaName=Bank, areaActive=true]]
+2019-Feb-21 21:20:59.150 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 21:20:59.150 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature name : createArea
+2019-Feb-21 21:20:59.150 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Arguments : [AreaTo [areaId=null, areaName=Bank, areaActive=true]]
+2019-Feb-21 21:20:59.150 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 21:20:59.150 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method createArea() begins with [AreaTo [areaId=null, areaName=Bank, areaActive=true]]
+2019-Feb-21 21:20:59.151 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 21:20:59.151 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature name : createArea
+2019-Feb-21 21:20:59.151 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Arguments : [AreaTo [areaId=null, areaName=Bank, areaActive=true]]
+2019-Feb-21 21:20:59.151 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 21:20:59.239 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method createArea() ends with AreaTo [areaId=9003, areaName=Bank, areaActive=true]
+2019-Feb-21 21:20:59.240 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Exiting from Method :createArea
+2019-Feb-21 21:20:59.240 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Return value :AreaTo [areaId=9003, areaName=Bank, areaActive=true]
+2019-Feb-21 21:20:59.240 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method createArea() ends with <201 CREATED Created,AreaTo [areaId=9003, areaName=Bank, areaActive=true],[]>
+2019-Feb-21 21:20:59.240 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Exiting from Method :createArea
+2019-Feb-21 21:20:59.240 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Return value :<201 CREATED Created,AreaTo [areaId=9003, areaName=Bank, areaActive=true],[]>
+2019-Feb-21 21:23:09.208 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - The method updateArea() begins with [AreaTo [areaId=9003, areaName=Banks, areaActive=true]]
+2019-Feb-21 21:23:09.208 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 21:23:09.208 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Signature name : updateArea
+2019-Feb-21 21:23:09.209 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Arguments : [AreaTo [areaId=9003, areaName=Banks, areaActive=true]]
+2019-Feb-21 21:23:09.209 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 21:23:09.209 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - The method updateArea() begins with [AreaTo [areaId=9003, areaName=Banks, areaActive=true]]
+2019-Feb-21 21:23:09.209 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 21:23:09.209 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Signature name : updateArea
+2019-Feb-21 21:23:09.209 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Arguments : [AreaTo [areaId=9003, areaName=Banks, areaActive=true]]
+2019-Feb-21 21:23:09.210 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 21:23:09.233 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - The method updateArea() ends with AreaTo [areaId=9003, areaName=Banks, areaActive=true]
+2019-Feb-21 21:23:09.233 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Exiting from Method :updateArea
+2019-Feb-21 21:23:09.233 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Return value :AreaTo [areaId=9003, areaName=Banks, areaActive=true]
+2019-Feb-21 21:23:09.233 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - The method updateArea() ends with <200 OK OK,AreaTo [areaId=9003, areaName=Banks, areaActive=true],[]>
+2019-Feb-21 21:23:09.233 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Exiting from Method :updateArea
+2019-Feb-21 21:23:09.233 INFO  [http-nio-8080-exec-10] com.htc.par.logging.LoggingAspect - Return value :<200 OK OK,AreaTo [areaId=9003, areaName=Banks, areaActive=true],[]>
+2019-Feb-21 21:24:30.532 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - The method createArea() begins with [AreaTo [areaId=null, areaName=Life, areaActive=true]]
+2019-Feb-21 21:24:30.532 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 21:24:30.532 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Signature name : createArea
+2019-Feb-21 21:24:30.532 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Arguments : [AreaTo [areaId=null, areaName=Life, areaActive=true]]
+2019-Feb-21 21:24:30.532 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 21:24:30.532 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - The method createArea() begins with [AreaTo [areaId=null, areaName=Life, areaActive=true]]
+2019-Feb-21 21:24:30.532 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 21:24:30.532 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Signature name : createArea
+2019-Feb-21 21:24:30.533 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Arguments : [AreaTo [areaId=null, areaName=Life, areaActive=true]]
+2019-Feb-21 21:24:30.533 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 21:24:30.563 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - The method createArea() ends with AreaTo [areaId=9004, areaName=Life, areaActive=true]
+2019-Feb-21 21:24:30.564 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Exiting from Method :createArea
+2019-Feb-21 21:24:30.564 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Return value :AreaTo [areaId=9004, areaName=Life, areaActive=true]
+2019-Feb-21 21:24:30.564 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - The method createArea() ends with <201 CREATED Created,AreaTo [areaId=9004, areaName=Life, areaActive=true],[]>
+2019-Feb-21 21:24:30.564 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Exiting from Method :createArea
+2019-Feb-21 21:24:30.564 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Return value :<201 CREATED Created,AreaTo [areaId=9004, areaName=Life, areaActive=true],[]>
+2019-Feb-21 21:24:52.144 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method createArea() begins with [AreaTo [areaId=null, areaName=Social, areaActive=true]]
+2019-Feb-21 21:24:52.145 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 21:24:52.145 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature name : createArea
+2019-Feb-21 21:24:52.145 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Arguments : [AreaTo [areaId=null, areaName=Social, areaActive=true]]
+2019-Feb-21 21:24:52.145 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 21:24:52.145 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method createArea() begins with [AreaTo [areaId=null, areaName=Social, areaActive=true]]
+2019-Feb-21 21:24:52.145 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 21:24:52.145 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature name : createArea
+2019-Feb-21 21:24:52.146 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Arguments : [AreaTo [areaId=null, areaName=Social, areaActive=true]]
+2019-Feb-21 21:24:52.146 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 21:24:52.167 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method createArea() ends with AreaTo [areaId=9005, areaName=Social, areaActive=true]
+2019-Feb-21 21:24:52.168 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Exiting from Method :createArea
+2019-Feb-21 21:24:52.168 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Return value :AreaTo [areaId=9005, areaName=Social, areaActive=true]
+2019-Feb-21 21:24:52.168 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method createArea() ends with <201 CREATED Created,AreaTo [areaId=9005, areaName=Social, areaActive=true],[]>
+2019-Feb-21 21:24:52.168 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Exiting from Method :createArea
+2019-Feb-21 21:24:52.169 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Return value :<201 CREATED Created,AreaTo [areaId=9005, areaName=Social, areaActive=true],[]>
+2019-Feb-21 21:25:42.505 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method deleteArea() begins with [9005]
+2019-Feb-21 21:25:42.505 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-21 21:25:42.505 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature name : deleteArea
+2019-Feb-21 21:25:42.506 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Arguments : [9005]
+2019-Feb-21 21:25:42.506 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-21 21:25:42.506 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method deleteArea() begins with [9005]
+2019-Feb-21 21:25:42.506 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 21:25:42.506 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Signature name : deleteArea
+2019-Feb-21 21:25:42.506 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Arguments : [9005]
+2019-Feb-21 21:25:42.506 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-21 21:25:42.527 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method deleteArea() ends with true
+2019-Feb-21 21:25:42.529 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Exiting from Method :deleteArea
+2019-Feb-21 21:25:42.529 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Return value :true
+2019-Feb-21 21:25:42.529 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - The method deleteArea() ends with <200 OK OK,true,[]>
+2019-Feb-21 21:25:42.529 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Exiting from Method :deleteArea
+2019-Feb-21 21:25:42.529 INFO  [http-nio-8080-exec-7] com.htc.par.logging.LoggingAspect - Return value :<200 OK OK,true,[]>
+2019-Feb-22 09:40:31.066 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() begins with []
+2019-Feb-22 09:40:31.106 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-22 09:40:31.106 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAuthenticationProvider
+2019-Feb-22 09:40:31.106 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-22 09:40:31.106 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$f22e3e46
+2019-Feb-22 09:40:31.127 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAppUserDetailService() begins with []
+2019-Feb-22 09:40:31.127 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-22 09:40:31.127 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAppUserDetailService
+2019-Feb-22 09:40:31.127 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-22 09:40:31.127 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$f22e3e46
+2019-Feb-22 09:40:31.127 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAppUserDetailService() ends with com.htc.par.service.impl.AppUserDetailService@7b9588ee
+2019-Feb-22 09:40:31.128 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getAppUserDetailService
+2019-Feb-22 09:40:31.128 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :com.htc.par.service.impl.AppUserDetailService@7b9588ee
+2019-Feb-22 09:40:31.132 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getPasswordEncoder() begins with []
+2019-Feb-22 09:40:31.132 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-22 09:40:31.132 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getPasswordEncoder
+2019-Feb-22 09:40:31.132 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-22 09:40:31.133 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$f22e3e46
+2019-Feb-22 09:40:31.133 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getPasswordEncoder() ends with org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder@aeb490b
+2019-Feb-22 09:40:31.133 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getPasswordEncoder
+2019-Feb-22 09:40:31.133 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder@aeb490b
+2019-Feb-22 09:40:31.134 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() ends with org.springframework.security.authentication.dao.DaoAuthenticationProvider@4e670d66
+2019-Feb-22 09:40:31.134 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getAuthenticationProvider
+2019-Feb-22 09:40:31.134 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :org.springframework.security.authentication.dao.DaoAuthenticationProvider@4e670d66
+2019-Feb-22 09:40:40.566 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method getAreaById() begins with [9005]
+2019-Feb-22 09:40:40.567 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-22 09:40:40.567 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature name : getAreaById
+2019-Feb-22 09:40:40.567 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Arguments : [9005]
+2019-Feb-22 09:40:40.567 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-22 09:40:40.572 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method getAreaById() begins with [9005]
+2019-Feb-22 09:40:40.572 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-22 09:40:40.572 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature name : getAreaById
+2019-Feb-22 09:40:40.572 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Arguments : [9005]
+2019-Feb-22 09:40:40.572 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-22 09:40:40.833 ERROR [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - An exception has been thrown in getAreaById()
+2019-Feb-22 09:40:40.833 ERROR [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Cause :null
+2019-Feb-22 09:40:40.833 ERROR [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - An exception has been thrown in getAreaById()
+2019-Feb-22 09:40:40.834 ERROR [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Cause :null
+2019-Feb-22 09:40:54.574 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - The method getAreaById() begins with [9002]
+2019-Feb-22 09:40:54.574 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-22 09:40:54.574 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Signature name : getAreaById
+2019-Feb-22 09:40:54.574 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Arguments : [9002]
+2019-Feb-22 09:40:54.575 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-22 09:40:54.575 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - The method getAreaById() begins with [9002]
+2019-Feb-22 09:40:54.575 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-22 09:40:54.575 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Signature name : getAreaById
+2019-Feb-22 09:40:54.575 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Arguments : [9002]
+2019-Feb-22 09:40:54.575 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-22 09:40:54.618 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - The method getAreaById() ends with AreaTo [areaId=9002, areaName=Mutual, areaActive=true]
+2019-Feb-22 09:40:54.619 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreaById
+2019-Feb-22 09:40:54.619 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Return value :AreaTo [areaId=9002, areaName=Mutual, areaActive=true]
+2019-Feb-22 09:40:54.621 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - The method getAreaById() ends with <200 OK OK,AreaTo [areaId=9002, areaName=Mutual, areaActive=true],[]>
+2019-Feb-22 09:40:54.621 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreaById
+2019-Feb-22 09:40:54.621 INFO  [http-nio-8080-exec-3] com.htc.par.logging.LoggingAspect - Return value :<200 OK OK,AreaTo [areaId=9002, areaName=Mutual, areaActive=true],[]>
+2019-Feb-22 09:41:14.009 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method getAreaById() begins with [9002]
+2019-Feb-22 09:41:14.010 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-22 09:41:14.010 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature name : getAreaById
+2019-Feb-22 09:41:14.010 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Arguments : [9002]
+2019-Feb-22 09:41:14.010 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-22 09:41:14.010 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method getAreaById() begins with [9002]
+2019-Feb-22 09:41:14.011 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-22 09:41:14.011 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature name : getAreaById
+2019-Feb-22 09:41:14.011 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Arguments : [9002]
+2019-Feb-22 09:41:14.011 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-22 09:41:14.021 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method getAreaById() ends with AreaTo [areaId=9002, areaName=Mutual, areaActive=true]
+2019-Feb-22 09:41:14.021 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreaById
+2019-Feb-22 09:41:14.021 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Return value :AreaTo [areaId=9002, areaName=Mutual, areaActive=true]
+2019-Feb-22 09:41:14.021 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method getAreaById() ends with <200 OK OK,AreaTo [areaId=9002, areaName=Mutual, areaActive=true],[]>
+2019-Feb-22 09:41:14.021 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreaById
+2019-Feb-22 09:41:14.022 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Return value :<200 OK OK,AreaTo [areaId=9002, areaName=Mutual, areaActive=true],[]>
+2019-Feb-22 10:17:18.210 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() begins with []
+2019-Feb-22 10:17:18.210 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-22 10:17:18.211 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAuthenticationProvider
+2019-Feb-22 10:17:18.211 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-22 10:17:18.211 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$926b497b
+2019-Feb-22 10:17:18.232 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAppUserDetailService() begins with []
+2019-Feb-22 10:17:18.232 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-22 10:17:18.232 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAppUserDetailService
+2019-Feb-22 10:17:18.233 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-22 10:17:18.233 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$926b497b
+2019-Feb-22 10:17:18.233 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAppUserDetailService() ends with com.htc.par.service.impl.AppUserDetailService@1cf837c4
+2019-Feb-22 10:17:18.233 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getAppUserDetailService
+2019-Feb-22 10:17:18.233 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :com.htc.par.service.impl.AppUserDetailService@1cf837c4
+2019-Feb-22 10:17:18.237 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getPasswordEncoder() begins with []
+2019-Feb-22 10:17:18.238 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-22 10:17:18.238 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getPasswordEncoder
+2019-Feb-22 10:17:18.238 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-22 10:17:18.238 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$926b497b
+2019-Feb-22 10:17:18.238 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getPasswordEncoder() ends with org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder@5876ff93
+2019-Feb-22 10:17:18.238 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getPasswordEncoder
+2019-Feb-22 10:17:18.238 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder@5876ff93
+2019-Feb-22 10:17:18.239 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() ends with org.springframework.security.authentication.dao.DaoAuthenticationProvider@5776a4d3
+2019-Feb-22 10:17:18.239 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getAuthenticationProvider
+2019-Feb-22 10:17:18.239 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :org.springframework.security.authentication.dao.DaoAuthenticationProvider@5776a4d3
+2019-Feb-22 10:18:02.980 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method createArea() begins with [AreaTo [areaId=null, areaName=, areaActive=true]]
+2019-Feb-22 10:18:02.980 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-22 10:18:02.980 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature name : createArea
+2019-Feb-22 10:18:02.981 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Arguments : [AreaTo [areaId=null, areaName=, areaActive=true]]
+2019-Feb-22 10:18:02.981 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-22 10:18:02.986 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method createArea() begins with [AreaTo [areaId=null, areaName=, areaActive=true]]
+2019-Feb-22 10:18:02.987 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-22 10:18:02.987 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature name : createArea
+2019-Feb-22 10:18:02.987 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Arguments : [AreaTo [areaId=null, areaName=, areaActive=true]]
+2019-Feb-22 10:18:02.987 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-22 10:18:03.212 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method createArea() ends with AreaTo [areaId=9006, areaName=, areaActive=true]
+2019-Feb-22 10:18:03.213 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Exiting from Method :createArea
+2019-Feb-22 10:18:03.213 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Return value :AreaTo [areaId=9006, areaName=, areaActive=true]
+2019-Feb-22 10:18:03.214 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method createArea() ends with <201 CREATED Created,AreaTo [areaId=9006, areaName=, areaActive=true],[]>
+2019-Feb-22 10:18:03.214 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Exiting from Method :createArea
+2019-Feb-22 10:18:03.214 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Return value :<201 CREATED Created,AreaTo [areaId=9006, areaName=, areaActive=true],[]>
+2019-Feb-22 10:29:01.345 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() begins with []
+2019-Feb-22 10:29:01.346 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-22 10:29:01.346 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAuthenticationProvider
+2019-Feb-22 10:29:01.346 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-22 10:29:01.346 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$fe413f32
+2019-Feb-22 10:29:01.366 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAppUserDetailService() begins with []
+2019-Feb-22 10:29:01.366 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-22 10:29:01.366 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAppUserDetailService
+2019-Feb-22 10:29:01.366 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-22 10:29:01.366 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$fe413f32
+2019-Feb-22 10:29:01.366 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAppUserDetailService() ends with com.htc.par.service.impl.AppUserDetailService@54a14c3e
+2019-Feb-22 10:29:01.367 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getAppUserDetailService
+2019-Feb-22 10:29:01.367 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :com.htc.par.service.impl.AppUserDetailService@54a14c3e
+2019-Feb-22 10:29:01.371 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getPasswordEncoder() begins with []
+2019-Feb-22 10:29:01.371 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-22 10:29:01.371 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getPasswordEncoder
+2019-Feb-22 10:29:01.371 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-22 10:29:01.371 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$fe413f32
+2019-Feb-22 10:29:01.372 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getPasswordEncoder() ends with org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder@58ed9afd
+2019-Feb-22 10:29:01.372 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getPasswordEncoder
+2019-Feb-22 10:29:01.372 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder@58ed9afd
+2019-Feb-22 10:29:01.373 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() ends with org.springframework.security.authentication.dao.DaoAuthenticationProvider@3eaa2685
+2019-Feb-22 10:29:01.373 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getAuthenticationProvider
+2019-Feb-22 10:29:01.373 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :org.springframework.security.authentication.dao.DaoAuthenticationProvider@3eaa2685
+2019-Feb-22 10:29:17.542 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method handleMethodArgumentNotValid() begins with [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.htc.par.to.AreaTo> com.htc.par.controller.AreaController.createArea(com.htc.par.to.AreaTo) throws com.htc.par.exceptions.ResourceNotCreatedException,com.htc.par.exceptions.ResourceDuplicateException with 2 errors: [Field error in object 'areaTo' on field 'areaName': rejected value []; codes [NotEmpty.areaTo.areaName,NotEmpty.areaName,NotEmpty.java.lang.String,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [areaTo.areaName,areaName]; arguments []; default message [areaName]]; default message [Area name is mandatory]] [Field error in object 'areaTo' on field 'areaName': rejected value []; codes [Size.areaTo.areaName,Size.areaName,Size.java.lang.String,Size]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [areaTo.areaName,areaName]; arguments []; default message [areaName],30,2]; default message [size must be between 2 and 30]] , [], 400 BAD_REQUEST, ServletWebRequest: uri=/parmanagement/par/Areas;client=0:0:0:0:0:0:0:1]
+2019-Feb-22 10:29:17.543 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.exceptionhandler.PARExceptionHandler
+2019-Feb-22 10:29:17.543 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature name : handleMethodArgumentNotValid
+2019-Feb-22 10:29:17.543 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Arguments : [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.htc.par.to.AreaTo> com.htc.par.controller.AreaController.createArea(com.htc.par.to.AreaTo) throws com.htc.par.exceptions.ResourceNotCreatedException,com.htc.par.exceptions.ResourceDuplicateException with 2 errors: [Field error in object 'areaTo' on field 'areaName': rejected value []; codes [NotEmpty.areaTo.areaName,NotEmpty.areaName,NotEmpty.java.lang.String,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [areaTo.areaName,areaName]; arguments []; default message [areaName]]; default message [Area name is mandatory]] [Field error in object 'areaTo' on field 'areaName': rejected value []; codes [Size.areaTo.areaName,Size.areaName,Size.java.lang.String,Size]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [areaTo.areaName,areaName]; arguments []; default message [areaName],30,2]; default message [size must be between 2 and 30]] , [], 400 BAD_REQUEST, ServletWebRequest: uri=/parmanagement/par/Areas;client=0:0:0:0:0:0:0:1]
+2019-Feb-22 10:29:17.544 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.exceptionhandler.PARExceptionHandler
+2019-Feb-22 10:29:17.545 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method handleMethodArgumentNotValid() ends with <400 BAD_REQUEST Bad Request,com.htc.par.to.ResponseException@70fd23d8,[]>
+2019-Feb-22 10:29:17.545 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Exiting from Method :handleMethodArgumentNotValid
+2019-Feb-22 10:29:17.545 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Return value :<400 BAD_REQUEST Bad Request,com.htc.par.to.ResponseException@70fd23d8,[]>
+2019-Feb-22 10:29:38.029 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method handleMethodArgumentNotValid() begins with [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.htc.par.to.AreaTo> com.htc.par.controller.AreaController.createArea(com.htc.par.to.AreaTo) throws com.htc.par.exceptions.ResourceNotCreatedException,com.htc.par.exceptions.ResourceDuplicateException: [Field error in object 'areaTo' on field 'areaName': rejected value [a]; codes [Size.areaTo.areaName,Size.areaName,Size.java.lang.String,Size]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [areaTo.areaName,areaName]; arguments []; default message [areaName],30,2]; default message [size must be between 2 and 30]] , [], 400 BAD_REQUEST, ServletWebRequest: uri=/parmanagement/par/Areas;client=0:0:0:0:0:0:0:1]
+2019-Feb-22 10:29:38.029 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.exceptionhandler.PARExceptionHandler
+2019-Feb-22 10:29:38.029 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature name : handleMethodArgumentNotValid
+2019-Feb-22 10:29:38.029 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Arguments : [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.htc.par.to.AreaTo> com.htc.par.controller.AreaController.createArea(com.htc.par.to.AreaTo) throws com.htc.par.exceptions.ResourceNotCreatedException,com.htc.par.exceptions.ResourceDuplicateException: [Field error in object 'areaTo' on field 'areaName': rejected value [a]; codes [Size.areaTo.areaName,Size.areaName,Size.java.lang.String,Size]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [areaTo.areaName,areaName]; arguments []; default message [areaName],30,2]; default message [size must be between 2 and 30]] , [], 400 BAD_REQUEST, ServletWebRequest: uri=/parmanagement/par/Areas;client=0:0:0:0:0:0:0:1]
+2019-Feb-22 10:29:38.029 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.exceptionhandler.PARExceptionHandler
+2019-Feb-22 10:29:38.030 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method handleMethodArgumentNotValid() ends with <400 BAD_REQUEST Bad Request,com.htc.par.to.ResponseException@6efbea0b,[]>
+2019-Feb-22 10:29:38.030 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Exiting from Method :handleMethodArgumentNotValid
+2019-Feb-22 10:29:38.030 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Return value :<400 BAD_REQUEST Bad Request,com.htc.par.to.ResponseException@6efbea0b,[]>
+2019-Feb-22 10:29:52.280 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - The method createArea() begins with [AreaTo [areaId=null, areaName=ALB, areaActive=true]]
+2019-Feb-22 10:29:52.280 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-22 10:29:52.280 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Signature name : createArea
+2019-Feb-22 10:29:52.280 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Arguments : [AreaTo [areaId=null, areaName=ALB, areaActive=true]]
+2019-Feb-22 10:29:52.280 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-22 10:29:52.286 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - The method createArea() begins with [AreaTo [areaId=null, areaName=ALB, areaActive=true]]
+2019-Feb-22 10:29:52.287 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-22 10:29:52.287 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Signature name : createArea
+2019-Feb-22 10:29:52.287 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Arguments : [AreaTo [areaId=null, areaName=ALB, areaActive=true]]
+2019-Feb-22 10:29:52.287 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-22 10:29:52.487 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - The method createArea() ends with AreaTo [areaId=9007, areaName=ALB, areaActive=true]
+2019-Feb-22 10:29:52.487 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Exiting from Method :createArea
+2019-Feb-22 10:29:52.487 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Return value :AreaTo [areaId=9007, areaName=ALB, areaActive=true]
+2019-Feb-22 10:29:52.487 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - The method createArea() ends with <201 CREATED Created,AreaTo [areaId=9007, areaName=ALB, areaActive=true],[]>
+2019-Feb-22 10:29:52.487 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Exiting from Method :createArea
+2019-Feb-22 10:29:52.488 INFO  [http-nio-8080-exec-5] com.htc.par.logging.LoggingAspect - Return value :<201 CREATED Created,AreaTo [areaId=9007, areaName=ALB, areaActive=true],[]>
+2019-Feb-22 14:18:54.182 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() begins with []
+2019-Feb-22 14:18:54.211 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-22 14:18:54.211 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAuthenticationProvider
+2019-Feb-22 14:18:54.211 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-22 14:18:54.211 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$8dc2da98
+2019-Feb-22 14:18:54.246 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAppUserDetailService() begins with []
+2019-Feb-22 14:18:54.246 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-22 14:18:54.246 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getAppUserDetailService
+2019-Feb-22 14:18:54.246 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-22 14:18:54.246 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$8dc2da98
+2019-Feb-22 14:18:54.247 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAppUserDetailService() ends with com.htc.par.service.impl.AppUserDetailService@7897e70b
+2019-Feb-22 14:18:54.247 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getAppUserDetailService
+2019-Feb-22 14:18:54.247 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :com.htc.par.service.impl.AppUserDetailService@7897e70b
+2019-Feb-22 14:18:54.254 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getPasswordEncoder() begins with []
+2019-Feb-22 14:18:54.254 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.config.ParSecurityConfiguration
+2019-Feb-22 14:18:54.254 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Signature name : getPasswordEncoder
+2019-Feb-22 14:18:54.255 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-22 14:18:54.255 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.config.ParSecurityConfiguration$$EnhancerBySpringCGLIB$$8dc2da98
+2019-Feb-22 14:18:54.255 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getPasswordEncoder() ends with org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder@65b1fe76
+2019-Feb-22 14:18:54.256 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getPasswordEncoder
+2019-Feb-22 14:18:54.256 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder@65b1fe76
+2019-Feb-22 14:18:54.257 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - The method getAuthenticationProvider() ends with org.springframework.security.authentication.dao.DaoAuthenticationProvider@6787efbc
+2019-Feb-22 14:18:54.257 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Exiting from Method :getAuthenticationProvider
+2019-Feb-22 14:18:54.257 INFO  [restartedMain] com.htc.par.logging.LoggingAspect - Return value :org.springframework.security.authentication.dao.DaoAuthenticationProvider@6787efbc
+2019-Feb-22 14:20:05.418 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-22 14:20:05.418 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-22 14:20:05.419 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-22 14:20:05.419 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-22 14:20:05.419 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-22 14:20:05.425 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - The method getAllAreas() begins with []
+2019-Feb-22 14:20:05.425 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-22 14:20:05.425 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Signature name : getAllAreas
+2019-Feb-22 14:20:05.426 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-22 14:20:05.426 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-22 14:20:05.628 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - The method getAllAreas() ends with [AreaTo [areaId=9001, areaName=Health, areaActive=true], AreaTo [areaId=9002, areaName=Mutual, areaActive=true], AreaTo [areaId=9000, areaName=Test, areaActive=false], AreaTo [areaId=1, areaName=Credit, areaActive=false], AreaTo [areaId=2, areaName=Card, areaActive=false], AreaTo [areaId=9003, areaName=Banks, areaActive=true], AreaTo [areaId=9005, areaName=Social, areaActive=false], AreaTo [areaId=9007, areaName=ALB, areaActive=true], AreaTo [areaId=9006, areaName=Four, areaActive=true], AreaTo [areaId=9008, areaName=ALB1, areaActive=true], AreaTo [areaId=9004, areaName=Lifes, areaActive=false]]
+2019-Feb-22 14:20:05.628 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Exiting from Method :getAllAreas
+2019-Feb-22 14:20:05.629 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Return value :[AreaTo [areaId=9001, areaName=Health, areaActive=true], AreaTo [areaId=9002, areaName=Mutual, areaActive=true], AreaTo [areaId=9000, areaName=Test, areaActive=false], AreaTo [areaId=1, areaName=Credit, areaActive=false], AreaTo [areaId=2, areaName=Card, areaActive=false], AreaTo [areaId=9003, areaName=Banks, areaActive=true], AreaTo [areaId=9005, areaName=Social, areaActive=false], AreaTo [areaId=9007, areaName=ALB, areaActive=true], AreaTo [areaId=9006, areaName=Four, areaActive=true], AreaTo [areaId=9008, areaName=ALB1, areaActive=true], AreaTo [areaId=9004, areaName=Lifes, areaActive=false]]
+2019-Feb-22 14:20:05.633 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <200 OK OK,[AreaTo [areaId=9001, areaName=Health, areaActive=true], AreaTo [areaId=9002, areaName=Mutual, areaActive=true], AreaTo [areaId=9000, areaName=Test, areaActive=false], AreaTo [areaId=1, areaName=Credit, areaActive=false], AreaTo [areaId=2, areaName=Card, areaActive=false], AreaTo [areaId=9003, areaName=Banks, areaActive=true], AreaTo [areaId=9005, areaName=Social, areaActive=false], AreaTo [areaId=9007, areaName=ALB, areaActive=true], AreaTo [areaId=9006, areaName=Four, areaActive=true], AreaTo [areaId=9008, areaName=ALB1, areaActive=true], AreaTo [areaId=9004, areaName=Lifes, areaActive=false]],[]>
+2019-Feb-22 14:20:05.633 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-22 14:20:05.633 INFO  [http-nio-8080-exec-1] com.htc.par.logging.LoggingAspect - Return value :<200 OK OK,[AreaTo [areaId=9001, areaName=Health, areaActive=true], AreaTo [areaId=9002, areaName=Mutual, areaActive=true], AreaTo [areaId=9000, areaName=Test, areaActive=false], AreaTo [areaId=1, areaName=Credit, areaActive=false], AreaTo [areaId=2, areaName=Card, areaActive=false], AreaTo [areaId=9003, areaName=Banks, areaActive=true], AreaTo [areaId=9005, areaName=Social, areaActive=false], AreaTo [areaId=9007, areaName=ALB, areaActive=true], AreaTo [areaId=9006, areaName=Four, areaActive=true], AreaTo [areaId=9008, areaName=ALB1, areaActive=true], AreaTo [areaId=9004, areaName=Lifes, areaActive=false]],[]>
+2019-Feb-22 14:20:11.349 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method getAreaById() begins with [9001]
+2019-Feb-22 14:20:11.350 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-22 14:20:11.350 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature name : getAreaById
+2019-Feb-22 14:20:11.350 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Arguments : [9001]
+2019-Feb-22 14:20:11.350 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-22 14:20:11.350 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method getAreaById() begins with [9001]
+2019-Feb-22 14:20:11.350 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-22 14:20:11.351 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Signature name : getAreaById
+2019-Feb-22 14:20:11.351 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Arguments : [9001]
+2019-Feb-22 14:20:11.351 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-22 14:20:11.403 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method getAreaById() ends with AreaTo [areaId=9001, areaName=Health, areaActive=true]
+2019-Feb-22 14:20:11.403 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreaById
+2019-Feb-22 14:20:11.403 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Return value :AreaTo [areaId=9001, areaName=Health, areaActive=true]
+2019-Feb-22 14:20:11.403 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - The method getAreaById() ends with <200 OK OK,AreaTo [areaId=9001, areaName=Health, areaActive=true],[]>
+2019-Feb-22 14:20:11.403 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreaById
+2019-Feb-22 14:20:11.403 INFO  [http-nio-8080-exec-2] com.htc.par.logging.LoggingAspect - Return value :<200 OK OK,AreaTo [areaId=9001, areaName=Health, areaActive=true],[]>
+2019-Feb-22 14:20:16.428 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method getAreas() begins with []
+2019-Feb-22 14:20:16.429 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.controller.AreaController
+2019-Feb-22 14:20:16.429 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature name : getAreas
+2019-Feb-22 14:20:16.429 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-22 14:20:16.429 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.controller.AreaController
+2019-Feb-22 14:20:16.429 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method getAllAreas() begins with []
+2019-Feb-22 14:20:16.430 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature declaring type : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-22 14:20:16.430 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Signature name : getAllAreas
+2019-Feb-22 14:20:16.432 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Arguments : []
+2019-Feb-22 14:20:16.432 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Target class : com.htc.par.service.impl.AreaServiceImpl
+2019-Feb-22 14:20:16.443 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method getAllAreas() ends with [AreaTo [areaId=9001, areaName=Health, areaActive=true], AreaTo [areaId=9002, areaName=Mutual, areaActive=true], AreaTo [areaId=9000, areaName=Test, areaActive=false], AreaTo [areaId=1, areaName=Credit, areaActive=false], AreaTo [areaId=2, areaName=Card, areaActive=false], AreaTo [areaId=9003, areaName=Banks, areaActive=true], AreaTo [areaId=9005, areaName=Social, areaActive=false], AreaTo [areaId=9007, areaName=ALB, areaActive=true], AreaTo [areaId=9006, areaName=Four, areaActive=true], AreaTo [areaId=9008, areaName=ALB1, areaActive=true], AreaTo [areaId=9004, areaName=Lifes, areaActive=false]]
+2019-Feb-22 14:20:16.443 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Exiting from Method :getAllAreas
+2019-Feb-22 14:20:16.443 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Return value :[AreaTo [areaId=9001, areaName=Health, areaActive=true], AreaTo [areaId=9002, areaName=Mutual, areaActive=true], AreaTo [areaId=9000, areaName=Test, areaActive=false], AreaTo [areaId=1, areaName=Credit, areaActive=false], AreaTo [areaId=2, areaName=Card, areaActive=false], AreaTo [areaId=9003, areaName=Banks, areaActive=true], AreaTo [areaId=9005, areaName=Social, areaActive=false], AreaTo [areaId=9007, areaName=ALB, areaActive=true], AreaTo [areaId=9006, areaName=Four, areaActive=true], AreaTo [areaId=9008, areaName=ALB1, areaActive=true], AreaTo [areaId=9004, areaName=Lifes, areaActive=false]]
+2019-Feb-22 14:20:16.443 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - The method getAreas() ends with <200 OK OK,[AreaTo [areaId=9001, areaName=Health, areaActive=true], AreaTo [areaId=9002, areaName=Mutual, areaActive=true], AreaTo [areaId=9000, areaName=Test, areaActive=false], AreaTo [areaId=1, areaName=Credit, areaActive=false], AreaTo [areaId=2, areaName=Card, areaActive=false], AreaTo [areaId=9003, areaName=Banks, areaActive=true], AreaTo [areaId=9005, areaName=Social, areaActive=false], AreaTo [areaId=9007, areaName=ALB, areaActive=true], AreaTo [areaId=9006, areaName=Four, areaActive=true], AreaTo [areaId=9008, areaName=ALB1, areaActive=true], AreaTo [areaId=9004, areaName=Lifes, areaActive=false]],[]>
+2019-Feb-22 14:20:16.444 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Exiting from Method :getAreas
+2019-Feb-22 14:20:16.444 INFO  [http-nio-8080-exec-4] com.htc.par.logging.LoggingAspect - Return value :<200 OK OK,[AreaTo [areaId=9001, areaName=Health, areaActive=true], AreaTo [areaId=9002, areaName=Mutual, areaActive=true], AreaTo [areaId=9000, areaName=Test, areaActive=false], AreaTo [areaId=1, areaName=Credit, areaActive=false], AreaTo [areaId=2, areaName=Card, areaActive=false], AreaTo [areaId=9003, areaName=Banks, areaActive=true], AreaTo [areaId=9005, areaName=Social, areaActive=false], AreaTo [areaId=9007, areaName=ALB, areaActive=true], AreaTo [areaId=9006, areaName=Four, areaActive=true], AreaTo [areaId=9008, areaName=ALB1, areaActive=true], AreaTo [areaId=9004, areaName=Lifes, areaActive=false]],[]>

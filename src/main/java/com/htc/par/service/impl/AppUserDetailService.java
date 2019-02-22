@@ -6,6 +6,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.GrantedAuthority;
@@ -34,8 +35,7 @@ import com.htc.par.utilities.NullAwareBeanUtil;
 public class AppUserDetailService implements UserDetailsService{
 
 	@Autowired
-	AppUserRepository userRepository;
-	
+	AppUserRepository userRepository;	
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -54,8 +54,5 @@ public class AppUserDetailService implements UserDetailsService{
 			
 		return new User(appUser.getUserName(), appUser.getPassword(), appUser.getUserActive(), true, true, true, authorities);
 	}
-
-
-	
 
 }
