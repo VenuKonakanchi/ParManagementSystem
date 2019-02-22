@@ -2,8 +2,6 @@ package com.htc.par.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,79 +18,79 @@ import com.htc.par.exceptions.ResourceNotCreatedException;
 import com.htc.par.exceptions.ResourceNotDeletedException;
 import com.htc.par.exceptions.ResourceNotFoundException;
 import com.htc.par.exceptions.ResourceNotUpdatedException;
-import com.htc.par.service.RecruiterService;
-import com.htc.par.to.RecruiterTO;
+import com.htc.par.service.impl.PARRoleServiceImpl;
+import com.htc.par.to.PARRoleTO;
 
-/**
- * @author Ram
- * Rest Controller to handle Recruiter's information.
+/*@author - Fazlur Rahman
+ * Controller to handle Role information
  */
-
 @RestController
 @RequestMapping("/par")
-public class RecruiterController {
+public class PARRoleController {
+	
 	
 	@Autowired
-	private RecruiterService recruiterService;
-
+	PARRoleServiceImpl parRoleService;
+	
+	
 	/**
-	 * Request handler to get Recruiter by id
-	 * @param recruiterId
+	 * Request handler to get Role by id
+	 * @param roleId
 	 * @return
 	 * @throws ResourceNotFoundException
 	 */
-	@GetMapping("/recruiter/{recruiterId}")
-	public ResponseEntity<RecruiterTO> getRecruiterById(@PathVariable("recruiterId") int recruiterId) throws ResourceNotFoundException {
-		return ResponseEntity.ok(recruiterService.getRecruiterById(recruiterId));
+	@GetMapping("/parroles/{roleId}")
+	public ResponseEntity<PARRoleTO> getPARRoleById(@PathVariable("roleId") int roleId) throws ResourceNotFoundException {
+		return ResponseEntity.ok(parRoleService.getPARRoleById(roleId));
 	}
-
+	
 	/**
-	 * Request handler to get all recruiters 
+	 * Request handler to get all Roles 
 	 * @return
 	 * @throws ResourceNotFoundException
 	 */
-	@GetMapping("/recruiters")
-	public ResponseEntity<List<RecruiterTO>> getRecruiters() throws ResourceNotFoundException {
-		return ResponseEntity.ok(recruiterService.getAllRecruiters());
+	@GetMapping("/parroles")
+	public ResponseEntity<List<PARRoleTO>> getPARRoles() throws ResourceNotFoundException {
+		return ResponseEntity.ok(parRoleService.getAllPARRoles());
 	}
 
 	/**
-	 * Request handler to create new Recruiter entry
-	 * @param RecruiterTO
+	 * Request handler to Add new skill
+	 * @param PARRoleTO
 	 * @return
 	 * @throws ResourceNotCreatedException
 	 * @throws ResourceDuplicateException
 	 */
-	@PostMapping("/recruiters")
-	public ResponseEntity<RecruiterTO> createRecruiter(@Valid @RequestBody RecruiterTO recruiterTO)
+	@PostMapping("/parroles")
+	public ResponseEntity<PARRoleTO> createPARRole(@RequestBody PARRoleTO parRoleTO)
 			throws ResourceNotCreatedException, ResourceDuplicateException {
-		return ResponseEntity.created(null).body(recruiterService.createRecruiter(recruiterTO));
+		return ResponseEntity.created(null).body(parRoleService.createPARRole(parRoleTO));
 	}
 
 	/**
-	 * Request handler to update active recruiter
-	 * @param RecruiterTO
+	 * Request handler to update active Role
+	 * @param PARRoleTO
 	 * @return
 	 * @throws ResourceNotFoundException
 	 * @throws ResourceNotUpdatedException
 	 */
-	@PutMapping("/recruiters")
-	public ResponseEntity<RecruiterTO> updateRecruiter(@Valid @RequestBody RecruiterTO recruiterTO)
+	@PutMapping("/parroles")
+	public ResponseEntity<PARRoleTO> updatePARRole(@RequestBody PARRoleTO parRoleTO)
 			throws ResourceNotFoundException, ResourceNotUpdatedException {
-		return ResponseEntity.ok(recruiterService.updateRecruiter(recruiterTO));
+		return ResponseEntity.ok(parRoleService.updatePARRole(parRoleTO));
 	}
 
 	/**
-	 * Request handler to delete recruiter
-	 * @param RecruiterId
+	 * Request handler to delete/deactivate Role
+	 * @param roleId
 	 * @return
 	 * @throws ResourceNotFoundException
 	 * @throws ResourceNotDeletedException
 	 */
-	@DeleteMapping("/recruiters/{recruiterId}")
-	public ResponseEntity<Boolean> deleteRecruiter(@PathVariable("recruiterId") int recruiterId)
+	@DeleteMapping("/parroles/{roleId}")
+	public ResponseEntity<Boolean> deletePARRole(@PathVariable("roleId") int roleId)
 			throws ResourceNotFoundException, ResourceNotDeletedException {
-		return ResponseEntity.ok(recruiterService.deleteRecruiter(recruiterId));
+		return ResponseEntity.ok(parRoleService.deletePARRole(roleId));
 	}
 	
 }

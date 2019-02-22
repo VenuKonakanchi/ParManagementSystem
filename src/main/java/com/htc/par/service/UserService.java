@@ -11,17 +11,22 @@ import com.htc.par.exceptions.ResourceNotUpdatedException;
 import com.htc.par.to.UserTO;
 
 public interface UserService {
-public UserTO getUserById(int userId) throws ResourceNotFoundException;
 	
-	public List<UserTO> getAllSkills() throws ResourceNotFoundException;
+	public UserTO getUserById(int userId) throws ResourceNotFoundException;
 	
-	public UserTO updateSkill(UserTO UserTO) throws ResourceNotUpdatedException;
+	public List<UserTO> getAllUsers() throws ResourceNotFoundException;
 	
-	public UserTO createSkill(UserTO UserTO) throws ResourceDuplicateException, ResourceNotCreatedException;
+	public UserTO updateUser(UserTO userTO) throws ResourceNotUpdatedException;
+	
+	public UserTO createUser(UserTO userTO) throws ResourceDuplicateException, ResourceNotCreatedException;
 
-	public boolean deleteSkill(int skillId) throws ResourceNotFoundException, ResourceNotDeletedException;
+	public boolean deleteUser(int userId) throws ResourceNotFoundException, ResourceNotDeletedException;
 	
-	public UserTO getSkillTO(AppUser user);
+	public UserTO getUserByUSerName(String userName) throws ResourceNotFoundException;
 	
-	public AppUser getSkill(UserTO userTO);
+	public UserTO getUserByEmail(String email) throws ResourceNotFoundException;
+	
+	public UserTO getUserTO(AppUser user);
+	
+	public AppUser getUser(UserTO userTO);
 }
