@@ -1,31 +1,47 @@
 package com.htc.par.to;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
 public class UserTO {
-	
-	private int userId;
-	
+
+	private Integer userId;
+	 @NotEmpty(message = "First Name cannot be empty")
+	 @NotNull(message = "First Name cannot be null")
+	 @Pattern(regexp="^[A-Za-z ]+$",message="Invalid First Name ")
 	private String firstName;
-	
+	 @NotEmpty(message = "Last Name cannot be null")
+	 @Pattern(regexp="^[A-Za-z ]+$",message="Invalid Last Name ")
+	 @NotEmpty(message = "First Name cannot be empty")
 	private String lastName;
-	
+	@Email(message="Email should be valid")
 	private String email;
-	
+	@Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message="Invalid phone Number")
 	private String phone;
-	
+	 @NotNull(message = "User Name cannot be null")
+	 @NotEmpty(message = "User Name cannot be empty")
 	private String userName;
-	
+	 @NotNull(message = "Password cannot be null")
+	 @NotEmpty(message = "User Name cannot be empty")
 	private String password;
-	
+	@NotNull(message="Role can not be null")
 	private RoleTO role;
 	
-	private boolean userActive;
+	private Boolean userActive=true;
 
 	public UserTO() {
 		super();
 	}
 
-	public UserTO(int userId, String firstName, String lastName, String email, String phone, String userName,
-			String password, RoleTO role, boolean userActive) {
+	public UserTO(Integer userId, @NotEmpty(message = "First Name cannot be null") String firstName,
+			@NotEmpty(message = "Last Name cannot be null") String lastName,
+			@Email(message = "Email should be valid") String email,
+			@Pattern(regexp = "^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message = "Invalid phone Number") String phone,
+			@NotNull(message = "User Name cannot be null") String userName,
+			@NotNull(message = "Password cannot be null") String password,
+			@NotNull(message = "Role can not be null") RoleTO role, Boolean userActive) {
 		super();
 		this.userId = userId;
 		this.firstName = firstName;
@@ -38,11 +54,26 @@ public class UserTO {
 		this.userActive = userActive;
 	}
 
-	public int getUserId() {
+	public UserTO(@NotEmpty(message = "First Name cannot be null") String firstName,
+			@NotEmpty(message = "Last Name cannot be null") String lastName,
+			@Email(message = "Email should be valid") String email,
+			@Pattern(regexp = "^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message = "Invalid phone Number") String phone,
+			@NotNull(message = "User Name cannot be null") String userName,
+			@NotNull(message = "Password cannot be null") String password) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phone = phone;
+		this.userName = userName;
+		this.password = password;
+	}
+
+	public Integer getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
 
@@ -102,11 +133,11 @@ public class UserTO {
 		this.role = role;
 	}
 
-	public boolean isUserActive() {
+	public Boolean getUserActive() {
 		return userActive;
 	}
 
-	public void setUserActive(boolean userActive) {
+	public void setUserActive(Boolean userActive) {
 		this.userActive = userActive;
 	}
 
@@ -117,6 +148,7 @@ public class UserTO {
 				+ ", userActive=" + userActive + "]";
 	}
 
+	
 	
 	
 
