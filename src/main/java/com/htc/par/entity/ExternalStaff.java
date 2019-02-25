@@ -1,11 +1,13 @@
 package com.htc.par.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -23,8 +25,8 @@ public class ExternalStaff {
 	@Column(name="ext_staff_nm")
 	private String extStaffName;
 	
-	@OneToOne
-	@JoinColumn(name="area_id")
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="area_cd")
 	private Area area;
 	
 	@Column(name="ext_staff_active")

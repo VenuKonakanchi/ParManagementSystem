@@ -59,6 +59,8 @@ public class ExternalStaffController {
 	@PostMapping("/externalstaffs")
 	public ResponseEntity<ExternalStaffTO> createExtStaff(@RequestBody ExternalStaffTO externalStaffTO)
 			throws ResourceNotCreatedException, ResourceDuplicateException {
+		System.out.println(" Inside external controller "  );
+		System.out.println("Input " + externalStaffTO);
 		return ResponseEntity.created(null).body(externalStaffService.createExternalStaff(externalStaffTO));
 	}
 
