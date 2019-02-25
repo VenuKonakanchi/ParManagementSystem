@@ -20,8 +20,7 @@ import com.htc.par.repository.AppUserRepository;
 public class AppUserDetailService implements UserDetailsService{
 
 	@Autowired
-	AppUserRepository userRepository;
-	
+	AppUserRepository userRepository;	
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -40,8 +39,5 @@ public class AppUserDetailService implements UserDetailsService{
 			
 		return new User(appUser.getUserName(), appUser.getPassword(), appUser.getUserActive(), true, true, true, authorities);
 	}
-
-
-	
 
 }
