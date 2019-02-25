@@ -3,13 +3,11 @@ package com.htc.par.entity;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -72,7 +70,19 @@ public class AppUser {
 		this.userActive = userActive;
 	}
 
-
+	public AppUser( String firstName, String lastName, String email, String phone, String userName,
+			String password, AppUserRole role, Boolean userActive) {
+		super();
+		
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phone = phone;
+		this.userName = userName;
+		this.password = password;
+		this.role = role;
+		this.userActive = userActive;
+	}
 
 
 	public Integer getUserId() {
