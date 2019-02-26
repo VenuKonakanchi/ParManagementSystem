@@ -24,7 +24,8 @@ import com.htc.par.service.PreScreenerService;
 import com.htc.par.to.PreScreenerTO;
 import com.htc.par.utilities.NullAwareBeanUtil;
 
-/**@author Shyam --- PreScreener Service Implementation  */
+/**@author Shyam Kandi
+ * PreScreener Service Implementation  */
 
 @Service
 public class PreScreenerServiceImpl implements PreScreenerService {
