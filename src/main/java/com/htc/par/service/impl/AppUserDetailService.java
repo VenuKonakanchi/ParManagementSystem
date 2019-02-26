@@ -2,6 +2,7 @@ package com.htc.par.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -19,23 +20,24 @@ import com.htc.par.repository.AppUserRepository;
 public class AppUserDetailService implements UserDetailsService{
 
 	@Autowired
-	AppUserRepository userRepository;
-	
+	AppUserRepository userRepository;	
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		AppUser appUser = userRepository.findByUserNameAndUserActive(username, true);
+		Optional<AppUser>  optionalAppUser = userRepository.findByUserNameAndUserActive(username, true);
 		
-
-		if(appUser == null)
+		AppUser appUser=null;
+		if(!optionalAppUser.isPresent())
 			throw new UsernameNotFoundException("Username not found");
+		else
+			appUser=optionalAppUser.get();
 		
 		List<GrantedAuthority> authorities = new ArrayList<>();
 		
 		authorities.add(new  SimpleGrantedAuthority("ROLE_"+appUser.getRole().getRoleName()));
 			
-		return new User(appUser.getUserName(), appUser.getPassword(), appUser.isUserActive(), true, true, true, authorities);
+		return new User(appUser.getUserName(), appUser.getPassword(), appUser.getUserActive(), true, true, true, authorities);
 	}
 
 }

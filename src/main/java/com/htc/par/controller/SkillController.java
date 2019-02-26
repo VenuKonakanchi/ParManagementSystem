@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.htc.par.exceptions.ResourceDuplicateException;
 import com.htc.par.exceptions.ResourceNotCreatedException;
 import com.htc.par.exceptions.ResourceNotDeletedException;
@@ -26,7 +27,7 @@ import com.htc.par.to.SkillTO;
 
 /**
  * Rest controller for Skill service
- *
+ * @author 
  */
 
 @RestController
@@ -80,6 +81,22 @@ public class SkillController {
 	@PutMapping("/skills")
 	public ResponseEntity<SkillTO> updateSkill(@RequestBody SkillTO skillTO)
 			throws ResourceNotFoundException, ResourceNotUpdatedException {
+		System.out.println("******************Calling PutMapping****************");
+		return ResponseEntity.ok(skillService.updateSkill(skillTO));
+	}
+	
+	
+	@PutMapping("/skillsupdate")
+	public ResponseEntity<SkillTO> updateSkillJson(@RequestBody String json)
+			throws ResourceNotFoundException, ResourceNotUpdatedException {
+		SkillTO skillTO = null;
+		try{
+	           ObjectMapper om = new ObjectMapper();
+	           skillTO = om.readValue(json, SkillTO.class);
+	          } 
+	          catch(Exception e){
+	            e.printStackTrace();
+	          }
 		return ResponseEntity.ok(skillService.updateSkill(skillTO));
 	}
 
