@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/skills', populateSkillInfo, skillLoadFailure);
 	$('#statusSkillDiv').hide();
-	var table=null;
+	var table=null; 
 	
     $("#addNewSkillBtn").on("click", function(){
     	$('#skillModal').modal('show'); 

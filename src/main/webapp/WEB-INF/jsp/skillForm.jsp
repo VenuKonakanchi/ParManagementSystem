@@ -1,7 +1,7 @@
 <div class="collapse" role="alert" id="statusSkillDiv">
   <span id="statusSkillMessage"></span>
   <button type="button" class="close" data-hide="alert">&times;</button>
- </div>
+ </div> 
 		  
 <!--   <div class="alert alert-error collapse" role="alert" id="statusSkillDiv">
 	  <span id="statusSkillMessage">
