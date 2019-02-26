@@ -1,0 +1,27 @@
+package com.htc.par.repository;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import com.htc.par.entity.Candidate;
+import com.htc.par.entity.ExternalStaff;
+import com.htc.par.entity.Skill;
+
+@Repository
+public interface CandidateRepository extends JpaRepository<Candidate, Integer>{
+	
+	public Optional<Candidate> findByCandidateIdAndCandidateActive(@Param("candId") Integer candId,
+															   @Param("candActive") boolean candActive);
+	
+	public Optional<Candidate> findByCandidateNameAndCandidateActive(@Param("candName") String candName,
+			   @Param("candActive") boolean candActive);
+
+	public Optional<Candidate> findByCandidateName(@Param("candName") String candName);
+	
+	public List<Candidate> findAllByExtCandidateActive(@Param("candActive") boolean candActive);
+
+}
