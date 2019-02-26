@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
+
+import com.htc.par.entity.Area;
 import com.htc.par.entity.Area;
 import com.htc.par.exceptions.ResourceDuplicateException;
 import com.htc.par.exceptions.ResourceNotCreatedException;
@@ -15,6 +18,7 @@ import com.htc.par.exceptions.ResourceNotFoundException;
 import com.htc.par.exceptions.ResourceNotUpdatedException;
 import com.htc.par.repository.AreaRepository;
 import com.htc.par.service.AreaService;
+import com.htc.par.to.AreaTO;
 import com.htc.par.to.AreaTO;
 import com.htc.par.utilities.NullAwareBeanUtil;
 @Service
@@ -28,7 +32,7 @@ public class AreaServiceImpl implements AreaService{
 		return area;
 	}
 	@Override
-	public AreaTO getAreaTo (Area area) {
+	public AreaTO getAreaTO (Area area) {
 		
 		AreaTO areaTo = new AreaTO (area.getAreaId(), area.getAreaName(), area.getAreaActive());	
 		return areaTo;
@@ -46,7 +50,6 @@ public class AreaServiceImpl implements AreaService{
 			Optional<Area> areaOptional = arearepository.findByAreaName(areaTo.getAreaName());
 			Area area = null;
 			if (!areaOptional.isPresent()) {
-
 				areaTo.setAreaActive(true);
 				area = getArea(areaTo);
 			} else {
@@ -55,7 +58,7 @@ public class AreaServiceImpl implements AreaService{
 				areaTo.setAreaActive(true);
 			}
 			area = arearepository.save(area);
-			areaTo = getAreaTo(area);
+			areaTo = getAreaTO(area);
 		} catch (DataIntegrityViolationException dae) {
 			throw new ResourceDuplicateException(String.format("Area: %s Already Exist.", areaTo.getAreaName()));
 		} catch (DataAccessException dae) {
@@ -75,7 +78,7 @@ public class AreaServiceImpl implements AreaService{
 		AreaTO areaTo = null;
 		if (!areaOptional.isPresent())
 			throw new ResourceNotFoundException(String.format("Area Id: %s not found.", areaId));
-		areaTo = getAreaTo(areaOptional.get());
+		areaTo = getAreaTO(areaOptional.get());
 		return areaTo;
 	}
 	/*
@@ -84,15 +87,20 @@ public class AreaServiceImpl implements AreaService{
 	 * 
 	 * @ResourseNotFoundException
 	 */
-	public List <AreaTO> getAllAreas() throws ResourceNotFoundException  {
-		
-		List <Area> arealist = arearepository.findAll();	
-		List <AreaTO> arealistTo = arealist.stream()
-											.map(area -> {return getAreaTo(area);})
-											.collect(Collectors.toList());
+ 
 
-		return arealistTo;
-	}
+		@Override
+		public List<AreaTO> getAllAreas() throws ResourceNotFoundException {
+			List<Area> areaEntities = arearepository.findAllByAreaActive(true);
+			if (CollectionUtils.isEmpty(areaEntities))
+				throw new ResourceNotFoundException("No Areas Found.");
+			List<AreaTO> areaList = areaEntities.stream().map(area -> {
+				return getAreaTO(area);
+			}).collect(Collectors.toList());
+			return areaList;
+		}
+
+
 	/*
 	 * Request handler to Update Areas
 	 * @Param AreaTo
@@ -108,7 +116,7 @@ public class AreaServiceImpl implements AreaService{
  
 			Area area = areaOptional.get();
 			NullAwareBeanUtil.copyProperties(areaTo, area);
-			updatedAreaTo = getAreaTo(arearepository.save(area));
+			updatedAreaTo = getAreaTO(arearepository.save(area));
 		} catch (DataAccessException dae) {
 			throw new ResourceNotUpdatedException(String.format("Area: %s Not Found.", areaTo.getAreaName()));
 		}
@@ -134,4 +142,5 @@ public class AreaServiceImpl implements AreaService{
 			}
 			return true;
 		}
+ 
 }

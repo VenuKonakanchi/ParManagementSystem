@@ -11,7 +11,7 @@
       <li class="active" style="font-weight: bold;"><a href="">Home</a></li>
       <li class="dropdown" ><a class="dropdown-toggle" data-toggle="dropdown" href="#">Masters<span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="areaAndProductForm">Area/Product</a></li>
+          <li><a href="areaForm">Area</a></li>
           <li><a href="candidateMaster">Candidate Master</a></li>
           <li><a href="candidateRole"> Role Information</a></li>
           <li><a href="externalStaffingInfoForm">External Staffing Info</a></li>

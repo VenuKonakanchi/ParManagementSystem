@@ -108,7 +108,7 @@
                             </ul>
                   <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade" id="area-product" role="tabpanel" aria-labelledby="area-product-tab">
-                      Lorem ipsum dolor sit amet...
+                      <%@include file="areaForm.jsp" %>
                     </div>
                     <div class="tab-pane fade show active" id="candidate-master" role="tabpanel" aria-labelledby="candidate-master-tab">
                                     <table id="example" class="table table-striped table-bordered dataTable" style="width: 100%;">
