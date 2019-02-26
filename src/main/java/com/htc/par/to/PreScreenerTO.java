@@ -6,7 +6,7 @@ import javax.validation.constraints.Pattern;
 public class PreScreenerTO {
 
 	private Integer preScreenerId;
-	@NotEmpty(message="PreScreener Name cannot be empty.")
+	@NotEmpty(message="PreScreener Name cannot be empty....")
 	private String preScreenerName;
 	@Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$",message="Invalid Phone number.")
 	private String preScreenerPhoneNumber;
