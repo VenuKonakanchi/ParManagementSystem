@@ -12,6 +12,7 @@ import com.htc.par.to.AreaTO;
 public interface AreaService {
 	public AreaTO getAreaById(int areaId) throws ResourceNotFoundException;
 	public List<AreaTO> getAllAreas() throws ResourceNotFoundException;
+	public List<AreaTO> getAllAreas(int areaId) throws ResourceNotFoundException;
 	public AreaTO updateArea(AreaTO areaTo) throws ResourceNotUpdatedException;
 	public AreaTO createArea(AreaTO areaTo) throws ResourceDuplicateException, ResourceNotCreatedException;
 	public boolean deleteArea(int areaId) throws ResourceNotFoundException, ResourceNotDeletedException;

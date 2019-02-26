@@ -93,6 +93,16 @@ public class AreaServiceImpl implements AreaService{
 
 		return arealistTo;
 	}
+	
+	public List <AreaTO> getAllAreas(int areaId) throws ResourceNotFoundException  {
+		
+		List <Area> arealist = arearepository.findAll();	
+		List <AreaTO> arealistTo = arealist.stream()
+											.map(area -> {return getAreaTo(area);})
+											.collect(Collectors.toList());
+
+		return arealistTo;
+	}
 	/*
 	 * Request handler to Update Areas
 	 * @Param AreaTo
