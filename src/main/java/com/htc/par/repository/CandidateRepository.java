@@ -22,6 +22,6 @@ public interface CandidateRepository extends JpaRepository<Candidate, Integer>{
 
 	public Optional<Candidate> findByCandidateName(@Param("candName") String candName);
 	
-	public List<Candidate> findAllByExtCandidateActive(@Param("candActive") boolean candActive);
+	public List<Candidate> findAllByCandidateActive(@Param("candActive") boolean candActive);
 
 }

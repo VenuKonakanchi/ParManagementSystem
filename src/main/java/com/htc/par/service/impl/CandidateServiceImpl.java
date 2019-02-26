@@ -56,7 +56,7 @@ public class CandidateServiceImpl implements CandidateService {
 	@Override
 	public List<CandidateTO> getAllCandidate() throws ResourceNotFoundException {
 		// TODO Auto-generated method stub
-		List<Candidate> candidates = candidateRepository.findAllByExtCandidateActive(true);
+		List<Candidate> candidates = candidateRepository.findAllByCandidateActive(true);
 		if (CollectionUtils.isEmpty(candidates))
 			throw new ResourceNotFoundException("No Candidates Found.");
 		List<CandidateTO> candidateTOs = candidates.stream().map(Candidate -> {
