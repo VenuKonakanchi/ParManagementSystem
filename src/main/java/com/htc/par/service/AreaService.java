@@ -15,6 +15,6 @@ public interface AreaService {
 	public AreaTO updateArea(AreaTO areaTo) throws ResourceNotUpdatedException;
 	public AreaTO createArea(AreaTO areaTo) throws ResourceDuplicateException, ResourceNotCreatedException;
 	public boolean deleteArea(int areaId) throws ResourceNotFoundException, ResourceNotDeletedException;
-	public AreaTO getAreaTo(Area area);
+	public AreaTO getAreaTO(Area area);
 	public Area getArea(AreaTO areaTo);
 }

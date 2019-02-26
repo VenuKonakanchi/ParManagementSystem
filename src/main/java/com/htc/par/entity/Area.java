@@ -67,7 +67,7 @@ public class Area {
 
 
 	public void setAreaActive(Boolean areaActive) {
-		areaActive = areaActive;
+		this.areaActive = areaActive;
 	}
 
 
@@ -84,13 +84,13 @@ public class Area {
 		super();
 		this.areaId = areaId;
 		this.areaName = areaName;
-		areaActive = areaActive;
+		this.areaActive = areaActive;
 	}
 	public Area( String areaName, Boolean areaActive) {
 		super();
 		
 		this.areaName = areaName;
-		areaActive = areaActive;
+		this.areaActive = areaActive;
 	}
 
 
@@ -108,7 +108,7 @@ public class Area {
 		super();
 		this.areaId = areaId;
 		this.areaName = areaName;
-		areaActive = areaActive;
+		this.areaActive = areaActive;
 		this.externalStaff = externalStaff;
 	}
 
