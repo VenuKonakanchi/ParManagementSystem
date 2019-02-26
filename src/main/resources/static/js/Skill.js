@@ -1,5 +1,4 @@
 $(document).ready(function(){
-	
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/skills', populateSkillInfo, skillLoadFailure);
 	$('#statusDiv').hide();
 	var table=null;
@@ -12,16 +11,6 @@ $(document).ready(function(){
 		table = $('#tblSkills').DataTable(
 				{
 					autoWidth: false,
-					/* dom: 'lBfrtip',
-			       buttons: [
-			            {
-			                text: 'Add New Skill',
-			                action: function ( e, dt, node, config ) {
-			                	$('#skillModal').modal('show'); 
-			                }
-			            }
-			        ],*/
-					
 					columns: [
      						{ data: 'skillId' },
 						{ data: 'skillName' },
@@ -30,16 +19,8 @@ $(document).ready(function(){
 							data:null,
 							render: function (data, type, row){
                                 return '<button class="btnDelete btn btn-sm deleteRow"><img src="static/img/delete.png" alt="Delete"></button>   <button class="btnViewSkill btn btn-sm editRow" data-toggle="modal" data-target="#skillModal" data-skillid="' + data.skillId + '" data-skillname="' + data.skillName + '" data-skillactive="' + data.skillActive + '"><img src="static/img/edit.png" alt="Edit"></button>';
-								//return '<button type="button" class="btnDelete btn btn-primary">Delete</button>';
 							}
-						},
-						/*{
-							data: null,
-							  render: function ( data, type, row ) {
-                                  return '<button class="btnViewSkill btn btn-sm editRow" data-toggle="modal" data-target="#skillModal" data-skillid="' + data.skillId + '" data-skillname="' + data.skillName + '" data-skillactive="' + data.skillActive + '"><img src="static/img/edit.png" alt="Edit"></button>';
-								  //return '<button type="button" class="btnViewSkill btn btn-primary" data-toggle="modal" data-target="#skillModal" data-skillid="' + data.skillId + '" data-skillname="' + data.skillName + '" data-skillactive="' + data.skillActive + '">Update Skill</button>';
-							  }
-						}*/
+						}
 					],
 			        columnDefs: [
 			            {
@@ -57,7 +38,7 @@ $(document).ready(function(){
 			        order: [[0,'desc']]
                 }		
 		);
-		table.clear().rows.add(response).draw();
+		table.clear().rows.add(response).draw(); 
 		$("#tblSkills tbody").on('click', '.btnDelete', function () {
 			var skill = table.row($(this).closest('tr')).data();
 			
@@ -80,8 +61,15 @@ $(document).ready(function(){
 	}
 	
 	function skillLoadFailure(xhr, error){
-		AjaxUtil.utils.displayError("Unable to load Skills");
-		AjaxUtil.utils.ajaxFailureCallback(xhr, error);
+		if(xhr.status!=404){
+			var reponseBody = JSON.parse(xhr.responseText);
+			$('#statusDiv').removeClass("alert alert-success");
+			$('#statusDiv').addClass("alert alert-warning");
+			$('#statusMessage').html(reponseBody['message']);
+			$('#statusDiv').show();
+		}else{
+			$('#statusDiv').hide();
+		}
 	}
 	
     $("[data-hide]").on("click", function(){
@@ -105,7 +93,7 @@ $(document).ready(function(){
 			console.log(error);
 		};
 	};
-
+	
 	var skillUpdateFailure = function(skillName) {
 		return function(xhr, error){
 			$('#modalStatusDiv').removeClass("alert alert-success");
@@ -163,11 +151,15 @@ $(document).ready(function(){
 	
 	var skillAddSuccess = function() {
 		return function(response) {
-			table.row.add(response).draw( false );
 			$('#modalStatusDiv').removeClass("alert alert-danger");
 			$('#modalStatusDiv').addClass("alert alert-success");
 			$('#modalStatusMessage').html("New Skill has been created successfully!!");
 			$('#modalStatusDiv').show();
+			if(!$.fn.dataTable.isDataTable("#tblSkills")){
+				populateSkillInfo(response);
+			}else{
+				table.row.add(response).draw(false);
+			}
 		};
 	};
 	
