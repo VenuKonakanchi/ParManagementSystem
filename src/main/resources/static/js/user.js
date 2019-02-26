@@ -80,12 +80,26 @@ AjaxUtil.utils.sendGetRequest('/parmanagement/par/users/roles', populateRoleInfo
 	}
 	
 	function userLoadFailure(xhr, error){
-		AjaxUtil.utils.displayError("Unable to load Users");
-		AjaxUtil.utils.ajaxFailureCallback(xhr, error);
+		if(xhr.status!=404){
+			var reponseBody = JSON.parse(xhr.responseText);
+			$('#userStatusDiv').removeClass("alert alert-success");
+			$('#userStatusDiv').addClass("alert alert-warning");
+			$('#userStatusMessage').html(reponseBody['message']);
+			$('#userStatusDiv').show();
+		}else{
+			$('#userStatusDiv').hide();
+		}
 	}
 	function roleLoadFailure(xhr, error){
-		AjaxUtil.utils.displayError("Unable to load roles");
-		AjaxUtil.utils.ajaxFailureCallback(xhr, error);
+		if(xhr.status!=404){
+			var reponseBody = JSON.parse(xhr.responseText);
+			$('#userStatusDiv').removeClass("alert alert-success");
+			$('#userStatusDiv').addClass("alert alert-warning");
+			$('#userStatusMessage').html(reponseBody['message']);
+			$('#userStatusDiv').show();
+		}else{
+			$('#userStatusDiv').hide();
+		}
 	}
 	
     $("[data-hide]").on("click", function(){
