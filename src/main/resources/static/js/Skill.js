@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/skills', populateSkillInfo, skillLoadFailure);
-	$('#statusDiv').hide();
+	$('#statusSkillDiv').hide();
 	var table=null;
 	
     $("#addNewSkillBtn").on("click", function(){
@@ -18,7 +18,7 @@ $(document).ready(function(){
 						{
 							data:null,
 							render: function (data, type, row){
-                                return '<button class="btnDelete btn btn-sm deleteRow"><img src="static/img/delete.png" alt="Delete"></button>   <button class="btnViewSkill btn btn-sm editRow" data-toggle="modal" data-target="#skillModal" data-skillid="' + data.skillId + '" data-skillname="' + data.skillName + '" data-skillactive="' + data.skillActive + '"><img src="static/img/edit.png" alt="Edit"></button>';
+                                return '<button class="btnDeleteSkill btn btn-sm deleteRow"><img src="static/img/delete.png" alt="Delete"></button>   <button class="btnViewSkill btn btn-sm editRow" data-toggle="modal" data-target="#skillModal" data-skillid="' + data.skillId + '" data-skillname="' + data.skillName + '" data-skillactive="' + data.skillActive + '"><img src="static/img/edit.png" alt="Edit"></button>';
 							}
 						}
 					],
@@ -39,16 +39,16 @@ $(document).ready(function(){
                 }		
 		);
 		table.clear().rows.add(response).draw(); 
-		$("#tblSkills tbody").on('click', '.btnDelete', function () {
+		$("#tblSkills tbody").on('click', '.btnDeleteSkill', function () {
 			var skill = table.row($(this).closest('tr')).data();
 			
-		    $('#confirm').modal({ backdrop: 'static', keyboard: false })
+		    $('#confirmSkillDeleteModal').modal({ backdrop: 'static', keyboard: false })
 	        .on('click', '#delete-btn', function(){
 				var deleteData={};
 				deleteData['skillId']=skill.skillId;
 				deleteData['skillName']=skill.skillName;
-				AjaxUtil.utils.sendDeleteRequest('/parmanagement/par/skills/'+skill.skillId, skillDeleteSuccess(deleteData,'deleted','statusMessage'), skillDeleteFailure(skill.skillName));
-				$('#confirm').modal('hide');
+				AjaxUtil.utils.sendDeleteRequest('/parmanagement/par/skills/'+skill.skillId, skillDeleteSuccess(deleteData,'deleted','statusSkillMessage'), skillDeleteFailure(skill.skillName));
+				$('#confirmSkillDeleteModal').modal('hide');
 	        });
 		    
 		});
@@ -63,12 +63,12 @@ $(document).ready(function(){
 	function skillLoadFailure(xhr, error){
 		if(xhr.status!=404){
 			var reponseBody = JSON.parse(xhr.responseText);
-			$('#statusDiv').removeClass("alert alert-success");
-			$('#statusDiv').addClass("alert alert-warning");
-			$('#statusMessage').html(reponseBody['message']);
-			$('#statusDiv').show();
+			$('#statusSkillDiv').removeClass("alert alert-success");
+			$('#statusSkillDiv').addClass("alert alert-warning");
+			$('#statusSkillMessage').html(reponseBody['message']);
+			$('#statusSkillDiv').show();
 		}else{
-			$('#statusDiv').hide();
+			$('#statusSkillDiv').hide();
 		}
 	}
 	
@@ -78,17 +78,17 @@ $(document).ready(function(){
 	
 	var skillDeleteFailure = function(skillName) {
 		return function(xhr, error){
-			$('#statusDiv').removeClass("alert alert-success");
-			$('#statusDiv').addClass("alert alert-danger");
+			$('#statusSkillDiv').removeClass("alert alert-success");
+			$('#statusSkillDiv').addClass("alert alert-danger");
 			var reponseBody = JSON.parse(xhr.responseText);
 			if (typeof reponseBody['message'] == undefined || reponseBody['message'] == null) {
-				$('#statusMessage').html('Unable to delete '+ skillName);				
+				$('#statusSkillMessage').html('Unable to delete '+ skillName);				
 			}
 			else{
 				
-				$('#statusMessage').html(reponseBody['message']);
+				$('#statusSkillMessage').html(reponseBody['message']);
 			}	
-			$('#statusDiv').show();
+			$('#statusSkillDiv').show();
 			console.log("Error Code :"+ xhr.status);
 			console.log(error);
 		};
@@ -96,16 +96,16 @@ $(document).ready(function(){
 	
 	var skillUpdateFailure = function(skillName) {
 		return function(xhr, error){
-			$('#modalStatusDiv').removeClass("alert alert-success");
-			$('#modalStatusDiv').addClass("alert alert-danger");
+			$('#modalStatusSkillDiv').removeClass("alert alert-success");
+			$('#modalStatusSkillDiv').addClass("alert alert-danger");
 			var reponseBody = JSON.parse(xhr.responseText);
 			if (typeof reponseBody['message'] == undefined || reponseBody['message'] == null) {
-				$('#modalStatusMessage').html('Unable to update '+ skillName);				
+				$('#modalStatusSkillMessage').html('Unable to update '+ skillName);				
 			}
 			else{
-				$('#modalStatusMessage').html(reponseBody['message']);
+				$('#modalStatusSkillMessage').html(reponseBody['message']);
 			}	
-			$('#modalStatusDiv').show();
+			$('#modalStatusSkillDiv').show();
 			console.log("Error Code :"+ xhr.status);
 			console.log(error);
 		};
@@ -113,16 +113,16 @@ $(document).ready(function(){
 
 	var skillAddFailure = function(skillName) {
 		return function(xhr, error){
-			$('#modalStatusDiv').removeClass("alert alert-success");
-			$('#modalStatusDiv').addClass("alert alert-danger");
+			$('#modalStatusSkillDiv').removeClass("alert alert-success");
+			$('#modalStatusSkillDiv').addClass("alert alert-danger");
 			var reponseBody = JSON.parse(xhr.responseText);
 			if (typeof reponseBody['message'] == undefined || reponseBody['message'] == null) {
-				$('#modalStatusMessage').html('Unable to create ' + skillName);				
+				$('#modalStatusSkillMessage').html('Unable to create ' + skillName);				
 			}
 			else{
-				$('#modalStatusMessage').html(reponseBody['message']);
+				$('#modalStatusSkillMessage').html(reponseBody['message']);
 			}	
-			$('#modalStatusDiv').show();
+			$('#modalStatusSkillDiv').show();
 			console.log("Error Code :"+ xhr.status);
 			console.log(error);
 		};
@@ -131,10 +131,10 @@ $(document).ready(function(){
 	var skillDeleteSuccess = function(deleteData,action,divElement) {
 		return function(response) {
 			table.row('#'+deleteData['skillId']).remove().draw();
-			$('#statusDiv').removeClass("alert alert-danger");
-			$('#statusDiv').addClass("alert alert-success");
-			$('#statusMessage').html(deleteData['skillName'] + " has been successfully deleted!!");
-			$('#statusDiv').show();
+			$('#statusSkillDiv').removeClass("alert alert-danger");
+			$('#statusSkillDiv').addClass("alert alert-success");
+			$('#statusSkillMessage').html(deleteData['skillName'] + " has been successfully deleted!!");
+			$('#statusSkillDiv').show();
 		};
 	};
 	
@@ -142,19 +142,19 @@ $(document).ready(function(){
 		return function(response) {
 			//var rowIndex = $("#rowIndex").val();
 			table.row('#'+newData['skillId']).data(newData).draw();
-			$('#modalStatusDiv').removeClass("alert alert-danger");
-			$('#modalStatusDiv').addClass("alert alert-success");
-			$('#modalStatusMessage').html("Skill name has been successfully updated!!");
-			$('#modalStatusDiv').show();
+			$('#modalStatusSkillDiv').removeClass("alert alert-danger");
+			$('#modalStatusSkillDiv').addClass("alert alert-success");
+			$('#modalStatusSkillMessage').html("Skill name has been successfully updated!!");
+			$('#modalStatusSkillDiv').show();
 		};
 	};
 	
 	var skillAddSuccess = function() {
 		return function(response) {
-			$('#modalStatusDiv').removeClass("alert alert-danger");
-			$('#modalStatusDiv').addClass("alert alert-success");
-			$('#modalStatusMessage').html("New Skill has been created successfully!!");
-			$('#modalStatusDiv').show();
+			$('#modalStatusSkillDiv').removeClass("alert alert-danger");
+			$('#modalStatusSkillDiv').addClass("alert alert-success");
+			$('#modalStatusSkillMessage').html("New Skill has been created successfully!!");
+			$('#modalStatusSkillDiv').show();
 			if(!$.fn.dataTable.isDataTable("#tblSkills")){
 				populateSkillInfo(response);
 			}else{
@@ -168,7 +168,7 @@ $(document).ready(function(){
 	  var skillId = button.data('skillid');
 	  var skillName =  button.data('skillname');
 	  var skillActive = button.data('skillactive');
-	  $('#modalStatusDiv').hide();
+	  $('#modalStatusSkillDiv').hide();
 	  $('#skillName').val(skillName);
 	  
 
@@ -176,7 +176,7 @@ $(document).ready(function(){
 	  $("#skillModal").off('click', '#saveSkillButton');
 	  
 	  $("#skillModal").on('click', '#saveSkillButton', function () {
-		  $('#modalStatusDiv').hide();
+		  $('#modalStatusSkillDiv').hide();
 		  $('#skillForm').validate({
 			    rules : {
 			        skillName : {  required: true }

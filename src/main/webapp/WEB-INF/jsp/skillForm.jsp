@@ -1,14 +1,14 @@
-<div class="collapse" role="alert" id="statusDiv">
-  <span id="statusMessage"></span>
+<div class="collapse" role="alert" id="statusSkillDiv">
+  <span id="statusSkillMessage"></span>
   <button type="button" class="close" data-hide="alert">&times;</button>
  </div>
 		  
-  <div class="alert alert-error collapse" role="alert" id="statusDiv">
-	  <span id="statusMessage">
-	  	<!-- <p ></p> -->
+<!--   <div class="alert alert-error collapse" role="alert" id="statusSkillDiv">
+	  <span id="statusSkillMessage">
+	  	<p ></p>
 	  </span>
 	   <button type="button" class="close" data-hide="alert">&times;</button>
-</div>
+</div> -->
 	<button type="button" class="btn btn-sm btn-primary" id="addNewSkillBtn">Add New Skill</button><p ></p>
 	<table id="tblSkills"
 		class="table table-striped table-bordered dataTable" style="width: 100%;">
@@ -23,7 +23,7 @@
 		</thead>
 	</table>
    
-	<div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+	<div class="modal fade" id="confirmSkillDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
 	    <div class="modal-dialog modal-lg"  role="document">
 	        <div class="modal-content">
 	            <div class="modal-header">
@@ -53,8 +53,8 @@
 	      </div>
 	      <div class="modal-body">
 	      <p></p>
-		  <div class="collapse" role="alert" id="modalStatusDiv">
-			  <span id="modalStatusMessage"></span>
+		  <div class="collapse" role="alert" id="modalStatusSkillDiv">
+			  <span id="modalStatusSkillMessage"></span>
 			  <button type="button" class="close" data-hide="alert">&times;</button>
 		  </div>
 		  <form class="form-horizontal"  role="form" id="skillForm">
