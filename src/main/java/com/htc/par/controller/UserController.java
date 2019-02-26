@@ -21,6 +21,7 @@ import com.htc.par.exceptions.ResourceNotDeletedException;
 import com.htc.par.exceptions.ResourceNotFoundException;
 import com.htc.par.exceptions.ResourceNotUpdatedException;
 import com.htc.par.service.UserService;
+import com.htc.par.to.RoleTO;
 import com.htc.par.to.UserTO;
 
 /*
@@ -92,5 +93,15 @@ public class UserController {
 	public ResponseEntity<Boolean> deleteSkill(@PathVariable("userId") int userId)
 			throws ResourceNotFoundException, ResourceNotDeletedException {
 		return ResponseEntity.ok(userService.deleteUser(userId));
+	}
+	
+	/**
+	 * Request handler to get all users 
+	 * @return
+	 * @throws ResourceNotFoundException
+	 */
+	@GetMapping("/users/roles")
+	public ResponseEntity<List<RoleTO>> getRoles() throws ResourceNotFoundException {
+		return ResponseEntity.ok(userService.getAllRoles());
 	}
 }
