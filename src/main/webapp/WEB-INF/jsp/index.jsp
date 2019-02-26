@@ -213,7 +213,7 @@
                        <%@include file="skillForm.jsp" %>
                     </div>
                     <div class="tab-pane fade" id="user" role="tabpanel" aria-labelledby="user-tab">
-                        Lorem ipsum dolor sit amet...
+                      <%@include file="userForm.jsp" %>
                     </div>
                   </div>
             </div>
@@ -289,6 +289,7 @@
   <script type="text/javascript" src="static/js/AjaxUtil.js"></script>
   <script type="text/javascript" src="static/js/PARValidator.js"></script>
   <script type="text/javascript" src="static/js/Skill.js"></script>
+    <script type="text/javascript" src="static/js/user.js"></script>
 </body>
 
 </html>

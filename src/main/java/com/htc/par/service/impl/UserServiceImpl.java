@@ -182,4 +182,18 @@ public class UserServiceImpl implements UserService {
 		return getUserTO(appUserOptional.get());
 	}
 
+
+	@Override
+	public List<RoleTO> getAllRoles() {
+	List<AppUserRole>  roleEntities = roleRepository.findAll();	
+		if (CollectionUtils.isEmpty(roleEntities))
+			throw new ResourceNotFoundException("No Roles Found.");
+		List<RoleTO> roleList = roleEntities.stream().map(role -> {
+			return new RoleTO(role.getRoleId(),role.getRoleName());
+		}).collect(Collectors.toList());
+		return roleList;
+	}
+	
+	
+
 }
