@@ -75,7 +75,7 @@
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
                       <a class="nav-link" id="area-product-tab" data-toggle="tab" href="#area-product" role="tab" aria-controls="area-product"
-                        aria-selected="false">Area/Product</a>
+                        aria-selected="false">Area</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link active" id="candidate-master-tab" data-toggle="tab" href="#candidate-master" role="tab" aria-controls="candidate-master"
@@ -108,7 +108,7 @@
                             </ul>
                   <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade" id="area-product" role="tabpanel" aria-labelledby="area-product-tab">
-                      Lorem ipsum dolor sit amet...
+                	 <%@include file="areaForm.jsp" %>
                     </div>
                     <div class="tab-pane fade show active" id="candidate-master" role="tabpanel" aria-labelledby="candidate-master-tab">
                                     <table id="example" class="table table-striped table-bordered dataTable" style="width: 100%;">
@@ -289,6 +289,7 @@
   <script type="text/javascript" src="static/js/AjaxUtil.js"></script>
   <script type="text/javascript" src="static/js/PARValidator.js"></script>
   <script type="text/javascript" src="static/js/Skill.js"></script>
+  <script type="text/javascript" src="static/js/Area.js"></script>
 </body>
 
 </html>

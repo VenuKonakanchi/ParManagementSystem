@@ -43,19 +43,7 @@ public class AreaController {
 	public String area() {
 		return "areaAndProductForm";
 	}
-	
-	 
-	
-	@GetMapping(value="/areaRetrieve", produces="application/json")
-	@ResponseBody
-	public List<AreaTO> areaRetrieve(@RequestParam Integer areaId) {
-	
-		List<AreaTO> areas = areaservice.getAllAreas(areaId);
 
-		areas.forEach(System.out::println);
-		return areas;
-		
-	}
 	/*
 	 * Request handler to GET all Areas
 	 * @Param AreaTo
