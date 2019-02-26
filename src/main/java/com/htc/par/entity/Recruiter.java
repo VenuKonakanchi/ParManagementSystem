@@ -2,7 +2,10 @@ package com.htc.par.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -10,6 +13,8 @@ import javax.persistence.Table;
 public class Recruiter {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "recruit_seq")
+	@SequenceGenerator(name="recruit_seq", sequenceName="recruit_seq",initialValue = 8000, allocationSize=1)
 	@Column(name="recruit_id")
 	private Integer recruiterId;
 	
@@ -26,7 +31,7 @@ public class Recruiter {
 	private Boolean recruiterEmailFlag;
 	
 	@Column(name="recruit_active")
-	private Boolean isRecruiterActive;
+	private Boolean recruiterActive;
 
 	public Integer getRecruiterId() {
 		return recruiterId;
@@ -68,23 +73,23 @@ public class Recruiter {
 		this.recruiterEmailFlag = recruiterEmailFlag;
 	}
 
-	public Boolean getIsRecruiterActive() {
-		return isRecruiterActive;
+	public Boolean getRecruiterActive() {
+		return recruiterActive;
 	}
 
-	public void setIsRecruiterActive(Boolean isRecruiterActive) {
-		this.isRecruiterActive = isRecruiterActive;
+	public void setRecruiterActive(Boolean recruiterActive) {
+		this.recruiterActive = recruiterActive;
 	}
 
 	public Recruiter(Integer recruiterId, String recruiterName, String recruiterPhoneNumber, String recruiterEmail,
-			Boolean recruiterEmailFlag, Boolean isRecruiterActive) {
+			Boolean recruiterEmailFlag, Boolean recruiterActive) {
 		super();
 		this.recruiterId = recruiterId;
 		this.recruiterName = recruiterName;
 		this.recruiterPhoneNumber = recruiterPhoneNumber;
 		this.recruiterEmail = recruiterEmail;
 		this.recruiterEmailFlag = recruiterEmailFlag;
-		this.isRecruiterActive = isRecruiterActive;
+		this.recruiterActive = recruiterActive;
 	}
 
 	public Recruiter() {
@@ -94,7 +99,7 @@ public class Recruiter {
 	public String toString() {
 		return "Recruiter [recruiterId=" + recruiterId + ", recruiterName=" + recruiterName + ", recruiterPhoneNumber="
 				+ recruiterPhoneNumber + ", recruiterEmail=" + recruiterEmail + ", recruiterEmailFlag="
-				+ recruiterEmailFlag + ", isRecruiterActive=" + isRecruiterActive + "]";
+				+ recruiterEmailFlag + ", isRecruiterActive=" + recruiterActive + "]";
 	}
 
 }
