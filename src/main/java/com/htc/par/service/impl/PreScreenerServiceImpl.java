@@ -24,10 +24,7 @@ import com.htc.par.service.PreScreenerService;
 import com.htc.par.to.PreScreenerTO;
 import com.htc.par.utilities.NullAwareBeanUtil;
 
-/**
- * PreScreener Service Implementation
- *
- */
+/**@author Shyam --- PreScreener Service Implementation  */
 
 @Service
 public class PreScreenerServiceImpl implements PreScreenerService {
@@ -39,9 +36,6 @@ public class PreScreenerServiceImpl implements PreScreenerService {
 	public PreScreenerTO getPreScreenerTO(PreScreener preScreener) {
 		PreScreenerTO preScreenerTO = new PreScreenerTO(preScreener.getPreScreenerId(), preScreener.getPreScreenerName(), preScreener.getPreScreenerPhoneNumber(), preScreener.getPreScreenerActive());
 		return preScreenerTO;
-	/*public PreScreenerTO getPreScreenerTO(PreScreener preScreener) {
-		PreScreenerTO preScreenerTO = new PreScreenerTO(preScreener.getPreScreenerId(), preScreener.getPreScreenerName(), preScreener.getPreScreenerPhoneNumber(), preScreener.getPreScreenerActive());
-		return preScreenerTO;*/
 	}
 
 	@Override
