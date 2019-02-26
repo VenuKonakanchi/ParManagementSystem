@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -18,6 +19,7 @@ import com.htc.par.exceptions.ResourceNotDeletedException;
 import com.htc.par.exceptions.ResourceNotFoundException;
 import com.htc.par.exceptions.ResourceNotUpdatedException;
 import com.htc.par.repository.AppUserRepository;
+import com.htc.par.repository.RoleRepository;
 import com.htc.par.service.UserService;
 import com.htc.par.to.RoleTO;
 import com.htc.par.to.UserTO;
@@ -28,6 +30,12 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	AppUserRepository userRepository;
+	
+	@Autowired
+	RoleRepository roleRepository;
+	
+	@Autowired
+	PasswordEncoder passwordEncoder;
 
 	@Override
 	public UserTO getUserById(int userId) throws ResourceNotFoundException {
@@ -56,12 +64,29 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserTO updateUser(UserTO userTO) throws ResourceNotUpdatedException {
 		UserTO updatedUserTO = null;
+		
 		try {
-			Optional<AppUser> appUserOptional = userRepository.findByUserIdAndUserActive(userTO.getUserId(), true);
+			Optional<AppUser> appUserOptional  = userRepository.findByUserName(userTO.getUserName());
+			
 			if (!appUserOptional.isPresent())
 				throw new ResourceNotFoundException(String.format("User: %s Not Found.", userTO.getUserName()));
 			AppUser appUser = appUserOptional.get();
+			appUser.setPassword(passwordEncoder.encode(userTO.getPassword()));
 			NullAwareBeanUtil.copyProperties(userTO, appUser);
+			
+			if(userTO.getRole().getRoleId()!=null) {
+				Optional<AppUserRole> roleFromDB=	roleRepository.findById(userTO.getRole().getRoleId());
+				if(roleFromDB.isPresent()) {
+					appUser.setRole(roleFromDB.get());
+				}
+			}else if(userTO.getRole().getRoleName()!=null) {
+				Optional<AppUserRole> roleFromDB=		roleRepository.findByRoleName(userTO.getRole().getRoleName());
+				if(roleFromDB.isPresent()) {
+					appUser.setRole(roleFromDB.get());
+				}		
+			}
+			
+			
 			updatedUserTO = getUserTO(userRepository.save(appUser));
 		} catch (DataAccessException dae) {
 			throw new ResourceNotUpdatedException(String.format("User: %s Not Found.", userTO.getUserName()));
@@ -83,6 +108,17 @@ public class UserServiceImpl implements UserService {
 				appUSer.setUserActive(true);
 				userTO.setUserActive(true);
 			}
+			if(userTO.getRole().getRoleId()!=null) {
+				Optional<AppUserRole> roleFromDB=	roleRepository.findById(userTO.getRole().getRoleId());
+				if(roleFromDB.isPresent()) {
+					appUSer.setRole(roleFromDB.get());
+				}
+			}else if(userTO.getRole().getRoleName()!=null) {
+				Optional<AppUserRole> roleFromDB=		roleRepository.findByRoleName(userTO.getRole().getRoleName());
+				if(roleFromDB.isPresent()) {
+					appUSer.setRole(roleFromDB.get());
+				}		
+			}
 			appUSer = userRepository.save(appUSer);
 			userTO = getUserTO(appUSer);
 		} catch (DataIntegrityViolationException die) {
@@ -99,12 +135,12 @@ public class UserServiceImpl implements UserService {
 		try {
 			Optional<AppUser> appUserOptional = userRepository.findByUserIdAndUserActive(userId, true);
 			if (!appUserOptional.isPresent())
-				throw new ResourceNotFoundException("User not found.");
+				throw new ResourceNotFoundException(String.format("User Id: %s not found or inactive", userId));
 			AppUser appUser = appUserOptional.get();
 			appUser.setUserActive(false);
 			userRepository.save(appUser);
 		} catch (DataAccessException dae) {
-			throw new ResourceNotDeletedException("User not deleted.");
+			throw new ResourceNotDeletedException(String.format("User with User Id: %s not deleted ", userId));
 		}
 		return true;
 	}
@@ -124,7 +160,7 @@ public class UserServiceImpl implements UserService {
 		AppUserRole role= new AppUserRole();
 		role.setRoleId(userTO.getRole().getRoleId());
 		role.setRoleName(userTO.getRole().getRoleName());
-		AppUser user = new AppUser(userTO.getUserId(),userTO.getFirstName(),userTO.getLastName(),userTO.getEmail(),userTO.getPhone(),userTO.getUserName(),userTO.getPassword(),role,userTO.isUserActive());
+		AppUser user = new AppUser(userTO.getFirstName(),userTO.getLastName(),userTO.getEmail(),userTO.getPhone(),userTO.getUserName(),passwordEncoder.encode(userTO.getPassword()),role,userTO.getUserActive());
 		return user;
 	}
 
@@ -133,7 +169,7 @@ public class UserServiceImpl implements UserService {
 	public UserTO getUserByUSerName(String userName) throws ResourceNotFoundException {
 		Optional<AppUser>  appUserOptional = userRepository.findByUserNameAndUserActive(userName, true);
 		if (!appUserOptional.isPresent())
-			throw new ResourceNotFoundException("User not found.");
+			throw new ResourceNotFoundException(String.format("User: %s Not Found or Inactive.", userName));
 		return getUserTO(appUserOptional.get());
 	}
 
@@ -142,7 +178,7 @@ public class UserServiceImpl implements UserService {
 	public UserTO getUserByEmail(String email) throws ResourceNotFoundException {
 		Optional<AppUser>  appUserOptional = userRepository.findByEmailAndUserActive(email, true);
 		if (!appUserOptional.isPresent())
-			throw new ResourceNotFoundException("User not found.");
+			throw new ResourceNotFoundException(String.format("User: %s Not Found or Inactive.", email));
 		return getUserTO(appUserOptional.get());
 	}
 

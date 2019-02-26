@@ -90,13 +90,27 @@ public class SkillServiceImpl implements SkillService {
 	@Override
 	public SkillTO updateSkill(SkillTO skillTO) throws ResourceNotFoundException, ResourceNotUpdatedException {
 		SkillTO updatedSkillTO = null;
+		Skill skill = null;
 		try {
 			Optional<Skill> skillOptional = skillRepository.findBySkillIdAndSkillActive(skillTO.getSkillId(), true);
 			if (!skillOptional.isPresent())
 				throw new ResourceNotFoundException(String.format("Skill: %s Not Found.", skillTO.getSkillName()));
-			Skill skill = skillOptional.get();
+			skill = skillOptional.get();
 			NullAwareBeanUtil.copyProperties(skillTO, skill);
 			updatedSkillTO = getSkillTO(skillRepository.save(skill));
+		} catch (DataIntegrityViolationException datintexcp) {
+			Optional<Skill> existingSkillOptional = skillRepository.findBySkillName(skillTO.getSkillName());
+			if (existingSkillOptional.isPresent()) {
+				skill = existingSkillOptional.get();
+				if(skill.getSkillActive()) {
+					throw new ResourceDuplicateException(String.format("Skill: %s has already been in-activated. Please add it as new skill.", skillTO.getSkillName()));
+					
+				}else {
+					throw new ResourceDuplicateException(String.format("Skill: %s Already Exist.", skillTO.getSkillName()));
+				}
+			} else {
+				throw new ResourceDuplicateException(String.format("Skill: %s Already Exist.", skillTO.getSkillName()));
+			}
 		} catch (DataAccessException dae) {
 			throw new ResourceNotUpdatedException(String.format("Skill: %s Not Found.", skillTO.getSkillName()));
 		}
@@ -119,13 +133,14 @@ public class SkillServiceImpl implements SkillService {
 				skill = getSkill(skillTO);
 			} else {
 				skill = skillOptional.get();
+				if (skill.getSkillActive())
+					throw new ResourceDuplicateException(
+							String.format("Skill: %s Already Exist.", skillTO.getSkillName()));
 				skill.setSkillActive(true);
 				skillTO.setSkillActive(true);
 			}
 			skill = skillRepository.save(skill);
 			skillTO = getSkillTO(skill);
-		} catch (DataIntegrityViolationException die) {
-			throw new ResourceDuplicateException(String.format("Skill: %s Already Exist.", skillTO.getSkillName()));
 		} catch (DataAccessException dae) {
 			throw new ResourceNotCreatedException(String.format("Skill: %s not created.", skillTO.getSkillName()));
 		}
