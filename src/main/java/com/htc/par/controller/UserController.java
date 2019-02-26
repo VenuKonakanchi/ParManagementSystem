@@ -2,6 +2,8 @@ package com.htc.par.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -33,8 +35,8 @@ public class UserController {
 	private UserService userService;
 
 	/**
-	 * Request handler to get skill by id
-	 * @param skillId
+	 * Request handler to get User by user id
+	 * @param userId
 	 * @return
 	 * @throws ResourceNotFoundException
 	 */
@@ -44,7 +46,7 @@ public class UserController {
 	}
 
 	/**
-	 * Request handler to get all skills 
+	 * Request handler to get all users 
 	 * @return
 	 * @throws ResourceNotFoundException
 	 */
@@ -54,34 +56,34 @@ public class UserController {
 	}
 
 	/**
-	 * Request handler to new active skill
-	 * @param skillTO
+	 * Request handler to new active user
+	 * @param userTO
 	 * @return
 	 * @throws ResourceNotCreatedException
 	 * @throws ResourceDuplicateException
 	 */
 	@PostMapping("/users")
-	public ResponseEntity<UserTO> createUser(@RequestBody UserTO userTO)
+	public ResponseEntity<UserTO> createUser(@Valid @RequestBody UserTO userTO)
 			throws ResourceNotCreatedException, ResourceDuplicateException {
 		return ResponseEntity.created(null).body(userService.createUser(userTO));
 	}
 
 	/**
-	 * Request handler to update active skill 
-	 * @param skillTO
+	 * Request handler to update active user 
+	 * @param userTO
 	 * @return
 	 * @throws ResourceNotFoundException
 	 * @throws ResourceNotUpdatedException
 	 */
 	@PutMapping("/users")
-	public ResponseEntity<UserTO> updateUser(@RequestBody UserTO userTO)
+	public ResponseEntity<UserTO> updateUser(@Valid @RequestBody UserTO userTO)
 			throws ResourceNotFoundException, ResourceNotUpdatedException {
 		return ResponseEntity.ok(userService.updateUser(userTO));
 	}
 
 	/**
-	 * Request handler to delete skill
-	 * @param skillId
+	 * Request handler to delete user
+	 * @param userId
 	 * @return
 	 * @throws ResourceNotFoundException
 	 * @throws ResourceNotDeletedException
