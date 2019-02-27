@@ -34,7 +34,7 @@
                     <li class="nav-item">
                       <a class="nav-link" href="#">
                         <!-- <img src="static/img/avatar.png" alt="Avatar">
-                        <span class="user-name">Túpac Amaru</span> -->
+                        <span class="user-name">TÃºpac Amaru</span> -->
 
                         <span class="user-avatar user-avatar-md"><img src="static/img/avatar.png" alt="Avatar"></span>
                         <span class="user-summary" style="display: inline-grid;vertical-align: middle;">
@@ -108,7 +108,7 @@
                             </ul>
                   <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade" id="area-product" role="tabpanel" aria-labelledby="area-product-tab">
-                      Lorem ipsum dolor sit amet...
+                      <%@include file="areaForm.jsp" %>
                     </div>
                     <div class="tab-pane fade show active" id="candidate-master" role="tabpanel" aria-labelledby="candidate-master-tab">
                                     <table id="example" class="table table-striped table-bordered dataTable" style="width: 100%;">
@@ -204,7 +204,7 @@
                          <%@include file="externalStaffForm.jsp" %>
                     </div>
                     <div class="tab-pane fade" id="pre-screeners" role="tabpanel" aria-labelledby="pre-screeners-tab">
-                        Lorem ipsum dolor sit amet...
+                        <%@include file="preScreener.jsp" %>
                     </div>
                     <div class="tab-pane fade" id="recruiters" role="tabpanel" aria-labelledby="recruiters-tab">
                         Lorem ipsum dolor sit amet...
@@ -290,6 +290,7 @@
   <script type="text/javascript" src="static/js/PARValidator.js"></script>
   <script type="text/javascript" src="static/js/Skill.js"></script>
   <script type="text/javascript" src="static/js/ExternalStaff.js"></script>
+  <script type="text/javascript" src="static/js/PreScreener.js"></script>
   <script type="text/javascript" src="static/js/user.js"></script>
 </body>
 
