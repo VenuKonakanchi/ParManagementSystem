@@ -175,22 +175,18 @@ $(document).ready(function(){
 		  $('#preScreenerModalStatusDiv').hide();
 		  $('#preScreenerForm').validate({
 			    rules : {
-			        preScreenerName : {  required: true }
-			    },
-			    messages: {
-			        preScreenerName:{
-			        	required:"PreScreener name can not be empty*"
-			        }
-			    },
-			    
-			    /*rules : {
+			        preScreenerName : {  required: true },
 			        preScreenerPhoneNumber : {  required: true }
 			    },
 			    messages: {
+			        preScreenerName:{
+			        	required:"PreScreener name can not be empty**"
+			        },
 			        preScreenerPhoneNumber:{
-			        	required:"PreScreener phone number can not be empty**JS**"
-			        }
-			    },*/
+			        	required:"PreScreener phone number can not be empty**"
+			    }
+			    
+			    },
 			    
 			    errorElement: PARValidationUtil.utils.validationProperties.errorElement,
 			    errorPlacement: PARValidationUtil.utils.validationProperties.errorPlacement,
