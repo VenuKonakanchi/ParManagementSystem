@@ -39,7 +39,7 @@
                         <span class="user-avatar user-avatar-md"><img src="static/img/avatar.png" alt="Avatar"></span>
                         <span class="user-summary" style="display: inline-grid;vertical-align: middle;">
                           <span  style="line-height: normal;">Welcome</span>
-                          <span class="user-name">Kulandaivadivel Duraisamy</span>
+                          <span class="user-name">Gautam Karandikar</span>
                         </span>
                       </a>
                     </li>
@@ -79,7 +79,7 @@
                     </li>
                     <li class="nav-item">
                       <a class="nav-link active" id="candidate-master-tab" data-toggle="tab" href="#candidate-master" role="tab" aria-controls="candidate-master"
-                        aria-selected="true">Candidate Master</a>
+                        aria-selected="true">Candidate</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" id="candidate-role-tab" data-toggle="tab" href="#candidate-role" role="tab" aria-controls="candidate-role"
@@ -292,7 +292,8 @@
   <script type="text/javascript" src="static/js/ExternalStaff.js"></script>
   <script type="text/javascript" src="static/js/PreScreener.js"></script>
   <script type="text/javascript" src="static/js/user.js"></script>
-   <script type="text/javascript" src="static/js/candidateRole.js"></script>
+  <script type="text/javascript" src="static/js/candidateRole.js"></script>
   <script type="text/javascript" src="static/js/recruiter.js"></script>
+  <script type="text/javascript" src="static/js/Area.js"></script>
 </body>
 </html>

@@ -65,8 +65,15 @@ $(document).ready(function(){
 	}
 	
 	function preScreenerLoadFailure(xhr, error){
-		AjaxUtil.utils.displayError("Unable to load PreScreeners");
-		AjaxUtil.utils.ajaxFailureCallback(xhr, error);
+		if(xhr.status!=404){
+			var reponseBody = JSON.parse(xhr.responseText);
+			$('#extStaffStatusDiv').removeClass("alert alert-success");
+			$('#extStaffStatusDiv').addClass("alert alert-warning");
+			$('#extStaffStatusMessage').html(reponseBody['message']);
+			$('#extStaffStatusDiv').show();
+		}else{
+			$('#extStaffStatusDiv').hide();
+		}
 	}
 	
     $("[data-hide]").on("click", function(){
