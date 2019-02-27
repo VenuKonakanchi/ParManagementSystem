@@ -211,7 +211,7 @@ AjaxUtil.utils.sendGetRequest('/parmanagement/par/users/roles', populateRoleInfo
 	  $('#firstName').val(firstName);
 	  $('#lastName').val(lastName);
 	  $('#userName').val(userName);
-	 // $('#password').val(password);
+	  $('#password').val("");
 	  $("#userRoleSelect").val(roleId);
 	  $("#email").val(email);
 	  $("#phone").val(phone);
@@ -298,7 +298,7 @@ AjaxUtil.utils.sendGetRequest('/parmanagement/par/users/roles', populateRoleInfo
 			  requestBody['role']={};
 			  requestBody['role']['roleId']=$('#userRoleSelect').val();
 			  requestBody["email"]=$('#email').val();
-			  requestBody["phoe"]=$('#phone').val();
+			  requestBody["phone"]=$('#phone').val();
 			  $('#userName').prop('disabled',true);
 			  var newData={};
 			  newData['userId'] = userId.toString();
