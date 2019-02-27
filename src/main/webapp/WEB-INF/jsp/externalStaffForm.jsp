@@ -2,13 +2,26 @@
   <span id="extStaffStatusMessage"></span>
   <button type="button" class="close" data-hide="alert">&times;</button>
  </div>
-		  
 <!--   <div class="alert alert-error collapse" role="alert" id="statusDiv">
 	  <span id="statusMessage">
 	  	<p ></p>
 	  </span>
 	   <button type="button" class="close" data-hide="alert">&times;</button>
 </div> -->
+	<button type="button" class="btn btn-sm btn-primary" id="addNewExtStaffBtn">Add External Staff</button><p ></p>
+	<table id="tblExtStaffs"
+		class="table table-striped table-bordered dataTable" 
+		style="width: 100%;">
+		<thead>
+			<tr>
+				<th>External Staff Id</th>
+				<th>External Staff Name</th>
+				<th>External Staff Area</th>
+				<th>External Staff Active</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+	</table>
 
 	<div class="modal fade" id="extStaffDeleteConfirm" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
 	    <div class="modal-dialog modal-lg"  role="document">
@@ -73,19 +86,5 @@
       </div>
     </div>
  </div>
- 	
- <button type="button" class="btn btn-sm btn-primary" id="addNewExtStaffBtn">Add External Staff</button><p ></p>
-	<table id="tblExtStaffs"
-		class="table table-striped table-bordered dataTable" 
-		style="width: 100%;">
-		<thead>
-			<tr>
-				<th>External Staff Id</th>
-				<th>External Staff Name</th>
-				<th>External Staff Area</th>
-				<th>External Staff Active</th>
-				<th>Actions</th>
-			</tr>
-		</thead>
-	</table>
+ 
  
