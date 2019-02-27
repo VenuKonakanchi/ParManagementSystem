@@ -34,7 +34,7 @@ public class ExternalStaffController {
 	 * @return
 	 * @throws ResourceNotFoundException
 	 */
-	@GetMapping("/externalstaffs/{extStaffId}")
+	@GetMapping("/externalstaff/{extStaffId}")
 	public ResponseEntity<ExternalStaffTO> getExtStaffById(@PathVariable("extStaffId") int extStaffId) throws ResourceNotFoundException {
 		return ResponseEntity.ok(externalStaffService.getExternalStaffById(extStaffId));
 	}
@@ -44,7 +44,7 @@ public class ExternalStaffController {
 	 * @return
 	 * @throws ResourceNotFoundException
 	 */
-	@GetMapping("/externalstaffs")
+	@GetMapping("/externalstaff")
 	public ResponseEntity<List<ExternalStaffTO>> getAllExtStaff() throws ResourceNotFoundException {
 		return ResponseEntity.ok(externalStaffService.getAllExternalStaff());
 	}
@@ -56,7 +56,7 @@ public class ExternalStaffController {
 	 * @throws ResourceNotCreatedException
 	 * @throws ResourceDuplicateException
 	 */
-	@PostMapping("/externalstaffs")
+	@PostMapping("/externalstaff")
 	public ResponseEntity<ExternalStaffTO> createExtStaff(@RequestBody ExternalStaffTO externalStaffTO)
 			throws ResourceNotCreatedException, ResourceDuplicateException {
 		System.out.println(" Inside external controller "  );
@@ -71,7 +71,7 @@ public class ExternalStaffController {
 	 * @throws ResourceNotFoundException
 	 * @throws ResourceNotUpdatedException
 	 */
-	@PutMapping("/externalstaffs")
+	@PutMapping("/externalstaff")
 	public ResponseEntity<ExternalStaffTO> updateExtStaff(@RequestBody ExternalStaffTO externalStaffTO)
 			throws ResourceNotFoundException, ResourceNotUpdatedException {
 		return ResponseEntity.ok(externalStaffService.updateExternalStaff(externalStaffTO));
@@ -84,7 +84,7 @@ public class ExternalStaffController {
 	 * @throws ResourceNotFoundException
 	 * @throws ResourceNotDeletedException
 	 */
-	@DeleteMapping("/externalstaffs/{extStaffId}")
+	@DeleteMapping("/externalstaff/{extStaffId}")
 	public ResponseEntity<Boolean> deleteProduct(@PathVariable("extStaffId") int extStaffId)
 			throws ResourceNotFoundException, ResourceNotDeletedException {
 		return ResponseEntity.ok(externalStaffService.deleteExternalStaff(extStaffId));

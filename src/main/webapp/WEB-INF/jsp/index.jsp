@@ -34,7 +34,7 @@
                     <li class="nav-item">
                       <a class="nav-link" href="#">
                         <!-- <img src="static/img/avatar.png" alt="Avatar">
-                        <span class="user-name">Túpac Amaru</span> -->
+                        <span class="user-name">TÃºpac Amaru</span> -->
 
                         <span class="user-avatar user-avatar-md"><img src="static/img/avatar.png" alt="Avatar"></span>
                         <span class="user-summary" style="display: inline-grid;vertical-align: middle;">
@@ -75,7 +75,7 @@
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
                       <a class="nav-link" id="area-product-tab" data-toggle="tab" href="#area-product" role="tab" aria-controls="area-product"
-                        aria-selected="false">Area/Product</a>
+                        aria-selected="false">Area</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link active" id="candidate-master-tab" data-toggle="tab" href="#candidate-master" role="tab" aria-controls="candidate-master"
@@ -87,7 +87,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="external-staffing-info-tab" data-toggle="tab" href="#external-staffing-info" role="tab" aria-controls="external-staffing-info"
-                          aria-selected="false">External Staffing Info</a>
+                          aria-selected="false">External Staff</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" id="pre-screeners-tab" data-toggle="tab" href="#pre-screeners" role="tab" aria-controls="pre-screeners"
@@ -201,7 +201,7 @@
                         Lorem ipsum dolor sit amet...
                     </div>
                     <div class="tab-pane fade" id="external-staffing-info" role="tabpanel" aria-labelledby="external-staffing-info-tab">
-                        Lorem ipsum dolor sit amet...
+                         <%@include file="externalStaffForm.jsp" %>
                     </div>
                     <div class="tab-pane fade" id="pre-screeners" role="tabpanel" aria-labelledby="pre-screeners-tab">
                         <%@include file="preScreener.jsp" %>
@@ -289,8 +289,9 @@
   <script type="text/javascript" src="static/js/AjaxUtil.js"></script>
   <script type="text/javascript" src="static/js/PARValidator.js"></script>
   <script type="text/javascript" src="static/js/Skill.js"></script>
+  <script type="text/javascript" src="static/js/ExternalStaff.js"></script>
   <script type="text/javascript" src="static/js/PreScreener.js"></script>
-    <script type="text/javascript" src="static/js/user.js"></script>
+  <script type="text/javascript" src="static/js/user.js"></script>
 </body>
 
 </html>
