@@ -30,7 +30,7 @@ public class PreScreenerController {
 	@Autowired
 	private PreScreenerService preScreenerService;
 
-	/**
+	/** @author Shyam Kandi
 	 * Request handler to get preScreener by id
 	 * @param preScreenerId
 	 * @return

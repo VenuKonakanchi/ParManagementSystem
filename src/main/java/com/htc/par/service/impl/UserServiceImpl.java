@@ -71,9 +71,8 @@ public class UserServiceImpl implements UserService {
 			if (!appUserOptional.isPresent())
 				throw new ResourceNotFoundException(String.format("User: %s Not Found.", userTO.getUserName()));
 			AppUser appUser = appUserOptional.get();
-			appUser.setPassword(passwordEncoder.encode(userTO.getPassword()));
 			NullAwareBeanUtil.copyProperties(userTO, appUser);
-			
+			appUser.setPassword(passwordEncoder.encode(userTO.getPassword()));
 			if(userTO.getRole().getRoleId()!=null) {
 				Optional<AppUserRole> roleFromDB=	roleRepository.findById(userTO.getRole().getRoleId());
 				if(roleFromDB.isPresent()) {
