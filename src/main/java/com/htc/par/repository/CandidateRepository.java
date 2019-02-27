@@ -8,8 +8,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.htc.par.entity.Candidate;
-import com.htc.par.entity.ExternalStaff;
-import com.htc.par.entity.Skill;
 
 @Repository
 public interface CandidateRepository extends JpaRepository<Candidate, Integer>{
@@ -23,5 +21,7 @@ public interface CandidateRepository extends JpaRepository<Candidate, Integer>{
 	public Optional<Candidate> findByCandidateName(@Param("candName") String candName);
 	
 	public List<Candidate> findAllByCandidateActive(@Param("candActive") boolean candActive);
-
+	
+	public Optional<Candidate> findByCandidatePhoneNumber(@Param("candidatePhoneNumber") String candidatePhoneNumber);
+	public Optional<Candidate> findByCandidateEmail(@Param("candidateEmail") String candidateEmail);
 }
