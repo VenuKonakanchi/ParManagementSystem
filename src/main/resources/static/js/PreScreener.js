@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/preScreeners', populatePreScreenerInfo, preScreenerLoadFailure);
-	$('#statusDiv').hide();
+	$('#preScreenerStatusDiv').hide();
 	var table=null;
 	
     $("#addNewPreScreenerBtn").on("click", function(){
@@ -22,8 +22,7 @@ $(document).ready(function(){
 							data:null,
 							render: function (data, type, row){
                                 return '<button class="btnDelete btn btn-sm deleteRow"><img src="static/img/delete.png" alt="Delete"></button>  <button class="btnViewPreScreener btn btn-sm editRow" data-toggle="modal" data-target="#preScreenerModal" data-prescreenerid="' + data.preScreenerId + '" data-prescreenername=" '+ data.preScreenerName + '" data-prescreenerphonenumber="' + data.preScreenerPhoneNumber + '" data-prescreeneractive="' + data.preScreenerActive + '"><img src="static/img/edit.png" alt="Edit"></button>';
-								//return '<button type="button" class="btnDelete btn btn-primary">Delete</button>';
-							}
+                               }
 						},
 					
 					],
@@ -76,8 +75,8 @@ $(document).ready(function(){
 	
 	var preScreenerDeleteFailure = function(preScreenerName) {
 		return function(xhr, error){
-			$('#statusDiv').removeClass("alert alert-success");
-			$('#statusDiv').addClass("alert alert-danger");
+			$('#preScreenerStatusDiv').removeClass("alert alert-success");
+			$('#preScreenerStatusDiv').addClass("alert alert-danger");
 			var reponseBody = JSON.parse(xhr.responseText);
 			if (typeof reponseBody['message'] == undefined || reponseBody['message'] == null) {
 				$('#statusMessage').html('Unable to delete '+ preScreenerName);		
@@ -86,7 +85,7 @@ $(document).ready(function(){
 				
 				$('#statusMessage').html(reponseBody['message']);
 			}	
-			$('#statusDiv').show();
+			$('#preScreenerStatusDiv').show();
 			console.log("Error Code :"+ xhr.status);
 			console.log(error);
 		};
@@ -94,17 +93,17 @@ $(document).ready(function(){
 
 	var preScreenerUpdateFailure = function(preScreenerName) {
 		return function(xhr, error){
-			$('#modalStatusDiv').removeClass("alert alert-success");
-			$('#modalStatusDiv').addClass("alert alert-danger");
+			$('#preScreenerModalStatusDiv').removeClass("alert alert-success");
+			$('#preScreenerModalStatusDiv').addClass("alert alert-danger");
 			var reponseBody = JSON.parse(xhr.responseText);
 			if (typeof reponseBody['message'] == undefined || reponseBody['message'] == null) {
-				$('#modalStatusMessage').html('Unable to update '+ preScreenerName);	
+				$('#preScreenerModalStatusMessage').html('Unable to update '+ preScreenerName);	
 				
 			}
 			else{
-				$('#modalStatusMessage').html(reponseBody['message']);
+				$('#preScreenerModalStatusMessage').html(reponseBody['message']);
 			}	
-			$('#modalStatusDiv').show();
+			$('#preScreenerModalStatusDiv').show();
 			console.log("Error Code :"+ xhr.status);
 			console.log(error);
 		};
@@ -112,16 +111,16 @@ $(document).ready(function(){
 
 	var preScreenerAddFailure = function(preScreenerName) {
 		return function(xhr, error){
-			$('#modalStatusDiv').removeClass("alert alert-success");
-			$('#modalStatusDiv').addClass("alert alert-danger");
+			$('#preScreenerModalStatusDiv').removeClass("alert alert-success");
+			$('#preScreenerModalStatusDiv').addClass("alert alert-danger");
 			var reponseBody = JSON.parse(xhr.responseText);
 			if (typeof reponseBody['message'] == undefined || reponseBody['message'] == null) {
-				$('#modalStatusMessage').html('Unable to create ' + preScreenerName);				
+				$('#preScreenerModalStatusMessage').html('Unable to create ' + preScreenerName);				
 			}
 			else{
-				$('#modalStatusMessage').html(reponseBody['message']);
+				$('#preScreenerModalStatusMessage').html(reponseBody['message']);
 			}	
-			$('#modalStatusDiv').show();
+			$('#preScreenerModalStatusDiv').show();
 			console.log("Error Code :"+ xhr.status);
 			console.log(error);
 		};
@@ -130,10 +129,10 @@ $(document).ready(function(){
 	var preScreenerDeleteSuccess = function(deleteData,action,divElement) {
 		return function(response) {
 			table.row('#'+deleteData['preScreenerId']).remove().draw();
-			$('#statusDiv').removeClass("alert alert-danger");
-			$('#statusDiv').addClass("alert alert-success");
+			$('#preScreenerStatusDiv').removeClass("alert alert-danger");
+			$('#preScreenerStatusDiv').addClass("alert alert-success");
 			$('#statusMessage').html(deleteData['preScreenerName'] + " has been successfully deleted!!");
-			$('#statusDiv').show();
+			$('#preScreenerStatusDiv').show();
 		};
 	};
 	
@@ -141,20 +140,20 @@ $(document).ready(function(){
 		return function(response) {
 			//var rowIndex = $("#rowIndex").val();
 			table.row('#'+newData['preScreenerId']).data(newData).draw();
-			$('#modalStatusDiv').removeClass("alert alert-danger");
-			$('#modalStatusDiv').addClass("alert alert-success");
-			$('#modalStatusMessage').html("PreScreener name has been successfully updated!!");
-			$('#modalStatusDiv').show();
+			$('#preScreenerModalStatusDiv').removeClass("alert alert-danger");
+			$('#preScreenerModalStatusDiv').addClass("alert alert-success");
+			$('#preScreenerModalStatusMessage').html("PreScreener name has been successfully updated!!");
+			$('#preScreenerModalStatusDiv').show();
 		};
 	};
 	
 	var preScreenerAddSuccess = function() {
 		return function(response) {
 			table.row.add(response).draw( false );
-			$('#modalStatusDiv').removeClass("alert alert-danger");
-			$('#modalStatusDiv').addClass("alert alert-success");
-			$('#modalStatusMessage').html("New PreScreener has been created successfully!!");
-			$('#modalStatusDiv').show();
+			$('#preScreenerModalStatusDiv').removeClass("alert alert-danger");
+			$('#preScreenerModalStatusDiv').addClass("alert alert-success");
+			$('#preScreenerModalStatusMessage').html("New PreScreener has been created successfully!!");
+			$('#preScreenerModalStatusDiv').show();
 		};
 	};
 	
@@ -164,7 +163,7 @@ $(document).ready(function(){
 	  var preScreenerName =  button.data('prescreenername');
 	  var preScreenerPhoneNumber =  button.data('prescreenerphonenumber');
 	  var preScreenerActive = button.data('prescreeneractive');
-	  $('#modalStatusDiv').hide();
+	  $('#preScreenerModalStatusDiv').hide();
 	  $('#preScreenerName').val(preScreenerName);
 	  $('#preScreenerPhoneNumber').val(preScreenerPhoneNumber);
 	  
@@ -173,7 +172,7 @@ $(document).ready(function(){
 	  $("#preScreenerModal").off('click', '#savePreScreenerButton');
 	  
 	  $("#preScreenerModal").on('click', '#savePreScreenerButton', function () {
-		  $('#modalStatusDiv').hide();
+		  $('#preScreenerModalStatusDiv').hide();
 		  $('#preScreenerForm').validate({
 			    rules : {
 			        preScreenerName : {  required: true }

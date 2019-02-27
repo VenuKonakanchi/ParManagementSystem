@@ -1,9 +1,9 @@
-<div class="collapse" role="alert" id="statusDiv">
+<div class="collapse" role="alert" id="preScreenerStatusDiv">
   <span id="statusMessage"></span>
   <button type="button" class="close" data-hide="alert">&times;</button>
  </div>
 		  
-  <div class="alert alert-error collapse" role="alert" id="statusDiv">
+  <div class="alert alert-error collapse" role="alert" id="preScreenerStatusDiv">
 	  <span id="statusMessage">
 	  	<!-- <p ></p> -->
 	  </span>
@@ -54,8 +54,8 @@
 	      </div>
 	      <div class="modal-body">
 	      <p></p>
-		  <div class="collapse" role="alert" id="modalStatusDiv">
-			  <span id="modalStatusMessage"></span>
+		  <div class="collapse" role="alert" id="preScreenerModalStatusDiv">
+			  <span id="preScreenerModalStatusMessage"></span>
 			  <button type="button" class="close" data-hide="alert">&times;</button>
 		  </div>
 		  <form class="form-horizontal"  role="form" id="preScreenerForm">
@@ -69,7 +69,7 @@
 		    </div>
 		    <div class="form-group">
 		    	<input type="hidden" id="rowIndex" name="rowIndex" value="">
-		      <label class="control-label col-sm-3" for="preScreenerPhoneNumber">PreScreener Phone Number:</label>
+		      <label class="control-label col-sm-6" for="preScreenerPhoneNumber">PreScreener Phone Number:</label>
 		      <div class="col-sm-6">
 		        <input type="text" class="form-control" id="preScreenerPhoneNumber" placeholder="Enter PreScreener Phone Number" name="preScreenerPhoneNumber">
 		      </div>
