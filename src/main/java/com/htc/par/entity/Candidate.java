@@ -33,8 +33,8 @@ public class Candidate {
 	@Column(name="cand_active")
 	private Boolean candidateActive ;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="area_cd")
+	@ManyToOne()
+	@JoinColumn(name="skill_cd", referencedColumnName="skill_id")
 	private Skill skill;
 
 	
@@ -118,7 +118,7 @@ public class Candidate {
 
 
 	public Candidate(Integer candidateId, String candidateName, String candidatePhoneNumber, String candidateEmail,
-			Boolean candidateActive, Skill skill) {
+			Boolean candidateActive,Skill skill) {
 		super();
 		this.candidateId = candidateId;
 		this.candidateName = candidateName;
@@ -130,7 +130,7 @@ public class Candidate {
 
 
 	public Candidate(String candidateName, String candidatePhoneNumber, String candidateEmail,
-			Boolean candidateActive, Skill skill) {
+			Boolean candidateActive,Skill skill) {
 		super();
 		this.candidateName = candidateName;
 		this.candidatePhoneNumber = candidatePhoneNumber;
@@ -143,11 +143,7 @@ public class Candidate {
 	@Override
 	public String toString() {
 		return "Candidate [candidateId=" + candidateId + ", candidateName=" + candidateName + ", candidatePhoneNumber="
-				+ candidatePhoneNumber + ", candidateEmail=" + candidateEmail + ", candidateActive=" + candidateActive
-				+ ", skill=" + skill + "]";
+				+ candidatePhoneNumber + ", candidateEmail=" + candidateEmail + ", candidateActive=" + candidateActive + "]";
 	}
-	
-	
-	
 
 }

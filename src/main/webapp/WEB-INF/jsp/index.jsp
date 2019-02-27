@@ -198,7 +198,7 @@
                                     </table>                    
                     </div>
                     <div class="tab-pane fade" id="candidate-role" role="tabpanel" aria-labelledby="candidate-role-tab">
-                        Lorem ipsum dolor sit amet...
+                       <%@include file="candidateRole.jsp" %>
                     </div>
                     <div class="tab-pane fade" id="external-staffing-info" role="tabpanel" aria-labelledby="external-staffing-info-tab">
                          <%@include file="externalStaffForm.jsp" %>
@@ -207,7 +207,7 @@
                         <%@include file="preScreener.jsp" %>
                     </div>
                     <div class="tab-pane fade" id="recruiters" role="tabpanel" aria-labelledby="recruiters-tab">
-                        Lorem ipsum dolor sit amet...
+                        <%@include file="recruiterForm.jsp" %>
                     </div>
                     <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-tab">
                        <%@include file="skillForm.jsp" %>
@@ -292,6 +292,7 @@
   <script type="text/javascript" src="static/js/ExternalStaff.js"></script>
   <script type="text/javascript" src="static/js/PreScreener.js"></script>
   <script type="text/javascript" src="static/js/user.js"></script>
+   <script type="text/javascript" src="static/js/candidateRole.js"></script>
+  <script type="text/javascript" src="static/js/recruiter.js"></script>
 </body>
-
 </html>
