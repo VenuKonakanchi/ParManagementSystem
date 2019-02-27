@@ -1,7 +1,8 @@
 $(document).ready(function(){
 	
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/users', populateUserInfo, userLoadFailure);
-AjaxUtil.utils.sendGetRequest('/parmanagement/par/users/roles', populateRoleInfo, roleLoadFailure);
+	AjaxUtil.utils.sendGetRequest('/parmanagement/par/users/roles', populateRoleInfo, roleLoadFailure);
+	
 	
 	$('#userStatusDiv').hide();
 	var table=null;
@@ -54,6 +55,7 @@ AjaxUtil.utils.sendGetRequest('/parmanagement/par/users/roles', populateRoleInfo
 			        order: [[0,'desc']]
                 }		
 		);
+		
 		table.clear().rows.add(response).draw();
 		$("#tblUsers tbody").on('click', '.btnUserDelete', function () {
 			var user = table.row($(this).closest('tr')).data();

@@ -8,6 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import com.htc.par.entity.Area;
 
@@ -19,6 +20,7 @@ public class ExternalStaffTO {
 	@NotEmpty(message="cannot be empty")  
 	private String extStaffName;
 	
+	@NotNull(message="cannot be empty")
 	private AreaTO area;
 	
 	private Boolean extStaffActive ;
