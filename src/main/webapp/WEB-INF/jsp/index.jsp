@@ -108,7 +108,7 @@
                             </ul>
                   <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade" id="area-product" role="tabpanel" aria-labelledby="area-product-tab">
-                      Lorem ipsum dolor sit amet...
+                      <%@include file="areaForm.jsp" %>
                     </div>
                     <div class="tab-pane fade show active" id="candidate-master" role="tabpanel" aria-labelledby="candidate-master-tab">
                                     <table id="example" class="table table-striped table-bordered dataTable" style="width: 100%;">
@@ -213,7 +213,7 @@
                        <%@include file="skillForm.jsp" %>
                     </div>
                     <div class="tab-pane fade" id="user" role="tabpanel" aria-labelledby="user-tab">
-                        Lorem ipsum dolor sit amet...
+                      <%@include file="userForm.jsp" %>
                     </div>
                   </div>
             </div>
@@ -290,7 +290,7 @@
   <script type="text/javascript" src="static/js/PARValidator.js"></script>
   <script type="text/javascript" src="static/js/Skill.js"></script>
   <script type="text/javascript" src="static/js/PreScreener.js"></script>
-  
+    <script type="text/javascript" src="static/js/user.js"></script>
 </body>
 
 </html>
