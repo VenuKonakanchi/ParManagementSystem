@@ -41,7 +41,7 @@ public class RecruiterController {
 	 * @return
 	 * @throws ResourceNotFoundException
 	 */
-	@GetMapping("/recruiter/{recruiterId}")
+	@GetMapping("/recruiters/{recruiterId}")
 	public ResponseEntity<RecruiterTO> getRecruiterById(@PathVariable("recruiterId") int recruiterId) throws ResourceNotFoundException {
 		return ResponseEntity.ok(recruiterService.getRecruiterById(recruiterId));
 	}
