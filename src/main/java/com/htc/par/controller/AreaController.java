@@ -1,6 +1,8 @@
 package com.htc.par.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.htc.par.exceptions.ResourceDuplicateException;
@@ -22,6 +26,8 @@ import com.htc.par.exceptions.ResourceNotFoundException;
 import com.htc.par.exceptions.ResourceNotUpdatedException;
 import com.htc.par.service.AreaService;
 import com.htc.par.to.AreaTO;
+ 
+ 
 /*
  * @ Author - Allen
  * Controller to handle Capability Area information 
@@ -37,6 +43,7 @@ public class AreaController {
 	public String area() {
 		return "areaAndProductForm";
 	}
+
 	/*
 	 * Request handler to GET all Areas
 	 * @Param AreaTo

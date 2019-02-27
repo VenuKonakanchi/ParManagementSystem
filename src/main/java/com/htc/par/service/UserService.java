@@ -8,6 +8,7 @@ import com.htc.par.exceptions.ResourceNotCreatedException;
 import com.htc.par.exceptions.ResourceNotDeletedException;
 import com.htc.par.exceptions.ResourceNotFoundException;
 import com.htc.par.exceptions.ResourceNotUpdatedException;
+import com.htc.par.to.RoleTO;
 import com.htc.par.to.UserTO;
 
 public interface UserService {
@@ -29,4 +30,6 @@ public interface UserService {
 	public UserTO getUserTO(AppUser user);
 	
 	public AppUser getUser(UserTO userTO);
+	
+	public List<RoleTO>  getAllRoles();
 }
