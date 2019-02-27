@@ -204,7 +204,7 @@
                         Lorem ipsum dolor sit amet...
                     </div>
                     <div class="tab-pane fade" id="pre-screeners" role="tabpanel" aria-labelledby="pre-screeners-tab">
-                        Lorem ipsum dolor sit amet...
+                        <%@include file="preScreener.jsp" %>
                     </div>
                     <div class="tab-pane fade" id="recruiters" role="tabpanel" aria-labelledby="recruiters-tab">
                         Lorem ipsum dolor sit amet...
@@ -289,6 +289,7 @@
   <script type="text/javascript" src="static/js/AjaxUtil.js"></script>
   <script type="text/javascript" src="static/js/PARValidator.js"></script>
   <script type="text/javascript" src="static/js/Skill.js"></script>
+  <script type="text/javascript" src="static/js/PreScreener.js"></script>
     <script type="text/javascript" src="static/js/user.js"></script>
 </body>
 
