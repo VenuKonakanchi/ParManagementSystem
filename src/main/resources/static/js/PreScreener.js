@@ -46,13 +46,13 @@ $(document).ready(function(){
 		$("#tblPreScreeners tbody").on('click', '.btnDelete', function () {
 			var preScreener = table.row($(this).closest('tr')).data();
 			
-		    $('#confirm').modal({ backdrop: 'static', keyboard: false })
-	        .on('click', '#delete-btn', function(){
+		    $('#preScreenerconfirm').modal({ backdrop: 'static', keyboard: false })
+	        .on('click', '#preScreenerDelete-btn', function(){
 				var deleteData={};
 				deleteData['preScreenerId']=preScreener.preScreenerId;
 				deleteData['preScreenerName']=preScreener.preScreenerName;
 				AjaxUtil.utils.sendDeleteRequest('/parmanagement/par/preScreeners/'+preScreener.preScreenerId, preScreenerDeleteSuccess(deleteData,'deleted','statusMessage'), preScreenerDeleteFailure(preScreener.preScreenerName), preScreenerDeleteFailure(preScreener.preScreenerPhoneNumber));
-				$('#confirm').modal('hide');
+				$('#preScreenerconfirm').modal('hide');
 	        });
 		    
 		});
@@ -79,11 +79,11 @@ $(document).ready(function(){
 			$('#preScreenerStatusDiv').addClass("alert alert-danger");
 			var reponseBody = JSON.parse(xhr.responseText);
 			if (typeof reponseBody['message'] == undefined || reponseBody['message'] == null) {
-				$('#statusMessage').html('Unable to delete '+ preScreenerName);		
+				$('#preScreenerStatusMessage').html('Unable to delete '+ preScreenerName);		
 				}
 			else{
 				
-				$('#statusMessage').html(reponseBody['message']);
+				$('#preScreenerStatusMessage').html(reponseBody['message']);
 			}	
 			$('#preScreenerStatusDiv').show();
 			console.log("Error Code :"+ xhr.status);
@@ -131,7 +131,7 @@ $(document).ready(function(){
 			table.row('#'+deleteData['preScreenerId']).remove().draw();
 			$('#preScreenerStatusDiv').removeClass("alert alert-danger");
 			$('#preScreenerStatusDiv').addClass("alert alert-success");
-			$('#statusMessage').html(deleteData['preScreenerName'] + " has been successfully deleted!!");
+			$('#preScreenerStatusMessage').html(deleteData['preScreenerName'] + " has been successfully deleted!!");
 			$('#preScreenerStatusDiv').show();
 		};
 	};
