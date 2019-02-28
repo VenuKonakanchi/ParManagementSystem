@@ -156,11 +156,18 @@ $(document).ready(function(){
 	
 	var preScreenerAddSuccess = function() {
 		return function(response) {
-			table.row.add(response).draw( false );
+		//	table.row.add(response).draw( false );
 			$('#preScreenerModalStatusDiv').removeClass("alert alert-danger");
 			$('#preScreenerModalStatusDiv').addClass("alert alert-success");
 			$('#preScreenerModalStatusMessage').html("New PreScreener has been created successfully!!");
 			$('#preScreenerModalStatusDiv').show();
+			
+			if(!$.fn.dataTable.isDataTable("#tblPreScreeners")){
+				populatePreScreenerInfo(response);
+			}else{
+				table.row.add(response).draw(false);
+			}
+			
 		};
 	};
 	

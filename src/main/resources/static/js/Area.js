@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/Areas', populateAreaInfo, areaLoadFailure);
-	$('#statusDiv').hide();
+	$('#areaStatusDiv').hide();
 	var table=null;
 	
     $("#addNewAreaBtn").on("click", function(){
@@ -61,13 +61,13 @@ $(document).ready(function(){
 		$("#tblAreas tbody").on('click', '.btnDelete', function () {
 			var area = table.row($(this).closest('tr')).data();
 			
-		    $('#confirm').modal({ backdrop: 'static', keyboard: false })
-	        .on('click', '#delete-btn', function(){
+		    $('#areaDeleteconfirmModal').modal({ backdrop: 'static', keyboard: false })
+	        .on('click', '#areaDelete-btn', function(){
 				var deleteData={};
 				deleteData['areaId']=area.areaId;
 				deleteData['areaName']=area.areaName;
 				AjaxUtil.utils.sendDeleteRequest('/parmanagement/par/Areas/'+area.areaId, areaDeleteSuccess(deleteData,'deleted','statusMessage'), areaDeleteFailure(area.areaName));
-				$('#confirm').modal('hide');
+				$('#areaDeleteconfirmModal').modal('hide');
 	        });
 		    
 		});
@@ -97,17 +97,17 @@ $(document).ready(function(){
 	
 	var areaDeleteFailure = function(areaName) {
 		return function(xhr, error){
-			$('#statusDiv').removeClass("alert alert-success");
-			$('#statusDiv').addClass("alert alert-danger");
+			$('#areaStatusDiv').removeClass("alert alert-success");
+			$('#areaStatusDiv').addClass("alert alert-danger");
 			var reponseBody = JSON.parse(xhr.responseText);
 			if (typeof reponseBody['message'] == undefined || reponseBody['message'] == null) {
-				$('#statusMessage').html('Unable to delete '+ areaName);				
+				$('#areaStatusMessage').html('Unable to delete '+ areaName);				
 			}
 			else{
 				
-				$('#statusMessage').html(reponseBody['message']);
+				$('#areaStatusMessage').html(reponseBody['message']);
 			}	
-			$('#statusDiv').show();
+			$('#areaStatusDiv').show();
 			console.log("Error Code :"+ xhr.status);
 			console.log(error);
 		};
@@ -115,16 +115,16 @@ $(document).ready(function(){
 
 	var areaUpdateFailure = function(areaName) {
 		return function(xhr, error){
-			$('#modalStatusDiv').removeClass("alert alert-success");
-			$('#modalStatusDiv').addClass("alert alert-danger");
+			$('#areaModalStatusDiv').removeClass("alert alert-success");
+			$('#areaModalStatusDiv').addClass("alert alert-danger");
 			var reponseBody = JSON.parse(xhr.responseText);
 			if (typeof reponseBody['message'] == undefined || reponseBody['message'] == null) {
-				$('#modalStatusMessage').html('Unable to update '+ areaName);				
+				$('#areaModalStatusMessage').html('Unable to update '+ areaName);				
 			}
 			else{
-				$('#modalStatusMessage').html(reponseBody['message']);
+				$('#areaModalStatusMessage').html(reponseBody['message']);
 			}	
-			$('#modalStatusDiv').show();
+			$('#areaModalStatusDiv').show();
 			console.log("Error Code :"+ xhr.status);
 			console.log(error);
 		};
@@ -132,16 +132,16 @@ $(document).ready(function(){
 
 	var areaAddFailure = function(areaName) {
 		return function(xhr, error){
-			$('#modalStatusDiv').removeClass("alert alert-success");
-			$('#modalStatusDiv').addClass("alert alert-danger");
+			$('#areaModalStatusDiv').removeClass("alert alert-success");
+			$('#areaModalStatusDiv').addClass("alert alert-danger");
 			var reponseBody = JSON.parse(xhr.responseText);
 			if (typeof reponseBody['message'] == undefined || reponseBody['message'] == null) {
-				$('#modalStatusMessage').html('Unable to create ' + areaName);				
+				$('#areaModalStatusMessage').html('Unable to create ' + areaName);				
 			}
 			else{
-				$('#modalStatusMessage').html(reponseBody['message']);
+				$('#areaModalStatusMessage').html(reponseBody['message']);
 			}	
-			$('#modalStatusDiv').show();
+			$('#areaModalStatusDiv').show();
 			console.log("Error Code :"+ xhr.status);
 			console.log(error);
 		};
@@ -150,10 +150,10 @@ $(document).ready(function(){
 	var areaDeleteSuccess = function(deleteData,action,divElement) {
 		return function(response) {
 			table.row('#'+deleteData['areaId']).remove().draw();
-			$('#statusDiv').removeClass("alert alert-danger");
-			$('#statusDiv').addClass("alert alert-success");
-			$('#statusMessage').html(deleteData['areaName'] + " has been successfully deleted!!");
-			$('#statusDiv').show();
+			$('#areaStatusDiv').removeClass("alert alert-danger");
+			$('#areaStatusDiv').addClass("alert alert-success");
+			$('#areaStatusMessage').html(deleteData['areaName'] + " has been successfully deleted!!");
+			$('#areaStatusDiv').show();
 		};
 	};
 	
@@ -161,20 +161,20 @@ $(document).ready(function(){
 		return function(response) {
 			//var rowIndex = $("#rowIndex").val();
 			table.row('#'+newData['areaId']).data(newData).draw();
-			$('#modalStatusDiv').removeClass("alert alert-danger");
-			$('#modalStatusDiv').addClass("alert alert-success");
-			$('#modalStatusMessage').html("Area name has been successfully updated!!");
-			$('#modalStatusDiv').show();
+			$('#areaModalStatusDiv').removeClass("alert alert-danger");
+			$('#areaModalStatusDiv').addClass("alert alert-success");
+			$('#areaModalStatusMessage').html("Area name has been successfully updated!!");
+			$('#areaModalStatusDiv').show();
 		};
 	};
 	
 	var areaAddSuccess = function() {
 		return function(response) {
 			table.row.add(response).draw( false );
-			$('#modalStatusDiv').removeClass("alert alert-danger");
-			$('#modalStatusDiv').addClass("alert alert-success");
-			$('#modalStatusMessage').html("New Area has been created successfully!!");
-			$('#modalStatusDiv').show();
+			$('#areaModalStatusDiv').removeClass("alert alert-danger");
+			$('#areaModalStatusDiv').addClass("alert alert-success");
+			$('#areaModalStatusMessage').html("New Area has been created successfully!!");
+			$('#areaModalStatusDiv').show();
 		};
 	};
 	
@@ -183,7 +183,7 @@ $(document).ready(function(){
 	  var areaId = button.data('areaid');
 	  var areaName =  button.data('areaname');
 	  var areaActive = button.data('areaactive');
-	  $('#modalStatusDiv').hide();
+	  $('#areaModalStatusDiv').hide();
 	  $('#areaName').val(areaName);
 	  
 
@@ -191,7 +191,7 @@ $(document).ready(function(){
 	  $("#areaModal").off('click', '#saveAreaButton');
 	  
 	  $("#areaModal").on('click', '#saveAreaButton', function () {
-		  $('#modalStatusDiv').hide();
+		  $('#areaModalStatusDiv').hide();
 		  $('#areaForm').validate({
 			    rules : {
 			        areaName : {  required: true }

@@ -176,11 +176,18 @@ $(document).ready(function(){
 	
 	var extStaffAddSuccess = function() {
 		return function(response) {
-			table.row.add(response).draw( false );
+		//	table.row.add(response).draw( false );
+			
 			$('#extStaffModalStatusDiv').removeClass("alert alert-danger");
 			$('#extStaffModalStatusDiv').addClass("alert alert-success");
 			$('#extStaffModalStatusMessage').html("New External Staff has been created successfully!!");
 			$('#extStaffModalStatusDiv').show();
+			
+			if(!$.fn.dataTable.isDataTable("#tblExtStaffs")){
+				populateExternalStaffInfo(response);
+			}else{
+				table.row.add(response).draw(false);
+			}
 		};
 	};
 	
