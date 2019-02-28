@@ -19,6 +19,7 @@ import com.htc.par.repository.CandidateRepository;
 import com.htc.par.service.CandidateService;
 import com.htc.par.service.SkillService;
 import com.htc.par.to.CandidateTO;
+import com.htc.par.to.SkillTO;
 import com.htc.par.utilities.NullAwareBeanUtil;
 
 @Service
@@ -68,7 +69,10 @@ public class CandidateServiceImpl implements CandidateService {
 				if (candidateTO.getCandidatePhoneNumber().equals(candidateToUpdate.getCandidatePhoneNumber())) {
 					if (candidateTO.getCandidateEmail().equals(candidateToUpdate.getCandidateEmail())) {
 						NullAwareBeanUtil.copyProperties(candidateTO, candidateToUpdate);
-						candidateToUpdate.setSkill(skillService.getSkill(candidateTO.getSkill()));
+					//	candidateToUpdate.setSkill(skillService.getSkill(candidateTO.getSkill()));
+						SkillTO	skillTO = skillService.getSkillById(candidateTO.getSkill().getSkillId());
+						candidateToUpdate.setSkill(skillService.getSkill(skillTO));
+						
 						candidateToUpdate = candidateRepository.save(candidateToUpdate);
 						candidateTO = getCandidateTO(candidateToUpdate);
 					} else {
@@ -85,7 +89,10 @@ public class CandidateServiceImpl implements CandidateService {
 											candidateTO.getCandidateEmail()));
 						} else {
 							NullAwareBeanUtil.copyProperties(candidateTO, candidateToUpdate);
-							candidateToUpdate.setSkill(skillService.getSkill(candidateTO.getSkill()));
+						//	candidateToUpdate.setSkill(skillService.getSkill(candidateTO.getSkill()));
+							SkillTO	skillTO = skillService.getSkillById(candidateTO.getSkill().getSkillId());
+							candidateToUpdate.setSkill(skillService.getSkill(skillTO));
+							
 							candidateToUpdate = candidateRepository.save(candidateToUpdate);
 							candidateTO = getCandidateTO(candidateToUpdate);
 						}
@@ -105,8 +112,10 @@ public class CandidateServiceImpl implements CandidateService {
 										candidateTO.getCandidatePhoneNumber()));
 					} else {
 						NullAwareBeanUtil.copyProperties(candidateTO, candidateToUpdate);
-						candidateToUpdate.setSkill(skillService.getSkill(candidateTO.getSkill()));
+					//	candidateToUpdate.setSkill(skillService.getSkill(candidateTO.getSkill()));
 						candidateToUpdate = candidateRepository.save(candidateToUpdate);
+						SkillTO	skillTO = skillService.getSkillById(candidateTO.getSkill().getSkillId());
+						candidateToUpdate.setSkill(skillService.getSkill(skillTO));
 						candidateTO = getCandidateTO(candidateToUpdate);
 					}
 				}
@@ -148,10 +157,13 @@ public class CandidateServiceImpl implements CandidateService {
 				} else {
 					candidateTO.setCandidateActive(true);
 					candidate = getCandidate(candidateTO);
+
 				}
 			}
 
 			if (candidate != null) {
+				SkillTO	skillTO = skillService.getSkillById(candidateTO.getSkill().getSkillId());
+				candidate.setSkill(skillService.getSkill(skillTO));
 				candidate = candidateRepository.save(candidate);
 				candidateTO = getCandidateTO(candidate);
 			} else {

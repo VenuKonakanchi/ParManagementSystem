@@ -5,13 +5,13 @@ $(document).ready(function(){
 	var table=null;
 	
 	//Add new Role
-    $("#addNewRoleBtn").on("click", function(){
-    	$('#roleModal').modal('show'); 
+    $("#addNewCandRoleBtn").on("click", function(){
+    	$('#candRoleModal').modal('show'); 
     });
     
     //Role Table
 	function populateRoleInfo(response){
-		table = $('#tblRoles').DataTable(
+		table = $('#tblCandRoles').DataTable(
 				{
 					autoWidth: false,
 					
@@ -22,7 +22,7 @@ $(document).ready(function(){
 						{
 							data:null,
 							render: function (data, type, row){
-                                return '<button class="btnDelete btn btn-sm deleteRow"><img src="static/img/delete.png" alt="Delete"></button>   <button class="btnViewRole btn btn-sm editRow" data-toggle="modal" data-target="#roleModal" data-roleid="' + data.roleId + '" data-rolename="' + data.roleName + '" data-roleactive="' + data.roleActive + '"><img src="static/img/edit.png" alt="Edit"></button>';
+                                return '<button class="candRolebtnDelete btn btn-sm"><img src="static/img/delete.png" alt="Delete"></button>   <button class="candRolebtnViewRole btn btn-sm editRow" data-toggle="modal" data-target="#candRoleModal" data-roleid="' + data.roleId + '" data-rolename="' + data.roleName + '" data-roleactive="' + data.roleActive + '"><img src="static/img/edit.png" alt="Edit"></button>';
 								//return '<button type="button" class="btnDelete btn btn-primary">Delete</button>';
 							}
 						},
@@ -44,21 +44,21 @@ $(document).ready(function(){
                 }		
 		);
 		table.clear().rows.add(response).draw();
-		$("#tblRoles tbody").on('click', '.btnDelete', function () {
+		$("#tblCandRoles tbody").on('click', '.candRolebtnDelete', function () {
 			var role = table.row($(this).closest('tr')).data();
 			
-		    $('#confirm').modal({ backdrop: 'static', keyboard: false })
-	        .on('click', '#delete-btn', function(){
+		    $('#candRoleDeleteConfirmModal').modal({ backdrop: 'static', keyboard: false })
+	        .on('click', '#candRoledelete-btn', function(){
 				var deleteData={};
 				deleteData['roleId']=role.roleId;
 				deleteData['roleName']=role.roleName;
-				AjaxUtil.utils.sendDeleteRequest('/parmanagement/par/parroles/'+role.roleId, roleDeleteSuccess(deleteData,'deleted','statusMessage'), roleDeleteFailure(role.roleName));
-				$('#confirm').modal('hide');
+				AjaxUtil.utils.sendDeleteRequest('/parmanagement/par/parroles/'+role.roleId, roleDeleteSuccess(deleteData,'deleted','candRoleStatusMessage'), roleDeleteFailure(role.roleName));
+				$('#candRoleDeleteConfirmModal').modal('hide');
 	        });
 		    
 		});
 		
-		$("#tblRoles tbody").on('click', '.btnViewRole', function () {
+		$("#tblCandRoles tbody").on('click', '.candRolebtnViewRole', function () {
 			var role = table.row($(this).closest('tr')).data();
 			var rowIndex = $(this).closest('tr').index();
 		     $("#rowIndex").val(rowIndex);
@@ -70,7 +70,7 @@ $(document).ready(function(){
 			var reponseBody = JSON.parse(xhr.responseText);
 			$('#candRoleStatusDiv').removeClass("alert alert-success");
 			$('#candRoleStatusDiv').addClass("alert alert-warning");
-			$('#candStatusMessage').html(reponseBody['message']);
+			$('#candRoleStatusMessage').html(reponseBody['message']);
 			$('#candRoleStatusDiv').show();
 		}else{
 			$('#candRoleStatusDiv').hide();
@@ -87,11 +87,11 @@ $(document).ready(function(){
 			$('#candRoleStatusDiv').addClass("alert alert-danger");
 			var reponseBody = JSON.parse(xhr.responseText);
 			if (typeof reponseBody['message'] == undefined || reponseBody['message'] == null) {
-				$('#candStatusMessage').html('Unable to delete '+ roleName);				
+				$('#candRoleStatusMessage').html('Unable to delete '+ roleName);				
 			}
 			else{
 				
-				$('#candStatusMessage').html(reponseBody['message']);
+				$('#candRoleStatusMessage').html(reponseBody['message']);
 			}	
 			$('#candRoleStatusDiv').show();
 			console.log("Error Code :"+ xhr.status);
@@ -138,7 +138,7 @@ $(document).ready(function(){
 			table.row('#'+deleteData['roleId']).remove().draw();
 			$('#candRoleStatusDiv').removeClass("alert alert-danger");
 			$('#candRoleStatusDiv').addClass("alert alert-success");
-			$('#candStatusMessage').html(deleteData['roleName'] + " has been successfully deleted!!");
+			$('#candRoleStatusMessage').html(deleteData['roleName'] + " has been successfully deleted!!");
 			$('#candRoleStatusDiv').show();
 		};
 	};
@@ -164,7 +164,7 @@ $(document).ready(function(){
 		};
 	};
 	
-	$('#roleModal').on('show.bs.modal', function (event) {
+	$('#candRoleModal').on('show.bs.modal', function (event) {
 	  var button = $(event.relatedTarget); // Button that triggered the modal
 	  var roleId = button.data('roleid');
 	  var roleName =  button.data('rolename');
@@ -174,11 +174,11 @@ $(document).ready(function(){
 	  
 
 	  
-	  $("#roleModal").off('click', '#saveRoleButton');
+	  $("#candRoleModal").off('click', '#saveCandRoleButton');
 	  
-	  $("#roleModal").on('click', '#saveRoleButton', function () {
+	  $("#candRoleModal").on('click', '#saveCandRoleButton', function () {
 		  $('#candRoleModalStatusDiv').hide();
-		  $('#roleForm').validate({
+		  $('#candRoleForm').validate({
 			    rules : {
 			        roleName : {  required: true }
 			    },
@@ -194,7 +194,7 @@ $(document).ready(function(){
 			    unhighlight: PARValidationUtil.utils.validationProperties.unhighlight
 		  });
 		  
-		  if(!$('#roleForm').valid())
+		  if(!$('#candRoleForm').valid())
 			  return;
 		  if (typeof roleId == undefined || roleId == null) {
 			  var requestBody={};
@@ -210,7 +210,7 @@ $(document).ready(function(){
 			  newData['roleId'] = roleId.toString();
 			  newData['roleActive'] = roleActive;
 			  newData['roleName'] = $('#roleName').val();
-			  AjaxUtil.utils.sendPutRequest('/parmanagement/par/parroles/',roleUpdateSuccess(newData,'updated','statusModalMessage'), roleUpdateFailure(roleName),requestBody);			  
+			  AjaxUtil.utils.sendPutRequest('/parmanagement/par/parroles/',roleUpdateSuccess(newData,'updated','candRoleModalStatusMessage'), roleUpdateFailure(roleName),requestBody);			  
 		  }
 		});
 	});
