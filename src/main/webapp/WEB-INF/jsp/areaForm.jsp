@@ -1,14 +1,15 @@
-<div class="collapse" role="alert" id="statusDiv">
-  <span id="statusMessage"></span>
+<div class="collapse" role="alert" id="areaStatusDiv">
+  <span id="areaStatusMessage"></span>
   <button type="button" class="close" data-hide="alert">&times;</button>
  </div>
 		  
-  <div class="alert alert-error collapse" role="alert" id="statusDiv">
+<!--   <div class="alert alert-error collapse" role="alert" id="statusDiv">
 	  <span id="statusMessage">
-	  	<!-- <p ></p> -->
+	  	<p ></p>
 	  </span>
 	   <button type="button" class="close" data-hide="alert">&times;</button>
 </div>
+ -->
 	<button type="button" class="btn btn-sm btn-primary" id="addNewAreaBtn">Add New Area</button><p ></p>
 	<table id="tblAreas"
 		class="table table-striped table-bordered dataTable" style="width: 100%;">
@@ -23,7 +24,7 @@
 		</thead>
 	</table>
    
-	<div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+	<div class="modal fade" id="areaDeleteconfirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
 	    <div class="modal-dialog modal-lg"  role="document">
 	        <div class="modal-content">
 	            <div class="modal-header">
@@ -36,7 +37,7 @@
 	                <p>Are you sure you, want to delete?</p>
 	            </div>
 	            <div class="modal-footer">
-	                <button type="button" class="btn btn-primary" id="delete-btn">Delete</button>
+	                <button type="button" class="btn btn-primary" id="areaDelete-btn">Delete</button>
 	                <button type="button" class="btn btn-secondary cancel" data-dismiss="modal">Cancel</button>
 	            </div>
 	        </div>
@@ -53,8 +54,8 @@
 	      </div>
 	      <div class="modal-body">
 	      <p></p>
-		  <div class="collapse" role="alert" id="modalStatusDiv">
-			  <span id="modalStatusMessage"></span>
+		  <div class="collapse" role="alert" id="areaModalStatusDiv">
+			  <span id="areaModalStatusMessage"></span>
 			  <button type="button" class="close" data-hide="alert">&times;</button>
 		  </div>
 		  <form class="form-horizontal"  role="form" id="areaForm">
