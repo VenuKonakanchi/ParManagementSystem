@@ -62,7 +62,7 @@
 		    	<input type="hidden" id="rowIndex" name="rowIndex" value="">
 		      <label class="control-label col-sm-3" for="skillName">Skill Name:</label>
 		      <div class="col-sm-6">
-		        <input type="text" class="form-control" id="skillName" placeholder="Enter Skill Name" name="skillName">
+		        <input type="text" class="form-control" id="skillName" placeholder=" " name="skillName">
 		      </div>
 		      <div class="col-sm-3"></div>
 		    </div>

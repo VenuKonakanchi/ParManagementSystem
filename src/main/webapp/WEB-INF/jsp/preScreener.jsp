@@ -58,7 +58,7 @@
 		    	<input type="hidden" id="rowIndex" name="rowIndex" value="">
 		      <label class="control-label col-sm-3" for="preScreenerName">PreScreener Name:</label>
 		      <div class="col-sm-6">
-		        <input type="text" class="form-control" id="preScreenerName" placeholder="Enter PreScreener Name" name="preScreenerName">
+		        <input type="text" class="form-control" id="preScreenerName" placeholder=" " name="preScreenerName">
 		      </div>
 		      <div class="col-sm-3"></div>
 		    </div>
@@ -66,7 +66,7 @@
 		    	<input type="hidden" id="rowIndex" name="rowIndex" value="">
 		      <label class="control-label col-sm-6" for="preScreenerPhoneNumber">PreScreener Phone Number:</label>
 		      <div class="col-sm-6">
-		        <input type="text" class="form-control" id="preScreenerPhoneNumber" placeholder="Enter PreScreener Phone Number" name="preScreenerPhoneNumber">
+		        <input type="text" class="form-control" id="preScreenerPhoneNumber" placeholder=" " name="preScreenerPhoneNumber">
 		      </div>
 		      <div class="col-sm-3"></div>
 		    </div>

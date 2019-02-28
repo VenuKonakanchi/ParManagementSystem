@@ -37,7 +37,7 @@
 	            </div>
 	            <div class="modal-footer">
 	                <button type="button" class="btn btn-primary" id="delete-btn">Delete</button>
-	                <button type="button" class="btn btn-secondary cancel" data-dismiss="modal">Close</button>
+	                <button type="button" class="btn btn-secondary cancel" data-dismiss="modal">Cancel</button>
 	            </div>
 	        </div>
 	    </div>
@@ -62,7 +62,7 @@
 		    	<input type="hidden" id="rowIndex" name="rowIndex" value="">
 		      <label class="control-label col-sm-3" for="areaName">Area Name:</label>
 		      <div class="col-sm-6">
-		        <input type="text" class="form-control" id="areaName" placeholder="Enter Area Name" name="areaName">
+		        <input type="text" class="form-control" id="areaName" placeholder=" " name="areaName">
 		      </div>
 		      <div class="col-sm-3"></div>
 		    </div>
