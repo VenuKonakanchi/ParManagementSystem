@@ -47,6 +47,7 @@ public class ExternalStaffController {
 	@GetMapping("/externalstaff")
 	public ResponseEntity<List<ExternalStaffTO>> getAllExtStaff() throws ResourceNotFoundException {
 		return ResponseEntity.ok(externalStaffService.getAllExternalStaff());
+		
 	}
 
 	/**
