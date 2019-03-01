@@ -1,11 +1,11 @@
     <div class="alert alert-error collapse" role="alert" id="candRoleStatusDiv">
-	  <span id="candStatusMessage">
+	  <span id="candRoleStatusMessage">
 	  	<!-- <p ></p> -->
 	  </span>
 	   <button type="button" class="close" data-hide="alert">&times;</button>
 </div>
-	<button type="button" class="btn btn-sm btn-primary" id="addNewRoleBtn">Add New Role</button><p ></p>
-	<table id="tblRoles"
+	<button type="button" class="btn btn-sm btn-primary" id="addNewCandRoleBtn">Add New Role</button><p ></p>
+	<table id="tblCandRoles"
 		class="table table-striped table-bordered dataTable" style="width: 100%;">
 		<thead>
 			<tr>
@@ -18,11 +18,11 @@
 		</thead>
 	</table>
    
-	<div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+	<div class="modal fade" id="candRoleDeleteConfirmModal" tabindex="-1" role="dialog" aria-labelledby="candidateDeleteConfirmLabel" aria-hidden="true">
 	    <div class="modal-dialog modal-lg"  role="document">
 	        <div class="modal-content">
 	            <div class="modal-header">
-	                <h5 class="modal-title" id="confirmModalLabel">Delete Confirmation</h5>
+	                <h5 class="modal-title" id="candidateDeleteConfirmLabel">Delete Confirmation</h5>
 	                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             			<span aria-hidden="true">&times;</span>
           			</button>
@@ -31,7 +31,7 @@
 	                <p>Are you sure you, want to delete?</p>
 	            </div>
 	            <div class="modal-footer">
-	                <button type="button" class="btn btn-primary" id="delete-btn">Delete</button>
+	                <button type="button" class="btn btn-primary" id="candRoledelete-btn">Delete</button>
 	                <button type="button" class="btn btn-secondary cancel" data-dismiss="modal">Close</button>
 	            </div>
 	        </div>
@@ -40,7 +40,7 @@
                    
   <br><br>
 
-	<div class="modal fade" id="roleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal fade" id="candRoleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 	  <div class="modal-dialog modal-lg" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
@@ -52,7 +52,7 @@
 			  <span id="candRoleModalStatusMessage"></span>
 			  <button type="button" class="close" data-hide="alert">&times;</button>
 		  </div>
-		  <form class="form-horizontal"  role="form" id="roleForm">
+		  <form class="form-horizontal"  role="form" id="candRoleForm">
 		    <div class="form-group">
 		    	<input type="hidden" id="rowIndex" name="rowIndex" value="">
 		      <label class="control-label col-sm-3" for="roleName">Role Name:</label>
@@ -66,7 +66,7 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary cancel" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary save" id="saveRoleButton">Save</button>
+	        <button type="button" class="btn btn-primary save" id="saveCandRoleButton">Save</button>
 	      </div>
 	    </div>
 	  </div>

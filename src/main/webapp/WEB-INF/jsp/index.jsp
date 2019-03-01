@@ -110,92 +110,8 @@
                     <div class="tab-pane fade" id="area-product" role="tabpanel" aria-labelledby="area-product-tab">
                       <%@include file="areaForm.jsp" %>
                     </div>
-                    <div class="tab-pane fade show active" id="candidate-master" role="tabpanel" aria-labelledby="candidate-master-tab">
-                                    <table id="example" class="table table-striped table-bordered dataTable" style="width: 100%;">
-                                        <thead>
-                                            <tr role="row">
-                                                <th><input type="checkbox" class="checkbox"/></th>
-                                                <th>Name</th><th>Email</th><th>Phone No</th><th>Primary Skill</th><th>Experience</th><th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr role="row" class="odd">
-                                                <td><input type="checkbox" class="checkbox"/></td>
-                                                <td>A</td><td>test@test.com</td><td>123456</td><td>Test</td><td>5</td>
-                                                <td class="td-editor">
-                                                    <button class="btn btn-sm saveRow" style="display:none;">
-                                                        <img src="static/img/save_active.png" alt="Save">
-                                                    </button>
-                                                    <button class="btn btn-sm editRow" data-toggle="modal" data-target="#exampleModal">
-                                                        <img src="static/img/edit.png" alt="Edit">
-                                                    </button>
-                                                    <button class="btn btn-sm deleteRow">
-                                                        <img src="static/img/delete.png" alt="Delete">
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr role="row" class="odd">
-                                                <td><input type="checkbox" class="checkbox"/></td>
-                                                <td>B</td><td>test@test.com</td><td>123456</td><td>Test</td><td>4</td>
-                                                <td class="td-editor">
-                                                    <button class="btn btn-sm saveRow" style="display:none;">
-                                                        <img src="static/img/save_active.png" alt="Save">
-                                                    </button>
-                                                    <button class="btn btn-sm editRow" data-toggle="modal" data-target="#exampleModal">
-                                                        <img src="static/img/edit.png" alt="Edit">
-                                                    </button>
-                                                    <button class="btn btn-sm deleteRow">
-                                                        <img src="static/img/delete.png" alt="Delete">
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr role="row" class="odd">
-                                                <td><input type="checkbox" class="checkbox"/></td>
-                                                <td>C</td><td>test@test.com</td><td>123456</td><td>Test</td><td>3</td>
-                                                <td class="td-editor">
-                                                    <button class="btn btn-sm saveRow" style="display:none;">
-                                                        <img src="static/img/save_active.png" alt="Save">
-                                                    </button>
-                                                    <button class="btn btn-sm editRow" data-toggle="modal" data-target="#exampleModal">
-                                                        <img src="static/img/edit.png" alt="Edit">
-                                                    </button>
-                                                    <button class="btn btn-sm deleteRow">
-                                                        <img src="static/img/delete.png" alt="Delete">
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr role="row" class="odd">
-                                                <td><input type="checkbox" class="checkbox"/></td>
-                                                <td>D</td><td>test@test.com</td><td>123456</td><td>Test</td><td>2</td>
-                                                <td class="td-editor">
-                                                    <button class="btn btn-sm saveRow" style="display:none;">
-                                                        <img src="static/img/save_active.png" alt="Save">
-                                                    </button>
-                                                    <button class="btn btn-sm editRow" data-toggle="modal" data-target="#exampleModal">
-                                                        <img src="static/img/edit.png" alt="Edit">
-                                                    </button>
-                                                    <button class="btn btn-sm deleteRow">
-                                                        <img src="static/img/delete.png" alt="Delete">
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr role="row" class="odd">
-                                                <td><input type="checkbox" class="checkbox"/></td>
-                                                <td>E</td><td>test@test.com</td><td>123456</td><td>Test</td><td>1</td>
-                                                <td class="td-editor">
-                                                    <button class="btn btn-sm saveRow" style="display:none;">
-                                                        <img src="static/img/save_active.png" alt="Save">
-                                                    </button>
-                                                    <button class="btn btn-sm editRow" data-toggle="modal" data-target="#exampleModal">
-                                                        <img src="static/img/edit.png" alt="Edit">
-                                                    </button>
-                                                    <button class="btn btn-sm deleteRow">
-                                                        <img src="static/img/delete.png" alt="Delete">
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>                    
+                    <div class="tab-pane fade show active" id="candidate-master" role="tabpanel" aria-labelledby="candidate-master-tab"> 
+                        <%@include file="candidateForm.jsp" %>             
                     </div>
                     <div class="tab-pane fade" id="candidate-role" role="tabpanel" aria-labelledby="candidate-role-tab">
                        <%@include file="candidateRole.jsp" %>
@@ -295,5 +211,6 @@
   <script type="text/javascript" src="static/js/candidateRole.js"></script>
   <script type="text/javascript" src="static/js/recruiter.js"></script>
   <script type="text/javascript" src="static/js/Area.js"></script>
+  <script type="text/javascript" src="static/js/candidate.js"></script>
 </body>
 </html>

@@ -103,10 +103,9 @@ public class SkillServiceImpl implements SkillService {
 			if (existingSkillOptional.isPresent()) {
 				skill = existingSkillOptional.get();
 				if(skill.getSkillActive()) {
-					throw new ResourceDuplicateException(String.format("Skill: %s has already been in-activated. Please add it as new skill.", skillTO.getSkillName()));
-					
+					throw new ResourceDuplicateException(String.format("Skill: %s Already Exist.", skillTO.getSkillName()));				
 				}else {
-					throw new ResourceDuplicateException(String.format("Skill: %s Already Exist.", skillTO.getSkillName()));
+					throw new ResourceDuplicateException(String.format("Skill: %s has already been in-activated. Please add it as new skill.", skillTO.getSkillName()));
 				}
 			} else {
 				throw new ResourceDuplicateException(String.format("Skill: %s Already Exist.", skillTO.getSkillName()));
