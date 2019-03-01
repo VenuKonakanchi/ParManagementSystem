@@ -43,34 +43,45 @@
 				<form class="form-horizontal" role="form" id="candidateForm">
 						<div class="form-group row">
 						<input type="hidden" id="rowIndex" name="rowIndex" value="">
-						<label class="control-label col-sm-6" for="candidateName">Candidate	Name :</label>
-						<div class="col-sm-6">
+						<label class="control-label col-sm-2" for="candidateName">Name :</label>
+						<div class="col-sm-4">
 							<input type="text" class="form-control" id="candidateName"	placeholder="Enter Candidate Name" name="candidateName">
+						</div>
+						<label class="control-label col-sm-3" for="candidatePhoneNumber"> Phone Number :</label>
+						<div class="col-sm-3">
+						<input type="text" class="form-control" id="candidatePhoneNumber"
+								placeholder="Enter Phone Number" name="candidatePhoneNumber">
 						</div>
 						</div>
 						
-						<div class="form-group row">
-						<label class="control-label col-sm-6" for="candidatePhoneNumber"> Candidate Phone Number :</label>
-						<div class="col-sm-6">
+<!-- 					<div class="form-group row">
+						<label class="control-label col-sm-3" for="candidatePhoneNumber"> Candidate Phone Number :</label>
+						<div class="col-sm-3">
 							<input type="text" class="form-control" id="candidatePhoneNumber"
 								placeholder="Enter Phone Number" name="candidatePhoneNumber">
 						</div>
-					</div>
+						<div class="col-sm-6"></div>
+					</div> -->
 					
 					
 					<div class="form-group row">
-						<label class="control-label col-sm-3" for="candidateEmail">Email : </label>
-						<div class="col-sm-3">
+						<label class="control-label col-sm-2" for="candidateEmail">Email : </label>
+						<div class="col-sm-4">
 							<input type="email" class="form-control" id="candidateEmail"
 								placeholder="Enter Email" name="candidateEmail">
 						</div>
+						<label class="control-label col-sm-2" for="candidateSkillSelect">Primary Skill :</label>
+						<div class="col-sm-4">
+							<select  class="form-control" id="candidateSkillSelect"></select>
+						</div>
 					</div>
-					<div class="form-group row">
+<!-- 					<div class="form-group row">
 						<label class="control-label col-sm-3" for="candidateSkillSelect">Select	Candidate Primary Skill :</label>
 						<div class="col-sm-3">
 							<select  class="form-control" id="candidateSkillSelect"></select>
 						</div>
-					</div>
+						<div class="col-sm-6"></div>
+					</div> -->
 					<br>
 				</form>
 			</div>
