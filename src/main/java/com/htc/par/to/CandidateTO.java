@@ -1,30 +1,28 @@
 package com.htc.par.to;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-
-import com.htc.par.entity.Skill;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 public class CandidateTO {
 
 	private Integer candidateId ;
 	
+	 @NotEmpty(message = "Candidate Name cannot be empty")
+	 @NotNull(message = "Candidate Name cannot be null")
+	 @Pattern(regexp="^[A-Za-z ]+$",message="Invalid Candidate Name ")
 	private String candidateName;
 	
+	 @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message="Invalid Mobile Number")
 	private String candidatePhoneNumber;
 	
+	@Email(message="Email should be valid")
 	private String candidateEmail;
 
 	private Boolean candidateActive ;
 	
+	@NotNull(message="Skill can not be null")
 	private SkillTO skill;
 
 	

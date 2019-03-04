@@ -3,11 +3,15 @@
  */
 package com.htc.par.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -32,6 +36,9 @@ public class Skill {
 	
 	@Column(name="skill_active")
 	private Boolean skillActive;
+	
+    @OneToMany(mappedBy = "skill")
+    private Set<Candidate> candidates = new HashSet<Candidate>();
 
 	public Skill() {
 		super();
@@ -73,6 +80,14 @@ public class Skill {
 
 	public void setSkillActive(Boolean skillActive) {
 		this.skillActive = skillActive;
+	}
+	
+	public Set<Candidate> getCandidates() {
+		return candidates;
+	}
+
+	public void setCandidates(Set<Candidate> candidates) {
+		this.candidates = candidates;
 	}
 
 	@Override

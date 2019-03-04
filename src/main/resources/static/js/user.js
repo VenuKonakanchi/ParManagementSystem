@@ -68,7 +68,7 @@ $(document).ready(function(){
 				deleteData['lastName']=user.lastName;
 				deleteData['phone']=user.phone;
 				deleteData['userName']=user.userName;
-				AjaxUtil.utils.sendDeleteRequest('/parmanagement/par/users/'+user.userId, userDeleteSuccess(deleteData,'deleted','statusMessage'), userDeleteFailure(user.userName));
+				AjaxUtil.utils.sendDeleteRequest('/parmanagement/par/users/'+user.userId, userDeleteSuccess(deleteData,'deleted','userStatusMessage'), userDeleteFailure(user.userName));
 				$('#userDeleteConfirmModal').modal('hide');
 	        });
 		    
@@ -135,8 +135,8 @@ $(document).ready(function(){
 
 	var userUpdateFailure = function(userName) {
 		return function(xhr, error){
-			$('#useMmodalStatusDiv').removeClass("alert alert-success");
-			$('#useMmodalStatusDiv').addClass("alert alert-danger");
+			$('#userModalStatusDiv').removeClass("alert alert-success");
+			$('#userModalStatusDiv').addClass("alert alert-danger");
 			var reponseBody = JSON.parse(xhr.responseText);
 			if (typeof reponseBody['message'] == undefined || reponseBody['message'] == null) {
 				$('#userModalStatusMessage').html('Unable to update '+ userName);				
@@ -152,8 +152,8 @@ $(document).ready(function(){
 
 	var userAddFailure = function(userName) {
 		return function(xhr, error){
-			$('#useMmodalStatusDiv').removeClass("alert alert-success");
-			$('#useMmodalStatusDiv').addClass("alert alert-danger");
+			$('#userModalStatusDiv').removeClass("alert alert-success");
+			$('#userModalStatusDiv').addClass("alert alert-danger");
 			var reponseBody = JSON.parse(xhr.responseText);
 			if (typeof reponseBody['message'] == undefined || reponseBody['message'] == null) {
 				$('#userModalStatusMessage').html('Unable to create ' + userName);				
@@ -161,7 +161,7 @@ $(document).ready(function(){
 			else{
 				$('#userModalStatusMessage').html(reponseBody['message']);
 			}	
-			$('#useMmodalStatusDiv').show();
+			$('#userModalStatusDiv').show();
 			console.log("Error Code :"+ xhr.status);
 			console.log(error);
 		};
@@ -181,20 +181,25 @@ $(document).ready(function(){
 		return function(response) {
 			//var rowIndex = $("#rowIndex").val();
 			table.row('#'+newData['userId']).data(response).draw();
-			$('#useMmodalStatusDiv').removeClass("alert alert-danger");
-			$('#useMmodalStatusDiv').addClass("alert alert-success");
+			$('#userModalStatusDiv').removeClass("alert alert-danger");
+			$('#userModalStatusDiv').addClass("alert alert-success");
 			$('#userModalStatusMessage').html("User has been successfully updated!!");
-			$('#useMmodalStatusDiv').show();
+			$('#userModalStatusDiv').show();
 		};
 	};
 	
 	var userAddSuccess = function() {
 		return function(response) {
-			table.row.add(response).draw( false );
-			$('#useMmodalStatusDiv').removeClass("alert alert-danger");
-			$('#useMmodalStatusDiv').addClass("alert alert-success");
+			//table.row.add(response).draw( false );
+			$('#userModalStatusDiv').removeClass("alert alert-danger");
+			$('#userModalStatusDiv').addClass("alert alert-success");
 			$('#userModalStatusMessage').html("New User has been created successfully!!");
-			$('#useMmodalStatusDiv').show();
+			$('#userModalStatusDiv').show();
+			if(!$.fn.dataTable.isDataTable("#tblUsers")){
+				populateUserInfo(response);
+			}else{
+				table.row.add(response).draw(false);
+			}
 		};
 	};
 	
@@ -209,7 +214,7 @@ $(document).ready(function(){
 	  var phone =  button.data('phone');
 	  var roleId =  button.data('roleid');
 	  var userActive = button.data('useractive');
-	  $('#useMmodalStatusDiv').hide();
+	  $('#userModalStatusDiv').hide();
 	  $('#firstName').val(firstName);
 	  $('#lastName').val(lastName);
 	  $('#userName').val(userName);
@@ -235,7 +240,7 @@ $(document).ready(function(){
 		}, "UserName field allows alphanumeric  only");
 	  
 	  $("#userModal").on('click', '#saveUserButton', function () {
-		  $('#useMmodalStatusDiv').hide();
+		  $('#userModalStatusDiv').hide();
 		  $('#userForm').validate({
 			    rules : {
 			    	firstName : {  lettersonlys:true,required: true },
@@ -299,6 +304,7 @@ $(document).ready(function(){
 			  requestBody["password"]=$('#password').val();
 			  requestBody['role']={};
 			  requestBody['role']['roleId']=$('#userRoleSelect').val();
+			  requestBody['role']['roleName']=$('#userRoleSelect :selected').text();
 			  requestBody["email"]=$('#email').val();
 			  requestBody["phone"]=$('#phone').val();
 			  $('#userName').prop('disabled',true);

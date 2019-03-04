@@ -23,7 +23,7 @@ public interface CandidateService {
 	
 	public List<CandidateTO> getAllCandidate() throws ResourceNotFoundException;
 	
-	public CandidateTO updateCandidate(CandidateTO candidateTO) throws ResourceNotUpdatedException;
+	public CandidateTO updateCandidate(CandidateTO candidateTO) throws ResourceNotFoundException, ResourceNotUpdatedException, ResourceDuplicateException;
 	
 	public CandidateTO createCandidate(CandidateTO candidateTO) throws ResourceDuplicateException, ResourceNotCreatedException;
 

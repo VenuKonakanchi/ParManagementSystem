@@ -3,14 +3,6 @@
 	<button type="button" class="close" data-hide="alert">&times;</button>
 </div>
 
-<!--  <div class="alert alert-error collapse" role="alert" id="userStatusDiv">
-	  <span id="userStatusMessage">
-	  	<p ></p>
-	  </span>
-	   <button type="button" class="close" data-hide="alert">&times;</button>
-</div>
- -->
-
 <div class="modal fade" id="userDeleteConfirmModal" tabindex="-1" role="dialog"
 	aria-labelledby="userDeleteconfirmModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg" role="document">
@@ -46,7 +38,7 @@
 			</div>
 			<div class="modal-body">
 				<p></p>
-				<div class="collapse" role="alert" id="useMmodalStatusDiv">
+				<div class="collapse" role="alert" id="userModalStatusDiv">
 					<span id="userModalStatusMessage"></span>
 					<button type="button" class="close" data-hide="alert">&times;</button>
 				</div>
