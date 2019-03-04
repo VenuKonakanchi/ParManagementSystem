@@ -3,13 +3,15 @@
  */
 package com.htc.par.entity;
 
-import javax.persistence.CascadeType;
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -49,23 +51,15 @@ public class PARMaster {
 	@Column(name = "par_cmmnt")
 	private String parComment;
 	
-	@OneToMany(mappedBy = "parMaster", cascade = CascadeType.ALL)
+	@Column(name = "intnt_to_fill_dt")
+	private LocalDate intentToFillDate;
+	
+	@OneToOne(mappedBy = "parMaster", fetch = FetchType.LAZY)
 	private PARRelation parRelation;
 
-	public PARMaster(String parNumber, String parDescriptionText, String parReceivedDate, String parStatus,
-			Boolean intentToFillIndicator, Boolean emailSent, String parComment) {
-		super();
-		this.parNumber = parNumber;
-		this.parDescriptionText = parDescriptionText;
-		this.parReceivedDate = parReceivedDate;
-		this.parStatus = parStatus;
-		this.intentToFillIndicator = intentToFillIndicator;
-		this.emailSent = emailSent;
-		this.parComment = parComment;
-	}
-
 	public PARMaster(Integer parId, String parNumber, String parDescriptionText, String parReceivedDate,
-			String parStatus, Boolean intentToFillIndicator, Boolean emailSent, String parComment) {
+			String parStatus, Boolean intentToFillIndicator, Boolean emailSent, String parComment,
+			LocalDate intentToFillDate) {
 		super();
 		this.parId = parId;
 		this.parNumber = parNumber;
@@ -75,6 +69,20 @@ public class PARMaster {
 		this.intentToFillIndicator = intentToFillIndicator;
 		this.emailSent = emailSent;
 		this.parComment = parComment;
+		this.intentToFillDate = intentToFillDate;
+	}
+
+	public PARMaster(String parNumber, String parDescriptionText, String parReceivedDate, String parStatus,
+			Boolean intentToFillIndicator, Boolean emailSent, String parComment, LocalDate intentToFillDate) {
+		super();
+		this.parNumber = parNumber;
+		this.parDescriptionText = parDescriptionText;
+		this.parReceivedDate = parReceivedDate;
+		this.parStatus = parStatus;
+		this.intentToFillIndicator = intentToFillIndicator;
+		this.emailSent = emailSent;
+		this.parComment = parComment;
+		this.intentToFillDate = intentToFillDate;
 	}
 
 	public Integer getParId() {
@@ -153,6 +161,8 @@ public class PARMaster {
 	public String toString() {
 		return "PARMaster [parId=" + parId + ", parNumber=" + parNumber + ", parDescriptionText=" + parDescriptionText
 				+ ", parReceivedDate=" + parReceivedDate + ", parStatus=" + parStatus + ", intentToFillIndicator="
-				+ intentToFillIndicator + ", emailSent=" + emailSent + ", parComment=" + parComment + "]";
+				+ intentToFillIndicator + ", emailSent=" + emailSent + ", parComment=" + parComment
+				+ ", intentToFillDate=" + intentToFillDate + "]";
 	}
+
 }

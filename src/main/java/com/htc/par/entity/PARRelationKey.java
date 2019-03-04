@@ -25,19 +25,23 @@ public class PARRelationKey implements Serializable{
 	
 	private Integer areaId;
 	
+	private Integer extStaffId ;
+	
 	
 
 	public PARRelationKey() {
 		super();
 	}
 
-	public PARRelationKey(Integer parId, Integer roleId, Integer skillId, Integer areaId) {
+	public PARRelationKey(Integer parId, Integer roleId, Integer skillId, Integer areaId, Integer extStaffId) {
 		super();
 		this.parId = parId;
 		this.roleId = roleId;
 		this.skillId = skillId;
 		this.areaId = areaId;
+		this.extStaffId = extStaffId;
 	}
+
 
 	public Integer getParId() {
 		return parId;
@@ -70,6 +74,12 @@ public class PARRelationKey implements Serializable{
 	public void setAreaId(Integer areaId) {
 		this.areaId = areaId;
 	}
-	
 
+	public Integer getExtStaffId() {
+		return extStaffId;
+	}
+
+	public void setExtStaffId(Integer extStaffId) {
+		this.extStaffId = extStaffId;
+	}
 }
