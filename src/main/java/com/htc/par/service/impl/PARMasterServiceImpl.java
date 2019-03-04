@@ -101,7 +101,7 @@ public class PARMasterServiceImpl implements PARMasterService {
 
 	@Override
 	public PARMasterTO intentToFill(Integer parId, LocalDate intentToFillDate) throws ResourceNotFoundException, ResourceNotUpdatedException {
-		Optional<PARMaster> parMasterOptional = 
+		
 		return null;
 	}
 
