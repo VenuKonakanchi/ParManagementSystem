@@ -3,6 +3,8 @@
  */
 package com.htc.par.to;
 
+import java.time.LocalDate;
+
 import com.htc.par.entity.Area;
 import com.htc.par.entity.ExternalStaff;
 import com.htc.par.entity.PARRole;
@@ -16,7 +18,6 @@ import com.htc.par.entity.Skill;
 
 public class PARMasterTO {
 
-
 	private Integer parId;
 
 	private String parNumber;
@@ -28,6 +29,8 @@ public class PARMasterTO {
 	private String parStatus;
 
 	private Boolean intentToFillIndicator;
+	
+	private LocalDate intentToFillDate;
 
 	private Boolean emailSent;
 
@@ -41,20 +44,9 @@ public class PARMasterTO {
 	
 	private ExternalStaff externalStaff;
 	
-	public PARMasterTO(String parNumber, String parDescriptionText, String parReceivedDate, String parStatus,
-			Boolean intentToFillIndicator, Boolean emailSent, String parComment) {
-		super();
-		this.parNumber = parNumber;
-		this.parDescriptionText = parDescriptionText;
-		this.parReceivedDate = parReceivedDate;
-		this.parStatus = parStatus;
-		this.intentToFillIndicator = intentToFillIndicator;
-		this.emailSent = emailSent;
-		this.parComment = parComment;
-	}
-
 	public PARMasterTO(Integer parId, String parNumber, String parDescriptionText, String parReceivedDate,
-			String parStatus, Boolean intentToFillIndicator, Boolean emailSent, String parComment) {
+			String parStatus, Boolean intentToFillIndicator, LocalDate intentToFillDate, Boolean emailSent,
+			String parComment) {
 		super();
 		this.parId = parId;
 		this.parNumber = parNumber;
@@ -62,6 +54,7 @@ public class PARMasterTO {
 		this.parReceivedDate = parReceivedDate;
 		this.parStatus = parStatus;
 		this.intentToFillIndicator = intentToFillIndicator;
+		this.intentToFillDate = intentToFillDate;
 		this.emailSent = emailSent;
 		this.parComment = parComment;
 	}
@@ -162,10 +155,19 @@ public class PARMasterTO {
 		this.externalStaff = externalStaff;
 	}
 
+	public LocalDate getIntentToFillDate() {
+		return intentToFillDate;
+	}
+
+	public void setIntentToFillDate(LocalDate intentToFillDate) {
+		this.intentToFillDate = intentToFillDate;
+	}
+
 	@Override
 	public String toString() {
-		return "PARMaster [parId=" + parId + ", parNumber=" + parNumber + ", parDescriptionText=" + parDescriptionText
+		return "PARMasterTO [parId=" + parId + ", parNumber=" + parNumber + ", parDescriptionText=" + parDescriptionText
 				+ ", parReceivedDate=" + parReceivedDate + ", parStatus=" + parStatus + ", intentToFillIndicator="
-				+ intentToFillIndicator + ", emailSent=" + emailSent + ", parComment=" + parComment + "]";
+				+ intentToFillIndicator + ", intentToFillDate=" + intentToFillDate + ", emailSent=" + emailSent
+				+ ", parComment=" + parComment + "]";
 	}
 }
