@@ -5,6 +5,7 @@ package com.htc.par.entity;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
@@ -22,29 +23,29 @@ public class PARRelation {
 	@EmbeddedId
 	private PARRelationKey parRelationKey;
 
-	@OneToOne
-    @MapsId("par_cd")
+	@OneToOne(fetch = FetchType.LAZY)
+    @MapsId("parId")
     @JoinColumn(name = "par_cd", referencedColumnName="par_id")
 	private PARMaster parMaster;
 	
-	@OneToOne
-    @MapsId("role_cd")
+	@OneToOne(fetch = FetchType.LAZY)
+    @MapsId("roleId")
     @JoinColumn(name = "role_cd", referencedColumnName="role_id")
 	private PARRole parRole;
 	
 	
-	@OneToOne
-    @MapsId("skill_cd")
+	@OneToOne(fetch = FetchType.LAZY)
+    @MapsId("skillId")
     @JoinColumn(name = "skill_cd", referencedColumnName="skill_id")
 	private Skill skill;
 	
-	@OneToOne
-    @MapsId("area_cd")
+	@OneToOne(fetch = FetchType.LAZY)
+    @MapsId("areaId")
     @JoinColumn(name = "area_cd", referencedColumnName="area_id")
 	private Area area;
 	
-	@OneToOne
-    @MapsId("ext_staff_cd")
+	@OneToOne(fetch = FetchType.LAZY)
+    @MapsId("extStaffId")
     @JoinColumn(name = "ext_staff_cd", referencedColumnName="ext_staff_id")
 	private ExternalStaff externalStaff;
 
