@@ -6,6 +6,7 @@ package com.htc.par.service.impl;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.htc.par.entity.PARMaster;
@@ -14,6 +15,7 @@ import com.htc.par.exceptions.ResourceNotCreatedException;
 import com.htc.par.exceptions.ResourceNotDeletedException;
 import com.htc.par.exceptions.ResourceNotFoundException;
 import com.htc.par.exceptions.ResourceNotUpdatedException;
+import com.htc.par.repository.PARMasterRepository;
 import com.htc.par.service.PARMasterService;
 import com.htc.par.to.PARMasterTO;
 
@@ -24,6 +26,10 @@ import com.htc.par.to.PARMasterTO;
 
 @Service
 public class PARMasterServiceImpl implements PARMasterService {
+	
+	@Autowired
+	PARMasterRepository parMasterRepository;
+	
 
 	@Override
 	public PARMasterTO getParMasterById(Integer parId) throws ResourceNotFoundException {
@@ -95,7 +101,7 @@ public class PARMasterServiceImpl implements PARMasterService {
 
 	@Override
 	public PARMasterTO intentToFill(Integer parId, LocalDate intentToFillDate) throws ResourceNotFoundException, ResourceNotUpdatedException {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
