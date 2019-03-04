@@ -153,4 +153,17 @@ public class RecruiterServiceImpl implements RecruiterService {
 		}
 		return true;
 	}
+
+	@Override
+	public List<RecruiterTO> getRecruiterByRecruiterEmailFlag(boolean recruiterEmailFlag)
+			throws ResourceNotFoundException {
+		
+		List<Recruiter> recruiterEntities = recruiterRepository.findAllByRecruiterEmailFlag(recruiterEmailFlag);
+		if (CollectionUtils.isEmpty(recruiterEntities))
+			throw new ResourceNotFoundException("No Recruiters Found.");
+		List<RecruiterTO> recruiterList = recruiterEntities.stream().map(recruiter -> {
+			return getRecruiterTO(recruiter);
+		}).collect(Collectors.toList());
+		return recruiterList;
+	}
 }

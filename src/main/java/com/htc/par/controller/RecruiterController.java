@@ -95,4 +95,9 @@ public class RecruiterController {
 		return ResponseEntity.ok(recruiterService.deleteRecruiter(recruiterId));
 	}
 	
+	@GetMapping("/recruiters/email/{recruiterEmailFlag}")
+	public ResponseEntity<List<RecruiterTO>> getRecruiters(@PathVariable("recruiterEmailFlag") boolean recruiterEmailFlag) throws ResourceNotFoundException {
+		return ResponseEntity.ok(recruiterService.getRecruiterByRecruiterEmailFlag(recruiterEmailFlag));
+	}
+	
 }
