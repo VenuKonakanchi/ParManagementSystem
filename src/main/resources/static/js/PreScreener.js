@@ -67,16 +67,16 @@ $(document).ready(function(){
 	function preScreenerLoadFailure(xhr, error){
 		if(xhr.status!=404){
 			var reponseBody = JSON.parse(xhr.responseText);
-			$('#extStaffStatusDiv').removeClass("alert alert-success");
-			$('#extStaffStatusDiv').addClass("alert alert-warning");
-			$('#extStaffStatusMessage').html(reponseBody['message']);
-			$('#extStaffStatusDiv').show();
+			$('#preScreenerStatusDiv').removeClass("alert alert-success");
+			$('#preScreenerStatusDiv').addClass("alert alert-warning");
+			$('#preScreenerStatusMessage').html(reponseBody['message']);
+			$('#statusSkillDiv').show();
 		}else{
-			$('#extStaffStatusDiv').hide();
+			$('#preScreenerStatusDiv').hide();
 		}
 	}
 	
-    $("[data-hide]").on("click", function(){
+	$("[data-hide]").on("click", function(){
         $(this).closest("." + $(this).attr("data-hide")).hide();
     });
 	
@@ -156,7 +156,7 @@ $(document).ready(function(){
 	
 	var preScreenerAddSuccess = function() {
 		return function(response) {
-		//	table.row.add(response).draw( false );
+			table.row.add(response).draw( false );
 			$('#preScreenerModalStatusDiv').removeClass("alert alert-danger");
 			$('#preScreenerModalStatusDiv').addClass("alert alert-success");
 			$('#preScreenerModalStatusMessage').html("New PreScreener has been created successfully!!");
@@ -167,7 +167,6 @@ $(document).ready(function(){
 			}else{
 				table.row.add(response).draw(false);
 			}
-			
 		};
 	};
 	
