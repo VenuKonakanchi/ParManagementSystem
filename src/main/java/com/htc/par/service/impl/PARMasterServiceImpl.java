@@ -5,6 +5,7 @@ package com.htc.par.service.impl;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -101,6 +102,7 @@ public class PARMasterServiceImpl implements PARMasterService {
 
 	@Override
 	public PARMasterTO intentToFill(Integer parId, LocalDate intentToFillDate) throws ResourceNotFoundException, ResourceNotUpdatedException {
+		Optional<PARMaster> parMasterOptional = parMasterRepository.findById(parId);
 		
 		return null;
 	}
