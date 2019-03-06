@@ -6,9 +6,12 @@ package com.htc.par.service.impl;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import com.htc.par.entity.PARMaster;
 import com.htc.par.exceptions.ResourceDuplicateException;
@@ -66,14 +69,17 @@ public class PARMasterServiceImpl implements PARMasterService {
 
 	@Override
 	public PARMasterTO getParMasterTO(PARMaster parMaster) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return new PARMasterTO(parMaster.getParId(), parMaster.getParNumber(), parMaster.getParDescriptionText(), parMaster.getParReceivedDate(),
+			parMaster.getParStatus(), parMaster.getIntentToFillIndicator(),parMaster.getIntentToFillDate(), parMaster.getEmailSent(), parMaster.getParComment());
 	}
 
 	@Override
-	public PARMasterTO getParMaster(PARMasterTO parMasterTO) {
-		// TODO Auto-generated method stub
-		return null;
+	public PARMaster getParMaster(PARMasterTO parMasterTO) {
+		
+		return new PARMaster(parMasterTO.getParId(),parMasterTO.getParNumber(), parMasterTO.getParDescriptionText(), parMasterTO.getParReceivedDate(),
+				parMasterTO.getParStatus(), parMasterTO.getIntentToFillIndicator(), parMasterTO.getEmailSent(), parMasterTO.getParComment(),
+				parMasterTO.getIntentToFillDate());
 	}
 
 	@Override
@@ -101,10 +107,28 @@ public class PARMasterServiceImpl implements PARMasterService {
 	}
 
 	@Override
-	public PARMasterTO intentToFill(Integer parId, LocalDate intentToFillDate) throws ResourceNotFoundException, ResourceNotUpdatedException {
-		Optional<PARMaster> parMasterOptional = parMasterRepository.findById(parId);
+	public PARMasterTO intentToFill(Integer parId, LocalDate intentToFillDate, Boolean intentToFillIndicator) throws ResourceNotFoundException, ResourceNotUpdatedException {
 		
-		return null;
+		PARMasterTO parMasterTO = null;
+		try
+		{
+		Optional<PARMaster> parMasterOptional = parMasterRepository.findById(parId);
+		if(!parMasterOptional.isPresent())
+			throw new ResourceNotFoundException(String.format("PAR ID : %s not found!", parId));
+		
+		PARMaster parMaster = parMasterOptional.get();
+		
+		parMaster.setIntentToFillDate(intentToFillDate);
+		parMaster.setIntentToFillIndicator(intentToFillIndicator);
+		
+		parMaster = parMasterRepository.save(parMaster);
+		
+		parMasterTO = getParMasterTO(parMaster);
+		} catch (DataAccessException dae) {
+			throw new ResourceNotUpdatedException("PAR Intent to fill  is not Updated!");
+		}
+		
+		return parMasterTO;
 	}
 
 	@Override
@@ -116,15 +140,28 @@ public class PARMasterServiceImpl implements PARMasterService {
 	@Override
 	public List<PARMasterTO> getAllParsByStatusAndDateRange(String parStatus, LocalDate startDate, LocalDate endDate)
 			throws ResourceNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+		List<PARMaster> parMasters = parMasterRepository.findAllByParStatusAndParReceivedDateBetween(parStatus,startDate,endDate);
+		
+		if (CollectionUtils.isEmpty(parMasters))
+			throw new ResourceNotFoundException(String.format("No PARs found between given dates %s and %s whith status %s", startDate,endDate, parStatus));
+		List<PARMasterTO> parMasterTOs = parMasters.stream().map(PARMaster -> {
+			return getParMasterTO(PARMaster);
+		}).collect(Collectors.toList());
+		return parMasterTOs;
+
 	}
 
 	@Override
 	public List<PARMasterTO> getAllParsByDateRange(LocalDate startDate, LocalDate endDate)
 			throws ResourceNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+		List<PARMaster> parMasters = parMasterRepository.findAllByParReceivedDateBetween(startDate,endDate);
+		
+		if (CollectionUtils.isEmpty(parMasters))
+			throw new ResourceNotFoundException(String.format("No PARs received between given dates %s and %s", startDate,endDate));
+		List<PARMasterTO> parMasterTOs = parMasters.stream().map(PARMaster -> {
+			return getParMasterTO(PARMaster);
+		}).collect(Collectors.toList());
+		return parMasterTOs;
 	}
 
 }

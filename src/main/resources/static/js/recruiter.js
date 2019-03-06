@@ -173,11 +173,17 @@ $(document).ready(function(){
 	
 	var recruiterAddSuccess = function() {
 		return function(response) {
-			table.row.add(response).draw( false );
+		//	table.row.add(response).draw( false );
 			$('#recruitermodalStatusDiv').removeClass("alert alert-danger");
 			$('#recruitermodalStatusDiv').addClass("alert alert-success");
 			$('#recruitermodalStatusMessage').html("New Recruiter has been created successfully!!");
 			$('#recruitermodalStatusDiv').show();
+			
+			if(!$.fn.dataTable.isDataTable("#tblRecruiters")){
+				populateRecruiterInfo(response);
+			}else{
+				table.row.add(response).draw(false);
+			}
 		};
 	};
 	

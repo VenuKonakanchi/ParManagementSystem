@@ -156,7 +156,7 @@ $(document).ready(function(){
 	
 	var preScreenerAddSuccess = function() {
 		return function(response) {
-			table.row.add(response).draw( false );
+			//table.row.add(response).draw( false );
 			$('#preScreenerModalStatusDiv').removeClass("alert alert-danger");
 			$('#preScreenerModalStatusDiv').addClass("alert alert-success");
 			$('#preScreenerModalStatusMessage').html("New PreScreener has been created successfully!!");
@@ -221,6 +221,7 @@ $(document).ready(function(){
 			  requestBody["preScreenerId"]=preScreenerId.toString();
 			  requestBody["preScreenerName"]=$('#preScreenerName').val();
 			  requestBody["preScreenerPhoneNumber"]=$('#preScreenerPhoneNumber').val();
+			  requestBody['preScreenerActive'] = preScreenerActive;
 			  
 			  var newData={};
 			  newData['preScreenerId'] = preScreenerId.toString();
