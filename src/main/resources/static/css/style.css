@@ -329,27 +329,94 @@ body {
     overflow: hidden;
 }
 
-.nav-tabs {
+ .nav-tabs {
     background-color: #fff;
 }
 
 .nav-tabs .nav-link {
-    border: 0;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+   /*  border: 1px;
+   	border-top-left-radius: 1px;
+    border-top-right-radius:1px;  */
     color: #4D4D4D;
     padding: 20px 30px;
 }
 
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+ .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     color: #fff;
     background-color: #2D2A8C;
     border-color: transparent;
+    font-weight:bold;
 }
 
-.tab-content>.tab-pane {
-    padding: 15px;
+
+.nav .nav-tabs .nav-fill .nav-item  > li:hover,
+.nav .nav-tabs .nav-fill .nav-item  > li:focus
+{
+  border: none;
+    background: #2D2A8C;
+    color:#fff;
+    border-radius:0;
+    font-weight:bold;
+    transition:background 0.20s linear;
 }
+ .tab-content>.tab-pane {
+    padding: 15px;
+} 
+/*
+ 
+nav > .nav.nav-tabs nav-fill{
+
+  border: none;
+    background-color:#fff;
+    background:#272e38;
+    border-radius:0;
+    font-weight:bold;
+
+}
+nav > div .nav-item.nav-link,
+nav > div.nav-item.show ,
+nav > div .nav-item.nav-link.active
+{
+  border: none;
+    padding: 18px 25px;
+    color: #fff;
+    background-color: #2D2A8C;
+    border-color: #2D2A8C;
+    border-radius:0;
+}
+
+nav > div .nav-item.active:after
+ {
+  content: "";
+  position: relative;
+  bottom: -60px;
+  left: -10%;
+  border: 15px solid transparent;
+  border-top-color: #2D2A8C ;
+}
+.tab-content{
+  background: #fdfdfd;
+    line-height: 25px;
+    border: 1px solid #ddd;
+    border-top:2px solid #2D2A8C;
+    border-bottom:2px solid #2D2A8C;
+    padding:30px 25px;
+}
+
+nav > div .nav-item:hover,
+nav > div .nav-item:focus
+{
+  border: none;
+    background: #e74c3c;
+    color:#fff;
+    border-radius:0;
+    transition:background 0.20s linear;
+} */
+.nav.nav-tabs li:not(:last-child) a {
+    border-right: 1px solid #ccc;
+}
+
+
 
 table.table-bordered.dataTable th, table.table-bordered.dataTable td {
     border: 0;
