@@ -163,12 +163,12 @@ $(document).ready(function(){
 	
 	var preScreenerAddSuccess = function(preScreenerName) {
 		return function(response) {
+
 			$('#preScreenerModal').modal('hide');
 			$('#preScreenerStatusDiv').removeClass("alert alert-danger");
 			$('#preScreenerStatusDiv').addClass("alert alert-success");
 			$('#preScreenerStatusMessage').html("New PreScreener<strong> "+preScreenerName+" </strong> has been created successfully!!");
 			$('#preScreenerStatusDiv').show();
-			
 			if(!$.fn.dataTable.isDataTable("#tblPreScreeners")){
 				populatePreScreenerInfo(response);
 			}else{
@@ -232,6 +232,7 @@ $(document).ready(function(){
 			  requestBody["preScreenerId"]=preScreenerId.toString();
 			  requestBody["preScreenerName"]=$('#preScreenerName').val();
 			  requestBody["preScreenerPhoneNumber"]=$('#preScreenerPhoneNumber').val();
+			  requestBody['preScreenerActive'] = preScreenerActive;
 			  
 			  var newData={};
 			  newData['preScreenerId'] = preScreenerId.toString();

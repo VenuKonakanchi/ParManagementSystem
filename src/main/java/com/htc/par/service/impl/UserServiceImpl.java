@@ -98,32 +98,38 @@ public class UserServiceImpl implements UserService {
 	public UserTO createUser(UserTO userTO) throws ResourceDuplicateException, ResourceNotCreatedException {
 		try {
 			Optional<AppUser> appUserOptional = userRepository.findByUserName(userTO.getUserName());
-			AppUser appUSer = null;
-			if (!appUserOptional.isPresent()) {
-				userTO.setUserActive(true);
-				appUSer = getUser(userTO);
-			} else {
-				appUSer = appUserOptional.get();
-				appUSer.setUserActive(true);
-				userTO.setUserActive(true);
+		
+			boolean isUserPresent =appUserOptional.isPresent();
+			
+			AppUser appUser = (isUserPresent) ? appUserOptional.get() : null;
+			if (isUserPresent && appUser.getUserActive()) {
+				throw new ResourceDuplicateException(String.format(
+						"User with same user name: %s already exist.", userTO.getUserName()));
+			}else if (isUserPresent && !appUser.getUserActive()) {
+				NullAwareBeanUtil.copyProperties(userTO, appUser);
+				appUser.setPassword(passwordEncoder.encode(userTO.getPassword()));
+			}else {
+				appUser = getUser(userTO);
 			}
+			userTO.setUserActive(true);
+
+			
 			if(userTO.getRole().getRoleId()!=null) {
 				Optional<AppUserRole> roleFromDB=	roleRepository.findById(userTO.getRole().getRoleId());
 				if(roleFromDB.isPresent()) {
-					appUSer.setRole(roleFromDB.get());
+					appUser.setRole(roleFromDB.get());
 				}
 			}else if(userTO.getRole().getRoleName()!=null) {
 				Optional<AppUserRole> roleFromDB=		roleRepository.findByRoleName(userTO.getRole().getRoleName());
 				if(roleFromDB.isPresent()) {
-					appUSer.setRole(roleFromDB.get());
+					appUser.setRole(roleFromDB.get());
 				}		
 			}
-			appUSer = userRepository.save(appUSer);
-			userTO = getUserTO(appUSer);
+			userTO = getUserTO(userRepository.save(appUser));
 		} catch (DataIntegrityViolationException die) {
-			throw new ResourceDuplicateException(String.format("USer with  UserName: %s Already Exist.", userTO.getUserName()));
+			throw new ResourceDuplicateException(String.format("User with  user name: %s already exist.", userTO.getUserName()));
 		} catch (DataAccessException dae) {
-			throw new ResourceNotCreatedException(String.format("USer with  UserName: %s not created.", userTO.getUserName()));
+			throw new ResourceNotCreatedException(String.format("User with  user name: %s not created.", userTO.getUserName()));
 		}
 		return userTO;
 	}

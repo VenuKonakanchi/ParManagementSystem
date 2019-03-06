@@ -176,11 +176,11 @@ $(document).ready(function(){
 	
 	var areaAddSuccess = function(areaName) {
 		return function(response) {
+
 			$("#areaModal").modal('hide');
 			$('#areaStatusDiv').removeClass("alert alert-danger");
 			$('#areaStatusDiv').addClass("alert alert-success");
 			$('#areaStatusMessage').html("New Area<strong> "+areaName+" </strong> has been created successfully!!");
-			$('#areaStatusDiv').show();
 			if(!$.fn.dataTable.isDataTable("#tblAreas")){
 				populateAreaInfo(response);
 			}else{

@@ -44,6 +44,8 @@ public class PARMasterTO {
 	
 	private ExternalStaff externalStaff;
 	
+	public PARMasterTO() {}
+	
 	public PARMasterTO(Integer parId, String parNumber, String parDescriptionText, String parReceivedDate,
 			String parStatus, Boolean intentToFillIndicator, LocalDate intentToFillDate, Boolean emailSent,
 			String parComment) {

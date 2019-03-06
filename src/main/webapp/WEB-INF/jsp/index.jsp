@@ -23,8 +23,7 @@
     <div class="wrapper fixed-sidebar">
         <nav class="navbar navbar-expand fixed-top top-header">
           <div class="container-fluid">
-            <div class="navbar-header"><a class="navbar-brand" href="index.html"></a>
-            </div>
+            <div class="navbar-header"><a class="navbar-brand" href="index.html"></a> </div>
             <!-- <div class="page-title"><span>PAR FULFILLMENT</span></div> -->
             <div class="right-navbar">
                 <ul class="nav navbar-nav float-right icons-nav">

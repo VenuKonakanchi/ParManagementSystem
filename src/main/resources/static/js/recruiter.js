@@ -180,8 +180,7 @@ $(document).ready(function(){
 	
 	var recruiterAddSuccess = function(recruiterName) {
 		return function(response) {
-			//table.row.add(response).draw( false );
-			 $('#recruiterModal').modal('hide');
+			$('#recruiterModal').modal('hide');
 			$('#recruiterstatusDiv').removeClass("alert alert-danger");
 			$('#recruiterstatusDiv').addClass("alert alert-success");
 			$('#recruiterstatusMessage').html("New Recruiter<strong> "+recruiterName+" </strong>has been created successfully!!");
