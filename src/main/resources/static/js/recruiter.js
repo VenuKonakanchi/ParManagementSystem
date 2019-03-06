@@ -9,6 +9,12 @@ $(document).ready(function(){
     	$('#recruiterModal').modal('show'); 
     });
     
+    $('#recruiterModal').on('hidden.bs.modal', function() {
+        var recruiterForm = $('#recruiterForm');
+        recruiterForm.validate().resetForm();
+        recruiterForm.find('.error').removeClass('error');
+    });
+    
     //Recruiter Table
 	function populateRecruiterInfo(response){
 		table = $('#tblRecruiters').DataTable(
@@ -59,7 +65,7 @@ $(document).ready(function(){
 		table.clear().rows.add(response).draw();
 		$("#tblRecruiters tbody").on('click', '.btnDelete', function () {
 			var recruiter = table.row($(this).closest('tr')).data();
-			
+			 $('#confirmrecruiterModalBody').html("Are you sure you want to delete <strong> "+recruiter.recruiterName+" </strong> ?");
 		    $('#confirmrecruiter').modal({ backdrop: 'static', keyboard: false })
 	        .on('click', '#delete-btn', function(){
 				var deleteData={};
@@ -163,21 +169,28 @@ $(document).ready(function(){
 	var recruiterUpdateSuccess = function(newData,action,divElement) {
 		return function(response) {
 			//var rowIndex = $("#rowIndex").val();
+			 $('#recruiterModal').modal('hide');
 			table.row('#'+newData['recruiterId']).data(newData).draw();
-			$('#recruitermodalStatusDiv').removeClass("alert alert-danger");
-			$('#recruitermodalStatusDiv').addClass("alert alert-success");
-			$('#recruitermodalStatusMessage').html("Recruiter info has been updated successfully !!");
-			$('#recruitermodalStatusDiv').show();
+			$('#recruiterstatusDiv').removeClass("alert alert-danger");
+			$('#recruiterstatusDiv').addClass("alert alert-success");
+			$('#recruiterstatusMessage').html("Recruiter<strong> "+newData['recruiterName']+"</strong> info has been updated successfully !!");
+			$('#recruiterstatusDiv').show();
 		};
 	};
 	
-	var recruiterAddSuccess = function() {
+	var recruiterAddSuccess = function(recruiterName) {
 		return function(response) {
-			table.row.add(response).draw( false );
-			$('#recruitermodalStatusDiv').removeClass("alert alert-danger");
-			$('#recruitermodalStatusDiv').addClass("alert alert-success");
-			$('#recruitermodalStatusMessage').html("New Recruiter has been created successfully!!");
-			$('#recruitermodalStatusDiv').show();
+			//table.row.add(response).draw( false );
+			 $('#recruiterModal').modal('hide');
+			$('#recruiterstatusDiv').removeClass("alert alert-danger");
+			$('#recruiterstatusDiv').addClass("alert alert-success");
+			$('#recruiterstatusMessage').html("New Recruiter<strong> "+recruiterName+" </strong>has been created successfully!!");
+			$('#recruiterstatusDiv').show();
+			if(!$.fn.dataTable.isDataTable("#tblRecruiters")){
+				populateRecruiterInfo(response);
+			}else{
+				table.row.add(response).draw(false);
+			}
 		};
 	};
 	
@@ -195,7 +208,11 @@ $(document).ready(function(){
 	  $('#recruiterEmail').val(recruiterEmail);
 	  $('#recruiterEmailFlag :selected').val(recruiterEmailFlag);
 	  
-
+	  if (typeof recruiterId == undefined || recruiterId == null) {
+		  $('#recruiterModalTitle').text("Add Recruiter");
+	  }else{
+		  $('#recruiterModalTitle').text("Update Recruiter");
+	  }
 	  
 	  $("#recruiterModal").off('click', '#saveRecruiterButton');
 	  
@@ -229,7 +246,7 @@ $(document).ready(function(){
 			  requestBody["recruiterPhoneNumber"]=$('#recruiterPhoneNumber').val();
 			  requestBody["recruiterEmail"]=$('#recruiterEmail').val();
 			  requestBody["recruiterEmailFlag"]=$('input[name=recruiterEmailFlag]:checked').val();
-			  AjaxUtil.utils.sendPostRequest('/parmanagement/par/recruiters/',recruiterAddSuccess(),recruiterAddFailure(recruiterName),requestBody);			   
+			  AjaxUtil.utils.sendPostRequest('/parmanagement/par/recruiters/',recruiterAddSuccess( requestBody["recruiterName"]),recruiterAddFailure(recruiterName),requestBody);			   
 		  }
 		  else{
 			  var requestBody={};

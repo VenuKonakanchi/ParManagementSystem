@@ -9,6 +9,11 @@ $(document).ready(function(){
     	$('#candRoleModal').modal('show'); 
     });
     
+    $('#candRoleModal').on('hidden.bs.modal', function() {
+        var candRoleForm = $('#candRoleForm');
+        candRoleForm.validate().resetForm();
+        candRoleForm.find('.error').removeClass('error');
+    });
     //Role Table
 	function populateRoleInfo(response){
 		table = $('#tblCandRoles').DataTable(
@@ -46,7 +51,7 @@ $(document).ready(function(){
 		table.clear().rows.add(response).draw();
 		$("#tblCandRoles tbody").on('click', '.candRolebtnDelete', function () {
 			var role = table.row($(this).closest('tr')).data();
-			
+			$('#candRoleDeleteConfirmModalBody').html("Are you sure you, want to delete <strong> "+role.roleName+ " </strong> ?");
 		    $('#candRoleDeleteConfirmModal').modal({ backdrop: 'static', keyboard: false })
 	        .on('click', '#candRoledelete-btn', function(){
 				var deleteData={};
@@ -146,21 +151,29 @@ $(document).ready(function(){
 	var roleUpdateSuccess = function(newData,action,divElement) {
 		return function(response) {
 			//var rowIndex = $("#rowIndex").val();
+			  $('#candRoleModal').modal('hide');
 			table.row('#'+newData['roleId']).data(newData).draw();
-			$('#candRoleModalStatusDiv').removeClass("alert alert-danger");
-			$('#candRoleModalStatusDiv').addClass("alert alert-success");
-			$('#candRoleModalStatusMessage').html("Role name has been successfully updated!!");
-			$('#candRoleModalStatusDiv').show();
+			$('#candRoleStatusDiv').removeClass("alert alert-danger");
+			$('#candRoleStatusDiv').addClass("alert alert-success");
+			$('#candRoleStatusMessage').html("Role name<strong> "+newData['roleName']+"</strong> has been successfully updated!!");
+			$('#candRoleStatusDiv').show();
 		};
 	};
 	
-	var roleAddSuccess = function() {
+	var roleAddSuccess = function(roleName) {
 		return function(response) {
-			table.row.add(response).draw( false );
-			$('#candRoleModalStatusDiv').removeClass("alert alert-danger");
-			$('#candRoleModalStatusDiv').addClass("alert alert-success");
-			$('#candRoleModalStatusMessage').html("New Role has been created successfully!!");
-			$('#candRoleModalStatusDiv').show();
+			//table.row.add(response).draw( false );
+			  $('#candRoleModal').modal('hide');
+			$('#candRoleStatusDiv').removeClass("alert alert-danger");
+			$('#candRoleStatusDiv').addClass("alert alert-success");
+			$('#candRoleStatusMessage').html("New Role<strong> "+roleName+"</strong> has been created successfully!!");
+			$('#candRoleStatusDiv').show();
+			if(!$.fn.dataTable.isDataTable("#tblCandRoles")){
+				populateRoleInfo(response);
+			}else{
+				table.row.add(response).draw(false);
+			}
+			
 		};
 	};
 	
@@ -172,7 +185,12 @@ $(document).ready(function(){
 	  $('#candRoleModalStatusDiv').hide();
 	  $('#roleName').val(roleName);
 	  
-
+	  if (typeof roleId == undefined || roleId == null) {
+		  $('#candRoleModalTitle').text("Add PAR Role");
+		  
+	  }else{
+		  $('#candRoleModalTitle').text("Update PAR Role");
+	  }
 	  
 	  $("#candRoleModal").off('click', '#saveCandRoleButton');
 	  
@@ -199,7 +217,7 @@ $(document).ready(function(){
 		  if (typeof roleId == undefined || roleId == null) {
 			  var requestBody={};
 			  requestBody["roleName"]=$('#roleName').val();	  
-			  AjaxUtil.utils.sendPostRequest('/parmanagement/par/parroles/',roleAddSuccess(),roleAddFailure(roleName),requestBody);			   
+			  AjaxUtil.utils.sendPostRequest('/parmanagement/par/parroles/',roleAddSuccess(requestBody["roleName"]),roleAddFailure(roleName),requestBody);			   
 		  }
 		  else{
 			  var requestBody={};
