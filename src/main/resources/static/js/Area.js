@@ -170,11 +170,17 @@ $(document).ready(function(){
 	
 	var areaAddSuccess = function() {
 		return function(response) {
-			table.row.add(response).draw( false );
+			//table.row.add(response).draw( false );
 			$('#areaModalStatusDiv').removeClass("alert alert-danger");
 			$('#areaModalStatusDiv').addClass("alert alert-success");
 			$('#areaModalStatusMessage').html("New Area has been created successfully!!");
 			$('#areaModalStatusDiv').show();
+			
+			if(!$.fn.dataTable.isDataTable("#tblAreas")){
+				populateAreaInfo(response);
+			}else{
+				table.row.add(response).draw(false);
+			}
 		};
 	};
 	

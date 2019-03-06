@@ -88,13 +88,48 @@ public class PreScreenerServiceImpl implements PreScreenerService {
 	@Override
 	public PreScreenerTO updatePreScreener(PreScreenerTO preScreenerTO) throws ResourceNotFoundException, ResourceNotUpdatedException {
 		PreScreenerTO updatedPreScreenerTO = null;
+		
 		try {
 			Optional<PreScreener> preScreenerOptional = preScreenerRepository.findByPreScreenerIdAndPreScreenerActive(preScreenerTO.getPreScreenerId(), true);
+			
+			boolean isPreScreenerPresent = preScreenerOptional.isPresent();
+			
+			PreScreener preScreenerToUpdate = (isPreScreenerPresent) ? preScreenerOptional.get() : null;
+			
+			System.out.println("input data" +preScreenerOptional.get());
+			
 			if (!preScreenerOptional.isPresent())
 				throw new ResourceNotFoundException(String.format("PreScreener: %s Not Found.", preScreenerTO.getPreScreenerName()));
-			PreScreener preScreener = preScreenerOptional.get();
-			NullAwareBeanUtil.copyProperties(preScreenerTO, preScreener);
-			updatedPreScreenerTO = getPreScreenerTO(preScreenerRepository.save(preScreener));
+			else {
+				if (preScreenerTO.getPreScreenerPhoneNumber().equals(preScreenerToUpdate.getPreScreenerPhoneNumber())) {
+					
+					NullAwareBeanUtil.copyProperties(preScreenerTO, preScreenerToUpdate);
+					updatedPreScreenerTO = getPreScreenerTO(preScreenerRepository.save(preScreenerToUpdate));
+				}
+				else {
+					preScreenerOptional = preScreenerRepository.findByPreScreenerPhoneNumber(preScreenerTO.getPreScreenerPhoneNumber());
+					
+					isPreScreenerPresent = preScreenerOptional.isPresent();
+					
+					PreScreener anotherpreScreener = (isPreScreenerPresent) ? preScreenerOptional.get() : null; 
+					if (isPreScreenerPresent && anotherpreScreener.getPreScreenerActive()) {
+						throw new ResourceDuplicateException(String.format(
+								"PreScreener with same mobile number: %s already exist.", preScreenerTO.getPreScreenerPhoneNumber()));
+					} else if (isPreScreenerPresent && (!anotherpreScreener.getPreScreenerActive()))
+					{
+						anotherpreScreener.setPreScreenerName(preScreenerTO.getPreScreenerName());
+						anotherpreScreener.setPreScreenerActive(true);	
+						updatedPreScreenerTO = getPreScreenerTO(preScreenerRepository.save(anotherpreScreener));
+						
+						preScreenerOptional = preScreenerRepository.findById(preScreenerTO.getPreScreenerId());
+						
+						preScreenerOptional.get().setPreScreenerActive(false);
+						preScreenerRepository.save(preScreenerOptional.get());
+						
+					}
+				}
+			}
+			
 		} catch (DataAccessException dae) {
 			throw new ResourceNotUpdatedException(String.format("PreScreener: %s Not Found.", preScreenerTO.getPreScreenerName()));
 		}
@@ -110,9 +145,21 @@ public class PreScreenerServiceImpl implements PreScreenerService {
 	@Override
 	public PreScreenerTO createPreScreener(PreScreenerTO preScreenerTO) throws ResourceDuplicateException, ResourceNotCreatedException {
 		try {
-			Optional<PreScreener> preScreenerOptional = preScreenerRepository.findByPreScreenerName(preScreenerTO.getPreScreenerName());
+			Optional<PreScreener> preScreenerOptional = preScreenerRepository.findByPreScreenerPhoneNumber(preScreenerTO.getPreScreenerPhoneNumber());
 			PreScreener preScreener = null;
-			if (!preScreenerOptional.isPresent()) {
+			
+			boolean isPreScreenerPresent = preScreenerOptional.isPresent();
+			
+			preScreener = (isPreScreenerPresent) ? preScreenerOptional.get() : null;
+			
+			if (isPreScreenerPresent && preScreener.getPreScreenerActive()) {
+				throw new ResourceDuplicateException(String.format(
+						"PreScreener with same mobile number: %s already exist.", preScreenerTO.getPreScreenerPhoneNumber()));
+			} else if (isPreScreenerPresent && (!preScreener.getPreScreenerActive())) {
+				preScreenerTO.setPreScreenerActive(true);;
+				NullAwareBeanUtil.copyProperties(preScreenerTO, preScreener);
+			} else if (! isPreScreenerPresent) {	
+				
 				preScreenerTO.setPreScreenerActive(true);
 				preScreener = getPreScreener(preScreenerTO);
 			} else {

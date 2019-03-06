@@ -61,37 +61,40 @@ public class ExternalStaffServiceImpl implements ExternalStaffService {
 
 	@Override
 	public ExternalStaffTO updateExternalStaff(ExternalStaffTO externalStaffTO) throws ResourceNotUpdatedException {
-		// TODO Auto-generated method stub
 		ExternalStaffTO updatedExternalStaffTO = null;
-		Optional<ExternalStaff> extStaffOptional = null;
 		try {
-			
-			if(externalStaffTO.getExtStaffId() !=null){
-				extStaffOptional = externalStaffRepository.findByExtStaffIdAndExtStaffActive(externalStaffTO.getExtStaffId(),true);
-			}else if (!externalStaffTO.getExtStaffName().isEmpty()) {
-				extStaffOptional = externalStaffRepository.findByExtStaffNameAndExtStaffActive(externalStaffTO.getExtStaffName(),true);
-			}	
-			
-			if (!extStaffOptional.isPresent())
-				throw new ResourceNotFoundException(String.format("External Staff: %s Not Found.", externalStaffTO.getExtStaffName()));
-			
-			ExternalStaff externalStaff = extStaffOptional.get();
-		    NullAwareBeanUtil.copyProperties(externalStaffTO, externalStaff);
+
+				Optional<ExternalStaff> extStaffOptional = externalStaffRepository.findByExtStaffIdAndExtStaffActive(externalStaffTO.getExtStaffId(),true);
 				
-			if(externalStaffTO.getArea().getAreaId()!=null){
+				if (!extStaffOptional.isPresent())
+					throw new ResourceNotFoundException(String.format("External Staff: %s Not Found.", externalStaffTO.getExtStaffName()));
+				ExternalStaff externalStaff = extStaffOptional.get();
+			    NullAwareBeanUtil.copyProperties(externalStaffTO, externalStaff);
+			    
+			    if(externalStaffTO.getArea().getAreaId()!=null){
 					
-				Optional<Area> areaOptional = areaRepository.findById(externalStaffTO.getArea().getAreaId()) ;
-				if(areaOptional.isPresent())
-					externalStaff.setArea(areaOptional.get()) ;
-			   					
-			} else if (!externalStaffTO.getArea().getAreaName().isEmpty()) {
-					
-				Optional<Area> areaOptional = areaRepository.findByAreaName(externalStaffTO.getArea().getAreaName()) ;
-				if(areaOptional.isPresent())
-					externalStaff.setArea(areaOptional.get()) ;
-			}
-			updatedExternalStaffTO = getExternalStaffTO(externalStaffRepository.save(externalStaff));
-		} catch (DataAccessException dae) {
+					Optional<Area> areaOptional = areaRepository.findById(externalStaffTO.getArea().getAreaId()) ;
+					if(areaOptional.isPresent())
+						externalStaff.setArea(areaOptional.get()) ;
+				   					
+				} else if (!externalStaffTO.getArea().getAreaName().isEmpty()) {
+						
+					Optional<Area> areaOptional = areaRepository.findByAreaName(externalStaffTO.getArea().getAreaName()) ;
+					if(areaOptional.isPresent())
+						externalStaff.setArea(areaOptional.get()) ;
+				}
+			    updatedExternalStaffTO = getExternalStaffTO(externalStaffRepository.save(externalStaff));
+			  
+			    
+			} catch (DataIntegrityViolationException daeintexp) {
+				
+				Optional<ExternalStaff>	existingextStaffOptional = externalStaffRepository.findByExtStaffNameAndExtStaffActive(externalStaffTO.getExtStaffName(),true);
+				if (existingextStaffOptional.isPresent()) {
+					throw new ResourceDuplicateException(String.format("External Staff: %s Already Exist.", externalStaffTO.getExtStaffName()));
+				}else {
+					throw new ResourceDuplicateException(String.format("External Staff: %s has already been in-activated. Please add it as new External Staff.",externalStaffTO.getExtStaffName()));
+				}
+			} catch (DataAccessException dae) {
 			throw new ResourceNotUpdatedException(String.format("External Staff : %s Not Found.", externalStaffTO.getExtStaffName()));
 		}
 		return updatedExternalStaffTO;
@@ -100,7 +103,6 @@ public class ExternalStaffServiceImpl implements ExternalStaffService {
 	@Override
 	public ExternalStaffTO createExternalStaff(ExternalStaffTO externalStaffTO)
 			throws ResourceDuplicateException, ResourceNotCreatedException {
-		// TODO Auto-generated method stub
 		try {
 			Optional<ExternalStaff> extStaffOptional = externalStaffRepository.findByExtStaffName(externalStaffTO.getExtStaffName());
 			ExternalStaff externalStaff = null;
@@ -110,6 +112,9 @@ public class ExternalStaffServiceImpl implements ExternalStaffService {
 				externalStaff = getExternalStaff(externalStaffTO);
 			} else {
 				externalStaff = extStaffOptional.get();
+				if(externalStaff.getExtStaffActive())
+					throw new ResourceDuplicateException(
+							String.format("External Staff: %s Already Exist.", externalStaffTO.getExtStaffName()));
 				externalStaff.setExtStaffActive(true);
 				externalStaffTO.setExtStaffActive(true);
 			}

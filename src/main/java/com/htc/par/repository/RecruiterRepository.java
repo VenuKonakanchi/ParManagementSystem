@@ -21,4 +21,8 @@ public interface RecruiterRepository extends JpaRepository<Recruiter, Integer> {
 	
 	public List<Recruiter> findAllByRecruiterEmailFlag(@Param("recruiterEmailFlag") boolean recruiterEmailFlag);
 
+	public Optional<Recruiter> findByRecruiterPhoneNumber(@Param("recruiterPhoneNumber") String recruiterPhoneNumber);
+
+	public Optional<Recruiter> findByRecruiterEmail(@Param("recruiterEmail") String recruiterEmail);  
+
 }
