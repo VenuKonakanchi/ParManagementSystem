@@ -1,3 +1,52 @@
+/*******************styles for Modal *******************************/
+.modal-card{
+	    border-color: #D7D7F9;
+}
+
+.modal-card-header{
+    background-color: #2D2A8C;
+    color: #2D2A8C;
+    background-color: #D7D7F9;
+    border-color: #D7D7F9;
+}
+
+.modal-form-field-prepend-span{
+    color: #fff;
+    background-color: #2D2A8C;
+    border-color: #2D2A8C;
+}
+
+.modal-form-field-prepend-btn{
+    color: #fff;
+    background-color: #2D2A8C;
+    border-color: #2D2A8C;
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+}
+
+.modal-form-input{
+	border-color: #D7D7F9;
+	border-left:0px;
+}
+
+.modal-form-input-append{
+	border-color: #D7D7F9;
+	border-right:0px;
+}
+
+.modal-form-input-datepicker{
+	z-index: 9999999 !important;
+}
+
+.valid-feedback.feedback-icon,
+.invalid-feedback.feedback-icon {
+    position: absolute;
+    width: auto;
+    bottom: 10px;
+    right: 10px;
+    margin-top: 0;
+}
+/*******************End Of styles for Modal *******************************/
 body {
     margin: 0;
     font-family: Roboto,Arial,sans-serif;
@@ -362,60 +411,11 @@ body {
  .tab-content>.tab-pane {
     padding: 15px;
 } 
-/*
- 
-nav > .nav.nav-tabs nav-fill{
 
-  border: none;
-    background-color:#fff;
-    background:#272e38;
-    border-radius:0;
-    font-weight:bold;
 
-}
-nav > div .nav-item.nav-link,
-nav > div.nav-item.show ,
-nav > div .nav-item.nav-link.active
-{
-  border: none;
-    padding: 18px 25px;
-    color: #fff;
-    background-color: #2D2A8C;
-    border-color: #2D2A8C;
-    border-radius:0;
-}
-
-nav > div .nav-item.active:after
- {
-  content: "";
-  position: relative;
-  bottom: -60px;
-  left: -10%;
-  border: 15px solid transparent;
-  border-top-color: #2D2A8C ;
-}
-.tab-content{
-  background: #fdfdfd;
-    line-height: 25px;
-    border: 1px solid #ddd;
-    border-top:2px solid #2D2A8C;
-    border-bottom:2px solid #2D2A8C;
-    padding:30px 25px;
-}
-
-nav > div .nav-item:hover,
-nav > div .nav-item:focus
-{
-  border: none;
-    background: #e74c3c;
-    color:#fff;
-    border-radius:0;
-    transition:background 0.20s linear;
-} */
 .nav.nav-tabs li:not(:last-child) a {
     border-right: 1px solid #ccc;
 }
-
 
 
 table.table-bordered.dataTable th, table.table-bordered.dataTable td {
@@ -492,5 +492,3 @@ table.dataTable thead>tr>th.sorting_desc {
 .modal-footer {
     border-top: 0;
 }
-
-/* content */
