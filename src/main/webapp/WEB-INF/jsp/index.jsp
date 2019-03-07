@@ -71,34 +71,36 @@
                 <h3>MASTERS</h3>
             </div>
             <div class="page-section">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
                     <li class="nav-item">
                       <a class="nav-link" id="area-product-tab" data-toggle="tab" href="#area-product" role="tab" aria-controls="area-product"
                         aria-selected="false">Area</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" id="external-staffing-info-tab" data-toggle="tab" href="#external-staffing-info" role="tab" aria-controls="external-staffing-info"
+                          aria-selected="false">External Staff</a>
+                      </li>
+                   
+                    <li class="nav-item">
+                      <a class="nav-link" id="candidate-role-tab" data-toggle="tab" href="#candidate-role" role="tab" aria-controls="candidate-role"
+                        aria-selected="false">PAR Role</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" id="skills-tab" data-toggle="tab" href="#skills" role="tab" aria-controls="skills"
+                          aria-selected="false">PAR Skill</a>
+                      </li>
+                      
+                      <li class="nav-item">
+                        <a class="nav-link" id="recruiters-tab" data-toggle="tab" href="#recruiters" role="tab" aria-controls="recruiters"
+                          aria-selected="false">Recruiter</a>
+                      </li>
+                      <li class="nav-item">
                       <a class="nav-link active" id="candidate-master-tab" data-toggle="tab" href="#candidate-master" role="tab" aria-controls="candidate-master"
                         aria-selected="true">Candidate</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" id="candidate-role-tab" data-toggle="tab" href="#candidate-role" role="tab" aria-controls="candidate-role"
-                        aria-selected="false">Candidate role</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="external-staffing-info-tab" data-toggle="tab" href="#external-staffing-info" role="tab" aria-controls="external-staffing-info"
-                          aria-selected="false">External Staff</a>
-                      </li>
-                      <li class="nav-item">
                         <a class="nav-link" id="pre-screeners-tab" data-toggle="tab" href="#pre-screeners" role="tab" aria-controls="pre-screeners"
-                          aria-selected="false">Pre Screeners</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="recruiters-tab" data-toggle="tab" href="#recruiters" role="tab" aria-controls="recruiters"
-                          aria-selected="false">Recruiters</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="skills-tab" data-toggle="tab" href="#skills" role="tab" aria-controls="skills"
-                          aria-selected="false">Skills</a>
+                          aria-selected="false">Pre Screener</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" id="user-tab" data-toggle="tab" href="#user" role="tab" aria-controls="user"
@@ -133,55 +135,7 @@
                   </div>
             </div>
           </div>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add Candidate Information</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <form>
-                <div class="form-row">
-                  <div class="form-group col-md-4">
-                        <label for="Name">Name</label>
-                        <input type="text" class="form-control" id="Name" value="John Fernandes">
-                      </div>
-                  <div class="form-group col-md-4">
-                    <label for="Email">Email</label>
-                    <input type="email" class="form-control" id="Email" value="John@gmail.com">
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="Phone">Phone</label>
-                    <input type="text" class="form-control" id="Phone" value="3061230077">
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <label for="Primary-Skill">Primary Skill</label>
-                    <select id="Primary-Skill" class="form-control">
-                      <option>Select</option>
-                      <option selected="">Angular</option>
-                    </select>
-                  </div>
-                  <div class="form-group col-4">
-                    <label for="Experience">Experience</label>
-                    <input type="text" class="form-control" id="Experience" value="5">
-                  </div>
-                </div>
-            </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary cancel" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary save">Save</button>
-        </div>
-      </div>
-    </div>
-  </div>
+ 
         </div>
         
       </div>

@@ -8,7 +8,14 @@ $(document).ready(function(){
 	var table=null;
 	
     $("#addNewUserBtn").on("click", function(event){
+    
      	$('#userModal').modal('show'); 
+    });
+    
+    $('#userModal').on('hidden.bs.modal', function() {
+        var userForm = $('#userForm');
+        userForm.validate().resetForm();
+        userForm.find('.error').removeClass('error');
     });
     
 	function populateUserInfo(response){
@@ -59,7 +66,7 @@ $(document).ready(function(){
 		table.clear().rows.add(response).draw();
 		$("#tblUsers tbody").on('click', '.btnUserDelete', function () {
 			var user = table.row($(this).closest('tr')).data();
-			
+			$('#userDeleteconfirmModalBody').html("Are you sure you want to delete User with UserName :<strong> "+user.userName+" </strong> ?");
 		    $('#userDeleteConfirmModal').modal({ backdrop: 'static', keyboard: false })
 	        .on('click', '#user-delete-btn', function(){
 				var deleteData={};
@@ -156,7 +163,7 @@ $(document).ready(function(){
 			$('#userModalStatusDiv').addClass("alert alert-danger");
 			var reponseBody = JSON.parse(xhr.responseText);
 			if (typeof reponseBody['message'] == undefined || reponseBody['message'] == null) {
-				$('#userModalStatusMessage').html('Unable to create ' + userName);				
+				$('#userModalStatusMessage').html('Unable to create user with user name <strong>' + userName+'</strong>');				
 			}
 			else{
 				$('#userModalStatusMessage').html(reponseBody['message']);
@@ -172,7 +179,7 @@ $(document).ready(function(){
 			table.row('#'+deleteData['userId']).remove().draw();
 			$('#userStatusDiv').removeClass("alert alert-danger");
 			$('#userStatusDiv').addClass("alert alert-success");
-			$('#userStatusMessage').html(deleteData['userName'] + " has been successfully deleted!!");
+			$('#userStatusMessage').html("<strong>"+deleteData['userName'] + " </strong> has been successfully deleted!!");
 			$('#userStatusDiv').show();
 		};
 	};
@@ -180,21 +187,23 @@ $(document).ready(function(){
 	var userUpdateSuccess = function(newData,action,divElement) {
 		return function(response) {
 			//var rowIndex = $("#rowIndex").val();
+			 $('#userModal').modal('hide');
 			table.row('#'+newData['userId']).data(response).draw();
-			$('#userModalStatusDiv').removeClass("alert alert-danger");
-			$('#userModalStatusDiv').addClass("alert alert-success");
-			$('#userModalStatusMessage').html("User has been successfully updated!!");
-			$('#userModalStatusDiv').show();
+			$('#userStatusDiv').removeClass("alert alert-danger");
+			$('#userStatusDiv').addClass("alert alert-success");
+			$('#userStatusMessage').html("User with user name <strong>"+ newData['userName']+ "</strong> has been successfully updated!!");
+			$('#userStatusDiv').show();
 		};
 	};
 	
-	var userAddSuccess = function() {
+	var userAddSuccess = function(userName) {
 		return function(response) {
+			  $('#userModal').modal('hide');
 			//table.row.add(response).draw( false );
-			$('#userModalStatusDiv').removeClass("alert alert-danger");
-			$('#userModalStatusDiv').addClass("alert alert-success");
-			$('#userModalStatusMessage').html("New User has been created successfully!!");
-			$('#userModalStatusDiv').show();
+			$('#userStatusDiv').removeClass("alert alert-danger");
+			$('#userStatusDiv').addClass("alert alert-success");
+			$('#userStatusMessage').html("New User with user name <strong>"+ userName  +" </strong> has been created successfully!!");
+			$('#userStatusDiv').show();
 			if(!$.fn.dataTable.isDataTable("#tblUsers")){
 				populateUserInfo(response);
 			}else{
@@ -224,8 +233,10 @@ $(document).ready(function(){
 	  $("#phone").val(phone);
 	  if ((typeof userId == undefined || userId == null)) {
 		  $('#userName').prop('disabled',false);
+			$('#userModalLongTitle').text("Add User");
 	  }else{
 		  $('#userName').prop('disabled',true);
+		  $('#userModalLongTitle').text("Update User");
 	  }
 
 	  
@@ -257,10 +268,10 @@ $(document).ready(function(){
 			    },
 			    messages: {
 			    	firstName:{
-			    		required:"First Name can not be empty and allows only letters and space"
+			    		required:"First Name can not be empty"
 			        },
 			    firstName:{
-		    		required:"Last Name can not be empty and allows only letters and space"
+		    		required:"Last Name can not be empty"
 		        },
 			    userName:{
 		    		required:"User Name can not be empty",
@@ -298,7 +309,8 @@ $(document).ready(function(){
 			  requestBody['role']['roleId']=$('#userRoleSelect').val();
 			  requestBody["email"]=$('#email').val();
 			  requestBody["phone"]=$('#phone').val();
-			  AjaxUtil.utils.sendPostRequest('/parmanagement/par/users/',userAddSuccess(), userAddFailure(userName),requestBody);			   
+			  AjaxUtil.utils.sendPostRequest('/parmanagement/par/users/',userAddSuccess(requestBody["userName"]), userAddFailure(userName),requestBody);	
+			
 		  }
 		  else{
 			  var requestBody={};
@@ -325,7 +337,7 @@ $(document).ready(function(){
 			  newData['email'] = $('#email').val();
 			  newData['phone'] = $('#phone').val();
 			  newData['userActive'] = userActive;
-			  AjaxUtil.utils.sendPutRequest('/parmanagement/par/users/',userUpdateSuccess(newData,'updated','statusModalMessage'), userUpdateFailure(userName),requestBody);			  
+			  AjaxUtil.utils.sendPutRequest('/parmanagement/par/users/',userUpdateSuccess(newData,'updated','userStatusMessage'), userUpdateFailure(userName),requestBody);	
 		  }
 		});
 	});
