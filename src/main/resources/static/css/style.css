@@ -1,3 +1,53 @@
+/*******************My Custom Class *******************************/
+.modal-card{
+	    border-color: #D7D7F9;
+}
+
+.modal-card-header{
+    background-color: #2D2A8C;
+    color: #2D2A8C;
+    background-color: #D7D7F9;
+    border-color: #D7D7F9;
+}
+
+.modal-form-field-prepend-span{
+    color: #fff;
+    background-color: #2D2A8C;
+    border-color: #2D2A8C;
+}
+
+.modal-form-field-prepend-btn{
+    color: #fff;
+    background-color: #2D2A8C;
+    border-color: #2D2A8C;
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+}
+
+.modal-form-input{
+	border-color: #D7D7F9;
+	border-left:0px;
+}
+
+.modal-form-input-append{
+	border-color: #D7D7F9;
+	border-right:0px;
+}
+
+.modal-form-input-datepicker{
+	z-index: 9999999 !important;
+}
+
+.valid-feedback.feedback-icon,
+.invalid-feedback.feedback-icon {
+    position: absolute;
+    width: auto;
+    bottom: 10px;
+    right: 10px;
+    margin-top: 0;
+}
+/*******************End Of my Custom Class *******************************/
+
 body {
     margin: 0;
     font-family: Roboto,Arial,sans-serif;
@@ -51,14 +101,14 @@ body {
 }
 
 .form-group .form-control {
-    border: 0;
-    border-bottom: 1px solid #ced4da;
-    border-radius: 0;
-    padding-left: 0;
-    font-weight: 500;
+/*    border: 1;
+    border-bottom: 1px solid #ced4da;*/
+    /*border-radius: 0;*/
+    /*padding-left: 0;*/
+    /*font-weight: 500;*/
 }
 .form-control:focus {
-    box-shadow: none;
+   /* box-shadow: none;*/
 }
 
 .wrapper {

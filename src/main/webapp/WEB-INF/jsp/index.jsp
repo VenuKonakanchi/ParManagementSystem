@@ -2,9 +2,11 @@
 <html lang="en">
 
 <head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
   <title>PAR FULFILLMENT</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="static/css/font-awesome.min.css">
@@ -16,6 +18,7 @@
   <link href="static/css/datatables.min.css" rel="stylesheet">
   <!-- Your custom styles (optional) -->
   <link href="static/css/style.css" rel="stylesheet">
+  <link href="static/css/jquery-ui.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -212,5 +215,8 @@
   <script type="text/javascript" src="static/js/recruiter.js"></script>
   <script type="text/javascript" src="static/js/Area.js"></script>
   <script type="text/javascript" src="static/js/candidate.js"></script>
+  
+  <script type="text/javascript" src="static/js/jquery.inputmask.bundle.min.js"></script>
+  <script type="text/javascript" src="static/js/jquery-ui.min.js"></script>
 </body>
 </html>

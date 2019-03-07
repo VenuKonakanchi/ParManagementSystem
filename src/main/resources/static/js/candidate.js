@@ -1,8 +1,21 @@
 $(document).ready(function(){
 	
+	$('[data-toggle=datepicker]').each(function() {
+		  var target = $(this).data('target-name');
+		  var t = $('input[name=' + target + ']');
+		  t.datepicker({
+			     dateFormat: 'yy-mm-dd',
+			     changeMonth: true,
+			     changeYear: true
+		  });
+		  $(this).on("click", function() {
+		    t.datepicker("show");
+		  });
+		});
+	
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/candidates', populateCandidateInfo, candidateLoadFailure);
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/skills', populateSkillInfo, skillLoadFailure);
-	
+	$("#candidatePhoneNumber").inputmask({"mask": "(999) 999-9999"});
 	
 	$('#candidateStatusDiv').hide();
 	var table=null;
@@ -238,7 +251,8 @@ $(document).ready(function(){
 			    rules : {
 			    	candidateName : {  lettersonlys:true,required: true },
 		  			candidateEmail : {  email: true,required: true},
-		  			candidatePhoneNumber : { required: true }
+		  			candidatePhoneNumber : { required: true },
+		  			candidateSkillSelect: {required: true}
 			    },
 			    messages: {
 			    	candidateName:{
@@ -249,6 +263,9 @@ $(document).ready(function(){
 		        },
 		        candidatePhoneNumber:{
 		    		required:"Phone number can not be empty"
+		        },
+		        candidateSkillSelect:{
+		    		required:"Skill can not be empty"
 		        },
 			    },
 			    errorElement: PARValidationUtil.utils.validationProperties.errorElement,
