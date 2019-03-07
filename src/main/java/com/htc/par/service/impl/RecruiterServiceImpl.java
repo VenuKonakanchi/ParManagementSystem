@@ -9,7 +9,6 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -92,13 +91,63 @@ public class RecruiterServiceImpl implements RecruiterService {
 		RecruiterTO updatedRecruiterTO = null;
 		try {
 			Optional<Recruiter> recruiterOptional = recruiterRepository.findByRecruiterIdAndRecruiterActive(recruiterTO.getRecruiterId(), true);
-			if (!recruiterOptional.isPresent())
+			
+			boolean isRecruiterPresent = recruiterOptional.isPresent();
+			Recruiter recruiterToUpdate = (isRecruiterPresent) ? recruiterOptional.get() : null;
+			
+			if (!isRecruiterPresent) {
 				throw new ResourceNotFoundException(String.format("Recruiter: %s Not Found.", recruiterTO.getRecruiterName()));
-			Recruiter recruiter = recruiterOptional.get();
-			NullAwareBeanUtil.copyProperties(recruiterTO, recruiter);
-			updatedRecruiterTO = getRecruiterTO(recruiterRepository.save(recruiter));
+			} else {
+				
+				if (recruiterTO.getRecruiterPhoneNumber().equals(recruiterToUpdate.getRecruiterPhoneNumber())) {
+					if (recruiterTO.getRecruiterEmail().equals(recruiterToUpdate.getRecruiterEmail())) {
+						NullAwareBeanUtil.copyProperties(recruiterTO, recruiterToUpdate);
+						
+						recruiterToUpdate = recruiterRepository.save(recruiterToUpdate);
+						updatedRecruiterTO = getRecruiterTO(recruiterToUpdate);
+					} else {
+						recruiterOptional = recruiterRepository.findByRecruiterEmail(recruiterTO.getRecruiterEmail());
+						isRecruiterPresent = recruiterOptional.isPresent();
+						Recruiter anotherRecruiter = (isRecruiterPresent) ? recruiterOptional.get() : null;
+						if (isRecruiterPresent && anotherRecruiter.getRecruiterActive()) {
+							throw new ResourceDuplicateException(
+									String.format("Recruiter with same email id: %s already exist.",
+											recruiterTO.getRecruiterEmail()));
+						} else if (isRecruiterPresent && (!anotherRecruiter.getRecruiterActive())) {
+							throw new ResourceDuplicateException(
+									String.format("Another Recruiter with same email id: %s already exist.",
+											recruiterTO.getRecruiterEmail()));
+						} else {
+							NullAwareBeanUtil.copyProperties(recruiterTO, recruiterToUpdate);
+							
+							recruiterToUpdate = recruiterRepository.save(recruiterToUpdate);
+							updatedRecruiterTO = getRecruiterTO(recruiterToUpdate);
+						}
+					}
+				} else {
+					recruiterOptional = recruiterRepository
+							.findByRecruiterPhoneNumber(recruiterTO.getRecruiterPhoneNumber());
+					isRecruiterPresent = recruiterOptional.isPresent();
+					Recruiter anotherRecruiter = (isRecruiterPresent) ? recruiterOptional.get() : null;
+					if (isRecruiterPresent && anotherRecruiter.getRecruiterActive()) {
+						throw new ResourceDuplicateException(
+								String.format("Recruiter with same mobile number: %s already exist.",
+										recruiterTO.getRecruiterPhoneNumber()));
+					} else if (isRecruiterPresent && (!anotherRecruiter.getRecruiterActive())) {
+						throw new ResourceDuplicateException(
+								String.format("Another Recruiter with same mobile number: %s already exist.",
+										recruiterTO.getRecruiterPhoneNumber()));
+					} else {
+						NullAwareBeanUtil.copyProperties(recruiterTO, recruiterToUpdate);
+					
+						recruiterToUpdate = recruiterRepository.save(recruiterToUpdate);
+						updatedRecruiterTO = getRecruiterTO(recruiterToUpdate);
+					}
+				}
+			}
 		} catch (DataAccessException dae) {
-			throw new ResourceNotUpdatedException(String.format("Recruiter: %s Not Found.", recruiterTO.getRecruiterName()));
+			throw new ResourceNotUpdatedException(
+					String.format("Recruiter : %s Not Found.", recruiterTO.getRecruiterName()));
 		}
 		return updatedRecruiterTO;
 	}
@@ -113,23 +162,45 @@ public class RecruiterServiceImpl implements RecruiterService {
 	public RecruiterTO createRecruiter(RecruiterTO recruiterTO)
 			throws ResourceDuplicateException, ResourceNotCreatedException {
 		try {
-			Optional<Recruiter> recruiterOptional = recruiterRepository.findByRecruiterName(recruiterTO.getRecruiterName());
+			Optional<Recruiter> recruiterOptional = recruiterRepository.findByRecruiterPhoneNumber(recruiterTO.getRecruiterPhoneNumber());
 			Recruiter recruiter = null;
-			if (!recruiterOptional.isPresent()) {
+			
+			boolean isRecruiterPresent = recruiterOptional.isPresent();
+			
+			recruiter = (isRecruiterPresent) ? recruiterOptional.get() : null;
+			if (isRecruiterPresent && recruiter.getRecruiterActive()) {
+				throw new ResourceDuplicateException(String.format(
+						"Recruiter with same mobile number: %s already exist.", recruiterTO.getRecruiterPhoneNumber()));
+			} else if (isRecruiterPresent && (!recruiter.getRecruiterActive())) {
 				recruiterTO.setRecruiterActive(true);
-				recruiter = getRecruiter(recruiterTO);
-			} else {
-				recruiter = recruiterOptional.get();
-				recruiter.setRecruiterActive(true);
-				recruiterTO.setRecruiterActive(true);
+				NullAwareBeanUtil.copyProperties(recruiterTO, recruiter);
+			} else if (! isRecruiterPresent) {
+				recruiterOptional = recruiterRepository.findByRecruiterEmail(recruiterTO.getRecruiterEmail());
+				isRecruiterPresent = recruiterOptional.isPresent();
+				
+				recruiter = (isRecruiterPresent) ? recruiterOptional.get() : null;
+				
+				if (isRecruiterPresent && recruiter.getRecruiterActive()) {
+					throw new ResourceDuplicateException(String.format(
+							"Recruiter with same email id: %s already exist.", recruiterTO.getRecruiterEmail()));
+				} else if (isRecruiterPresent && (!recruiter.getRecruiterActive())) {
+					recruiterTO.setRecruiterActive(true);
+					NullAwareBeanUtil.copyProperties(recruiterTO, recruiter);
+				} else {
+					recruiterTO.setRecruiterActive(true);
+					recruiter = getRecruiter(recruiterTO);
+				}
+				}
+				
+				if (recruiter != null) {
+					recruiter = recruiterRepository.save(recruiter);
+					recruiterTO = getRecruiterTO(recruiter);
+				} else {
+					throw new ResourceNotCreatedException("Error while creating Recruiter record.");
+				}
+			} catch (DataAccessException dae) {
+				throw new ResourceNotCreatedException("Error while creating Recruiter record.");
 			}
-			recruiter = recruiterRepository.save(recruiter);
-			recruiterTO = getRecruiterTO(recruiter);
-		} catch (DataIntegrityViolationException die) {
-			throw new ResourceDuplicateException(String.format("Recruiter Phone number: %s already exists.", recruiterTO.getRecruiterPhoneNumber()));
-		} catch (DataAccessException dae) {
-			throw new ResourceNotCreatedException(String.format("Unable to create Recruiter: %s.", recruiterTO.getRecruiterName()));
-		}
 		return recruiterTO;
 	}
 
@@ -152,5 +223,18 @@ public class RecruiterServiceImpl implements RecruiterService {
 			throw new ResourceNotDeletedException("Unable to delete recruiter");
 		}
 		return true;
+	}
+
+	@Override
+	public List<RecruiterTO> getRecruiterByRecruiterEmailFlag(boolean recruiterEmailFlag)
+			throws ResourceNotFoundException {
+		
+		List<Recruiter> recruiterEntities = recruiterRepository.findAllByRecruiterEmailFlag(recruiterEmailFlag);
+		if (CollectionUtils.isEmpty(recruiterEntities))
+			throw new ResourceNotFoundException("No Recruiters Found.");
+		List<RecruiterTO> recruiterList = recruiterEntities.stream().map(recruiter -> {
+			return getRecruiterTO(recruiter);
+		}).collect(Collectors.toList());
+		return recruiterList;
 	}
 }

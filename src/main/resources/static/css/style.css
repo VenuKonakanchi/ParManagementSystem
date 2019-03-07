@@ -412,10 +412,10 @@ body {
     padding: 15px;
 } 
 
+
 .nav.nav-tabs li:not(:last-child) a {
     border-right: 1px solid #ccc;
 }
-
 
 
 table.table-bordered.dataTable th, table.table-bordered.dataTable td {
