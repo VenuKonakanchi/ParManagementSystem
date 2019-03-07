@@ -166,5 +166,8 @@
   <script type="text/javascript" src="static/js/recruiter.js"></script>
   <script type="text/javascript" src="static/js/Area.js"></script>
   <script type="text/javascript" src="static/js/candidate.js"></script>
+   
+  <script type="text/javascript" src="static/js/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="static/js/jquery.inputmask.bundle.min.js"></script>
 </body>
 </html>

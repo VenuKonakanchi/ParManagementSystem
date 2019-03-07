@@ -223,7 +223,7 @@ body {
     border-color: #CCCCCC;
 }
 
-.form-group .form-control {
+/* .form-group .form-control {
     border: 0;
     border-bottom: 1px solid #ced4da;
     border-radius: 0;
@@ -232,7 +232,7 @@ body {
 }
 .form-control:focus {
     box-shadow: none;
-}
+} */
 
 .wrapper {
     min-height: 100%;
