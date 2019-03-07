@@ -1,4 +1,4 @@
-/*******************My Custom Class *******************************/
+/*******************styles for Modal *******************************/
 .modal-card{
 	    border-color: #D7D7F9;
 }
@@ -46,8 +46,7 @@
     right: 10px;
     margin-top: 0;
 }
-/*******************End Of my Custom Class *******************************/
-
+/*******************End Of styles for Modal *******************************/
 body {
     margin: 0;
     font-family: Roboto,Arial,sans-serif;
@@ -101,14 +100,14 @@ body {
 }
 
 .form-group .form-control {
-/*    border: 1;
-    border-bottom: 1px solid #ced4da;*/
-    /*border-radius: 0;*/
-    /*padding-left: 0;*/
-    /*font-weight: 500;*/
+    border: 0;
+    border-bottom: 1px solid #ced4da;
+    border-radius: 0;
+    padding-left: 0;
+    font-weight: 500;
 }
 .form-control:focus {
-   /* box-shadow: none;*/
+    box-shadow: none;
 }
 
 .wrapper {
@@ -142,7 +141,7 @@ body {
     line-height: 60px;
     height: 60px;
     width: 312px;
-    background-image: url(../img/logo.png);
+  	background-image: url(../img/logo.png); 
     background-repeat: no-repeat;
     background-position: 20px center;
     padding: 0 20px;
@@ -379,27 +378,45 @@ body {
     overflow: hidden;
 }
 
-.nav-tabs {
+ .nav-tabs {
     background-color: #fff;
 }
 
 .nav-tabs .nav-link {
-    border: 0;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+   /*  border: 1px;
+   	border-top-left-radius: 1px;
+    border-top-right-radius:1px;  */
     color: #4D4D4D;
     padding: 20px 30px;
 }
 
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+ .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     color: #fff;
     background-color: #2D2A8C;
     border-color: transparent;
+    font-weight:bold;
 }
 
-.tab-content>.tab-pane {
-    padding: 15px;
+
+.nav .nav-tabs .nav-fill .nav-item  > li:hover,
+.nav .nav-tabs .nav-fill .nav-item  > li:focus
+{
+  border: none;
+    background: #2D2A8C;
+    color:#fff;
+    border-radius:0;
+    font-weight:bold;
+    transition:background 0.20s linear;
 }
+ .tab-content>.tab-pane {
+    padding: 15px;
+} 
+
+.nav.nav-tabs li:not(:last-child) a {
+    border-right: 1px solid #ccc;
+}
+
+
 
 table.table-bordered.dataTable th, table.table-bordered.dataTable td {
     border: 0;
@@ -475,5 +492,3 @@ table.dataTable thead>tr>th.sorting_desc {
 .modal-footer {
     border-top: 0;
 }
-
-/* content */
