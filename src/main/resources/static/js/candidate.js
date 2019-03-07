@@ -7,7 +7,11 @@ $(document).ready(function(){
 			     dateFormat: 'yy-mm-dd',
 			     changeMonth: true,
 			     changeYear: true
-		  });
+		  }).focus(function () {
+			    $(".ui-datepicker-next").hide();
+			    $(".ui-datepicker-prev").hide();
+			});
+		  
 		  $(this).on("click", function() {
 		    t.datepicker("show");
 		  });
@@ -261,7 +265,7 @@ $(document).ready(function(){
 			    rules : {
 			    	candidateName : {  lettersonlys:true,required: true },
 		  			candidateEmail : {  htcemail: true, email: true,required: true},
-		  			candidatePhoneNumber : { required: true, phoneUS: true }
+		  			candidatePhoneNumber : { required: true, phoneUS: true },
 		  			candidateEmail : {  email: true,required: true},
 		  			candidatePhoneNumber : { required: true },
 		  			candidateSkillSelect: {required: true}
@@ -275,10 +279,6 @@ $(document).ready(function(){
 		        },
 		        candidatePhoneNumber:{
 		    		required:"Phone number can not be empty"
-
-		    				
-		        	}
-
 		        },
 		        candidateSkillSelect:{
 		    		required:"Skill can not be empty"
