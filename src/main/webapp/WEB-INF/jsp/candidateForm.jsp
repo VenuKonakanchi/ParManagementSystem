@@ -15,7 +15,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<p>Are you sure you, want to delete the Candidate?</p>
+				<p id="candidateDeleteConfirmModalBody"></p>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-primary" id="candidate-delete-btn">Delete</button>
@@ -31,67 +31,94 @@
 	aria-labelledby="candidateModalCenterTitle" aria-hidden="true">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
-			<div class="modal-header">
-				<h3 class="modal-title text-left" id="candidateModalLongTitle">Add/Update Candidate</h3>
-			</div>
 			<div class="modal-body">
-				<p></p>
 				<div class="collapse" role="alert" id="candidateModalStatusDiv">
 					<span id="candidateModalStatusMessage"></span>
 					<button type="button" class="close" data-hide="alert">&times;</button>
 				</div>
-				<form class="form-horizontal" role="form" id="candidateForm">
+				<div class="card modal-card">
+				  <div class="card-header modal-card-header">
+				    <h5 class="text-left" id="candidateModalLongTitle">Add/Update Candidate</h5>
+				  </div>
+				  <div class="card-body">
+					<form class="form-horizontal" role="form" id="candidateForm">
 						<div class="form-group row">
-						<input type="hidden" id="rowIndex" name="rowIndex" value="">
-						<label class="control-label col-sm-2" for="candidateName">Name :</label>
-						<div class="col-sm-4">
-							<input type="text" class="form-control" id="candidateName"	placeholder="Enter Candidate Name" name="candidateName">
-						</div>
-						<label class="control-label col-sm-3" for="candidatePhoneNumber"> Phone Number :</label>
-						<div class="col-sm-3">
-						<input type="text" class="form-control" id="candidatePhoneNumber"
-								placeholder="Enter Phone Number" name="candidatePhoneNumber">
-						</div>
+							<label class="control-label col-sm-3 text-right font-weight-bold" for="candidateName">Name :</label>
+							<div class="col-sm-6 input-group  modal-form-input-group">
+								<div class="input-group input-group-prepend">
+		    						<span class="input-group-text modal-form-field-prepend-span" id="name-addon"><i class="fa fa-pencil"></i></span>
+		    						<input type="text" class="form-control modal-form-input" id="candidateName"	placeholder="Enter Candidate Name" name="candidateName" aria-describedby="name-addon">
+								</div>
+							</div>
+							<div class="col-sm-3">
+							</div>
 						</div>
 						
-<!-- 					<div class="form-group row">
-						<label class="control-label col-sm-3" for="candidatePhoneNumber"> Candidate Phone Number :</label>
-						<div class="col-sm-3">
-							<input type="text" class="form-control" id="candidatePhoneNumber"
-								placeholder="Enter Phone Number" name="candidatePhoneNumber">
+						<div class="form-group row">
+							<label class="control-label col-sm-3 text-right font-weight-bold" for="candidatePhoneNumber"> Phone Number :</label>
+							<div class="col-sm-6  input-group">
+								<div class="input-group input-group-prepend">
+									<span class="input-group-text  modal-form-field-prepend-span" id="phone-addon"><i class="fa fa-phone-square"></i></span>
+									<input type="text" class="form-control modal-form-input" id="candidatePhoneNumber"
+											placeholder="Enter Phone Number"  aria-describedby="phone-addon" name="candidatePhoneNumber">
+								</div>
+							</div>
+							<div class="col-sm-3">
+							</div>
 						</div>
-						<div class="col-sm-6"></div>
-					</div> -->
-					
-					
-					<div class="form-group row">
-						<label class="control-label col-sm-2" for="candidateEmail">Email : </label>
-						<div class="col-sm-4">
-							<input type="email" class="form-control" id="candidateEmail"
-								placeholder="Enter Email" name="candidateEmail">
+						
+						<div class="form-group row">
+							<label class="control-label col-sm-3 text-right font-weight-bold" for="candidateEmail">Email : </label>
+							<div class="col-sm-6 input-group">
+								<div class="input-group input-group-prepend">
+									<span class="input-group-text  modal-form-field-prepend-span" id="email-addon"><i class="fa fa-envelope"></i></span>
+								<input type="email" class="form-control modal-form-input" id="candidateEmail"
+									placeholder="Enter Email" aria-describedby="email-addon" name="candidateEmail">
+								</div>
+							</div>									
+							<div class="col-sm-3">
+							</div>
 						</div>
-						<label class="control-label col-sm-2" for="candidateSkillSelect">Primary Skill :</label>
-						<div class="col-sm-4">
-							<select  class="form-control" id="candidateSkillSelect"></select>
+	
+						<div class="form-group row">
+							<label class="control-label col-sm-3 text-right font-weight-bold" for="candidateSkillSelect">Primary Skill :</label>
+							<div class="col-sm-6  input-group">
+								<div class="input-group input-group-prepend">
+									<span class="input-group-text  modal-form-field-prepend-span" id="skill-addon"><i class="fa fa-gear"></i></span>
+								<select  class="form-control modal-form-input" id="candidateSkillSelect" aria-describedby="skill-addon" ></select>
+								</div>	
+							</div>
+							<div class="col-sm-3">
+							</div>
 						</div>
+						<div class="form-group row">
+							<label class="control-label col-sm-3 text-right font-weight-bold" for="candidateReceivedDate">Received Date:</label>
+							<div class="col-sm-6  input-group">
+								<div class="input-group input-group-append">
+					                <input id="candidateReceivedDate" type="text" name="candidateReceivedDate" class="modal-form-input-append date-picker form-control modal-form-input-datepicker" readonly="readonly" aria-describedby="candidateReceivedDate-addon"/>
+									<span class="input-group-btn">
+										<button type="button" class="btn modal-form-field-prepend-btn" data-toggle="datepicker" data-target-name="candidateReceivedDate">
+					                		<span class="fa fa-calendar" id="candidateReceivedDate-addon"></span>
+					                	</button>
+      								</span>
+                				</div>	
+							</div>
+							<div class="col-sm-3">
+							</div>
+						</div>
+						<br>
+					</form>			  	
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary cancel"
+							data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary save"
+							id="saveCandidateButton">Save</button>
 					</div>
-<!-- 					<div class="form-group row">
-						<label class="control-label col-sm-3" for="candidateSkillSelect">Select	Candidate Primary Skill :</label>
-						<div class="col-sm-3">
-							<select  class="form-control" id="candidateSkillSelect"></select>
-						</div>
-						<div class="col-sm-6"></div>
-					</div> -->
-					<br>
-				</form>
+				  </div>
+			</div>
+				<p></p>
 			</div>
 			
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary cancel"
-					data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary save"
-					id="saveCandidateButton">Save</button>
-			</div>
 		</div>
 	</div>
 </div>

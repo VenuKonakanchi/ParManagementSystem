@@ -1,8 +1,21 @@
 $(document).ready(function(){
 	
+	$('[data-toggle=datepicker]').each(function() {
+		  var target = $(this).data('target-name');
+		  var t = $('input[name=' + target + ']');
+		  t.datepicker({
+			     dateFormat: 'yy-mm-dd',
+			     changeMonth: true,
+			     changeYear: true
+		  });
+		  $(this).on("click", function() {
+		    t.datepicker("show");
+		  });
+		});
+	
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/candidates', populateCandidateInfo, candidateLoadFailure);
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/skills', populateSkillInfo, skillLoadFailure);
-	
+	$("#candidatePhoneNumber").inputmask({"mask": "(999) 999-9999"});
 	
 	$('#candidateStatusDiv').hide();
 	var table=null;
@@ -10,7 +23,11 @@ $(document).ready(function(){
     $("#addNewCandidateBtn").on("click", function(event){
      	$('#candidateModal').modal('show'); 
     });
-    
+    $('#candidateModal').on('hidden.bs.modal', function() {
+        var candidateForm = $('#candidateForm');
+        candidateForm.validate().resetForm();
+        candidateForm.find('.error').removeClass('error');
+    });
 	function populateCandidateInfo(response){
 		table = $('#tblCandidates').DataTable(
 				{
@@ -52,6 +69,8 @@ $(document).ready(function(){
 		table.clear().rows.add(response).draw();
 		$("#tblCandidates tbody").on('click', '.btnCandidateDelete', function () {
 			var candidate = table.row($(this).closest('tr')).data();
+			
+			$('#candidateDeleteConfirmModalBody').html("Are you sure you, want to delete the Candidate<strong> "+candidate.candidateName +"</strong> ?");
 			
 		    $('#candidateDeleteConfirmModal').modal({ backdrop: 'static', keyboard: false })
 	        .on('click', '#candidate-delete-btn', function(){
@@ -173,21 +192,23 @@ $(document).ready(function(){
 	var candidateUpdateSuccess = function(newData,action,divElement) {
 		return function(response) {
 			//var rowIndex = $("#rowIndex").val();
+			$('#candidateModal').modal('hide');
 			table.row('#'+newData['candidateId']).data(response).draw();
-			$('#candidateModalStatusDiv').removeClass("alert alert-danger");
-			$('#candidateModalStatusDiv').addClass("alert alert-success");
-			$('#candidateModalStatusMessage').html("Candidate has been updated successfully !!");
-			$('#candidateModalStatusDiv').show();
+			$('#candidateStatusDiv').removeClass("alert alert-danger");
+			$('#candidateStatusDiv').addClass("alert alert-success");
+			$('#candidateStatusMessage').html("Candidate<strong> "+newData['candidateName']+" </strong>has been updated successfully !!");
+			$('#candidateStatusDiv').show();
 		};
 	};
 	
-	var candidateAddSuccess = function() {
+	var candidateAddSuccess = function(candidateName) {
 		return function(response) {
 			/*table.row.add(response).draw( false );*/
-			$('#candidateModalStatusDiv').removeClass("alert alert-danger");
-			$('#candidateModalStatusDiv').addClass("alert alert-success");
-			$('#candidateModalStatusMessage').html("New Candidate has been created successfully!!");
-			$('#candidateModalStatusDiv').show();
+			$('#candidateModal').modal('hide');
+			$('#candidateStatusDiv').removeClass("alert alert-danger");
+			$('#candidateStatusDiv').addClass("alert alert-success");
+			$('#candidateStatusMessage').html("New Candidate<strong> "+candidateName+" </strong>has been created successfully!!");
+			$('#candidateStatusDiv').show();
 			
 			if(!$.fn.dataTable.isDataTable("#tblCandidates")){
 				populateCandidateInfo(response);
@@ -215,11 +236,11 @@ $(document).ready(function(){
 	  $("#candidateSkillSelect").val(skillId);
 	  
 
-	  /*if ((typeof candidateId == undefined || candidateId == null)) {
-		  $('#candidateName').prop('disabled',false);
+	  if ((typeof candidateId == undefined || candidateId == null)) {
+		  $('#candidateModalLongTitle').text("Add Candidate");
 	  }else{
-		  $('#candidateName').prop('disabled',true);
-	  }*/
+		  $('#candidateModalLongTitle').text("Update Candidate");
+	  }
 
 	  
 	  $("#candidateModal").off('click', '#saveCandidateButton');
@@ -238,7 +259,8 @@ $(document).ready(function(){
 			    rules : {
 			    	candidateName : {  lettersonlys:true,required: true },
 		  			candidateEmail : {  email: true,required: true},
-		  			candidatePhoneNumber : { required: true }
+		  			candidatePhoneNumber : { required: true },
+		  			candidateSkillSelect: {required: true}
 			    },
 			    messages: {
 			    	candidateName:{
@@ -249,6 +271,9 @@ $(document).ready(function(){
 		        },
 		        candidatePhoneNumber:{
 		    		required:"Phone number can not be empty"
+		        },
+		        candidateSkillSelect:{
+		    		required:"Skill can not be empty"
 		        },
 			    },
 			    errorElement: PARValidationUtil.utils.validationProperties.errorElement,
@@ -269,7 +294,7 @@ $(document).ready(function(){
 			  requestBody['skill']={};
 			  requestBody['skill']['skillId']=$('#candidateSkillSelect').val();
 
-			  AjaxUtil.utils.sendPostRequest('/parmanagement/par/candidates/',candidateAddSuccess(), candidateAddFailure(candidateName),requestBody);			   
+			  AjaxUtil.utils.sendPostRequest('/parmanagement/par/candidates/',candidateAddSuccess(requestBody["candidateName"]), candidateAddFailure(candidateName),requestBody);			   
 		  }
 		  else{
 			  var requestBody={};
@@ -283,7 +308,7 @@ $(document).ready(function(){
 			  
 			  var newData={};
 			  newData['candidateId'] = candidateId.toString();
-			  newData['candidateName'] = candidateName;
+			  newData['candidateName'] = $('#candidateName').val();
 			  newData['candidatePhoneNumber'] = $('#candidatePhoneNumber').val();
 			  newData['candidateEmail'] = $('#candidateEmail').val();
 			  newData['candidateActive'] = candidateActive;

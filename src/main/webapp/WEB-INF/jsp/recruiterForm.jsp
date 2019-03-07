@@ -37,7 +37,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<p>Are you sure you, want to delete?</p>
+				<p id="confirmrecruiterModalBody"></p>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-primary" id="delete-btn">Delete</button>
@@ -52,11 +52,11 @@
 <br>
 
 <div class="modal fade" id="recruiterModal" tabindex="-1" role="dialog"
-	aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	aria-labelledby="recruiterModalTitle" aria-hidden="true">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h3 class="modal-title text-left" id="exampleModalLongTitle">Add/Update
+				<h3 class="modal-title text-left" id="recruiterModalTitle">Add/Update
 					Recruiter</h3>
 			</div>
 			<div class="modal-body">

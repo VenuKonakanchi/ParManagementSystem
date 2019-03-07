@@ -163,10 +163,10 @@ public class PARMasterController {
 	 * @throws ResourceNotUpdatedException
 	 */
 
-	@PutMapping("/parmasters/{parId}/fill/{intentToFillDate}")
-	public ResponseEntity<PARMasterTO> intentToFill(@PathVariable("parId") Integer parId, @PathVariable("intentToFillDate") LocalDate intentToFillDate)
+	@PutMapping("/parmasters/{parId}/fill/{intentToFillDate}/{intentToFillIndicator}")
+	public ResponseEntity<PARMasterTO> intentToFill(@PathVariable("parId") Integer parId, @PathVariable("intentToFillDate") LocalDate intentToFillDate, @PathVariable("intentToFillIndicator") Boolean intentToFillIndicator)
 			throws ResourceDuplicateException, ResourceNotUpdatedException {
-		return ResponseEntity.ok(parMasterService.intentToFill(parId, intentToFillDate));
+		return ResponseEntity.ok(parMasterService.intentToFill(parId, intentToFillDate, intentToFillIndicator));
 	}
 	
 

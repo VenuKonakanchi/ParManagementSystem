@@ -145,6 +145,14 @@ public class PARMaster {
 		return parComment;
 	}
 
+	public LocalDate getIntentToFillDate() {
+		return intentToFillDate;
+	}
+
+	public void setIntentToFillDate(LocalDate intentToFillDate) {
+		this.intentToFillDate = intentToFillDate;
+	}
+
 	public void setParComment(String parComment) {
 		this.parComment = parComment;
 	}

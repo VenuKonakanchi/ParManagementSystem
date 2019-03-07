@@ -37,4 +37,6 @@ public interface RecruiterService{
 	public RecruiterTO getRecruiterTO(Recruiter recruiter);
 	
 	public Recruiter getRecruiter(RecruiterTO recruiterTO);
+	
+	public List<RecruiterTO> getRecruiterByRecruiterEmailFlag(boolean recruiterEmailFlag) throws ResourceNotFoundException;
 }
