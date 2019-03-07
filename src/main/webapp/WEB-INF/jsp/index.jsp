@@ -155,6 +155,7 @@
   <!-- Your custom scripts (optional) -->
    <script src="https://cdn.datatables.net/buttons/1.5.4/js/dataTables.buttons.min.js"></script>
   <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/additional-methods.min.js"></script>
   <script type="text/javascript" src="static/js/AjaxUtil.js"></script>
   <script type="text/javascript" src="static/js/PARValidator.js"></script>
   <script type="text/javascript" src="static/js/Skill.js"></script>

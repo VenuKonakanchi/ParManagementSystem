@@ -200,7 +200,7 @@ $(document).ready(function(){
 		  $('#preScreenerForm').validate({
 			    rules : {
 			        preScreenerName : {  required: true },
-			        preScreenerPhoneNumber : {  required: true }
+			        preScreenerPhoneNumber : {  required: true, phoneUS: true }
 			    },
 			    messages: {
 			        preScreenerName:{

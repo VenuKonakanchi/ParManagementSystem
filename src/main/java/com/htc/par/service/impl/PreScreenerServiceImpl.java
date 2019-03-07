@@ -127,6 +127,11 @@ public class PreScreenerServiceImpl implements PreScreenerService {
 						preScreenerRepository.save(preScreenerOptional.get());
 						
 					}
+					else if(!isPreScreenerPresent)
+					{
+						NullAwareBeanUtil.copyProperties(preScreenerTO, preScreenerToUpdate);
+						updatedPreScreenerTO = getPreScreenerTO(preScreenerRepository.save(preScreenerToUpdate));
+					}
 				}
 			}
 			

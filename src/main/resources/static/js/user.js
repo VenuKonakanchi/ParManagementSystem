@@ -250,6 +250,11 @@ $(document).ready(function(){
 		  return this.optional(element) || /^[a-zA-Z0-9]+$/.test(value);
 		}, "UserName field allows alphanumeric  only");
 	  
+	  jQuery.validator.addMethod("htcemail", function(value, element) {
+		  email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+		  return this.optional(element) || email_regex.test(value);
+		}, "Enter valid email");
+	  
 	  $("#userModal").on('click', '#saveUserButton', function () {
 		  $('#userModalStatusDiv').hide();
 		  $('#userForm').validate({
@@ -258,8 +263,8 @@ $(document).ready(function(){
 		  			lastName : {  lettersonlys:true,required: true },
 		  			userName : {  minlength: 5,maxlength: 10,userName:true, required: true },
 		  			password : {  minlength: 5,maxlength: 10,required: true },
-		  			email : {  email: true,required: true},
-		  			phone : { required: true }
+		  			email : {  htcemail: true, email: true,required: true},
+		  			phone : { required: true, phoneUS: true }
 			    },
 			    messages: {
 			    	firstName:{
