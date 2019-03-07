@@ -228,6 +228,11 @@ $(document).ready(function(){
 		  return this.optional(element) || /^[a-zA-Z\s]+$/.test(value);
 		}, "Name field allows alphabets and a space only");
 	  
+	  jQuery.validator.addMethod("htcemail", function(value, element) {
+		  email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+		  return this.optional(element) || email_regex.test(value);
+		}, "Enter valid email");
+	  
 /*	  jQuery.validator.addMethod("userName", function(value, element) {
 		  return this.optional(element) || /^[a-zA-Z0-9]+$/.test(value);
 		}, "UserName field allows alphanumeric  only");*/
@@ -237,8 +242,8 @@ $(document).ready(function(){
 		  $('#candidateForm').validate({
 			    rules : {
 			    	candidateName : {  lettersonlys:true,required: true },
-		  			candidateEmail : {  email: true,required: true},
-		  			candidatePhoneNumber : { required: true }
+		  			candidateEmail : {  htcemail: true, email: true,required: true},
+		  			candidatePhoneNumber : { required: true, phoneUS: true }
 			    },
 			    messages: {
 			    	candidateName:{
@@ -249,7 +254,8 @@ $(document).ready(function(){
 		        },
 		        candidatePhoneNumber:{
 		    		required:"Phone number can not be empty"
-		        },
+		    				
+		        	}
 			    },
 			    errorElement: PARValidationUtil.utils.validationProperties.errorElement,
 			    errorPlacement: PARValidationUtil.utils.validationProperties.errorPlacement,
@@ -257,6 +263,7 @@ $(document).ready(function(){
 			    highlight: PARValidationUtil.utils.validationProperties.highlight,
 			    unhighlight: PARValidationUtil.utils.validationProperties.unhighlight
 		  });
+		  
 		  
 		  if(!$('#candidateForm').valid())
 			  return;

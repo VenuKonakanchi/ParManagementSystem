@@ -201,7 +201,11 @@ $(document).ready(function(){
 	  $('#recruiterEmail').val(recruiterEmail);
 	  $('#recruiterEmailFlag :selected').val(recruiterEmailFlag);
 	  
-
+	  jQuery.validator.addMethod("htcemail", function(value, element) {
+		  email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+		  return this.optional(element) || email_regex.test(value);
+		}, "Enter valid email");
+	  
 	  
 	  $("#recruiterModal").off('click', '#saveRecruiterButton');
 	  
@@ -210,8 +214,8 @@ $(document).ready(function(){
 		  $('#recruiterForm').validate({
 			    rules : {
 			    	recruiterName : {  required: true },
-			    	recruiterPhoneNumber : {  required: true },
-			    	recruiterEmail : {  required: true },
+			    	recruiterPhoneNumber : {  required: true, phoneUS: true },
+			    	recruiterEmail : {  htcemail: true, email: true, required: true },
 			        
 			    },
 			    messages: {
