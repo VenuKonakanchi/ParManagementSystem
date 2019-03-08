@@ -81,11 +81,13 @@
 						</div>
 	
 						<div class="form-group row">
-							<label class="control-label col-sm-3 text-right font-weight-bold" for="candidateSkillSelect">Primary Skill :</label>
+							<label class="control-label col-sm-3 text-right font-weight-bold" for="candidateRecruiterSelect">Primary Skill :</label>
 							<div class="col-sm-6  input-group">
 								<div class="input-group input-group-prepend">
-									<span class="input-group-text  modal-form-field-prepend-span" id="skill-addon"><i class="fa fa-gear"></i></span>
-								<select  class="form-control modal-form-input" id="candidateSkillSelect" aria-describedby="skill-addon" ></select>
+								<span class="input-group-text  modal-form-field-prepend-span" id="recruiter-addon"><i class="fa fa-gear"></i></span>
+								<select  class="form-control modal-form-input" id="candidateRecruiterSelect" aria-describedby="recruiter-addon" name="candidateRecruiterSelect">
+									<option value="">Select Recruiter</option>
+								</select>
 								</div>	
 							</div>
 							<div class="col-sm-3">
@@ -133,10 +135,11 @@
 		<tr>
 			<th>Candidate ID</th>
 			<th>Candidate Name</th>
-			<th>Candidate Phone Number</th>
-			<th>Candidate Email</th>
+			<th>Phone Number</th>
+			<th>Email</th>
 			<th>Candidate Active</th>
-			<th>Skill</th>
+			<th>Recruiter Name</th>
+			<th>Candidate Received Date</th>
 			<th>Actions</th>
 		</tr>
 	</thead>
