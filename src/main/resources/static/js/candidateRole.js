@@ -143,7 +143,7 @@ $(document).ready(function(){
 			table.row('#'+deleteData['roleId']).remove().draw();
 			$('#candRoleStatusDiv').removeClass("alert alert-danger");
 			$('#candRoleStatusDiv').addClass("alert alert-success");
-			$('#candRoleStatusMessage').html(deleteData['roleName'] + " has been successfully deleted!!");
+			$('#candRoleStatusMessage').html("<strong> "+deleteData['roleName'] + " </strong> has been deleted successfully !!");
 			$('#candRoleStatusDiv').show();
 		};
 	};
@@ -155,7 +155,7 @@ $(document).ready(function(){
 			table.row('#'+newData['roleId']).data(newData).draw();
 			$('#candRoleStatusDiv').removeClass("alert alert-danger");
 			$('#candRoleStatusDiv').addClass("alert alert-success");
-			$('#candRoleStatusMessage').html("Role name<strong> "+newData['roleName']+"</strong> has been successfully updated!!");
+			$('#candRoleStatusMessage').html("Role name <strong> "+newData['roleName']+" </strong> has been updated successfully !!");
 			$('#candRoleStatusDiv').show();
 		};
 	};
@@ -166,7 +166,7 @@ $(document).ready(function(){
 			  $('#candRoleModal').modal('hide');
 			$('#candRoleStatusDiv').removeClass("alert alert-danger");
 			$('#candRoleStatusDiv').addClass("alert alert-success");
-			$('#candRoleStatusMessage').html("New Role<strong> "+roleName+"</strong> has been created successfully!!");
+			$('#candRoleStatusMessage').html("New Role <strong> "+roleName+" </strong> has been created successfully!!");
 			$('#candRoleStatusDiv').show();
 			if(!$.fn.dataTable.isDataTable("#tblCandRoles")){
 				populateRoleInfo(response);

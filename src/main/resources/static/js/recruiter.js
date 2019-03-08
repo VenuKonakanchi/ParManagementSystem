@@ -65,9 +65,9 @@ $(document).ready(function(){
 		table.clear().rows.add(response).draw();
 		$("#tblRecruiters tbody").on('click', '.btnDelete', function () {
 			var recruiter = table.row($(this).closest('tr')).data();
-			 $('#confirmrecruiterModalBody').html("Are you sure you want to delete <strong> "+recruiter.recruiterName+" </strong> ?");
-		    $('#confirmrecruiter').modal({ backdrop: 'static', keyboard: false })
-	        .on('click', '#delete-btn', function(){
+			 $('#confirmDeleteRecruiterModalBody').html("Are you sure you want to delete <strong> "+recruiter.recruiterName+" </strong> ?");
+		    $('#confirmDeleteRecruiter').modal({ backdrop: 'static', keyboard: false })
+	        .on('click', '#recruiter-delete-btn', function(){
 				var deleteData={};
 				deleteData['recruiterId']=recruiter.recruiterId;
 				deleteData['recruiterName']=recruiter.recruiterName;
@@ -75,7 +75,7 @@ $(document).ready(function(){
 				deleteData['recruiterEmail']=recruiter.recruiterEmail;
 				deleteData['recruiterEmailFlag']=recruiter.recruiterEmailFlag;
 				AjaxUtil.utils.sendDeleteRequest('/parmanagement/par/recruiters/'+recruiter.recruiterId, recruiterDeleteSuccess(deleteData,'deleted','recruiterstatusMessage'), recruiterDeleteFailure(recruiter.recruiterName));
-				$('#confirmrecruiter').modal('hide');
+				$('#confirmDeleteRecruiter').modal('hide');
 	        });
 		    
 		});
@@ -161,7 +161,7 @@ $(document).ready(function(){
 			table.row('#'+deleteData['recruiterId']).remove().draw();
 			$('#recruiterstatusDiv').removeClass("alert alert-danger");
 			$('#recruiterstatusDiv').addClass("alert alert-success");
-			$('#recruiterstatusMessage').html(deleteData['recruiterName'] + " has been deleted successfully !!");
+			$('#recruiterstatusMessage').html("<strong> "+deleteData['recruiterName'] + " </strong> has been deleted successfully !!");
 			$('#recruiterstatusDiv').show();
 		};
 	};
@@ -173,7 +173,7 @@ $(document).ready(function(){
 			table.row('#'+newData['recruiterId']).data(newData).draw();
 			$('#recruiterstatusDiv').removeClass("alert alert-danger");
 			$('#recruiterstatusDiv').addClass("alert alert-success");
-			$('#recruiterstatusMessage').html("Recruiter<strong> "+newData['recruiterName']+"</strong> info has been updated successfully !!");
+			$('#recruiterstatusMessage').html("Recruiter<strong> "+newData['recruiterName']+" </strong> info has been updated successfully !!");
 			$('#recruiterstatusDiv').show();
 		};
 	};
@@ -205,7 +205,7 @@ $(document).ready(function(){
 	  $('#recruiterName').val(recruiterName);
 	  $('#recruiterPhoneNumber').val(recruiterPhoneNumber);
 	  $('#recruiterEmail').val(recruiterEmail);
-	  $('#recruiterEmailFlag :selected').val(recruiterEmailFlag);
+	  $('[name=recruiterEmailFlag]').val([recruiterEmailFlag]);
 	  
 	  
 	  jQuery.validator.addMethod("htcemail", function(value, element) {
@@ -229,12 +229,13 @@ $(document).ready(function(){
 			    	recruiterName : {  required: true },
 			    	recruiterPhoneNumber : {  required: true, phoneUS: true },
 			    	recruiterEmail : {  htcemail: true, email: true, required: true },
-			        
+			    	recruiterEmailFlag : {  required: true }
 			    },
 			    messages: {
 			    	recruiterName:{required:"Recruiter name can not be empty"},
 			    	recruiterPhoneNumber:{required:"Recruiter Phone Number can not be empty"},
 			    	recruiterEmail:{required:"Recruiter Email can not be empty"},
+			    	recruiterEmailFlag:{required:"Select Yes/ No to recive Email Notifications"}
 			       
 			    },
 			    errorElement: PARValidationUtil.utils.validationProperties.errorElement,
