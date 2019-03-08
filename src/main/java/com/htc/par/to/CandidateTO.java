@@ -1,5 +1,7 @@
 package com.htc.par.to;
 
+import java.time.LocalDate;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -22,8 +24,11 @@ public class CandidateTO {
 
 	private Boolean candidateActive ;
 	
-	@NotNull(message="Skill can not be null")
-	private SkillTO skill;
+	@NotNull(message = "Candidate Received date cannot be null")
+	private LocalDate candidateReceivedDate;
+	
+	@NotNull(message="Recruiter can not be null")
+	private RecruiterTO recruiter;
 
 	
 	public CandidateTO() {
@@ -92,49 +97,56 @@ public class CandidateTO {
 
 
 
-	public SkillTO getSkill() {
-		return skill;
+	public RecruiterTO getRecruiter() {
+		return recruiter;
 	}
 
 
 
-	public void setSkill(SkillTO skill) {
-		this.skill = skill;
+	public void setRecruiter(RecruiterTO recruiter) {
+		this.recruiter = recruiter;
+	}
+
+	public LocalDate getCandidateReceivedDate() {
+		return candidateReceivedDate;
+	}
+
+	public void setCandidateReceivedDate(LocalDate candidateReceivedDate) {
+		this.candidateReceivedDate = candidateReceivedDate;
 	}
 
 
 
 	public CandidateTO(Integer candidateId, String candidateName, String candidatePhoneNumber, String candidateEmail,
-			Boolean candidateActive, SkillTO skill) {
+			Boolean candidateActive, RecruiterTO recruiter,LocalDate candidateReceivedDate) {
 		super();
 		this.candidateId = candidateId;
 		this.candidateName = candidateName;
 		this.candidatePhoneNumber = candidatePhoneNumber;
 		this.candidateEmail = candidateEmail;
 		this.candidateActive = candidateActive;
-		this.skill = skill;
+		this.recruiter = recruiter;
+		this.candidateReceivedDate = candidateReceivedDate;
 	}
 
 
 	public CandidateTO(String candidateName, String candidatePhoneNumber, String candidateEmail,
-			Boolean candidateActive, SkillTO skill) {
+			Boolean candidateActive, RecruiterTO recruiter,LocalDate candidateReceivedDate) {
 		super();
 		this.candidateName = candidateName;
 		this.candidatePhoneNumber = candidatePhoneNumber;
 		this.candidateEmail = candidateEmail;
 		this.candidateActive = candidateActive;
-		this.skill = skill;
+		this.recruiter = recruiter;
+		this.candidateReceivedDate = candidateReceivedDate;
 	}
-
 
 	@Override
 	public String toString() {
-		return "Candidate [candidateId=" + candidateId + ", candidateName=" + candidateName + ", candidatePhoneNumber="
-				+ candidatePhoneNumber + ", candidateEmail=" + candidateEmail + ", candidateActive=" + candidateActive
-				+ ", skill=" + skill + "]";
-	}
-	
-	
-	
+		return "CandidateTO [candidateId=" + candidateId + ", candidateName=" + candidateName
+				+ ", candidatePhoneNumber=" + candidatePhoneNumber + ", candidateEmail=" + candidateEmail
+				+ ", candidateActive=" + candidateActive + ", candidateReceivedDate=" + candidateReceivedDate
+				+ ", recruiter=" + recruiter + "]";
+	}	
 
 }

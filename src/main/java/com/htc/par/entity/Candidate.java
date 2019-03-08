@@ -1,6 +1,7 @@
 package com.htc.par.entity;
 
-import javax.persistence.CascadeType;
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,9 +34,12 @@ public class Candidate {
 	@Column(name="cand_active")
 	private Boolean candidateActive ;
 	
+	@Column(name="cand_rcvd_dt")
+	private LocalDate candidateReceivedDate;
+	
 	@ManyToOne()
-	@JoinColumn(name="skill_cd", referencedColumnName="skill_id")
-	private Skill skill;
+	@JoinColumn(name="recruit_cd", referencedColumnName="recruit_id")
+	private Recruiter recruiter;
 
 	
 	
@@ -73,8 +77,6 @@ public class Candidate {
 		return candidatePhoneNumber;
 	}
 
-
-
 	public void setCandidatePhoneNumber(String candidatePhoneNumber) {
 		this.candidatePhoneNumber = candidatePhoneNumber;
 	}
@@ -105,45 +107,56 @@ public class Candidate {
 
 
 
-	public Skill getSkill() {
-		return skill;
+	public Recruiter getRecruiter() {
+		return recruiter;
 	}
 
 
 
-	public void setSkill(Skill skill) {
-		this.skill = skill;
+	public void setRecruiter(Recruiter recruiter) {
+		this.recruiter = recruiter;
 	}
 
+	public LocalDate getCandidateReceivedDate() {
+		return candidateReceivedDate;
+	}
+
+	public void setCandidateReceivedDate(LocalDate candidateReceivedDate) {
+		this.candidateReceivedDate = candidateReceivedDate;
+	}
 
 
 	public Candidate(Integer candidateId, String candidateName, String candidatePhoneNumber, String candidateEmail,
-			Boolean candidateActive,Skill skill) {
+			Boolean candidateActive,Recruiter recruiter,LocalDate candidateReceivedDate) {
 		super();
 		this.candidateId = candidateId;
 		this.candidateName = candidateName;
 		this.candidatePhoneNumber = candidatePhoneNumber;
 		this.candidateEmail = candidateEmail;
 		this.candidateActive = candidateActive;
-		this.skill = skill;
+		this.recruiter = recruiter;
+		this.candidateReceivedDate = candidateReceivedDate;
 	}
 
 
 	public Candidate(String candidateName, String candidatePhoneNumber, String candidateEmail,
-			Boolean candidateActive,Skill skill) {
+			Boolean candidateActive,Recruiter recruiter,LocalDate candidateReceivedDate) {
 		super();
 		this.candidateName = candidateName;
 		this.candidatePhoneNumber = candidatePhoneNumber;
 		this.candidateEmail = candidateEmail;
 		this.candidateActive = candidateActive;
-		this.skill = skill;
+		this.recruiter = recruiter;
+		this.candidateReceivedDate = candidateReceivedDate;
 	}
+
 
 
 	@Override
 	public String toString() {
 		return "Candidate [candidateId=" + candidateId + ", candidateName=" + candidateName + ", candidatePhoneNumber="
-				+ candidatePhoneNumber + ", candidateEmail=" + candidateEmail + ", candidateActive=" + candidateActive + "]";
+				+ candidatePhoneNumber + ", candidateEmail=" + candidateEmail + ", candidateActive=" + candidateActive
+				+ ", candidateReceivedDate=" + candidateReceivedDate + "]";
 	}
 
 }
