@@ -23,9 +23,9 @@ PARValidationUtil.utils = {};
 			element.parents( ".col-sm-5" ).addClass( "has-feedback" );
 
 			if ( element.prop( "type" ) === "checkbox" ) {
-				error.insertAfter( element.parent( "label" ) );
+				error.insertAfter( element.parent( "label" ).parent( ".input-group" ) );
 			} else {
-				error.insertAfter( element );
+				error.insertAfter( element.parent( ".input-group" ) );
 			}
 
 			// Add the span element, if doesn't exists, and apply the icon classes to it.

@@ -9,6 +9,12 @@ $(document).ready(function(){
     	$('#recruiterModal').modal('show'); 
     });
     
+    $('#recruiterModal').on('hidden.bs.modal', function() {
+        var recruiterForm = $('#recruiterForm');
+        recruiterForm.validate().resetForm();
+        recruiterForm.find('.error').removeClass('error');
+    });
+    
     //Recruiter Table
 	function populateRecruiterInfo(response){
 		table = $('#tblRecruiters').DataTable(
@@ -59,9 +65,9 @@ $(document).ready(function(){
 		table.clear().rows.add(response).draw();
 		$("#tblRecruiters tbody").on('click', '.btnDelete', function () {
 			var recruiter = table.row($(this).closest('tr')).data();
-			
-		    $('#confirmrecruiter').modal({ backdrop: 'static', keyboard: false })
-	        .on('click', '#delete-btn', function(){
+			 $('#confirmDeleteRecruiterModalBody').html("Are you sure you want to delete <strong> "+recruiter.recruiterName+" </strong> ?");
+		    $('#confirmDeleteRecruiter').modal({ backdrop: 'static', keyboard: false })
+	        .on('click', '#recruiter-delete-btn', function(){
 				var deleteData={};
 				deleteData['recruiterId']=recruiter.recruiterId;
 				deleteData['recruiterName']=recruiter.recruiterName;
@@ -69,7 +75,7 @@ $(document).ready(function(){
 				deleteData['recruiterEmail']=recruiter.recruiterEmail;
 				deleteData['recruiterEmailFlag']=recruiter.recruiterEmailFlag;
 				AjaxUtil.utils.sendDeleteRequest('/parmanagement/par/recruiters/'+recruiter.recruiterId, recruiterDeleteSuccess(deleteData,'deleted','recruiterstatusMessage'), recruiterDeleteFailure(recruiter.recruiterName));
-				$('#confirmrecruiter').modal('hide');
+				$('#confirmDeleteRecruiter').modal('hide');
 	        });
 		    
 		});
@@ -155,7 +161,7 @@ $(document).ready(function(){
 			table.row('#'+deleteData['recruiterId']).remove().draw();
 			$('#recruiterstatusDiv').removeClass("alert alert-danger");
 			$('#recruiterstatusDiv').addClass("alert alert-success");
-			$('#recruiterstatusMessage').html(deleteData['recruiterName'] + " has been deleted successfully !!");
+			$('#recruiterstatusMessage').html("<strong> "+deleteData['recruiterName'] + " </strong> has been deleted successfully !!");
 			$('#recruiterstatusDiv').show();
 		};
 	};
@@ -163,21 +169,27 @@ $(document).ready(function(){
 	var recruiterUpdateSuccess = function(newData,action,divElement) {
 		return function(response) {
 			//var rowIndex = $("#rowIndex").val();
+			 $('#recruiterModal').modal('hide');
 			table.row('#'+newData['recruiterId']).data(newData).draw();
-			$('#recruitermodalStatusDiv').removeClass("alert alert-danger");
-			$('#recruitermodalStatusDiv').addClass("alert alert-success");
-			$('#recruitermodalStatusMessage').html("Recruiter info has been updated successfully !!");
-			$('#recruitermodalStatusDiv').show();
+			$('#recruiterstatusDiv').removeClass("alert alert-danger");
+			$('#recruiterstatusDiv').addClass("alert alert-success");
+			$('#recruiterstatusMessage').html("Recruiter<strong> "+newData['recruiterName']+" </strong> info has been updated successfully !!");
+			$('#recruiterstatusDiv').show();
 		};
 	};
 	
-	var recruiterAddSuccess = function() {
+	var recruiterAddSuccess = function(recruiterName) {
 		return function(response) {
-			table.row.add(response).draw( false );
-			$('#recruitermodalStatusDiv').removeClass("alert alert-danger");
-			$('#recruitermodalStatusDiv').addClass("alert alert-success");
-			$('#recruitermodalStatusMessage').html("New Recruiter has been created successfully!!");
-			$('#recruitermodalStatusDiv').show();
+			$('#recruiterModal').modal('hide');
+			$('#recruiterstatusDiv').removeClass("alert alert-danger");
+			$('#recruiterstatusDiv').addClass("alert alert-success");
+			$('#recruiterstatusMessage').html("New Recruiter<strong> "+recruiterName+" </strong>has been created successfully!!");
+			$('#recruiterstatusDiv').show();
+			if(!$.fn.dataTable.isDataTable("#tblRecruiters")){
+				populateRecruiterInfo(response);
+			}else{
+				table.row.add(response).draw(false);
+			}
 		};
 	};
 	
@@ -193,9 +205,20 @@ $(document).ready(function(){
 	  $('#recruiterName').val(recruiterName);
 	  $('#recruiterPhoneNumber').val(recruiterPhoneNumber);
 	  $('#recruiterEmail').val(recruiterEmail);
-	  $('#recruiterEmailFlag :selected').val(recruiterEmailFlag);
+	  $('[name=recruiterEmailFlag]').val([recruiterEmailFlag]);
 	  
-
+	  
+	  jQuery.validator.addMethod("htcemail", function(value, element) {
+		  email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+		  return this.optional(element) || email_regex.test(value);
+		}, "Enter valid email");
+	  
+	  
+	  if (typeof recruiterId == undefined || recruiterId == null) {
+		  $('#recruiterModalTitle').text("Add Recruiter");
+	  }else{
+		  $('#recruiterModalTitle').text("Update Recruiter");
+	  }
 	  
 	  $("#recruiterModal").off('click', '#saveRecruiterButton');
 	  
@@ -204,14 +227,15 @@ $(document).ready(function(){
 		  $('#recruiterForm').validate({
 			    rules : {
 			    	recruiterName : {  required: true },
-			    	recruiterPhoneNumber : {  required: true },
-			    	recruiterEmail : {  required: true },
-			        
+			    	recruiterPhoneNumber : {  required: true, phoneUS: true },
+			    	recruiterEmail : {  htcemail: true, email: true, required: true },
+			    	recruiterEmailFlag : {  required: true }
 			    },
 			    messages: {
 			    	recruiterName:{required:"Recruiter name can not be empty"},
 			    	recruiterPhoneNumber:{required:"Recruiter Phone Number can not be empty"},
 			    	recruiterEmail:{required:"Recruiter Email can not be empty"},
+			    	recruiterEmailFlag:{required:"Select Yes/ No to recive Email Notifications"}
 			       
 			    },
 			    errorElement: PARValidationUtil.utils.validationProperties.errorElement,
@@ -229,7 +253,7 @@ $(document).ready(function(){
 			  requestBody["recruiterPhoneNumber"]=$('#recruiterPhoneNumber').val();
 			  requestBody["recruiterEmail"]=$('#recruiterEmail').val();
 			  requestBody["recruiterEmailFlag"]=$('input[name=recruiterEmailFlag]:checked').val();
-			  AjaxUtil.utils.sendPostRequest('/parmanagement/par/recruiters/',recruiterAddSuccess(),recruiterAddFailure(recruiterName),requestBody);			   
+			  AjaxUtil.utils.sendPostRequest('/parmanagement/par/recruiters/',recruiterAddSuccess( requestBody["recruiterName"]),recruiterAddFailure(recruiterName),requestBody);			   
 		  }
 		  else{
 			  var requestBody={};

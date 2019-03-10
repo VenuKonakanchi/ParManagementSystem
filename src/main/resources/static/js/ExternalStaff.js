@@ -9,7 +9,11 @@ $(document).ready(function(){
     $("#addNewExtStaffBtn").on("click", function(event){
     	$('#extStaffModal').modal('show'); 
     });
-    
+    $('#extStaffModal').on('hidden.bs.modal', function() {
+        var extStaffForm = $('#extStaffForm');
+        extStaffForm.validate().resetForm();
+        extStaffForm.find('.error').removeClass('error');
+    });
 	function populateExternalStaffInfo(response){
 		table = $('#tblExtStaffs').DataTable(
 				{
@@ -48,7 +52,7 @@ $(document).ready(function(){
 		table.clear().rows.add(response).draw();
 		$("#tblExtStaffs tbody").on('click', '.btnExtStaffDelete', function () {
 			var extStaff = table.row($(this).closest('tr')).data();
-			
+			$('#extStaffDeleteConfirmModalBody').html(" Are you sure you, want to delete<strong> "+extStaff.extStaffName+"</strong>?");
 		    $('#extStaffDeleteConfirm').modal({ backdrop: 'static', keyboard: false })
 	        .on('click', '#ext-staff-delete-btn', function(){
 				var deleteData={};
@@ -166,22 +170,23 @@ $(document).ready(function(){
 	var extStaffUpdateSuccess = function(newData,action,divElement) {
 		return function(response) {
 			//var rowIndex = $("#rowIndex").val();
+			$('#extStaffModal').modal('hide');
 			table.row('#'+newData['extStaffId']).data(newData).draw();
-			$('#extStaffModalStatusDiv').removeClass("alert alert-danger");
-			$('#extStaffModalStatusDiv').addClass("alert alert-success");
-			$('#extStaffModalStatusMessage').html("Exteral Staff has been successfully updated!!");
-			$('#extStaffModalStatusDiv').show();
+			$('#extStaffStatusDiv').removeClass("alert alert-danger");
+			$('#extStaffStatusDiv').addClass("alert alert-success");
+			$('#extStaffStatusMessage').html("Exteral Staff<strong> "+ newData['extStaffName']+" </strong>has been successfully updated!!");
+			$('#extStaffStatusDiv').show();
 		};
 	};
 	
-	var extStaffAddSuccess = function() {
+	var extStaffAddSuccess = function(extStaffName) {
 		return function(response) {
 		//	table.row.add(response).draw( false );
-			
-			$('#extStaffModalStatusDiv').removeClass("alert alert-danger");
-			$('#extStaffModalStatusDiv').addClass("alert alert-success");
-			$('#extStaffModalStatusMessage').html("New External Staff has been created successfully!!");
-			$('#extStaffModalStatusDiv').show();
+			$('#extStaffModal').modal('hide');
+			$('#extStaffStatusDiv').removeClass("alert alert-danger");
+			$('#extStaffStatusDiv').addClass("alert alert-success");
+			$('#extStaffStatusMessage').html("New External Staff <strong>"+extStaffName+"</strong> has been created successfully!!");
+			$('#extStaffStatusDiv').show();
 			
 			if(!$.fn.dataTable.isDataTable("#tblExtStaffs")){
 				populateExternalStaffInfo(response);
@@ -202,8 +207,10 @@ $(document).ready(function(){
 	  $('#extStaffAreaSelect').val(extStaffAreaId);
 	  if ((typeof extStaffId == undefined || extStaffId == null)) {
 		  $('#extStaffId').prop('disabled',false);
+		  $('#extStaffModalTitle').text("Add External Staff");
 	  }else{
 		  $('#extStaffId').prop('disabled',true);
+		  $('#extStaffModalTitle').text("Update External Staff");
 	  }
 	  
 	  $("#extStaffModal").off('click', '#saveExtStaffButton');
@@ -237,7 +244,7 @@ $(document).ready(function(){
 			  requestBody["extStaffName"]=$('#extStaffName').val();	 
 			  requestBody["area"]={};
 			  requestBody['area']['areaId']=$('#extStaffAreaSelect').val();
-			  AjaxUtil.utils.sendPostRequest('/parmanagement/par/externalstaff/',extStaffAddSuccess(), extStaffAddFailure(extStaffName),requestBody);			   
+			  AjaxUtil.utils.sendPostRequest('/parmanagement/par/externalstaff/',extStaffAddSuccess(requestBody["extStaffName"]), extStaffAddFailure(extStaffName),requestBody);			   
 		  }
 		  else{
 			  var requestBody={};

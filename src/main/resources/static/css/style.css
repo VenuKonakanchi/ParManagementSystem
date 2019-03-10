@@ -1,3 +1,176 @@
+/*******************styles for Modal *******************************/
+.modal-card{
+	    border-color: #D7D7F9;
+}
+
+.modal-card-header{
+    background-color: #2D2A8C;
+    color: #2D2A8C;
+    background-color: #D7D7F9;
+    border-color: #D7D7F9;
+}
+
+.modal-form-field-prepend-span{
+    color: #fff;
+    background-color: #2D2A8C;
+    border-color: #2D2A8C;
+}
+
+.modal-form-field-prepend-btn{
+    color: #fff;
+    background-color: #2D2A8C;
+    border-color: #2D2A8C;
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+}
+
+.modal-form-input{
+	border-color: #D7D7F9;
+	border-left:0px;
+}
+
+.modal-form-input-append{
+	border-color: #D7D7F9;
+	border-right:0px;
+}
+
+.modal-form-input-datepicker{
+	z-index: 9999999 !important;
+}
+
+.valid-feedback.feedback-icon,
+.invalid-feedback.feedback-icon {
+    position: absolute;
+    width: auto;
+    bottom: 10px;
+    right: 10px;
+    margin-top: 0;
+}
+
+ui-datepicker {
+    padding: 0;
+    margin: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    background-color: #fff;
+    border: 1px solid #dfdfdf;
+    border-top: none;
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.075);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.075);
+    min-width: 17em;
+    width: auto;
+	z-index: 1000 !important;
+}
+
+.ui-datepicker * {
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.ui-datepicker table {
+    font-size: 13px;
+    margin: 0;
+    border: none;
+    border-collapse: collapse;
+}
+
+.ui-datepicker .ui-widget-header,
+.ui-datepicker .ui-datepicker-header {
+    background-image: none;
+    border: none;
+    color: #fff;
+    font-weight: normal;
+}
+
+.ui-datepicker .ui-datepicker-header .ui-state-hover {
+    background: transparent;
+    border-color: transparent;
+    cursor: pointer;
+}
+
+.ui-datepicker .ui-datepicker-title {
+    margin: 0;
+    padding: 10px 0;
+    color: #fff;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+}
+
+.ui-datepicker select.ui-datepicker-month,
+.ui-datepicker select.ui-datepicker-year {
+    width: 33%;
+}
+
+.ui-datepicker thead {
+    color: #fff;
+    font-weight: 600;
+}
+
+.ui-datepicker th {
+    padding: 10px;
+}
+
+.ui-datepicker td {
+    padding: 0;
+    border: 1px solid #f4f4f4;
+    background-color:white;
+}
+
+.ui-datepicker tr:first-of-type td {
+	border-top: 1px solid #f0f0f0;
+}
+
+.ui-datepicker td.ui-datepicker-week-end {
+    background-color: #f4f4f4;
+    border: 1px solid #f0f0f0;
+}
+
+.ui-datepicker td.ui-datepicker-today {
+    background-color: #f0f0c0;
+}
+
+.ui-datepicker td.ui-datepicker-current-day {
+    background: #bbdd88;
+}
+
+.ui-datepicker td .ui-state-default {
+    background: transparent;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    width: auto;
+    display: block;
+    padding: 5px 10px;
+    font-weight: normal;
+    color: #444;
+}
+
+.ui-datepicker td.ui-state-disabled .ui-state-default {
+    opacity: 0.5;
+}
+
+/* Default Color Scheme */
+.ui-datepicker .ui-widget-header,
+.ui-datepicker .ui-datepicker-header {
+    background: #2D2A8C;
+    /*#00a0d2*/
+}
+
+.ui-datepicker thead {
+    background: #32373c;
+}
+
+.ui-datepicker td .ui-state-hover {
+    background: #0073aa;
+    color: #fff;
+}
+
+/*******************End Of styles for Modal *******************************/
 body {
     margin: 0;
     font-family: Roboto,Arial,sans-serif;
@@ -50,7 +223,7 @@ body {
     border-color: #CCCCCC;
 }
 
-.form-group .form-control {
+/* .form-group .form-control {
     border: 0;
     border-bottom: 1px solid #ced4da;
     border-radius: 0;
@@ -59,7 +232,7 @@ body {
 }
 .form-control:focus {
     box-shadow: none;
-}
+} */
 
 .wrapper {
     min-height: 100%;
@@ -92,7 +265,7 @@ body {
     line-height: 60px;
     height: 60px;
     width: 312px;
-    background-image: url(../img/logo.png);
+  	background-image: url(../img/logo.png); 
     background-repeat: no-repeat;
     background-position: 20px center;
     padding: 0 20px;
@@ -329,27 +502,45 @@ body {
     overflow: hidden;
 }
 
-.nav-tabs {
+ .nav-tabs {
     background-color: #fff;
 }
 
 .nav-tabs .nav-link {
-    border: 0;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+   /*  border: 1px;
+   	border-top-left-radius: 1px;
+    border-top-right-radius:1px;  */
     color: #4D4D4D;
     padding: 20px 30px;
 }
 
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+ .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     color: #fff;
     background-color: #2D2A8C;
     border-color: transparent;
+    font-weight:bold;
 }
 
-.tab-content>.tab-pane {
-    padding: 15px;
+
+.nav .nav-tabs .nav-fill .nav-item  > li:hover,
+.nav .nav-tabs .nav-fill .nav-item  > li:focus
+{
+  border: none;
+    background: #2D2A8C;
+    color:#fff;
+    border-radius:0;
+    font-weight:bold;
+    transition:background 0.20s linear;
 }
+ .tab-content>.tab-pane {
+    padding: 15px;
+} 
+
+
+.nav.nav-tabs li:not(:last-child) a {
+    border-right: 1px solid #ccc;
+}
+
 
 table.table-bordered.dataTable th, table.table-bordered.dataTable td {
     border: 0;
@@ -425,5 +616,3 @@ table.dataTable thead>tr>th.sorting_desc {
 .modal-footer {
     border-top: 0;
 }
-
-/* content */

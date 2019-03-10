@@ -1,8 +1,25 @@
 $(document).ready(function(){
 	
+	$('[data-toggle=datepicker]').each(function() {
+		  var target = $(this).data('target-name');
+		  var t = $('input[name=' + target + ']');
+		  t.datepicker({
+			     dateFormat: 'yy-mm-dd',
+			     changeMonth: true,
+			     changeYear: true
+		  }).focus(function () {
+			    $(".ui-datepicker-next").hide();
+			    $(".ui-datepicker-prev").hide();
+			});
+		  
+		  $(this).on("click", function() {
+		    t.datepicker("show");
+		  });
+		});
+	$('#saveCandidateButton').prop('disabled', false);
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/candidates', populateCandidateInfo, candidateLoadFailure);
-	AjaxUtil.utils.sendGetRequest('/parmanagement/par/skills', populateSkillInfo, skillLoadFailure);
-	
+	AjaxUtil.utils.sendGetRequest('/parmanagement/par/recruiters', populateRecruiterInfo, recruiterLoadFailure);
+	$("#candidatePhoneNumber").inputmask({"mask": "(999) 999-9999"});
 	
 	$('#candidateStatusDiv').hide();
 	var table=null;
@@ -10,7 +27,11 @@ $(document).ready(function(){
     $("#addNewCandidateBtn").on("click", function(event){
      	$('#candidateModal').modal('show'); 
     });
-    
+    $('#candidateModal').on('hidden.bs.modal', function() {
+        var candidateForm = $('#candidateForm');
+        candidateForm.validate().resetForm();
+        candidateForm.find('.error').removeClass('error');
+    });
 	function populateCandidateInfo(response){
 		table = $('#tblCandidates').DataTable(
 				{
@@ -22,11 +43,13 @@ $(document).ready(function(){
      						{ data: 'candidatePhoneNumber' },
      						{ data: 'candidateEmail' },
      						{ data: 'candidateActive' },
-     						{ data: 'skill.skillName' },
+     						{ data: 'recruiter.recruiterName' },
+     						{ data: 'candidateReceivedDate' },
+     						
 						{
 							data:null,
 							render: function (data, type, row){
-                                return '<button class="btnCandidateDelete btn btn-sm deleteCandidateRow"><img src="static/img/delete.png" alt="Delete"></button>  <button class="btnViewCandidate btn btn-sm editCandidateRow" data-toggle="modal" data-target="#candidateModal" data-candidateid="' + data.candidateId + '"data-candidatename="' + data.candidateName + '"data-candidatephonenumber="' + data.candidatePhoneNumber + '"data-candidateemail="' + data.candidateEmail + '"data-candidateactive="' + data.candidateActive + '"data-skillid="' + data.skill.skillId + '"><img src="static/img/edit.png" alt="Edit"></button>';
+                                return '<button class="btnCandidateDelete btn btn-sm deleteCandidateRow"><img src="static/img/delete.png" alt="Delete"></button>  <button class="btnViewCandidate btn btn-sm editCandidateRow" data-toggle="modal" data-target="#candidateModal" data-candidateid="' + data.candidateId + '"data-candidatename="' + data.candidateName + '"data-candidatephonenumber="' + data.candidatePhoneNumber + '"data-candidateemail="' + data.candidateEmail + '"data-candidateactive="' + data.candidateActive + '"data-recruiterid="' + data.recruiter.recruiterId + '"data-candidatereceiveddate="' + data.candidateReceivedDate+'"><img src="static/img/edit.png" alt="Edit"></button>';
 							}
 						},
 						
@@ -53,6 +76,8 @@ $(document).ready(function(){
 		$("#tblCandidates tbody").on('click', '.btnCandidateDelete', function () {
 			var candidate = table.row($(this).closest('tr')).data();
 			
+			$('#candidateDeleteConfirmModalBody').html("Are you sure you, want to delete the Candidate<strong> "+candidate.candidateName +"</strong> ?");
+			
 		    $('#candidateDeleteConfirmModal').modal({ backdrop: 'static', keyboard: false })
 	        .on('click', '#candidate-delete-btn', function(){
 				var deleteData={};
@@ -61,6 +86,7 @@ $(document).ready(function(){
 				deleteData['candidatePhoneNumber']=candidate.candidatePhoneNumber;
 				deleteData['candidateEmail']=candidate.candidateEmail;
 				deleteData['candidateActive']=candidate.candidateActive;
+				deleteData['candidateReceivedDate']=candidate.candidateReceivedDate;
 				AjaxUtil.utils.sendDeleteRequest('/parmanagement/par/candidates/'+candidate.candidateId, candidateDeleteSuccess(deleteData,'deleted','candidateStatusMessage'), candidateDeleteFailure(candidate.candidateName));
 				$('#candidateDeleteConfirmModal').modal('hide');
 	        });
@@ -85,12 +111,18 @@ $(document).ready(function(){
 			$('#candidateStatusDiv').hide();
 		}
 	}
-	function skillLoadFailure(xhr, error){
+	function recruiterLoadFailure(xhr, error){
+		//$('#candidateRecruiterSelect').append($('<option></option>').text('Select Recruiter').attr('value', ''));
 		if(xhr.status!=404){
 			var reponseBody = JSON.parse(xhr.responseText);
 			$('#candidateStatusDiv').removeClass("alert alert-success");
 			$('#candidateStatusDiv').addClass("alert alert-warning");
 			$('#candidateStatusMessage').html(reponseBody['message']);
+			$('#candidateStatusDiv').show();
+		}else if(xhr.status==404){
+			$('#candidateStatusDiv').removeClass("alert alert-success");
+			$('#candidateStatusDiv').addClass("alert alert-warning");
+			$('#candidateStatusMessage').html('No Recruiters found!! Please add a recrutier first and then add candidate.');
 			$('#candidateStatusDiv').show();
 		}else{
 			$('#candidateStatusDiv').hide();
@@ -114,15 +146,13 @@ $(document).ready(function(){
 				$('#candidateStatusMessage').html(reponseBody['message']);
 			}	
 			$('#candidateStatusDiv').show();
-			console.log("Error Code :"+ xhr.status);
-			console.log(error);
 		};
 	};
 	
-	function populateSkillInfo (response){
-		
-		 $.each(response, function(i, skill) {
-	            $('#candidateSkillSelect').append($('<option></option>').text(skill.skillName).attr('value', skill.skillId));
+	function populateRecruiterInfo (response){
+		 //$('#candidateRecruiterSelect').append($('<option></option>').text('Select Recruiter').attr('value', ''));
+		 $.each(response, function(i, recruiter) {
+	            $('#candidateRecruiterSelect').append($('<option></option>').text(recruiter.recruiterName).attr('value', recruiter.recruiterId));
 	        });
 	};
 
@@ -173,21 +203,23 @@ $(document).ready(function(){
 	var candidateUpdateSuccess = function(newData,action,divElement) {
 		return function(response) {
 			//var rowIndex = $("#rowIndex").val();
+			$('#candidateModal').modal('hide');
 			table.row('#'+newData['candidateId']).data(response).draw();
-			$('#candidateModalStatusDiv').removeClass("alert alert-danger");
-			$('#candidateModalStatusDiv').addClass("alert alert-success");
-			$('#candidateModalStatusMessage').html("Candidate has been updated successfully !!");
-			$('#candidateModalStatusDiv').show();
+			$('#candidateStatusDiv').removeClass("alert alert-danger");
+			$('#candidateStatusDiv').addClass("alert alert-success");
+			$('#candidateStatusMessage').html("Candidate<strong> "+newData['candidateName']+" </strong>has been updated successfully !!");
+			$('#candidateStatusDiv').show();
 		};
 	};
 	
-	var candidateAddSuccess = function() {
+	var candidateAddSuccess = function(candidateName) {
 		return function(response) {
 			/*table.row.add(response).draw( false );*/
-			$('#candidateModalStatusDiv').removeClass("alert alert-danger");
-			$('#candidateModalStatusDiv').addClass("alert alert-success");
-			$('#candidateModalStatusMessage').html("New Candidate has been created successfully!!");
-			$('#candidateModalStatusDiv').show();
+			$('#candidateModal').modal('hide');
+			$('#candidateStatusDiv').removeClass("alert alert-danger");
+			$('#candidateStatusDiv').addClass("alert alert-success");
+			$('#candidateStatusMessage').html("New Candidate<strong> "+candidateName+" </strong>has been created successfully!!");
+			$('#candidateStatusDiv').show();
 			
 			if(!$.fn.dataTable.isDataTable("#tblCandidates")){
 				populateCandidateInfo(response);
@@ -199,27 +231,35 @@ $(document).ready(function(){
 	};
 	
 	$('#candidateModal').on('show.bs.modal', function (event) {
+	  $('#saveCandidateButton').prop('disabled', false);
+	  
 	  var button = $(event.relatedTarget); // Button that triggered the modal
 	  var candidateId = button.data('candidateid');
 	  var candidateName =  button.data('candidatename');
 	  var candidatePhoneNumber =  button.data('candidatephonenumber');
 	  var candidateEmail =  button.data('candidateemail');
 	  var candidateActive =  button.data('candidateactive');
-	  var skillId =  button.data('skillid');
-
+	  var candidateReceivedDate=button.data('candidatereceiveddate');
+	  var recruiterId =  button.data('recruiterid');
+	  
 	  $('#candidateModalStatusDiv').hide();
 	  $('#candidateName').val(candidateName);
 	  $('#candidatePhoneNumber').val(candidatePhoneNumber);
 	  $('#candidateEmail').val(candidateEmail);
 
-	  $("#candidateSkillSelect").val(skillId);
-	  
-
-	  /*if ((typeof candidateId == undefined || candidateId == null)) {
-		  $('#candidateName').prop('disabled',false);
+	  if ((typeof recruiterId == undefined || recruiterId == null)) {
+		  //Do Nothing
 	  }else{
-		  $('#candidateName').prop('disabled',true);
-	  }*/
+		  $("#candidateRecruiterSelect").val(recruiterId);
+	  }
+	  
+	  $("#candidateReceivedDate").val(candidateReceivedDate);
+
+	  if ((typeof candidateId == undefined || candidateId == null)) {
+		  $('#candidateModalLongTitle').text("Add Candidate");
+	  }else{
+		  $('#candidateModalLongTitle').text("Update Candidate");
+	  }
 
 	  
 	  $("#candidateModal").off('click', '#saveCandidateButton');
@@ -228,28 +268,40 @@ $(document).ready(function(){
 		  return this.optional(element) || /^[a-zA-Z\s]+$/.test(value);
 		}, "Name field allows alphabets and a space only");
 	  
-/*	  jQuery.validator.addMethod("userName", function(value, element) {
-		  return this.optional(element) || /^[a-zA-Z0-9]+$/.test(value);
-		}, "UserName field allows alphanumeric  only");*/
+	  jQuery.validator.addMethod("htcemail", function(value, element) {
+		  email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+		  return this.optional(element) || email_regex.test(value);
+		}, "Enter valid email");
+	  
 	  
 	  $("#candidateModal").on('click', '#saveCandidateButton', function () {
 		  $('#candidateModalStatusDiv').hide();
 		  $('#candidateForm').validate({
 			    rules : {
 			    	candidateName : {  lettersonlys:true,required: true },
+		  			candidateEmail : {  htcemail: true, email: true,required: true},
+		  			candidatePhoneNumber : { required: true, phoneUS: true },
 		  			candidateEmail : {  email: true,required: true},
-		  			candidatePhoneNumber : { required: true }
+		  			candidatePhoneNumber : { required: true },
+		  			candidateRecruiterSelect: {required: true},
+		  			candidateReceivedDate:{required: true}
 			    },
 			    messages: {
 			    	candidateName:{
-			    		required:"Candidate Name can not be empty"
+			    		required:"Candidate Name can not be empty and it can contain only letters"
 			        },
 			        candidateEmail:{
-		    		required:"Email can not be empty"
+		    		required:"E-mail can not be empty and it should be a valid e-mail address"
 		        },
 		        candidatePhoneNumber:{
 		    		required:"Phone number can not be empty"
 		        },
+		        candidateRecruiterSelect:{
+		    		required:"Please select a Recruiter"
+		        },
+		        candidateReceivedDate:{
+		        	required:"Received date can not be empty"
+		        }
 			    },
 			    errorElement: PARValidationUtil.utils.validationProperties.errorElement,
 			    errorPlacement: PARValidationUtil.utils.validationProperties.errorPlacement,
@@ -258,18 +310,22 @@ $(document).ready(function(){
 			    unhighlight: PARValidationUtil.utils.validationProperties.unhighlight
 		  });
 		  
+		  
 		  if(!$('#candidateForm').valid())
 			  return;
+		  $('#saveCandidateButton').prop('disabled', true);
 		  if (typeof candidateId == undefined || candidateId == null) {
 			  var requestBody={};
 			  requestBody["candidateName"]=$('#candidateName').val();
 			  requestBody["candidatePhoneNumber"]=$('#candidatePhoneNumber').val();
 			  requestBody["candidateEmail"]=$('#candidateEmail').val();
+			  requestBody["candidateReceivedDate"]=$('#candidateReceivedDate').val();
 
-			  requestBody['skill']={};
-			  requestBody['skill']['skillId']=$('#candidateSkillSelect').val();
+			  requestBody['recruiter']={};
+			  requestBody['recruiter']['recruiterId']=$('#candidateRecruiterSelect').val();
 
-			  AjaxUtil.utils.sendPostRequest('/parmanagement/par/candidates/',candidateAddSuccess(), candidateAddFailure(candidateName),requestBody);			   
+			  AjaxUtil.utils.sendPostRequest('/parmanagement/par/candidates/',candidateAddSuccess(requestBody["candidateName"]), candidateAddFailure(candidateName),requestBody);
+			  $('#saveCandidateButton').prop('disabled', false);
 		  }
 		  else{
 			  var requestBody={};
@@ -277,23 +333,23 @@ $(document).ready(function(){
 			  requestBody["candidateName"]=$('#candidateName').val();
 			  requestBody["candidatePhoneNumber"]=$('#candidatePhoneNumber').val();
 			  requestBody["candidateEmail"]=$('#candidateEmail').val();
+			  requestBody["candidateReceivedDate"]=$('#candidateReceivedDate').val();
 			  requestBody['candidateActive'] = candidateActive;
-			  requestBody['skill']={};
-			  requestBody['skill']['skillId']=$('#candidateSkillSelect').val();
+			  requestBody['recruiter']={};
+			  requestBody['recruiter']['recruiterId']=$('#candidateRecruiterSelect').val();
 			  
 			  var newData={};
 			  newData['candidateId'] = candidateId.toString();
-			  newData['candidateName'] = candidateName;
+			  newData['candidateName'] = $('#candidateName').val();
 			  newData['candidatePhoneNumber'] = $('#candidatePhoneNumber').val();
 			  newData['candidateEmail'] = $('#candidateEmail').val();
+			  newData['candidateReceivedDate'] = $('#candidateReceivedDate').val();
 			  newData['candidateActive'] = candidateActive;
-			  newData['skill']={};
-			  newData['skill']['skillId']=$('#candidateSkillSelect').val();
-			  
-			  newData['skill']['skillName']=$('#candidateSkillSelect :selected').text();
-
-			  newData['candidateActive'] = candidateActive;
-			  AjaxUtil.utils.sendPutRequest('/parmanagement/par/candidates/',candidateUpdateSuccess(newData,'updated','candidateModalStatusMessage'), candidateUpdateFailure(candidateName),requestBody);			  
+			  newData['recruiter']={};
+			  newData['recruiter']['recruiterId']=$('#candidateRecruiterSelect').val();
+			  newData['recruiter']['recruiterName']=$('#candidateRecruiterSelect :selected').text();
+			  AjaxUtil.utils.sendPutRequest('/parmanagement/par/candidates/',candidateUpdateSuccess(newData,'updated','candidateModalStatusMessage'), candidateUpdateFailure(candidateName),requestBody);
+			  $('#saveCandidateButton').prop('disabled', false);
 		  }
 		});
 	});
