@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$("#pre-screeners-tab").on("click", function(){
 	
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/preScreeners', populatePreScreenerInfo, preScreenerLoadFailure);
 	$('#preScreenerStatusDiv').hide();
@@ -15,6 +15,9 @@ $(document).ready(function(){
     });
     
 	function populatePreScreenerInfo(response){
+		if($.fn.dataTable.isDataTable("#tblPreScreeners")){
+			return;
+		}
 		table = $('#tblPreScreeners').DataTable(
 				{
 					autoWidth: false,

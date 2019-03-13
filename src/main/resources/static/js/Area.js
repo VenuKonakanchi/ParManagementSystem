@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$( document ).ready(function(){
 	
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/Areas', populateAreaInfo, areaLoadFailure);
 	$('#areaStatusDiv').hide();
@@ -13,19 +13,10 @@ $(document).ready(function(){
         areaForm.find('.error').removeClass('error');
     });
 	function populateAreaInfo(response){
+		
 		table = $('#tblAreas').DataTable(
 				{
-					autoWidth: false,
-					/* dom: 'lBfrtip',
-			       buttons: [
-			            {
-			                text: 'Add New Area',
-			                action: function ( e, dt, node, config ) {
-			                	$('#areaModal').modal('show'); 
-			                }
-			            }
-			        ],*/
-					
+					autoWidth: false,				
 					columns: [
      					{ data: 'areaId' },
 						{ data: 'areaName' },

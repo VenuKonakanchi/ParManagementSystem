@@ -153,9 +153,12 @@
   <script type="text/javascript" src="static/js/datatables.min.js"></script>
   
   <!-- Your custom scripts (optional) -->
-   <script src="https://cdn.datatables.net/buttons/1.5.4/js/dataTables.buttons.min.js"></script>
+   <!-- <script src="https://cdn.datatables.net/buttons/1.5.4/js/dataTables.buttons.min.js"></script> 
   <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/additional-methods.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/additional-methods.min.js"></script> -->
+  
+  <script type="text/javascript" src="static/js/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="static/js/additional-methods.min.js"></script>
   <script type="text/javascript" src="static/js/AjaxUtil.js"></script>
   <script type="text/javascript" src="static/js/PARValidator.js"></script>
   <script type="text/javascript" src="static/js/Skill.js"></script>
@@ -168,6 +171,6 @@
   <script type="text/javascript" src="static/js/candidate.js"></script>
    
   <script type="text/javascript" src="static/js/jquery-ui.min.js"></script>
-  <script type="text/javascript" src="static/js/jquery.inputmask.bundle.min.js"></script>
+  <!-- <script type="text/javascript" src="static/js/jquery.inputmask.bundle.min.js"></script> -->
 </body>
 </html>
