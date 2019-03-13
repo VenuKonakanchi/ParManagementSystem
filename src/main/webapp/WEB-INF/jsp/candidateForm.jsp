@@ -84,7 +84,7 @@
 							<label class="control-label col-sm-3 text-right font-weight-bold" for="candidateRecruiterSelect">Recruiter Name :</label>
 							<div class="col-sm-6  input-group">
 								<div class="input-group input-group-prepend">
-								<span class="input-group-text  modal-form-field-prepend-span" id="recruiter-addon"><i class="fa fa-gear"></i></span>
+								<span class="input-group-text  modal-form-field-prepend-span" id="recruiter-addon"><i class="fa fa-users"></i></span>
 								<select  class="form-control modal-form-input" id="candidateRecruiterSelect" aria-describedby="recruiter-addon" name="candidateRecruiterSelect">
 									<option value="">Select Recruiter</option>
 								</select>

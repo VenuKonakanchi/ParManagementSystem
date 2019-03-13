@@ -53,6 +53,7 @@ $(document).ready(function(){
 		$("#tblExtStaffs tbody").on('click', '.btnExtStaffDelete', function () {
 			var extStaff = table.row($(this).closest('tr')).data();
 			$('#extStaffDeleteConfirmModalBody').html(" Are you sure you, want to delete<strong> "+extStaff.extStaffName+"</strong>?");
+			$("#extStaffDeleteConfirm").off('click', '#ext-staff-delete-btn');
 		    $('#extStaffDeleteConfirm').modal({ backdrop: 'static', keyboard: false })
 	        .on('click', '#ext-staff-delete-btn', function(){
 				var deleteData={};

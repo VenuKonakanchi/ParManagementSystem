@@ -1,10 +1,16 @@
 package com.htc.par.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -32,6 +38,9 @@ public class Recruiter {
 	
 	@Column(name="recruit_active")
 	private Boolean recruiterActive;
+	
+	@OneToMany(mappedBy="recruiter")
+	private Set<Candidate> candidates = new HashSet<Candidate>();
 
 	public Integer getRecruiterId() {
 		return recruiterId;
@@ -79,6 +88,14 @@ public class Recruiter {
 
 	public void setRecruiterActive(Boolean recruiterActive) {
 		this.recruiterActive = recruiterActive;
+	}
+
+	public Set<Candidate> getCandidates() {
+		return candidates;
+	}
+
+	public void setCandidates(Set<Candidate> candidates) {
+		this.candidates = candidates;
 	}
 
 	public Recruiter(Integer recruiterId, String recruiterName, String recruiterPhoneNumber, String recruiterEmail,

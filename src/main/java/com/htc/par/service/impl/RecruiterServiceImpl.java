@@ -214,9 +214,17 @@ public class RecruiterServiceImpl implements RecruiterService {
 	public boolean deleteRecruiter(int recruiterId) throws ResourceNotFoundException, ResourceNotDeletedException {
 		try {
 			Optional<Recruiter> recruiterOptional = recruiterRepository.findByRecruiterIdAndRecruiterActive(recruiterId, true);
-			if (!recruiterOptional.isPresent())
+			Recruiter recruiter;
+			if (!recruiterOptional.isPresent()) {
 				throw new ResourceNotFoundException("Recruiter not found.");
-			Recruiter recruiter = recruiterOptional.get();
+			}
+			else if(recruiterOptional.isPresent()) {
+				recruiter = recruiterOptional.get();
+				if(recruiter.getCandidates().size()>0) {
+					throw new ResourceNotDeletedException(recruiter.getRecruiterName()+ " - recruiter info cannot be deleted, since there are some candidates tied up to this recruiter.");
+				}
+			}
+			recruiter = recruiterOptional.get();
 			recruiter.setRecruiterActive(false);
 			recruiterRepository.save(recruiter);
 		} catch (DataAccessException dae) {
