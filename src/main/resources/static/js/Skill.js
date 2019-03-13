@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$("#skills-tab").on("click", function(){
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/skills', populateSkillInfo, skillLoadFailure);
 	$('#statusSkillDiv').hide();
 	var table=null; 
@@ -12,6 +12,9 @@ $(document).ready(function(){
         skillForm.find('.error').removeClass('error');
     });
 	function populateSkillInfo(response){
+		if($.fn.dataTable.isDataTable("#tblSkills")){
+			return;
+		}
 		table = $('#tblSkills').DataTable(
 				{
 					autoWidth: false,

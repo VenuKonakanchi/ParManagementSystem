@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$("#user-tab").on("click", function(){
 	
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/users', populateUserInfo, userLoadFailure);
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/users/roles', populateRoleInfo, roleLoadFailure);
@@ -19,6 +19,9 @@ $(document).ready(function(){
     });
     
 	function populateUserInfo(response){
+		if($.fn.dataTable.isDataTable("#tblUsers")){
+			return;
+		}
 		table = $('#tblUsers').DataTable(
 				{
 					autoWidth: false,

@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$("#candidate-role-tab").on("click", function(){
 	
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/parroles', populateRoleInfo, roleLoadFailure);
 	$('#candRoleStatusDiv').hide();
@@ -16,6 +16,9 @@ $(document).ready(function(){
     });
     //Role Table
 	function populateRoleInfo(response){
+		if($.fn.dataTable.isDataTable("#tblCandRoles")){
+			return;
+		}
 		table = $('#tblCandRoles').DataTable(
 				{
 					autoWidth: false,

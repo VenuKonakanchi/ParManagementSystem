@@ -4,19 +4,15 @@
 package com.htc.par.service.impl;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
-import org.mockito.internal.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
-import org.springframework.mail.MailException;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 

@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$("#recruiters-tab").on("click", function(){
 	
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/recruiters', populateRecruiterInfo, recruiterLoadFailure);
 	$('#recruiterstatusDiv').hide();
@@ -17,6 +17,10 @@ $(document).ready(function(){
     
     //Recruiter Table
 	function populateRecruiterInfo(response){
+		
+		if($.fn.dataTable.isDataTable("#tblRecruiters")){
+			return;
+		}
 		table = $('#tblRecruiters').DataTable(
 				{
 					autoWidth: false,
