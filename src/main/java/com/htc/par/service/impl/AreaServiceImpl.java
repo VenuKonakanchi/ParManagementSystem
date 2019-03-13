@@ -3,13 +3,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import com.htc.par.entity.Area;
 import com.htc.par.entity.Area;
 import com.htc.par.exceptions.ResourceDuplicateException;
 import com.htc.par.exceptions.ResourceNotCreatedException;
@@ -18,7 +18,6 @@ import com.htc.par.exceptions.ResourceNotFoundException;
 import com.htc.par.exceptions.ResourceNotUpdatedException;
 import com.htc.par.repository.AreaRepository;
 import com.htc.par.service.AreaService;
-import com.htc.par.to.AreaTO;
 import com.htc.par.to.AreaTO;
 import com.htc.par.utilities.NullAwareBeanUtil;
 @Service
@@ -54,13 +53,14 @@ public class AreaServiceImpl implements AreaService{
 				area = getArea(areaTo);
 			} else {
 				area = areaOptional.get();
+				if(area.getAreaActive())
+					throw new ResourceDuplicateException(
+							String.format("Skill: %s Already Exist.", areaTo.getAreaName()));
 				area.setAreaActive(true);
 				areaTo.setAreaActive(true);
 			}
 			area = arearepository.save(area);
 			areaTo = getAreaTO(area);
-		} catch (DataIntegrityViolationException dae) {
-			throw new ResourceDuplicateException(String.format("Area: %s Already Exist.", areaTo.getAreaName()));
 		} catch (DataAccessException dae) {
 			throw new ResourceNotCreatedException(String.format("Area: %s not created.", areaTo.getAreaName()));
 		}
@@ -109,18 +109,36 @@ public class AreaServiceImpl implements AreaService{
 	 * @ResourceNotUpdatedException 
 	 */
 	@Override
-	  public AreaTO updateArea(AreaTO areaTo) throws ResourceNotFoundException, ResourceNotUpdatedException {
-		AreaTO updatedAreaTo = null;
+	  public AreaTO updateArea(AreaTO areaTO) throws ResourceNotFoundException, ResourceNotUpdatedException {
+		AreaTO updatedAreaTO = null;
+		Area area = null;
 		try {
-			Optional<Area> areaOptional = arearepository.findByAreaIdAndAreaActive(areaTo.getAreaId(), true);
- 
-			Area area = areaOptional.get();
-			NullAwareBeanUtil.copyProperties(areaTo, area);
-			updatedAreaTo = getAreaTO(arearepository.save(area));
+			Optional<Area> areaOptional = arearepository.findByAreaIdAndAreaActive(areaTO.getAreaId(), true);
+			
+			if(!areaOptional.isPresent())
+				throw new ResourceNotFoundException(String.format("Area : %s Not Found!", areaTO.getAreaName()));
+			
+			area = areaOptional.get();
+			NullAwareBeanUtil.copyProperties(areaTO, area);
+			updatedAreaTO = getAreaTO(arearepository.save(area));
+		} catch (DataIntegrityViolationException daeintexp) {
+			
+			Optional<Area> existingAreaOptional = arearepository.findByAreaName(areaTO.getAreaName());
+			if (existingAreaOptional.isPresent()) {
+				area = existingAreaOptional.get();
+				if(area.getAreaActive()) {
+					throw new ResourceDuplicateException(String.format("Area: %s Already Exist.", areaTO.getAreaName()));				
+				}else {
+					throw new ResourceDuplicateException(String.format("Area: %s has already been in-activated. Please add it as new Area.", areaTO.getAreaName()));
+				}
+			} else {
+				throw new ResourceDuplicateException(String.format("Area: %s Already Exist.", areaTO.getAreaName()));
+			}
 		} catch (DataAccessException dae) {
-			throw new ResourceNotUpdatedException(String.format("Area: %s Not Found.", areaTo.getAreaName()));
+			throw new ResourceNotUpdatedException(String.format("Area: %s Not Found.", areaTO.getAreaName()));
 		}
-		return updatedAreaTo;
+
+		return updatedAreaTO;
 	}
 	/*
 	 * Request handler to DELETE Area by AreaId

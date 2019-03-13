@@ -149,7 +149,7 @@ public class PARMasterController {
 	 */
 
 	@PostMapping("/parmasters/{parId}/sendemail")
-	public ResponseEntity<Boolean> sendEmailToRecruiters(Integer parId) {
+	public ResponseEntity<Boolean> sendEmailToRecruiters(@PathVariable("parId") Integer parId) {
 		//TODO: Create custom exception for e-mail failures
 		return ResponseEntity.ok(parMasterService.sendEmailToRecruiters(parId));
 	}
@@ -163,10 +163,10 @@ public class PARMasterController {
 	 * @throws ResourceNotUpdatedException
 	 */
 
-	@PutMapping("/parmasters/{parId}/fill/{intentToFillDate}")
-	public ResponseEntity<PARMasterTO> intentToFill(@PathVariable("parId") Integer parId, @PathVariable("intentToFillDate") LocalDate intentToFillDate)
+	@PutMapping("/parmasters/{parId}/fill/{intentToFillDate}/{intentToFillIndicator}")
+	public ResponseEntity<PARMasterTO> intentToFill(@PathVariable("parId") Integer parId, @PathVariable("intentToFillDate") LocalDate intentToFillDate, @PathVariable("intentToFillIndicator") Boolean intentToFillIndicator)
 			throws ResourceDuplicateException, ResourceNotUpdatedException {
-		return ResponseEntity.ok(parMasterService.intentToFill(parId, intentToFillDate));
+		return ResponseEntity.ok(parMasterService.intentToFill(parId, intentToFillDate, intentToFillIndicator));
 	}
 	
 

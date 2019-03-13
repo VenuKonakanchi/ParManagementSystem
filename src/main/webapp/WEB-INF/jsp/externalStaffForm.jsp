@@ -33,7 +33,7 @@
           			</button>
 	            </div>
 	            <div class="modal-body">
-	                <p>Are you sure you, want to delete?</p>
+	                <p id="extStaffDeleteConfirmModalBody"></p>
 	            </div>
 	            <div class="modal-footer">
 	                <button type="button" class="btn btn-primary" id="ext-staff-delete-btn">Delete</button>
@@ -49,7 +49,7 @@
 	  <div class="modal-dialog modal-lg" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h3 class="modal-title text-left" id="exampleModalLongTitle">Add/Update External Staff</h3>
+	        <h3 class="modal-title text-left" id="extStaffModalTitle">Add/Update External Staff</h3>
 	      </div>
 	      <div class="modal-body">
 	      <p></p>

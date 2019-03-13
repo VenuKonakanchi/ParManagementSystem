@@ -10,6 +10,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import com.htc.par.entity.Area;
 import com.htc.par.entity.PARRole;
 import com.htc.par.exceptions.ResourceDuplicateException;
 import com.htc.par.exceptions.ResourceNotCreatedException;
@@ -98,13 +99,14 @@ public class PARRoleServiceImpl implements PARRoleService{
 				parRole = getPARRole(parRoleTO);
 			} else {
 				parRole = roleOptional.get();
+				if(parRole.getRoleActive())
+					throw new ResourceDuplicateException(
+							String.format("PAR Role: %s Already Exist.", parRoleTO.getRoleName()));
 				parRole.setRoleActive(true);
 				parRoleTO.setRoleActive(true);
 			}
 			parRole = parRoleRepository.save(parRole);
 			parRoleTO = getPARRoleTO(parRole);
-		} catch (DataIntegrityViolationException die) {
-			throw new ResourceDuplicateException(String.format("Role: %s Already Exist.", parRoleTO.getRoleName()));
 		} catch (DataAccessException dae) {
 			throw new ResourceNotCreatedException(String.format("Role: %s not created.", parRoleTO.getRoleName()));
 		}
@@ -144,15 +146,30 @@ public class PARRoleServiceImpl implements PARRoleService{
 	@Override
 	public PARRoleTO updatePARRole(PARRoleTO parRoleTO) throws ResourceNotUpdatedException {
 		PARRoleTO updatedparRoleTO=null; 
+		PARRole role = null;
 		try {
 			Optional<PARRole> roleOptional = parRoleRepository.findByRoleIdAndRoleActive(parRoleTO.getRoleId(), true);
 			if (!roleOptional.isPresent())
 				throw new ResourceNotFoundException(String.format("Role: %s Not Found.", parRoleTO.getRoleName()));
-			PARRole role = roleOptional.get();
+			role = roleOptional.get();
 			NullAwareBeanUtil.copyProperties(parRoleTO, role);
 			updatedparRoleTO = getPARRoleTO(parRoleRepository.save(role));
+			
+		} catch (DataIntegrityViolationException daeintexp) {
+			
+			Optional<PARRole> existingRoleOptional = parRoleRepository.findByRoleName(parRoleTO.getRoleName());
+			if (existingRoleOptional.isPresent()) {
+				role = existingRoleOptional.get();
+				if(role.getRoleActive()) {
+					throw new ResourceDuplicateException(String.format("PAR Role: %s Already Exist.", parRoleTO.getRoleName()));				
+				}else {
+					throw new ResourceDuplicateException(String.format("PAR Role: %s has already been in-activated. Please add it as new PAR Role.", parRoleTO.getRoleName()));
+				}
+			} else {
+				throw new ResourceDuplicateException(String.format("PAR Role: %s Already Exist.", parRoleTO.getRoleName()));
+			}
 		} catch (DataAccessException dae) {
-			throw new ResourceNotUpdatedException(String.format("Role: %s Not Found.", parRoleTO.getRoleName()));
+			throw new ResourceNotUpdatedException(String.format("PAR Role: %s Not Found.", parRoleTO.getRoleName()));
 		}
 		return updatedparRoleTO;
 	}

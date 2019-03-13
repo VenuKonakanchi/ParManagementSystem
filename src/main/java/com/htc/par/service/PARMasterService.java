@@ -34,7 +34,7 @@ public interface PARMasterService {
 	
 	public PARMasterTO getParMasterTO(PARMaster parMaster);
 	
-	public PARMasterTO getParMaster(PARMasterTO parMasterTO);
+	public PARMaster getParMaster(PARMasterTO parMasterTO);
 	
 	public List<PARMasterTO> getAllParMasters() throws ResourceNotFoundException;
 	
@@ -44,9 +44,9 @@ public interface PARMasterService {
 	
 	public List<PARMasterTO> getAllParByStatus() throws ResourceNotFoundException;
 	
-	public PARMasterTO intentToFill(Integer parId, LocalDate intentToFillDate) throws ResourceNotFoundException, ResourceNotUpdatedException;
+	public PARMasterTO intentToFill(Integer parId, LocalDate intentToFillDate, Boolean intentToFillIndicator) throws ResourceNotFoundException, ResourceNotUpdatedException;
 	
-	public boolean sendEmailToRecruiters(Integer parId);
+	public boolean sendEmailToRecruiters(Integer parId) throws  ResourceNotCreatedException, ResourceNotFoundException;
 	
 	public List<PARMasterTO> getAllParsByStatusAndDateRange(String parStatus,LocalDate startDate,LocalDate endDate) throws ResourceNotFoundException;
 	

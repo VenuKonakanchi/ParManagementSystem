@@ -6,7 +6,11 @@ $(document).ready(function(){
     $("#addNewSkillBtn").on("click", function(){
     	$('#skillModal').modal('show'); 
     });
-    
+    $('#skillModal').on('hidden.bs.modal', function() {
+        var skillForm = $('#skillForm');
+        skillForm.validate().resetForm();
+        skillForm.find('.error').removeClass('error');
+    });
 	function populateSkillInfo(response){
 		table = $('#tblSkills').DataTable(
 				{
@@ -42,8 +46,10 @@ $(document).ready(function(){
 		$("#tblSkills tbody").on('click', '.btnDeleteSkill', function () {
 			var skill = table.row($(this).closest('tr')).data();
 			
+			$('#confirmSkillDeleteModalBody').html("Are you sure you, want to delete<strong> "+skill.skillName+" </strong>?");
+			$("#confirmSkillDeleteModal").off('click', '#skill-delete-btn');
 		    $('#confirmSkillDeleteModal').modal({ backdrop: 'static', keyboard: false })
-	        .on('click', '#delete-btn', function(){
+	        .on('click', '#skill-delete-btn', function(){
 				var deleteData={};
 				deleteData['skillId']=skill.skillId;
 				deleteData['skillName']=skill.skillName;
@@ -141,20 +147,22 @@ $(document).ready(function(){
 	var skillUpdateSuccess = function(newData,action,divElement) {
 		return function(response) {
 			//var rowIndex = $("#rowIndex").val();
+			$('#skillModal').modal('hide');
 			table.row('#'+newData['skillId']).data(newData).draw();
-			$('#modalStatusSkillDiv').removeClass("alert alert-danger");
-			$('#modalStatusSkillDiv').addClass("alert alert-success");
-			$('#modalStatusSkillMessage').html("Skill name has been successfully updated!!");
-			$('#modalStatusSkillDiv').show();
+			$('#statusSkillDiv').removeClass("alert alert-danger");
+			$('#statusSkillDiv').addClass("alert alert-success");
+			$('#statusSkillMessage').html("Skill name<strong> "+ newData['skillName']+" </strong>  has been successfully updated!!");
+			$('#statusSkillDiv').show();
 		};
 	};
 	
-	var skillAddSuccess = function() {
+	var skillAddSuccess = function(skillName) {
 		return function(response) {
-			$('#modalStatusSkillDiv').removeClass("alert alert-danger");
-			$('#modalStatusSkillDiv').addClass("alert alert-success");
-			$('#modalStatusSkillMessage').html("New Skill has been created successfully!!");
-			$('#modalStatusSkillDiv').show();
+			$('#skillModal').modal('hide');
+			$('#statusSkillDiv').removeClass("alert alert-danger");
+			$('#statusSkillDiv').addClass("alert alert-success");
+			$('#statusSkillMessage').html("New Skill<strong> "+skillName+" </strong> has been created successfully!!");
+			$('#statusSkillDiv').show();
 			if(!$.fn.dataTable.isDataTable("#tblSkills")){
 				populateSkillInfo(response);
 			}else{
@@ -170,7 +178,11 @@ $(document).ready(function(){
 	  var skillActive = button.data('skillactive');
 	  $('#modalStatusSkillDiv').hide();
 	  $('#skillName').val(skillName);
-	  
+	  if (typeof skillId == undefined || skillId == null) {
+		  $('#skillModalTitle').text("Add Skill");
+	  }else{
+		  $('#skillModalTitle').text("Update Skill");
+	  }
 
 	  
 	  $("#skillModal").off('click', '#saveSkillButton');
@@ -198,7 +210,7 @@ $(document).ready(function(){
 		  if (typeof skillId == undefined || skillId == null) {
 			  var requestBody={};
 			  requestBody["skillName"]=$('#skillName').val();	  
-			  AjaxUtil.utils.sendPostRequest('/parmanagement/par/skills/',skillAddSuccess(), skillAddFailure(skillName),requestBody);			   
+			  AjaxUtil.utils.sendPostRequest('/parmanagement/par/skills/',skillAddSuccess(requestBody["skillName"]), skillAddFailure(skillName),requestBody);			   
 		  }
 		  else{
 			  var requestBody={};
