@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$("#external-staffing-info-tab").on("click", function(){
 	
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/externalstaff', populateExternalStaffInfo, extStaffLoadFailure);
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/Areas', populateAreaInfo, areaLoadFailure);
@@ -15,6 +15,9 @@ $(document).ready(function(){
         extStaffForm.find('.error').removeClass('error');
     });
 	function populateExternalStaffInfo(response){
+		if($.fn.dataTable.isDataTable("#tblExtStaffs")){
+			return;
+		}
 		table = $('#tblExtStaffs').DataTable(
 				{
 					autoWidth: false,

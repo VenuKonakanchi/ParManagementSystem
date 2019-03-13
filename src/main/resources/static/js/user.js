@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$("#user-tab").on("click", function(){
 	
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/users', populateUserInfo, userLoadFailure);
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/users/roles', populateRoleInfo, roleLoadFailure);
@@ -19,6 +19,9 @@ $(document).ready(function(){
     });
     
 	function populateUserInfo(response){
+		if($.fn.dataTable.isDataTable("#tblUsers")){
+			return;
+		}
 		table = $('#tblUsers').DataTable(
 				{
 					autoWidth: false,
@@ -260,7 +263,7 @@ $(document).ready(function(){
 		  $('#userForm').validate({
 			    rules : {
 			    	firstName : {  lettersonlys:true,required: true, rangelength:[3,50]  },
-		  			lastName : {  lettersonlys:true,required: true, rangelength:[3,50]  },
+		  			lastName : {  lettersonlys:true,required: true, rangelength:[1,50]  },
 		  			userName : {  rangelength:[5,15],userName:true, required: true },
 		  			password : {  rangelength:[6,12],required: true },
 		  			email : {  htcemail: true, email: true,required: true},
@@ -274,7 +277,7 @@ $(document).ready(function(){
 			        },
 			        lastName:{
 		    		required:"Last Name can not be empty",
-		    		rangelength: "Minimum 3 and Maximum 50 Characters"
+		    		rangelength: "Minimum 1 and Maximum 50 Characters"
 		        },
 			    userName:{
 		    		required:"User Name can not be empty",

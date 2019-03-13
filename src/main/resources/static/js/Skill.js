@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$("#skills-tab").on("click", function(){
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/skills', populateSkillInfo, skillLoadFailure);
 	$('#statusSkillDiv').hide();
 	var table=null; 
@@ -12,6 +12,9 @@ $(document).ready(function(){
         skillForm.find('.error').removeClass('error');
     });
 	function populateSkillInfo(response){
+		if($.fn.dataTable.isDataTable("#tblSkills")){
+			return;
+		}
 		table = $('#tblSkills').DataTable(
 				{
 					autoWidth: false,
@@ -47,8 +50,9 @@ $(document).ready(function(){
 			var skill = table.row($(this).closest('tr')).data();
 			
 			$('#confirmSkillDeleteModalBody').html("Are you sure you, want to delete<strong> "+skill.skillName+" </strong>?");
+			$("#confirmSkillDeleteModal").off('click', '#skill-delete-btn');
 		    $('#confirmSkillDeleteModal').modal({ backdrop: 'static', keyboard: false })
-	        .on('click', '#delete-btn', function(){
+	        .on('click', '#skill-delete-btn', function(){
 				var deleteData={};
 				deleteData['skillId']=skill.skillId;
 				deleteData['skillName']=skill.skillName;

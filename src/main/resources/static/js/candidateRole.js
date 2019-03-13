@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$("#candidate-role-tab").on("click", function(){
 	
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/parroles', populateRoleInfo, roleLoadFailure);
 	$('#candRoleStatusDiv').hide();
@@ -16,6 +16,9 @@ $(document).ready(function(){
     });
     //Role Table
 	function populateRoleInfo(response){
+		if($.fn.dataTable.isDataTable("#tblCandRoles")){
+			return;
+		}
 		table = $('#tblCandRoles').DataTable(
 				{
 					autoWidth: false,
@@ -52,6 +55,7 @@ $(document).ready(function(){
 		$("#tblCandRoles tbody").on('click', '.candRolebtnDelete', function () {
 			var role = table.row($(this).closest('tr')).data();
 			$('#candRoleDeleteConfirmModalBody').html("Are you sure you, want to delete <strong> "+role.roleName+ " </strong> ?");
+			$("#candRoleDeleteConfirmModal").off('click', '#candRoledelete-btn');
 		    $('#candRoleDeleteConfirmModal').modal({ backdrop: 'static', keyboard: false })
 	        .on('click', '#candRoledelete-btn', function(){
 				var deleteData={};

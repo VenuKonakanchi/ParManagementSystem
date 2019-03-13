@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
@@ -20,8 +23,12 @@ import com.htc.par.exceptions.ResourceNotDeletedException;
 import com.htc.par.exceptions.ResourceNotFoundException;
 import com.htc.par.exceptions.ResourceNotUpdatedException;
 import com.htc.par.repository.PARMasterRepository;
+import com.htc.par.service.EmailService;
 import com.htc.par.service.PARMasterService;
+import com.htc.par.service.RecruiterService;
 import com.htc.par.to.PARMasterTO;
+import com.htc.par.to.RecruiterTO;
+import com.htc.par.utilities.EmailDetails;
 
 /**
  * Service Implementation for PAR Master service
@@ -34,11 +41,23 @@ public class PARMasterServiceImpl implements PARMasterService {
 	@Autowired
 	PARMasterRepository parMasterRepository;
 	
+	@Autowired
+	private RecruiterService recruieterService;
+	
+	@Autowired
+	private EmailService emailService;
+	
 
 	@Override
 	public PARMasterTO getParMasterById(Integer parId) throws ResourceNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<PARMaster> parMasterOptional = parMasterRepository.findById(parId);
+		PARMasterTO parMasterTO = null;
+		if(!parMasterOptional.isPresent())
+			throw new ResourceNotFoundException(String.format("PAR ID : %s not found!", parId));
+		
+		PARMaster parMaster = parMasterOptional.get();
+		parMasterTO = getParMasterTO(parMaster);
+		return parMasterTO;
 	}
 
 	@Override
@@ -132,11 +151,40 @@ public class PARMasterServiceImpl implements PARMasterService {
 	}
 
 	@Override
-	public boolean sendEmailToRecruiters(Integer parId) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean sendEmailToRecruiters(Integer parId) throws ResourceNotCreatedException,ResourceNotFoundException {
+		
+		EmailDetails emailDetail= null;
+		PARMasterTO parMasterTO= getParMasterById(parId);
+		
+		if(parMasterTO!=null) {
+		 emailDetail= new EmailDetails(fetchEmailTOList(), getSubject(parMasterTO.getParNumber()), getContent(parMasterTO));
+		}else {
+			throw new ResourceNotFoundException("Unable to fetch PAR Details for the par ID "+parId+"Contact PAR Support");
+		}
+		
+		/*EmailDetails emailDetail= new EmailDetails();
+		List<String> emailList=new ArrayList<>();
+		emailList.add("rahman.shaik@htcinc.com");
+		emailList.add("shyam.kandi@htcinc.com");
+		String emailString =String.join(",", emailList);
+		InternetAddress[] emailTOArray=null;
+		try {
+			 emailTOArray= InternetAddress.parse(emailString);
+		} catch (AddressException e) {
+			throw new ResourceNotFoundException("Invalid Recruiter Email"+emailString);
+			
+		}
+		String emailSubject="Test subject";
+		String description ="Hello TEST";
+		emailDetail.setEmailTo(emailTOArray);
+		emailDetail.setEmailBody(description);
+		emailDetail.setEmailSubject(emailSubject);*/
+		boolean mailStatus=emailService.sendEmail(emailDetail);
+		//System.out.println("mailStatus--->"+mailStatus);
+		return mailStatus;
 	}
 
+	
 	@Override
 	public List<PARMasterTO> getAllParsByStatusAndDateRange(String parStatus, LocalDate startDate, LocalDate endDate)
 			throws ResourceNotFoundException {
@@ -163,5 +211,39 @@ public class PARMasterServiceImpl implements PARMasterService {
 		}).collect(Collectors.toList());
 		return parMasterTOs;
 	}
+	
+	private InternetAddress[] fetchEmailTOList() throws ResourceNotFoundException  {
+		InternetAddress[] emailTOArray=null;
+		List<RecruiterTO> recruiterTOList=recruieterService.getRecruiterByRecruiterEmailFlag(true);
+		List<String> emailList=recruiterTOList.stream().map(recruiter->recruiter.getRecruiterEmail()).collect(Collectors.toList());
+		
+		
+		String emailString =String.join(",", emailList);
+		try {
+			 emailTOArray= InternetAddress.parse(emailString);
+		} catch (AddressException e) {
+			throw new ResourceNotFoundException("Invalid Recruiter Email"+emailString);
+			
+		}
+		return emailTOArray;
+		
+	}
+	
+	 private String getSubject(String parNumber) {
+	        return "I/A: Request for Candiates for the PAR  "+parNumber;
+	    }
+
+	    public String getContent(PARMasterTO parMasterTO) {
+	        return "<html>" +
+	                    "<body>" +
+	                        "<p>Hello ,</p> <br>" +
+	                        "<p>PAR # <strong>"+parMasterTO.getParNumber()+" </strong> .</p><br>" +
+	                        "<p> <strong>PAR Description : </strong> "+parMasterTO.getParDescriptionText()+"</p>" +
+	                        "<br><p>  Provide Suitable Candidates for this PAR  </p>" +
+	                        "<br> <br>" +
+	                        "Thanks,<br> AMO Team<br>" +
+	                  "</body>" +
+	                "</html>";
+	    }
 
 }

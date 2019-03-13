@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$("#recruiters-tab").on("click", function(){
 	
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/recruiters', populateRecruiterInfo, recruiterLoadFailure);
 	$('#recruiterstatusDiv').hide();
@@ -17,6 +17,10 @@ $(document).ready(function(){
     
     //Recruiter Table
 	function populateRecruiterInfo(response){
+		
+		if($.fn.dataTable.isDataTable("#tblRecruiters")){
+			return;
+		}
 		table = $('#tblRecruiters').DataTable(
 				{
 					autoWidth: false,
@@ -66,6 +70,7 @@ $(document).ready(function(){
 		$("#tblRecruiters tbody").on('click', '.btnDelete', function () {
 			var recruiter = table.row($(this).closest('tr')).data();
 			 $('#confirmDeleteRecruiterModalBody').html("Are you sure you want to delete <strong> "+recruiter.recruiterName+" </strong> ?");
+			$("#confirmDeleteRecruiter").off('click', '#recruiter-delete-btn');
 		    $('#confirmDeleteRecruiter').modal({ backdrop: 'static', keyboard: false })
 	        .on('click', '#recruiter-delete-btn', function(){
 				var deleteData={};
