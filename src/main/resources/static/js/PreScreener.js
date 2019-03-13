@@ -51,7 +51,8 @@ $(document).ready(function(){
 		table.clear().rows.add(response).draw();
 		$("#tblPreScreeners tbody").on('click', '.btnDelete', function () {
 			var preScreener = table.row($(this).closest('tr')).data();
-			 $('#preScreenerconfirmModalBody').html("Are you sure you want to delete <strong> "+preScreener.preScreenerName +"</strong> ?")
+			 $('#preScreenerconfirmModalBody').html("Are you sure you want to delete <strong> "+preScreener.preScreenerName +"</strong> ?");
+			 $("#preScreenerconfirm").off('click', '#preScreenerDelete-btn');
 		    $('#preScreenerconfirm').modal({ backdrop: 'static', keyboard: false })
 	        .on('click', '#preScreenerDelete-btn', function(){
 				var deleteData={};

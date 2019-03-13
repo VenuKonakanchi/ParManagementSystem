@@ -77,6 +77,7 @@ $(document).ready(function(){
 			var candidate = table.row($(this).closest('tr')).data();
 			
 			$('#candidateDeleteConfirmModalBody').html("Are you sure you, want to delete the Candidate<strong> "+candidate.candidateName +"</strong> ?");
+			$("#candidateDeleteConfirmModal").off('click', '#candidate-delete-btn');
 			
 		    $('#candidateDeleteConfirmModal').modal({ backdrop: 'static', keyboard: false })
 	        .on('click', '#candidate-delete-btn', function(){
