@@ -66,7 +66,6 @@ $(document).ready(function(){
 		$("#tblRecruiters tbody").on('click', '.btnDelete', function () {
 			var recruiter = table.row($(this).closest('tr')).data();
 			 $('#confirmDeleteRecruiterModalBody').html("Are you sure you want to delete <strong> "+recruiter.recruiterName+" </strong> ?");
-			 alert('Going to delete: '+recruiter.recruiterName);
 			$("#confirmDeleteRecruiter").off('click', '#recruiter-delete-btn');
 		    $('#confirmDeleteRecruiter').modal({ backdrop: 'static', keyboard: false })
 	        .on('click', '#recruiter-delete-btn', function(){
