@@ -202,11 +202,12 @@ $("#candidate-role-tab").on("click", function(){
 		  $('#candRoleModalStatusDiv').hide();
 		  $('#candRoleForm').validate({
 			    rules : {
-			        roleName : {  required: true }
+			        roleName : {  required: true, rangelength:[3,50] }
 			    },
 			    messages: {
 			       roleName:{
-			        	required:"Role name can not be empty"
+			        	required:"Role name can not be empty",
+			        	rangelength: "Minimum 3 and Maximum 50 Characters"	
 			        }
 			    },
 			    errorElement: PARValidationUtil.utils.validationProperties.errorElement,

@@ -22,7 +22,8 @@ PARValidationUtil.utils = {};
 			// in order to add icons to inputs
 			element.parents( ".col-sm-5" ).addClass( "has-feedback" );
 
-			if ( element.prop( "type" ) === "checkbox" ) {
+			//if ( element.prop( "type" ) === "checkbox" ) {
+			if ( element.prop( "type" ) === "radio" ) {
 				error.insertAfter( element.parent( "label" ).parent( ".input-group" ) );
 			} else {
 				error.insertAfter( element.parent( ".input-group" ) );

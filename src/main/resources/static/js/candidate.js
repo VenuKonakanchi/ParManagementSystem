@@ -279,7 +279,7 @@ $("#candidate-master-tab").on("click", function(){
 		  $('#candidateModalStatusDiv').hide();
 		  $('#candidateForm').validate({
 			    rules : {
-			    	candidateName : {  lettersonlys:true,required: true },
+			    	candidateName : {  lettersonlys:true,required: true, rangelength:[3,50] },
 		  			candidateEmail : {  htcemail: true, email: true,required: true},
 		  			candidatePhoneNumber : { required: true, phoneUS: true },
 		  			candidateRecruiterSelect: {required: true},
@@ -287,7 +287,8 @@ $("#candidate-master-tab").on("click", function(){
 			    },
 			    messages: {
 			    	candidateName:{
-			    		required:"Candidate Name can not be empty"
+			    		required:"Candidate Name can not be empty and it can contain only letters",
+			    		rangelength: "Minimum 3 and Maximum 50 Characters"
 			        },
 			        candidateEmail:{
 			    		required:"E-mail can not be empty"

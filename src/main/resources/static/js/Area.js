@@ -1,4 +1,4 @@
-$( document ).ready(function(){
+$(document).ready(function(){
 	
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/Areas', populateAreaInfo, areaLoadFailure);
 	$('#areaStatusDiv').hide();
@@ -13,10 +13,19 @@ $( document ).ready(function(){
         areaForm.find('.error').removeClass('error');
     });
 	function populateAreaInfo(response){
-		
 		table = $('#tblAreas').DataTable(
 				{
-					autoWidth: false,				
+					autoWidth: false,
+					/* dom: 'lBfrtip',
+			       buttons: [
+			            {
+			                text: 'Add New Area',
+			                action: function ( e, dt, node, config ) {
+			                	$('#areaModal').modal('show'); 
+			                }
+			            }
+			        ],*/
+					
 					columns: [
      					{ data: 'areaId' },
 						{ data: 'areaName' },
@@ -57,7 +66,6 @@ $( document ).ready(function(){
 			var area = table.row($(this).closest('tr')).data();
 			
 			$('#areaDeleteconfirmModalBody').html("Are you sure you, want to delete area <strong> "+area.areaName+" <strong> ?");
-			$("#areaDeleteconfirmModal").off('click', '#areaDelete-btn');
 		    $('#areaDeleteconfirmModal').modal({ backdrop: 'static', keyboard: false })
 	        .on('click', '#areaDelete-btn', function(){
 				var deleteData={};
@@ -79,12 +87,12 @@ $( document ).ready(function(){
 	function areaLoadFailure(xhr, error){
 		if(xhr.status!=404){
 			var reponseBody = JSON.parse(xhr.responseText);
-			$('#extStaffStatusDiv').removeClass("alert alert-success");
-			$('#extStaffStatusDiv').addClass("alert alert-warning");
-			$('#extStaffStatusMessage').html(reponseBody['message']);
-			$('#extStaffStatusDiv').show();
+			$('#areaStatusDiv').removeClass("alert alert-success");
+			$('#areaStatusDiv').addClass("alert alert-warning");
+			$('#areaStatusMessage').html(reponseBody['message']);
+			$('#areaStatusDiv').show();
 		}else{
-			$('#extStaffStatusDiv').hide();
+			$('#areaStatusDiv').hide();
 		}
 	}
 	
@@ -173,6 +181,7 @@ $( document ).ready(function(){
 			$('#areaStatusDiv').removeClass("alert alert-danger");
 			$('#areaStatusDiv').addClass("alert alert-success");
 			$('#areaStatusMessage').html("New Area<strong> "+areaName+" </strong> has been created successfully!!");
+			$('#areaStatusDiv').show();
 			if(!$.fn.dataTable.isDataTable("#tblAreas")){
 				populateAreaInfo(response);
 			}else{
@@ -201,11 +210,13 @@ $( document ).ready(function(){
 		  $('#areaModalStatusDiv').hide();
 		  $('#areaForm').validate({
 			    rules : {
-			        areaName : {  required: true }
+			        areaName : {  required: true, rangelength:[3,50] }
+		  			
 			    },
 			    messages: {
 			        areaName:{
-			        	required:"Area name can not be empty"
+			        	required:"Area name can not be empty",
+			        	rangelength: "Minimum 3 and Maximum 50 Characters"		
 			        }
 			    },
 			    errorElement: PARValidationUtil.utils.validationProperties.errorElement,

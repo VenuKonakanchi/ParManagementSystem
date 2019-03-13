@@ -2,12 +2,7 @@
   <span id="extStaffStatusMessage"></span>
   <button type="button" class="close" data-hide="alert">&times;</button>
  </div>
-<!--   <div class="alert alert-error collapse" role="alert" id="statusDiv">
-	  <span id="statusMessage">
-	  	<p ></p>
-	  </span>
-	   <button type="button" class="close" data-hide="alert">&times;</button>
-</div> -->
+
 	<button type="button" class="btn btn-sm btn-primary" id="addNewExtStaffBtn">Add External Staff</button><p ></p>
 	<table id="tblExtStaffs"
 		class="table table-striped table-bordered dataTable" 
@@ -47,43 +42,59 @@
 
 	<div class="modal fade" id="extStaffModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 	  <div class="modal-dialog modal-lg" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h3 class="modal-title text-left" id="extStaffModalTitle">Add/Update External Staff</h3>
-	      </div>
-	      <div class="modal-body">
-	      <p></p>
-		  <div class="collapse" role="alert" id="extStaffModalStatusDiv">
-			  <span id="extStaffModalStatusMessage"></span>
-			  <button type="button" class="close" data-hide="alert">&times;</button>
-		  </div>
-		  <form class="form-horizontal"  role="form" id="extStaffForm">
-		    <div class="form-group row">
-		    	<input type="hidden" id="rowIndex" name="rowIndex" value="">
-		      	<label class="control-label col-sm-3" for="extStaffName">External Staff Name:</label>
-		      	<div class="col-sm-6">
-		       		 <input type="text" class="form-control" id="extStaffName" placeholder=" " name="extStaffName">
-		     	</div>
-		     	
-		     	</div>
-		     	
-		     	<div class="form-group row">
-		        <label class="control-label col-sm-3" for="extStaffAreaSelect">Select Area :</label>
-						<div class="col-sm-6">
-							<select  class="form-control" id="extStaffAreaSelect" name="extStaffAreaSelect">
-							
-							</select>
-						</div>
+	  	<div class="modal-content">
+			<div class="modal-body">
+				<div class="collapse" role="alert" id="extStaffModalStatusDiv">
+					<span id="extStaffModalStatusMessage"></span>
+					<button type="button" class="close" data-hide="alert">&times;</button>
 				</div>
-		   
-		    <br>    
-		  </form>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary cancel" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary save" id="saveExtStaffButton">Save</button>
-          </div>
-      </div>
+				<div class="card modal-card">
+				  <div class="card-header modal-card-header">
+				    <h5 class="text-left" id="extStaffModalTitle">Add/Update External Staff</h5>
+				  </div>
+				  <div class="card-body">
+					<form class="form-horizontal" role="form" id="extStaffForm">
+						<div class="form-group row">
+							<label class="control-label col-sm-3 text-right font-weight-bold" for="extStaffName">External Staff Name:</label>
+							<div class="col-sm-6 input-group  modal-form-input-group">
+								<div class="input-group input-group-prepend">
+		    						<span class="input-group-text modal-form-field-prepend-span" id="name-addon"><i class="fa fa-pencil"></i></span>
+		    						<input type="text" class="form-control modal-form-input" id="extStaffName"	placeholder="Enter External Staff Name" name="extStaffName" aria-describedby="name-addon">
+								</div>
+							</div>
+							<div class="col-sm-3">
+							</div>
+						</div>
+						
+						
+						<div class="form-group row">
+							<label class="control-label col-sm-3 text-right font-weight-bold" for="extStaffAreaSelect">Select Area:</label>
+							<div class="col-sm-6  input-group">
+								<div class="input-group input-group-prepend">
+								<span class="input-group-text  modal-form-field-prepend-span" id="area-addon"><i class="fa fa-gear"></i></span>
+								<select  class="form-control modal-form-input" id="extStaffAreaSelect" aria-describedby="area-addon" name="extStaffAreaSelect">
+									<option value="">Select Area</option>
+								</select>
+								</div>	
+							</div>
+							<div class="col-sm-3">
+							</div>
+						</div>
+						<br>
+					</form>			  	
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary cancel"
+							data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary save"
+							id="saveExtStaffButton">Save</button>
+					</div>
+				  </div>
+			</div>
+				<p></p>
+			</div>
+			
+		</div>
+	   
     </div>
  </div>
  
