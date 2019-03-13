@@ -149,7 +149,7 @@ public class PARMasterController {
 	 */
 
 	@PostMapping("/parmasters/{parId}/sendemail")
-	public ResponseEntity<Boolean> sendEmailToRecruiters(Integer parId) {
+	public ResponseEntity<Boolean> sendEmailToRecruiters(@PathVariable("parId") Integer parId) {
 		//TODO: Create custom exception for e-mail failures
 		return ResponseEntity.ok(parMasterService.sendEmailToRecruiters(parId));
 	}

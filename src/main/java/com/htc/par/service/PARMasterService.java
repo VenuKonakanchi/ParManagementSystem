@@ -46,7 +46,7 @@ public interface PARMasterService {
 	
 	public PARMasterTO intentToFill(Integer parId, LocalDate intentToFillDate, Boolean intentToFillIndicator) throws ResourceNotFoundException, ResourceNotUpdatedException;
 	
-	public boolean sendEmailToRecruiters(Integer parId);
+	public boolean sendEmailToRecruiters(Integer parId) throws  ResourceNotCreatedException, ResourceNotFoundException;
 	
 	public List<PARMasterTO> getAllParsByStatusAndDateRange(String parStatus,LocalDate startDate,LocalDate endDate) throws ResourceNotFoundException;
 	
