@@ -97,7 +97,9 @@
 							<div class="col-sm-6  input-group">
 								<div class="input-group input-group-prepend">
 									<span class="input-group-text  modal-form-field-prepend-span" id="userRole-addon"><i class="fa fa-gear"></i></span>
-								<select  class="form-control modal-form-input" id="userRoleSelect" aria-describedby="userRole-addon" ></select>
+								<select  class="form-control modal-form-input" id="userRoleSelect" aria-describedby="userRole-addon" name="userRoleSelect" >
+									<option value="">Select User Role</option>
+								</select>
 								</div>	
 							</div>
 							<div class="col-sm-3">

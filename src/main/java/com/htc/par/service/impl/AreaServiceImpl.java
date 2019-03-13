@@ -55,7 +55,7 @@ public class AreaServiceImpl implements AreaService{
 				area = areaOptional.get();
 				if(area.getAreaActive())
 					throw new ResourceDuplicateException(
-							String.format("Skill: %s Already Exist.", areaTo.getAreaName()));
+							String.format("Area: %s Already Exist.", areaTo.getAreaName()));
 				area.setAreaActive(true);
 				areaTo.setAreaActive(true);
 			}

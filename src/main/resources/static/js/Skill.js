@@ -190,11 +190,12 @@ $(document).ready(function(){
 		  $('#modalStatusSkillDiv').hide();
 		  $('#skillForm').validate({
 			    rules : {
-			        skillName : {  required: true }
+			        skillName : {  required: true ,  rangelength:[3,50] }
 			    },
 			    messages: {
 			        skillName:{
-			        	required:"Skill name can not be empty"
+			        	required:"Skill name can not be empty",
+			        	rangelength: "Minimum 3 and Maximum 50 Characters"
 			        }
 			    },
 			    errorElement: PARValidationUtil.utils.validationProperties.errorElement,

@@ -259,29 +259,30 @@ $(document).ready(function(){
 		  $('#userModalStatusDiv').hide();
 		  $('#userForm').validate({
 			    rules : {
-			    	firstName : {  lettersonlys:true,required: true },
-		  			lastName : {  lettersonlys:true,required: true },
-		  			userName : {  minlength: 5,maxlength: 10,userName:true, required: true },
-		  			password : {  minlength: 5,maxlength: 10,required: true },
+			    	firstName : {  lettersonlys:true,required: true, rangelength:[3,50]  },
+		  			lastName : {  lettersonlys:true,required: true, rangelength:[3,50]  },
+		  			userName : {  rangelength:[5,15],userName:true, required: true },
+		  			password : {  rangelength:[6,12],required: true },
 		  			email : {  htcemail: true, email: true,required: true},
+		  			userRoleSelect: {required: true },
 		  			phone : { required: true, phoneUS: true }
 			    },
 			    messages: {
 			    	firstName:{
-			    		required:"First Name can not be empty"
+			    		required:"First Name can not be empty",
+			    		rangelength: "Minimum 3 and Maximum 50 Characters"
 			        },
-			    firstName:{
-		    		required:"Last Name can not be empty"
+			        lastName:{
+		    		required:"Last Name can not be empty",
+		    		rangelength: "Minimum 3 and Maximum 50 Characters"
 		        },
 			    userName:{
 		    		required:"User Name can not be empty",
-		    		minlength:"User Name is minimum of 5 characters length ",
-		    		maxlength:"User Name is maximum of 10 characters length "
+		    		rangelength: "Minimum 5 and Maximum 15 Characters"
 		        },
 			    password:{
 		    		required:"password can not be empty",
-		    		minlength:"password is minimum of 5 characters length ",
-		    		maxlength:"password is maximum of 10 characters length "
+		    		rangelength: "Minimum 6 and Maximum 12 Characters"
 		        },
 			    email:{
 		    		required:"email can not be empty"
@@ -289,6 +290,9 @@ $(document).ready(function(){
 			    phone:{
 		    		required:"phone number can not be empty"
 		        },
+		        userRoleSelect:{
+		        	required:"Please select a User Role"
+		        }
 			    },
 			    errorElement: PARValidationUtil.utils.validationProperties.errorElement,
 			    errorPlacement: PARValidationUtil.utils.validationProperties.errorPlacement,

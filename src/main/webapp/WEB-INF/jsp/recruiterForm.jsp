@@ -41,7 +41,7 @@
 				</div>
 				<div class="card modal-card">
 					<div class="card-header modal-card-header">
-						<h5 class="text-left" id="candidateModalLongTitle">Add/Update
+						<h5 class="text-left" id="recruiterModalTitle">Add/Update
 							Recruiter</h5>
 					</div>
 					<div class="card-body">
@@ -98,23 +98,25 @@
 								<label
 									class="control-label col-sm-3 text-right font-weight-bold"
 									for="recruiterEmailFlag">Email Notifications :</label>
-			<!-- 					<div class="col-sm-6 input-group"> -->
+									
+								<div class="col-sm-6 input-group"> 
 									<div class="custom-control custom-radio custom-control-inline">
 									<input type=radio class="custom-control-input"
-										id="recruiterEmailFlagY" name="recruiterEmailFlag"
-										value="true" checked="checked"> <label class="custom-control-label"
+										id = "recruiterEmailFlagY" name="recruiterEmailFlag"
+										value="true" checked> <label class="custom-control-label"
 										for="recruiterEmailFlagY">Yes</label>
-								</div>
+									</div>
 
 									<div class="custom-control custom-radio custom-control-inline">
 										<input type=radio class="custom-control-input"
-											id="recruiterEmailFlagN" name="recruiterEmailFlag"
+											id = "recruiterEmailFlagN" name="recruiterEmailFlag"
 											value="false"> <label class="custom-control-label"
 											for="recruiterEmailFlagN">No</label>
 									</div>
 								</div>
-							<!-- </div> -->
-							<div class="col-sm-3"></div>
+								<div class="col-sm-3"></div>
+							 </div>
+							
 					
 					<br>
 					</form>

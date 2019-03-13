@@ -213,18 +213,23 @@ $(document).ready(function(){
 		  $('#extStaffModalTitle').text("Update External Staff");
 	  }
 	  
+	  jQuery.validator.addMethod("lettersonlys", function(value, element) {
+		  return this.optional(element) || /^[a-zA-Z\s]+$/.test(value);
+		}, "Name field allows alphabets and a space only");
+	  
 	  $("#extStaffModal").off('click', '#saveExtStaffButton');
 	  
 	  $("#extStaffModal").on('click', '#saveExtStaffButton', function () {
 		  $('#extStaffModalStatusDiv').hide();
 		  $('#extStaffForm').validate({
 			    rules : {
-			    	extStaffName : {  required: true },
+			    	extStaffName : {  lettersonlys:true,required: true, rangelength:[3,50] },
 			    	extStaffAreaSelect : {  required: true }
 			    },
 			    messages: {
 			    	extStaffName:{
-			        	required:"External Staff name can not be empty"
+			        	required:"External Staff name can not be empty",
+			        	rangelength: "Minimum 3 and Maximum 50 Characters"
 			        },
 			        extStaffAreaSelect:{
 			    		required:"Area can not be empty"

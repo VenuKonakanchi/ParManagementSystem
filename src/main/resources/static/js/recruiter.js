@@ -205,13 +205,22 @@ $(document).ready(function(){
 	  $('#recruiterName').val(recruiterName);
 	  $('#recruiterPhoneNumber').val(recruiterPhoneNumber);
 	  $('#recruiterEmail').val(recruiterEmail);
-	  $('[name=recruiterEmailFlag]').val([recruiterEmailFlag]);
+	  if (typeof recruiterEmailFlag == undefined || recruiterEmailFlag == null) {
+		  $('[name=recruiterEmailFlag]').val([true]);
+	  }else{
+		  $('[name=recruiterEmailFlag]').val([recruiterEmailFlag]);
+	  }
+	  
 	  
 	  
 	  jQuery.validator.addMethod("htcemail", function(value, element) {
 		  email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
 		  return this.optional(element) || email_regex.test(value);
 		}, "Enter valid email");
+	  
+	  jQuery.validator.addMethod("lettersonlys", function(value, element) {
+		  return this.optional(element) || /^[a-zA-Z\s]+$/.test(value);
+		}, "Name field allows alphabets and a space only");
 	  
 	  
 	  if (typeof recruiterId == undefined || recruiterId == null) {
@@ -226,16 +235,14 @@ $(document).ready(function(){
 		  $('#recruitermodalStatusDiv').hide();
 		  $('#recruiterForm').validate({
 			    rules : {
-			    	recruiterName : {  required: true },
+			    	recruiterName : {  lettersonlys:true,required: true, rangelength:[3,50] },
 			    	recruiterPhoneNumber : {  required: true, phoneUS: true },
-			    	recruiterEmail : {  htcemail: true, email: true, required: true },
-			    	recruiterEmailFlag : {  required: true }
-			    },
+			    	recruiterEmail : {  htcemail: true, email: true, required: true }
+			    	},
 			    messages: {
-			    	recruiterName:{required:"Recruiter name can not be empty"},
+			    	recruiterName:{required:"Recruiter name can not be empty", rangelength: "Minimum 3 and Maximum 50 Characters"},
 			    	recruiterPhoneNumber:{required:"Recruiter Phone Number can not be empty"},
-			    	recruiterEmail:{required:"Recruiter Email can not be empty"},
-			    	recruiterEmailFlag:{required:"Select Yes/ No to recive Email Notifications"}
+			    	recruiterEmail:{required:"Recruiter Email can not be empty"}
 			       
 			    },
 			    errorElement: PARValidationUtil.utils.validationProperties.errorElement,

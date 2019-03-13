@@ -191,7 +191,10 @@ $(document).ready(function(){
 	 }else{
 		  $('#preScreenerModalTitle').text("Update PreScreener"); 
 	  }
-
+	  
+	  jQuery.validator.addMethod("lettersonlys", function(value, element) {
+		  return this.optional(element) || /^[a-zA-Z\s]+$/.test(value);
+		}, "Name field allows alphabets and a space only");
 	  
 	  $("#preScreenerModal").off('click', '#savePreScreenerButton');
 	  
@@ -199,15 +202,16 @@ $(document).ready(function(){
 		  $('#preScreenerModalStatusDiv').hide();
 		  $('#preScreenerForm').validate({
 			    rules : {
-			        preScreenerName : {  required: true },
+			        preScreenerName : {  lettersonlys:true,required: true, rangelength:[3,50] },
 			        preScreenerPhoneNumber : {  required: true, phoneUS: true }
 			    },
 			    messages: {
 			        preScreenerName:{
-			        	required:"PreScreener name can not be empty**"
+			        	required:"PreScreener name can not be empty",
+			        	rangelength: "Minimum 3 and Maximum 50 Characters"
 			        },
 			        preScreenerPhoneNumber:{
-			        	required:"PreScreener phone number can not be empty**"
+			        	required:"PreScreener phone number can not be empty"
 			    }
 			    
 			    },
