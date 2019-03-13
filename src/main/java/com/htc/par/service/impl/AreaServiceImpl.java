@@ -148,17 +148,30 @@ public class AreaServiceImpl implements AreaService{
 	 * @ResourceNotDeletedException
 	 */
 	@Override
-		public boolean deleteArea(int areaId) throws ResourceNotFoundException, ResourceNotDeletedException {
-			try {
-				Optional<Area> areaOptional = arearepository.findByAreaIdAndAreaActive(areaId, true);
+	public boolean deleteArea(int areaId) throws ResourceNotFoundException, ResourceNotDeletedException {
+		try {
+			Optional<Area> areaOptional = arearepository.findByAreaIdAndAreaActive(areaId, true);
 
-				Area area = areaOptional.get();
-				area.setAreaActive(false);
-				arearepository.save(area);
-			} catch (DataAccessException dae) {
-				throw new ResourceNotDeletedException("Area not deleted.");
-			}
-			return true;
+Area area;
+		if (!areaOptional.isPresent()) {
+			throw new ResourceNotFoundException("Area not found.");
 		}
+		else if(areaOptional.isPresent()) {
+			area = areaOptional.get();
+			if(area.getExternalStaff().size()>0) {
+				throw new ResourceNotDeletedException(area.getAreaName()+ " - Area info cannot be deleted, since there are some Active/InActive ExternalStaff tied up to this Area.");
+			}
+		}
+		area = areaOptional.get();
+		area.setAreaActive(false);
+		arearepository.save(area);
+
+		} catch (DataAccessException dae) {
+			throw new ResourceNotDeletedException("Unable to delete Area .");
+		}
+		return true;
+	}
+	
+
  
 }
