@@ -66,6 +66,7 @@ $(document).ready(function(){
 			var area = table.row($(this).closest('tr')).data();
 			
 			$('#areaDeleteconfirmModalBody').html("Are you sure you, want to delete area <strong> "+area.areaName+" <strong> ?");
+			$("#areaDeleteconfirmModal").off('click', '#areaDelete-btn');
 		    $('#areaDeleteconfirmModal').modal({ backdrop: 'static', keyboard: false })
 	        .on('click', '#areaDelete-btn', function(){
 				var deleteData={};
