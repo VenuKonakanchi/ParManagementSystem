@@ -182,7 +182,7 @@ $("#user-tab").on("click", function(){
 			table.row('#'+deleteData['userId']).remove().draw();
 			$('#userStatusDiv').removeClass("alert alert-danger");
 			$('#userStatusDiv').addClass("alert alert-success");
-			$('#userStatusMessage').html("<strong>"+deleteData['userName'] + " </strong> has been successfully deleted!!");
+			$('#userStatusMessage').html("<strong>"+deleteData['userName'] + " </strong> has been deleted successfully !!");
 			$('#userStatusDiv').show();
 		};
 	};
@@ -194,7 +194,7 @@ $("#user-tab").on("click", function(){
 			table.row('#'+newData['userId']).data(response).draw();
 			$('#userStatusDiv').removeClass("alert alert-danger");
 			$('#userStatusDiv').addClass("alert alert-success");
-			$('#userStatusMessage').html("User with user name <strong>"+ newData['userName']+ "</strong> has been successfully updated!!");
+			$('#userStatusMessage').html("User with user name <strong>"+ newData['userName']+ "</strong> has been updated successfully !!");
 			$('#userStatusDiv').show();
 		};
 	};

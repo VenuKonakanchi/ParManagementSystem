@@ -147,7 +147,7 @@ $("#pre-screeners-tab").on("click", function(){
 			table.row('#'+deleteData['preScreenerId']).remove().draw();
 			$('#preScreenerStatusDiv').removeClass("alert alert-danger");
 			$('#preScreenerStatusDiv').addClass("alert alert-success");
-			$('#preScreenerStatusMessage').html(deleteData['preScreenerName'] + " has been successfully deleted!!");
+			$('#preScreenerStatusMessage').html("<strong> " +deleteData['preScreenerName'] + " </strong> has been deleted successfully !!");
 			$('#preScreenerStatusDiv').show();
 		};
 	};
@@ -159,7 +159,7 @@ $("#pre-screeners-tab").on("click", function(){
 			table.row('#'+newData['preScreenerId']).data(newData).draw();
 			$('#preScreenerStatusDiv').removeClass("alert alert-danger");
 			$('#preScreenerStatusDiv').addClass("alert alert-success");
-			$('#preScreenerStatusMessage').html("PreScreener <strong>"+newData['preScreenerName'] +"</strong> has been successfully updated!!");
+			$('#preScreenerStatusMessage').html("PreScreener <strong>"+newData['preScreenerName'] +"</strong> has been updated successfully !!");
 			$('#preScreenerStatusDiv').show();
 		};
 	};
