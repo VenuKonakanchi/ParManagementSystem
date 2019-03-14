@@ -221,7 +221,7 @@ public class RecruiterServiceImpl implements RecruiterService {
 			else if(recruiterOptional.isPresent()) {
 				recruiter = recruiterOptional.get();
 				if(recruiter.getCandidates().size()>0) {
-					throw new ResourceNotDeletedException(recruiter.getRecruiterName()+ " - recruiter info cannot be deleted, since there are some candidates tied up to this recruiter.");
+					throw new ResourceNotDeletedException(recruiter.getRecruiterName()+ " - recruiter info cannot be deleted.There are some candidates (active/in-active status) tied up to this recruiter.");
 				}
 			}
 			recruiter = recruiterOptional.get();

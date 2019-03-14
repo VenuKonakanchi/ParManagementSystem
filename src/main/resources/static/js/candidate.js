@@ -154,6 +154,7 @@ $("#candidate-master-tab").on("click", function(){
 	};
 	
 	function populateRecruiterInfo (response){
+		$('#candidateRecruiterSelect').find('option').not(':first').remove();
 		 $.each(response, function(i, recruiter) {
 	            $('#candidateRecruiterSelect').append($('<option></option>').text(recruiter.recruiterName).attr('value', recruiter.recruiterId));
 	        });
@@ -274,6 +275,11 @@ $("#candidate-master-tab").on("click", function(){
 		  return this.optional(element) || email_regex.test(value);
 		}, "Enter valid email");
 	  
+	  jQuery.validator.addMethod("futureDateCheck", function (value, element) {
+		    var now = new Date();
+		    var receivedDate = new Date(value);
+		    return this.optional(element) || (!(receivedDate > now));
+		},"Received date can not be future date"),
 	  
 	  $("#candidateModal").on('click', '#saveCandidateButton', function () {
 		  $('#candidateModalStatusDiv').hide();
@@ -283,7 +289,7 @@ $("#candidate-master-tab").on("click", function(){
 		  			candidateEmail : {  htcemail: true, email: true,required: true},
 		  			candidatePhoneNumber : { required: true, phoneUS: true },
 		  			candidateRecruiterSelect: {required: true},
-		  			candidateReceivedDate:{required: true}
+		  			candidateReceivedDate:{required: true, futureDateCheck: true}
 			    },
 			    messages: {
 			    	candidateName:{
