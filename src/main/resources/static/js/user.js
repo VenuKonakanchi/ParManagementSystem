@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$("#user-tab").on("click", function(){
 	
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/users', populateUserInfo, userLoadFailure);
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/users/roles', populateRoleInfo, roleLoadFailure);
@@ -19,6 +19,9 @@ $(document).ready(function(){
     });
     
 	function populateUserInfo(response){
+		if($.fn.dataTable.isDataTable("#tblUsers")){
+			return;
+		}
 		table = $('#tblUsers').DataTable(
 				{
 					autoWidth: false,
@@ -179,7 +182,7 @@ $(document).ready(function(){
 			table.row('#'+deleteData['userId']).remove().draw();
 			$('#userStatusDiv').removeClass("alert alert-danger");
 			$('#userStatusDiv').addClass("alert alert-success");
-			$('#userStatusMessage').html("<strong>"+deleteData['userName'] + " </strong> has been successfully deleted!!");
+			$('#userStatusMessage').html("<strong>"+deleteData['userName'] + " </strong> has been deleted successfully !!");
 			$('#userStatusDiv').show();
 		};
 	};
@@ -191,7 +194,7 @@ $(document).ready(function(){
 			table.row('#'+newData['userId']).data(response).draw();
 			$('#userStatusDiv').removeClass("alert alert-danger");
 			$('#userStatusDiv').addClass("alert alert-success");
-			$('#userStatusMessage').html("User with user name <strong>"+ newData['userName']+ "</strong> has been successfully updated!!");
+			$('#userStatusMessage').html("User with user name <strong>"+ newData['userName']+ "</strong> has been updated successfully !!");
 			$('#userStatusDiv').show();
 		};
 	};
@@ -259,29 +262,30 @@ $(document).ready(function(){
 		  $('#userModalStatusDiv').hide();
 		  $('#userForm').validate({
 			    rules : {
-			    	firstName : {  lettersonlys:true,required: true },
-		  			lastName : {  lettersonlys:true,required: true },
-		  			userName : {  minlength: 5,maxlength: 10,userName:true, required: true },
-		  			password : {  minlength: 5,maxlength: 10,required: true },
+			    	firstName : {  lettersonlys:true,required: true, rangelength:[3,50]  },
+		  			lastName : {  lettersonlys:true,required: true, rangelength:[1,50]  },
+		  			userName : {  rangelength:[5,15],userName:true, required: true },
+		  			password : {  rangelength:[6,12],required: true },
 		  			email : {  htcemail: true, email: true,required: true},
+		  			userRoleSelect: {required: true },
 		  			phone : { required: true, phoneUS: true }
 			    },
 			    messages: {
 			    	firstName:{
-			    		required:"First Name can not be empty"
+			    		required:"First Name can not be empty",
+			    		rangelength: "Minimum 3 and Maximum 50 Characters"
 			        },
-			    firstName:{
-		    		required:"Last Name can not be empty"
+			        lastName:{
+		    		required:"Last Name can not be empty",
+		    		rangelength: "Minimum 1 and Maximum 50 Characters"
 		        },
 			    userName:{
 		    		required:"User Name can not be empty",
-		    		minlength:"User Name is minimum of 5 characters length ",
-		    		maxlength:"User Name is maximum of 10 characters length "
+		    		rangelength: "Minimum 5 and Maximum 15 Characters"
 		        },
 			    password:{
 		    		required:"password can not be empty",
-		    		minlength:"password is minimum of 5 characters length ",
-		    		maxlength:"password is maximum of 10 characters length "
+		    		rangelength: "Minimum 6 and Maximum 12 Characters"
 		        },
 			    email:{
 		    		required:"email can not be empty"
@@ -289,6 +293,9 @@ $(document).ready(function(){
 			    phone:{
 		    		required:"phone number can not be empty"
 		        },
+		        userRoleSelect:{
+		        	required:"Please select a User Role"
+		        }
 			    },
 			    errorElement: PARValidationUtil.utils.validationProperties.errorElement,
 			    errorPlacement: PARValidationUtil.utils.validationProperties.errorPlacement,

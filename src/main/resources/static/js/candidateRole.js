@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$("#candidate-role-tab").on("click", function(){
 	
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/parroles', populateRoleInfo, roleLoadFailure);
 	$('#candRoleStatusDiv').hide();
@@ -16,6 +16,9 @@ $(document).ready(function(){
     });
     //Role Table
 	function populateRoleInfo(response){
+		if($.fn.dataTable.isDataTable("#tblCandRoles")){
+			return;
+		}
 		table = $('#tblCandRoles').DataTable(
 				{
 					autoWidth: false,
@@ -199,11 +202,12 @@ $(document).ready(function(){
 		  $('#candRoleModalStatusDiv').hide();
 		  $('#candRoleForm').validate({
 			    rules : {
-			        roleName : {  required: true }
+			        roleName : {  required: true, rangelength:[3,50] }
 			    },
 			    messages: {
 			       roleName:{
-			        	required:"Role name can not be empty"
+			        	required:"Role name can not be empty",
+			        	rangelength: "Minimum 3 and Maximum 50 Characters"	
 			        }
 			    },
 			    errorElement: PARValidationUtil.utils.validationProperties.errorElement,

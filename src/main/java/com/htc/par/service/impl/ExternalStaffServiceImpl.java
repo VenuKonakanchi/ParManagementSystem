@@ -104,45 +104,49 @@ public class ExternalStaffServiceImpl implements ExternalStaffService {
 	public ExternalStaffTO createExternalStaff(ExternalStaffTO externalStaffTO)
 			throws ResourceDuplicateException, ResourceNotCreatedException {
 		try {
-			Optional<ExternalStaff> extStaffOptional = externalStaffRepository.findByExtStaffName(externalStaffTO.getExtStaffName());
-			ExternalStaff externalStaff = null;
-			if (!extStaffOptional.isPresent()) {
-				externalStaffTO.setExtStaffActive(true);
+				List<ExternalStaff> externalStaffs = externalStaffRepository.findAllByExtStaffName(externalStaffTO.getExtStaffName());
+				ExternalStaff externalStaff = null;
+				boolean deletedExtStaffFound = false ;
+				if (externalStaffs.isEmpty()) { } 
+				else {
+					    for (ExternalStaff e : externalStaffs) {
+					    	if ((e.getArea().getAreaId().equals(externalStaffTO.getArea().getAreaId())) && (e.getExtStaffActive())) {
+					    		throw new ResourceDuplicateException(String.format("External Staff: %s Already Exist.", externalStaffTO.getExtStaffName()));
+					    		} /* if */
+					    	else if( (e.getArea().getAreaId().equals(externalStaffTO.getArea().getAreaId())) && (!e.getExtStaffActive())){
+					    			externalStaffTO = getExternalStaffTO(e);
+					    			deletedExtStaffFound = true;
+					    		} /*else if*/   
+					    	} /* for loop */
+					} /* else part */
+				externalStaffTO.setExtStaffActive(true) ;
 				externalStaffTO.getArea().setAreaActive(true);
 				externalStaff = getExternalStaff(externalStaffTO);
-			} else {
-				externalStaff = extStaffOptional.get();
-				if(externalStaff.getExtStaffActive())
-					throw new ResourceDuplicateException(
-							String.format("External Staff: %s Already Exist.", externalStaffTO.getExtStaffName()));
-				externalStaff.setExtStaffActive(true);
-				externalStaffTO.setExtStaffActive(true);
-			}
-			
-			if(externalStaffTO.getArea().getAreaId()!=null){
-				
-				Optional<Area> areaOptional = areaRepository.findById(externalStaff.getArea().getAreaId()) ;
-				if(areaOptional.isPresent()){ 
-					externalStaff.setArea(areaOptional.get()) ;
-					}
-				
-			} else if (!externalStaffTO.getArea().getAreaName().isEmpty()) {
-				
-				Optional<Area> areaOptional = areaRepository.findByAreaName(externalStaff.getArea().getAreaName()) ;
-				if(areaOptional.isPresent()){ 
-					externalStaff.setArea(areaOptional.get()) ;
-					}
-				
-			}
-			externalStaff = externalStaffRepository.save(externalStaff);
-			externalStaffTO = getExternalStaffTO(externalStaff);
+				if(deletedExtStaffFound) {externalStaff.setExtStaffId(externalStaffTO.getExtStaffId()); }
+				if(externalStaffTO.getArea().getAreaId()!=null){
+					Optional<Area> areaOptional = areaRepository.findById(externalStaff.getArea().getAreaId()) ;
+					if(areaOptional.isPresent()){ 
+						externalStaff.setArea(areaOptional.get()) ;
+					}/*if*/
+				 } else if (!externalStaffTO.getArea().getAreaName().isEmpty()) {
+					
+					Optional<Area> areaOptional = areaRepository.findByAreaName(externalStaff.getArea().getAreaName()) ;
+					if(areaOptional.isPresent()){ 
+						externalStaff.setArea(areaOptional.get()) ;
+				      } /*if */
+				    } /*else if */
+				externalStaff = externalStaffRepository.save(externalStaff);
+				externalStaffTO = getExternalStaffTO(externalStaff);
+
 		} catch (DataIntegrityViolationException die) {
-			throw new ResourceDuplicateException(String.format("External Staff: %s Already Exist.",externalStaffTO.getExtStaffName() ));
+			throw new ResourceDuplicateException(
+					String.format("External Staff: %s Already Exist.", externalStaffTO.getExtStaffName()));
 		} catch (DataAccessException dae) {
-			throw new ResourceNotCreatedException(String.format("External Staff: %s not created.", externalStaffTO.getExtStaffName() ));
+			throw new ResourceNotCreatedException(
+					String.format("External Staff: %s not created.", externalStaffTO.getExtStaffName()));
 		}
 		return externalStaffTO;
-    }
+	}
 
 	@Override
 	public boolean deleteExternalStaff(int externalStaffId)

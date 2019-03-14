@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$("#external-staffing-info-tab").on("click", function(){
 	
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/externalstaff', populateExternalStaffInfo, extStaffLoadFailure);
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/Areas', populateAreaInfo, areaLoadFailure);
@@ -15,6 +15,9 @@ $(document).ready(function(){
         extStaffForm.find('.error').removeClass('error');
     });
 	function populateExternalStaffInfo(response){
+		if($.fn.dataTable.isDataTable("#tblExtStaffs")){
+			return;
+		}
 		table = $('#tblExtStaffs').DataTable(
 				{
 					autoWidth: false,
@@ -53,7 +56,6 @@ $(document).ready(function(){
 		$("#tblExtStaffs tbody").on('click', '.btnExtStaffDelete', function () {
 			var extStaff = table.row($(this).closest('tr')).data();
 			$('#extStaffDeleteConfirmModalBody').html(" Are you sure you, want to delete<strong> "+extStaff.extStaffName+"</strong>?");
-			$("#extStaffDeleteConfirm").off('click', '#ext-staff-delete-btn');
 		    $('#extStaffDeleteConfirm').modal({ backdrop: 'static', keyboard: false })
 	        .on('click', '#ext-staff-delete-btn', function(){
 				var deleteData={};
@@ -163,7 +165,7 @@ $(document).ready(function(){
 			table.row('#'+deleteData['extStaffId']).remove().draw();
 			$('#extStaffStatusDiv').removeClass("alert alert-danger");
 			$('#extStaffStatusDiv').addClass("alert alert-success");
-			$('#extStaffStatusMessage').html(deleteData['extStaffName'] + " has been successfully deleted!!");
+			$('#extStaffStatusMessage').html("<strong> " +deleteData['extStaffName'] + "  </strong> has been deleted successfully !!");
 			$('#extStaffStatusDiv').show();
 		};	
 	};
@@ -175,7 +177,7 @@ $(document).ready(function(){
 			table.row('#'+newData['extStaffId']).data(newData).draw();
 			$('#extStaffStatusDiv').removeClass("alert alert-danger");
 			$('#extStaffStatusDiv').addClass("alert alert-success");
-			$('#extStaffStatusMessage').html("Exteral Staff<strong> "+ newData['extStaffName']+" </strong>has been successfully updated!!");
+			$('#extStaffStatusMessage').html("Exteral Staff<strong> "+ newData['extStaffName']+" </strong>has been updated successfully !!");
 			$('#extStaffStatusDiv').show();
 		};
 	};
@@ -214,18 +216,23 @@ $(document).ready(function(){
 		  $('#extStaffModalTitle').text("Update External Staff");
 	  }
 	  
+	  jQuery.validator.addMethod("lettersonlys", function(value, element) {
+		  return this.optional(element) || /^[a-zA-Z\s]+$/.test(value);
+		}, "Name field allows alphabets and a space only");
+	  
 	  $("#extStaffModal").off('click', '#saveExtStaffButton');
 	  
 	  $("#extStaffModal").on('click', '#saveExtStaffButton', function () {
 		  $('#extStaffModalStatusDiv').hide();
 		  $('#extStaffForm').validate({
 			    rules : {
-			    	extStaffName : {  required: true },
+			    	extStaffName : {  lettersonlys:true,required: true, rangelength:[3,50] },
 			    	extStaffAreaSelect : {  required: true }
 			    },
 			    messages: {
 			    	extStaffName:{
-			        	required:"External Staff name can not be empty"
+			        	required:"External Staff name can not be empty",
+			        	rangelength: "Minimum 3 and Maximum 50 Characters"
 			        },
 			        extStaffAreaSelect:{
 			    		required:"Area can not be empty"

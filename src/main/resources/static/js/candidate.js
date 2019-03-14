@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$("#candidate-master-tab").on("click", function(){
 	
 	$('[data-toggle=datepicker]').each(function() {
 		  var target = $(this).data('target-name');
@@ -19,7 +19,7 @@ $(document).ready(function(){
 	$('#saveCandidateButton').prop('disabled', false);
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/candidates', populateCandidateInfo, candidateLoadFailure);
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/recruiters', populateRecruiterInfo, recruiterLoadFailure);
-	$("#candidatePhoneNumber").inputmask({"mask": "(999) 999-9999"});
+
 	
 	$('#candidateStatusDiv').hide();
 	var table=null;
@@ -33,6 +33,9 @@ $(document).ready(function(){
         candidateForm.find('.error').removeClass('error');
     });
 	function populateCandidateInfo(response){
+		if($.fn.dataTable.isDataTable("#tblCandidates")){
+			return;
+		}
 		table = $('#tblCandidates').DataTable(
 				{
 					autoWidth: false,
@@ -151,7 +154,6 @@ $(document).ready(function(){
 	};
 	
 	function populateRecruiterInfo (response){
-		 //$('#candidateRecruiterSelect').append($('<option></option>').text('Select Recruiter').attr('value', ''));
 		 $.each(response, function(i, recruiter) {
 	            $('#candidateRecruiterSelect').append($('<option></option>').text(recruiter.recruiterName).attr('value', recruiter.recruiterId));
 	        });
@@ -196,14 +198,13 @@ $(document).ready(function(){
 			table.row('#'+deleteData['candidateId']).remove().draw();
 			$('#candidateStatusDiv').removeClass("alert alert-danger");
 			$('#candidateStatusDiv').addClass("alert alert-success");
-			$('#candidateStatusMessage').html(deleteData['candidateName'] + " has been deleted successfully!!");
+			$('#candidateStatusMessage').html("<strong> " +deleteData['candidateName'] + " </strong> has been deleted successfully!!");
 			$('#candidateStatusDiv').show();
 		};
 	};
 	
 	var candidateUpdateSuccess = function(newData,action,divElement) {
 		return function(response) {
-			//var rowIndex = $("#rowIndex").val();
 			$('#candidateModal').modal('hide');
 			table.row('#'+newData['candidateId']).data(response).draw();
 			$('#candidateStatusDiv').removeClass("alert alert-danger");
@@ -215,7 +216,6 @@ $(document).ready(function(){
 	
 	var candidateAddSuccess = function(candidateName) {
 		return function(response) {
-			/*table.row.add(response).draw( false );*/
 			$('#candidateModal').modal('hide');
 			$('#candidateStatusDiv').removeClass("alert alert-danger");
 			$('#candidateStatusDiv').addClass("alert alert-success");
@@ -279,31 +279,30 @@ $(document).ready(function(){
 		  $('#candidateModalStatusDiv').hide();
 		  $('#candidateForm').validate({
 			    rules : {
-			    	candidateName : {  lettersonlys:true,required: true },
+			    	candidateName : {  lettersonlys:true,required: true, rangelength:[3,50] },
 		  			candidateEmail : {  htcemail: true, email: true,required: true},
 		  			candidatePhoneNumber : { required: true, phoneUS: true },
-		  			candidateEmail : {  email: true,required: true},
-		  			candidatePhoneNumber : { required: true },
 		  			candidateRecruiterSelect: {required: true},
 		  			candidateReceivedDate:{required: true}
 			    },
 			    messages: {
 			    	candidateName:{
-			    		required:"Candidate Name can not be empty and it can contain only letters"
+			    		required:"Candidate Name can not be empty and it can contain only letters",
+			    		rangelength: "Minimum 3 and Maximum 50 Characters"
 			        },
 			        candidateEmail:{
-		    		required:"E-mail can not be empty and it should be a valid e-mail address"
-		        },
-		        candidatePhoneNumber:{
-		    		required:"Phone number can not be empty"
-		        },
-		        candidateRecruiterSelect:{
-		    		required:"Please select a Recruiter"
-		        },
-		        candidateReceivedDate:{
-		        	required:"Received date can not be empty"
-		        }
-			    },
+			    		required:"E-mail can not be empty"
+			        },
+			        candidatePhoneNumber:{
+			    		required:"Phone number can not be empty"
+			        },
+			        candidateRecruiterSelect:{
+			    		required:"Please select a Recruiter"
+			        },
+			        candidateReceivedDate:{
+			        	required:"Received date can not be empty"
+			        }
+				},
 			    errorElement: PARValidationUtil.utils.validationProperties.errorElement,
 			    errorPlacement: PARValidationUtil.utils.validationProperties.errorPlacement,
 			    success: PARValidationUtil.utils.validationProperties.success,

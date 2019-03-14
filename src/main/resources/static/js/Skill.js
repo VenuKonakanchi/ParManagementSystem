@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$("#skills-tab").on("click", function(){
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/skills', populateSkillInfo, skillLoadFailure);
 	$('#statusSkillDiv').hide();
 	var table=null; 
@@ -12,6 +12,9 @@ $(document).ready(function(){
         skillForm.find('.error').removeClass('error');
     });
 	function populateSkillInfo(response){
+		if($.fn.dataTable.isDataTable("#tblSkills")){
+			return;
+		}
 		table = $('#tblSkills').DataTable(
 				{
 					autoWidth: false,
@@ -139,7 +142,7 @@ $(document).ready(function(){
 			table.row('#'+deleteData['skillId']).remove().draw();
 			$('#statusSkillDiv').removeClass("alert alert-danger");
 			$('#statusSkillDiv').addClass("alert alert-success");
-			$('#statusSkillMessage').html(deleteData['skillName'] + " has been successfully deleted!!");
+			$('#statusSkillMessage').html("<strong> " +deleteData['skillName'] + " </strong> has been deleted successfully !!");
 			$('#statusSkillDiv').show();
 		};
 	};
@@ -151,7 +154,7 @@ $(document).ready(function(){
 			table.row('#'+newData['skillId']).data(newData).draw();
 			$('#statusSkillDiv').removeClass("alert alert-danger");
 			$('#statusSkillDiv').addClass("alert alert-success");
-			$('#statusSkillMessage').html("Skill name<strong> "+ newData['skillName']+" </strong>  has been successfully updated!!");
+			$('#statusSkillMessage').html("Skill name<strong> "+ newData['skillName']+" </strong>  has been updated successfully !!");
 			$('#statusSkillDiv').show();
 		};
 	};
@@ -191,11 +194,12 @@ $(document).ready(function(){
 		  $('#modalStatusSkillDiv').hide();
 		  $('#skillForm').validate({
 			    rules : {
-			        skillName : {  required: true }
+			        skillName : {  required: true ,  rangelength:[3,50] }
 			    },
 			    messages: {
 			        skillName:{
-			        	required:"Skill name can not be empty"
+			        	required:"Skill name can not be empty",
+			        	rangelength: "Minimum 3 and Maximum 50 Characters"
 			        }
 			    },
 			    errorElement: PARValidationUtil.utils.validationProperties.errorElement,
