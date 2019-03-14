@@ -41,7 +41,7 @@
 				    <h5 class="text-left" id="userModalLongTitle">Add/Update User</h5>
 				  </div>
 				  <div class="card-body">
-					<form class="form-horizontal" role="form" id="userForm">
+					<form class="form-horizontal" role="form" id="userForm" autocomplete="off">
 					<input type="hidden" id="rowIndex" name="rowIndex" value="">
 						<div class="form-group row">
 							<label class="control-label col-sm-3 text-right font-weight-bold" for="firstName">First
