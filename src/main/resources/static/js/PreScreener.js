@@ -211,10 +211,10 @@ $(document).ready(function(){
 			    },
 			    messages: {
 			        preScreenerName:{
-			        	required:"PreScreener name can not be empty**"
+			        	required:"PreScreener name can not be empty"
 			        },
 			        preScreenerPhoneNumber:{
-			        	required:"PreScreener phone number can not be empty**"
+			        	required:"PreScreener phone number can not be empty"
 			    }
 			    
 			    },
