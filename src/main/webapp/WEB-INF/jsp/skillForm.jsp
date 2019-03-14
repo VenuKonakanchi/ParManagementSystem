@@ -62,7 +62,7 @@
 						<h3 class="text-left" id="skillModalTitle">Add/Update Skill</h3>
 					</div>
 					<div class="card-body">
-						<form class="form-horizontal" role="form" id="skillForm">
+						<form class="form-horizontal" role="form" id="skillForm" autocomplete="off">
 							<div class="form-group  row">
 
 								<label
