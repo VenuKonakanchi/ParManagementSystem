@@ -65,7 +65,7 @@
 						<h5 class="text-left" id="areaModalTitle">Add/Update Area</h5>
 					</div>
 					<div class="card-body">
-						<form class="form-horizontal" role="form" id="areaForm">
+						<form class="form-horizontal" role="form" id="areaForm" autocomplete="off">
 							<input type="hidden" id="rowIndex" name="rowIndex" value="">
 							<div class="form-group row">
 								<label
