@@ -165,7 +165,7 @@ $("#external-staffing-info-tab").on("click", function(){
 			table.row('#'+deleteData['extStaffId']).remove().draw();
 			$('#extStaffStatusDiv').removeClass("alert alert-danger");
 			$('#extStaffStatusDiv').addClass("alert alert-success");
-			$('#extStaffStatusMessage').html(deleteData['extStaffName'] + " has been successfully deleted!!");
+			$('#extStaffStatusMessage').html("<strong> " +deleteData['extStaffName'] + "  </strong> has been deleted successfully !!");
 			$('#extStaffStatusDiv').show();
 		};	
 	};
@@ -177,7 +177,7 @@ $("#external-staffing-info-tab").on("click", function(){
 			table.row('#'+newData['extStaffId']).data(newData).draw();
 			$('#extStaffStatusDiv').removeClass("alert alert-danger");
 			$('#extStaffStatusDiv').addClass("alert alert-success");
-			$('#extStaffStatusMessage').html("Exteral Staff<strong> "+ newData['extStaffName']+" </strong>has been successfully updated!!");
+			$('#extStaffStatusMessage').html("Exteral Staff<strong> "+ newData['extStaffName']+" </strong>has been updated successfully !!");
 			$('#extStaffStatusDiv').show();
 		};
 	};

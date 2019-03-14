@@ -142,7 +142,7 @@ $("#skills-tab").on("click", function(){
 			table.row('#'+deleteData['skillId']).remove().draw();
 			$('#statusSkillDiv').removeClass("alert alert-danger");
 			$('#statusSkillDiv').addClass("alert alert-success");
-			$('#statusSkillMessage').html(deleteData['skillName'] + " has been successfully deleted!!");
+			$('#statusSkillMessage').html("<strong> " +deleteData['skillName'] + " </strong> has been deleted successfully !!");
 			$('#statusSkillDiv').show();
 		};
 	};
@@ -154,7 +154,7 @@ $("#skills-tab").on("click", function(){
 			table.row('#'+newData['skillId']).data(newData).draw();
 			$('#statusSkillDiv').removeClass("alert alert-danger");
 			$('#statusSkillDiv').addClass("alert alert-success");
-			$('#statusSkillMessage').html("Skill name<strong> "+ newData['skillName']+" </strong>  has been successfully updated!!");
+			$('#statusSkillMessage').html("Skill name<strong> "+ newData['skillName']+" </strong>  has been updated successfully !!");
 			$('#statusSkillDiv').show();
 		};
 	};

@@ -198,7 +198,7 @@ $("#candidate-master-tab").on("click", function(){
 			table.row('#'+deleteData['candidateId']).remove().draw();
 			$('#candidateStatusDiv').removeClass("alert alert-danger");
 			$('#candidateStatusDiv').addClass("alert alert-success");
-			$('#candidateStatusMessage').html(deleteData['candidateName'] + " has been deleted successfully!!");
+			$('#candidateStatusMessage').html("<strong> " +deleteData['candidateName'] + " </strong> has been deleted successfully!!");
 			$('#candidateStatusDiv').show();
 		};
 	};

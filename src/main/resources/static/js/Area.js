@@ -157,7 +157,7 @@ $(document).ready(function(){
 			table.row('#'+deleteData['areaId']).remove().draw();
 			$('#areaStatusDiv').removeClass("alert alert-danger");
 			$('#areaStatusDiv').addClass("alert alert-success");
-			$('#areaStatusMessage').html(deleteData['areaName'] + " has been successfully deleted!!");
+			$('#areaStatusMessage').html("<strong> " +deleteData['areaName'] + " </strong> has been deleted successfully !!");
 			$('#areaStatusDiv').show();
 		};
 	};
@@ -169,7 +169,7 @@ $(document).ready(function(){
 			table.row('#'+newData['areaId']).data(newData).draw();
 			$('#areaStatusDiv').removeClass("alert alert-danger");
 			$('#areaStatusDiv').addClass("alert alert-success");
-			$('#areaStatusMessage').html("Area name <strong>"+ newData['areaName'] + " </strong>has been successfully updated!!");
+			$('#areaStatusMessage').html("Area name <strong>"+ newData['areaName'] + " </strong>has been updated successfully !!");
 			$('#areaStatusDiv').show();
 		};
 	};
