@@ -27,6 +27,8 @@ import com.htc.par.to.ExternalStaffTO;
 import com.htc.par.to.SkillTO;
 import com.htc.par.utilities.NullAwareBeanUtil;
 
+import javassist.expr.NewArray;
+
 @Service
 public class ExternalStaffServiceImpl implements ExternalStaffService {
   
@@ -34,6 +36,8 @@ public class ExternalStaffServiceImpl implements ExternalStaffService {
 	private ExternalStaffRepository externalStaffRepository;
 	@Autowired
 	private AreaRepository areaRepository;
+	@Autowired
+	private AreaServiceImpl areaServiceImpl;
 	
 	@Override
 	public ExternalStaffTO getExternalStaffById(int externalStaffId) throws ResourceNotFoundException {
@@ -64,13 +68,33 @@ public class ExternalStaffServiceImpl implements ExternalStaffService {
 		ExternalStaffTO updatedExternalStaffTO = null;
 		try {
 
-				Optional<ExternalStaff> extStaffOptional = externalStaffRepository.findByExtStaffIdAndExtStaffActive(externalStaffTO.getExtStaffId(),true);
-				
-				if (!extStaffOptional.isPresent())
-					throw new ResourceNotFoundException(String.format("External Staff: %s Not Found.", externalStaffTO.getExtStaffName()));
-				ExternalStaff externalStaff = extStaffOptional.get();
-			    NullAwareBeanUtil.copyProperties(externalStaffTO, externalStaff);
-			    
+			/*
+			 * Optional<ExternalStaff> extStaffOptional =
+			 * externalStaffRepository.findByExtStaffIdAndExtStaffActive(externalStaffTO.
+			 * getExtStaffId(),true);
+			 * 
+			 * if (!extStaffOptional.isPresent()) throw new
+			 * ResourceNotFoundException(String.format("External Staff: %s Not Found.",
+			 * externalStaffTO.getExtStaffName())); ExternalStaff externalStaff =
+			 * extStaffOptional.get(); NullAwareBeanUtil.copyProperties(externalStaffTO,
+			 * externalStaff);
+			 */
+			
+			List<ExternalStaff> externalStaffs = externalStaffRepository.findAllByExtStaffNameAndExtStaffActive(externalStaffTO.getExtStaffName(),true);
+			ExternalStaff externalStaff = new ExternalStaff();
+			
+			if (externalStaffs.isEmpty()) { } 
+			else {
+				    for (ExternalStaff e : externalStaffs) {
+				    	if ((e.getArea().getAreaId().equals(externalStaffTO.getArea().getAreaId())) ) {
+				    		throw new ResourceDuplicateException(String.format("External Staff: %s Already Exist on %s .", externalStaffTO.getExtStaffName(),
+				    											areaServiceImpl.getAreaById(externalStaffTO.getArea().getAreaId()).getAreaName() ));
+				    		} /* if */
+				    	} /* for loop */
+				} /* else part */
+			
+				NullAwareBeanUtil.copyProperties(externalStaffTO,externalStaff);
+			
 			    if(externalStaffTO.getArea().getAreaId()!=null){
 					
 					Optional<Area> areaOptional = areaRepository.findById(externalStaffTO.getArea().getAreaId()) ;
@@ -83,6 +107,7 @@ public class ExternalStaffServiceImpl implements ExternalStaffService {
 					if(areaOptional.isPresent())
 						externalStaff.setArea(areaOptional.get()) ;
 				}
+			    externalStaff.setExtStaffActive(true);
 			    updatedExternalStaffTO = getExternalStaffTO(externalStaffRepository.save(externalStaff));
 			  
 			    
