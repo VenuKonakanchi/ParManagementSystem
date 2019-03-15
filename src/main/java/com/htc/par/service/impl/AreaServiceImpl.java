@@ -1,5 +1,6 @@
 package com.htc.par.service.impl;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import com.htc.par.entity.Area;
+import com.htc.par.entity.ExternalStaff;
 import com.htc.par.exceptions.ResourceDuplicateException;
 import com.htc.par.exceptions.ResourceNotCreatedException;
 import com.htc.par.exceptions.ResourceNotDeletedException;
@@ -152,14 +154,24 @@ public class AreaServiceImpl implements AreaService{
 		try {
 			Optional<Area> areaOptional = arearepository.findByAreaIdAndAreaActive(areaId, true);
 
-Area area;
+		Area area;
 		if (!areaOptional.isPresent()) {
 			throw new ResourceNotFoundException("Area not found.");
 		}
 		else if(areaOptional.isPresent()) {
-			area = areaOptional.get();
-			if(area.getExternalStaff().size()>0) {
-				throw new ResourceNotDeletedException(area.getAreaName()+ " - Area info cannot be deleted, since there are some Active/InActive ExternalStaff tied up to this Area.");
+			 area = areaOptional.get();
+			 boolean activeExtStaff = false;	
+			 Iterator<ExternalStaff> externalStaffs = area.getExternalStaff().iterator() ;
+			 
+			 while(externalStaffs.hasNext()) {
+				 if(externalStaffs.next().getExtStaffActive()) {
+					 activeExtStaff = true;	
+					 break;
+				 }
+			 }
+			 
+			if(activeExtStaff) {
+				throw new ResourceNotDeletedException("Can not delete "+ area.getAreaName()+ ". It is referred by ExternalStaff or Par  ");
 			}
 		}
 		area = areaOptional.get();
