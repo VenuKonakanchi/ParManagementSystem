@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$("#area-product-tab").on("click", function(){
 	
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/Areas', populateAreaInfo, areaLoadFailure);
 	$('#areaStatusDiv').hide();
@@ -29,7 +29,7 @@ $(document).ready(function(){
 						{
 							data:null,
 							render: function (data, type, row){
-                                return '<button class="btnDelete btn btn-sm deleteRow"><img src="static/img/delete.png" alt="Delete"></button>   <button class="btnViewArea btn btn-sm editRow" data-toggle="modal" data-target="#areaModal" data-areaid="' + data.areaId + '" data-areaname="' + data.areaName + '" data-areaactive="' + data.areaActive + '"><img src="static/img/edit.png" alt="Edit"></button>';
+                                return '<button class="btnAreaDelete btn btn-sm deleteRow"><img src="static/img/delete.png" alt="Delete"></button>   <button class="btnViewArea btn btn-sm editRow" data-toggle="modal" data-target="#areaModal" data-areaid="' + data.areaId + '" data-areaname="' + data.areaName + '" data-areaactive="' + data.areaActive + '"><img src="static/img/edit.png" alt="Edit"></button>';
 								//return '<button type="button" class="btnDelete btn btn-primary">Delete</button>';
 							}
 						},
@@ -58,10 +58,12 @@ $(document).ready(function(){
                 }		
 		);
 		table.clear().rows.add(response).draw();
-		$("#tblAreas tbody").on('click', '.btnDelete', function () {
+		//$("#tblAreas tbody").off('click', '.btnDelete');
+		$("#tblAreas tbody").on('click', '.btnAreaDelete', function () {
 			var area = table.row($(this).closest('tr')).data();
 			
 			$('#areaDeleteconfirmModalBody').html("Are you sure you, want to delete area <strong> "+area.areaName+" <strong> ?");
+			$("#areaDeleteconfirmModal").off('click', '#areaDelete-btn');
 		    $('#areaDeleteconfirmModal').modal({ backdrop: 'static', keyboard: false })
 	        .on('click', '#areaDelete-btn', function(){
 				var deleteData={};
@@ -180,10 +182,11 @@ $(document).ready(function(){
 			$('#areaStatusDiv').addClass("alert alert-success");
 			$('#areaStatusMessage').html("New Area<strong> "+areaName+" </strong> has been created successfully!!");
 			$('#areaStatusDiv').show();
-			if(!$.fn.dataTable.isDataTable("#tblAreas")){
+			if((!$.fn.dataTable.isDataTable("#tblAreas"))||(table==null)||(typeof table == undefined)){
 				populateAreaInfo([response]);
 			}else{
 				table.row.add(response).draw(false);
+				$('#tblAreas').show();
 			}
 		};
 	};

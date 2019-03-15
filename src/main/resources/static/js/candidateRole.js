@@ -176,11 +176,12 @@ $("#candidate-role-tab").on("click", function(){
 			$('#candRoleStatusDiv').addClass("alert alert-success");
 			$('#candRoleStatusMessage').html("New Role <strong> "+roleName+" </strong> has been created successfully!!");
 			$('#candRoleStatusDiv').show();
-			if(!$.fn.dataTable.isDataTable("#tblCandRoles")){
+			if((!$.fn.dataTable.isDataTable("#tblCandRoles"))||(table==null)||(typeof table == undefined)){
 				//var newResponse = [response];
 				populateRoleInfo([response]);
 			}else{
 				table.row.add(response).draw(false);
+				$('#tblCandRoles').show();
 			}
 			
 		};

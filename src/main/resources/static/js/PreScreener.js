@@ -30,7 +30,7 @@ $("#pre-screeners-tab").on("click", function(){
 						{
 							data:null,
 							render: function (data, type, row){
-                                return '<button class="btnDelete btn btn-sm deleteRow"><img src="static/img/delete.png" alt="Delete"></button>  <button class="btnViewPreScreener btn btn-sm editRow" data-toggle="modal" data-target="#preScreenerModal" data-prescreenerid="' + data.preScreenerId + '" data-prescreenername=" '+ data.preScreenerName + '" data-prescreenerphonenumber="' + data.preScreenerPhoneNumber + '" data-prescreeneractive="' + data.preScreenerActive + '"><img src="static/img/edit.png" alt="Edit"></button>';
+                                return '<button class="btnPrescreenerDelete btn btn-sm deleteRow"><img src="static/img/delete.png" alt="Delete"></button>  <button class="btnViewPreScreener btn btn-sm editRow" data-toggle="modal" data-target="#preScreenerModal" data-prescreenerid="' + data.preScreenerId + '" data-prescreenername=" '+ data.preScreenerName + '" data-prescreenerphonenumber="' + data.preScreenerPhoneNumber + '" data-prescreeneractive="' + data.preScreenerActive + '"><img src="static/img/edit.png" alt="Edit"></button>';
                                }
 						},
 					
@@ -52,9 +52,10 @@ $("#pre-screeners-tab").on("click", function(){
                 }		
 		);
 		table.clear().rows.add(response).draw();
-		$("#tblPreScreeners tbody").on('click', '.btnDelete', function () {
+		$("#tblPreScreeners tbody").on('click', '.btnPrescreenerDelete', function () {
 			var preScreener = table.row($(this).closest('tr')).data();
 			 $('#preScreenerconfirmModalBody').html("Are you sure you want to delete <strong> "+preScreener.preScreenerName +"</strong> ?")
+			 $("#preScreenerconfirm").off('click', '#preScreenerDelete-btn');
 		    $('#preScreenerconfirm').modal({ backdrop: 'static', keyboard: false })
 	        .on('click', '#preScreenerDelete-btn', function(){
 				var deleteData={};
@@ -174,10 +175,11 @@ $("#pre-screeners-tab").on("click", function(){
 			$('#preScreenerStatusDiv').addClass("alert alert-success");
 			$('#preScreenerStatusMessage').html("New PreScreener<strong> "+preScreenerName+" </strong> has been created successfully!!");
 			$('#preScreenerStatusDiv').show();
-			if(!$.fn.dataTable.isDataTable("#tblPreScreeners")){
+			if((!$.fn.dataTable.isDataTable("#tblPreScreeners"))||(table==null)||(typeof table == undefined)){
 				populatePreScreenerInfo([response]);
 			}else{
 				table.row.add(response).draw(false);
+				$('#tblPreScreeners').show();
 			}
 		};
 	};

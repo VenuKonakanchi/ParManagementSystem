@@ -17,6 +17,7 @@ $("#candidate-master-tab").on("click", function(){
 		  });
 		});
 	$('#saveCandidateButton').prop('disabled', false);
+	$('#candidateRecruiterSelect').find('option').not(':first').remove();
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/candidates', populateCandidateInfo, candidateLoadFailure);
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/recruiters', populateRecruiterInfo, recruiterLoadFailure);
 
@@ -157,7 +158,7 @@ $("#candidate-master-tab").on("click", function(){
 	};
 	
 	function populateRecruiterInfo (response){
-		$('#candidateRecruiterSelect').find('option').not(':first').remove();
+		
 		 $.each(response, function(i, recruiter) {
 	            $('#candidateRecruiterSelect').append($('<option></option>').text(recruiter.recruiterName).attr('value', recruiter.recruiterId));
 	        });
@@ -226,10 +227,11 @@ $("#candidate-master-tab").on("click", function(){
 			$('#candidateStatusMessage').html("New Candidate<strong> "+candidateName+" </strong>has been created successfully!!");
 			$('#candidateStatusDiv').show();
 			
-			if(!$.fn.dataTable.isDataTable("#tblCandidates")){
+			if((!$.fn.dataTable.isDataTable("#tblCandidates"))||(table==null)||(typeof table == undefined)){
 				populateCandidateInfo([response]);
 			}else{
 				table.row.add(response).draw(false);
+				$('#tblCandidates').show();
 			}
 			
 		};
