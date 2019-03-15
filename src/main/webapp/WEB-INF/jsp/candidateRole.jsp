@@ -41,7 +41,7 @@
 				    <h5 class="text-left" id="candRoleModalTitle">Add/Update Candidate</h5>
 				  </div>
 				  <div class="card-body">
-					<form class="form-horizontal" role="form" id="candRoleForm">
+					<form class="form-horizontal" role="form" id="candRoleForm" autocomplete="off">
 						<div class="form-group row">
 							<label class="control-label col-sm-3 text-right font-weight-bold" for="roleName">Name :</label>
 							<div class="col-sm-6 input-group  modal-form-input-group">

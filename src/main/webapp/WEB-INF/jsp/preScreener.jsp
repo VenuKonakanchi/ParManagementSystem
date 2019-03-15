@@ -56,7 +56,7 @@
 							PreScreener</h5>
 					</div>
 					<div class="card-body">
-						<form class="form-horizontal" role="form" id="preScreenerForm">
+						<form class="form-horizontal" role="form" id="preScreenerForm" autocomplete="off">
 							<div class="form-group row">
 								<label
 									class="control-label col-sm-3 text-right font-weight-bold"

@@ -53,7 +53,7 @@
 				    <h5 class="text-left" id="extStaffModalTitle">Add/Update External Staff</h5>
 				  </div>
 				  <div class="card-body">
-					<form class="form-horizontal" role="form" id="extStaffForm">
+					<form class="form-horizontal" role="form" id="extStaffForm" autocomplete="off">
 						<div class="form-group row">
 							<label class="control-label col-sm-3 text-right font-weight-bold" for="extStaffName">External Staff Name:</label>
 							<div class="col-sm-6 input-group  modal-form-input-group">

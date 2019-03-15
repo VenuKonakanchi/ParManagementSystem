@@ -1,5 +1,4 @@
-$(document).ready(function(){
-	
+$("#pre-screeners-tab").on("click", function(){
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/parmasters', populateParMasterInfo, parMasterLoadFailure);
 	$('#parMasterStatusDiv').hide();
 	var table=null;
