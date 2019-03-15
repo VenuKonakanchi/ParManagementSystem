@@ -18,6 +18,7 @@ import com.htc.par.exceptions.ResourceNotCreatedException;
 import com.htc.par.exceptions.ResourceNotDeletedException;
 import com.htc.par.exceptions.ResourceNotFoundException;
 import com.htc.par.exceptions.ResourceNotUpdatedException;
+import com.htc.par.repository.CandidateRepository;
 import com.htc.par.repository.RecruiterRepository;
 import com.htc.par.service.RecruiterService;
 import com.htc.par.to.RecruiterTO;
@@ -34,15 +35,22 @@ public class RecruiterServiceImpl implements RecruiterService {
 	@Autowired
 	private RecruiterRepository recruiterRepository;
 
+	@Autowired
+	private CandidateRepository candidateRepository;
+
 	@Override
 	public RecruiterTO getRecruiterTO(Recruiter recruiter) {
-		RecruiterTO recruiterTO = new RecruiterTO(recruiter.getRecruiterId(), recruiter.getRecruiterName(), recruiter.getRecruiterPhoneNumber(), recruiter.getRecruiterEmail(),recruiter.getRecruiterEmailFlag(),recruiter.getRecruiterActive());
+		RecruiterTO recruiterTO = new RecruiterTO(recruiter.getRecruiterId(), recruiter.getRecruiterName(),
+				recruiter.getRecruiterPhoneNumber(), recruiter.getRecruiterEmail(), recruiter.getRecruiterEmailFlag(),
+				recruiter.getRecruiterActive());
 		return recruiterTO;
 	}
 
 	@Override
 	public Recruiter getRecruiter(RecruiterTO recruiterTO) {
-		Recruiter recruiter = new Recruiter(recruiterTO.getRecruiterId(), recruiterTO.getRecruiterName(), recruiterTO.getRecruiterPhoneNumber(), recruiterTO.getRecruiterEmail(),recruiterTO.getRecruiterEmailFlag(),recruiterTO.getRecruiterActive());
+		Recruiter recruiter = new Recruiter(recruiterTO.getRecruiterId(), recruiterTO.getRecruiterName(),
+				recruiterTO.getRecruiterPhoneNumber(), recruiterTO.getRecruiterEmail(),
+				recruiterTO.getRecruiterEmailFlag(), recruiterTO.getRecruiterActive());
 		return recruiter;
 	}
 
@@ -55,7 +63,8 @@ public class RecruiterServiceImpl implements RecruiterService {
 	 */
 	@Override
 	public RecruiterTO getRecruiterById(int recruiterId) throws ResourceNotFoundException {
-		Optional<Recruiter> recruiterOptional = recruiterRepository.findByRecruiterIdAndRecruiterActive(recruiterId, true);
+		Optional<Recruiter> recruiterOptional = recruiterRepository.findByRecruiterIdAndRecruiterActive(recruiterId,
+				true);
 		RecruiterTO recruiterTO = null;
 		if (!recruiterOptional.isPresent())
 			throw new ResourceNotFoundException(String.format("Recruiter Id: %s not found.", recruiterId));
@@ -87,22 +96,25 @@ public class RecruiterServiceImpl implements RecruiterService {
 	 * @throws ResourceNotFoundException, ResourceNotUpdatedException
 	 */
 	@Override
-	public RecruiterTO updateRecruiter(RecruiterTO recruiterTO) throws ResourceNotFoundException, ResourceNotUpdatedException {
+	public RecruiterTO updateRecruiter(RecruiterTO recruiterTO)
+			throws ResourceNotFoundException, ResourceNotUpdatedException {
 		RecruiterTO updatedRecruiterTO = null;
 		try {
-			Optional<Recruiter> recruiterOptional = recruiterRepository.findByRecruiterIdAndRecruiterActive(recruiterTO.getRecruiterId(), true);
-			
+			Optional<Recruiter> recruiterOptional = recruiterRepository
+					.findByRecruiterIdAndRecruiterActive(recruiterTO.getRecruiterId(), true);
+
 			boolean isRecruiterPresent = recruiterOptional.isPresent();
 			Recruiter recruiterToUpdate = (isRecruiterPresent) ? recruiterOptional.get() : null;
-			
+
 			if (!isRecruiterPresent) {
-				throw new ResourceNotFoundException(String.format("Recruiter: %s Not Found.", recruiterTO.getRecruiterName()));
+				throw new ResourceNotFoundException(
+						String.format("Recruiter: %s Not Found.", recruiterTO.getRecruiterName()));
 			} else {
-				
+
 				if (recruiterTO.getRecruiterPhoneNumber().equals(recruiterToUpdate.getRecruiterPhoneNumber())) {
 					if (recruiterTO.getRecruiterEmail().equals(recruiterToUpdate.getRecruiterEmail())) {
 						NullAwareBeanUtil.copyProperties(recruiterTO, recruiterToUpdate);
-						
+
 						recruiterToUpdate = recruiterRepository.save(recruiterToUpdate);
 						updatedRecruiterTO = getRecruiterTO(recruiterToUpdate);
 					} else {
@@ -119,7 +131,7 @@ public class RecruiterServiceImpl implements RecruiterService {
 											recruiterTO.getRecruiterEmail()));
 						} else {
 							NullAwareBeanUtil.copyProperties(recruiterTO, recruiterToUpdate);
-							
+
 							recruiterToUpdate = recruiterRepository.save(recruiterToUpdate);
 							updatedRecruiterTO = getRecruiterTO(recruiterToUpdate);
 						}
@@ -139,7 +151,7 @@ public class RecruiterServiceImpl implements RecruiterService {
 										recruiterTO.getRecruiterPhoneNumber()));
 					} else {
 						NullAwareBeanUtil.copyProperties(recruiterTO, recruiterToUpdate);
-					
+
 						recruiterToUpdate = recruiterRepository.save(recruiterToUpdate);
 						updatedRecruiterTO = getRecruiterTO(recruiterToUpdate);
 					}
@@ -162,11 +174,12 @@ public class RecruiterServiceImpl implements RecruiterService {
 	public RecruiterTO createRecruiter(RecruiterTO recruiterTO)
 			throws ResourceDuplicateException, ResourceNotCreatedException {
 		try {
-			Optional<Recruiter> recruiterOptional = recruiterRepository.findByRecruiterPhoneNumber(recruiterTO.getRecruiterPhoneNumber());
+			Optional<Recruiter> recruiterOptional = recruiterRepository
+					.findByRecruiterPhoneNumber(recruiterTO.getRecruiterPhoneNumber());
 			Recruiter recruiter = null;
-			
+
 			boolean isRecruiterPresent = recruiterOptional.isPresent();
-			
+
 			recruiter = (isRecruiterPresent) ? recruiterOptional.get() : null;
 			if (isRecruiterPresent && recruiter.getRecruiterActive()) {
 				throw new ResourceDuplicateException(String.format(
@@ -174,12 +187,12 @@ public class RecruiterServiceImpl implements RecruiterService {
 			} else if (isRecruiterPresent && (!recruiter.getRecruiterActive())) {
 				recruiterTO.setRecruiterActive(true);
 				NullAwareBeanUtil.copyProperties(recruiterTO, recruiter);
-			} else if (! isRecruiterPresent) {
+			} else if (!isRecruiterPresent) {
 				recruiterOptional = recruiterRepository.findByRecruiterEmail(recruiterTO.getRecruiterEmail());
 				isRecruiterPresent = recruiterOptional.isPresent();
-				
+
 				recruiter = (isRecruiterPresent) ? recruiterOptional.get() : null;
-				
+
 				if (isRecruiterPresent && recruiter.getRecruiterActive()) {
 					throw new ResourceDuplicateException(String.format(
 							"Recruiter with same email id: %s already exist.", recruiterTO.getRecruiterEmail()));
@@ -190,17 +203,17 @@ public class RecruiterServiceImpl implements RecruiterService {
 					recruiterTO.setRecruiterActive(true);
 					recruiter = getRecruiter(recruiterTO);
 				}
-				}
-				
-				if (recruiter != null) {
-					recruiter = recruiterRepository.save(recruiter);
-					recruiterTO = getRecruiterTO(recruiter);
-				} else {
-					throw new ResourceNotCreatedException("Error while creating Recruiter record.");
-				}
-			} catch (DataAccessException dae) {
+			}
+
+			if (recruiter != null) {
+				recruiter = recruiterRepository.save(recruiter);
+				recruiterTO = getRecruiterTO(recruiter);
+			} else {
 				throw new ResourceNotCreatedException("Error while creating Recruiter record.");
 			}
+		} catch (DataAccessException dae) {
+			throw new ResourceNotCreatedException("Error while creating Recruiter record.");
+		}
 		return recruiterTO;
 	}
 
@@ -213,15 +226,19 @@ public class RecruiterServiceImpl implements RecruiterService {
 	@Override
 	public boolean deleteRecruiter(int recruiterId) throws ResourceNotFoundException, ResourceNotDeletedException {
 		try {
-			Optional<Recruiter> recruiterOptional = recruiterRepository.findByRecruiterIdAndRecruiterActive(recruiterId, true);
+			Optional<Recruiter> recruiterOptional = recruiterRepository.findByRecruiterIdAndRecruiterActive(recruiterId,
+					true);
 			Recruiter recruiter;
 			if (!recruiterOptional.isPresent()) {
 				throw new ResourceNotFoundException("Recruiter not found.");
-			}
-			else if(recruiterOptional.isPresent()) {
+			} else if (recruiterOptional.isPresent()) {
 				recruiter = recruiterOptional.get();
-				if(recruiter.getCandidates().size()>0) {
-					throw new ResourceNotDeletedException(recruiter.getRecruiterName()+ " - recruiter info cannot be deleted, since there are some candidates tied up to this recruiter.");
+				Long totalCandidate = candidateRepository.countActiveCandidatesForRecruiter(true,
+						recruiter.getRecruiterId());
+				// if(recruiter.getCandidates().size()>0) {
+				if ((totalCandidate != null) && (totalCandidate > 0)) {
+					throw new ResourceNotDeletedException(recruiter.getRecruiterName()
+							+ " - recruiter info cannot be deleted, since there are some candidate(s) tied up to this recruiter.");
 				}
 			}
 			recruiter = recruiterOptional.get();
@@ -236,7 +253,7 @@ public class RecruiterServiceImpl implements RecruiterService {
 	@Override
 	public List<RecruiterTO> getRecruiterByRecruiterEmailFlag(boolean recruiterEmailFlag)
 			throws ResourceNotFoundException {
-		
+
 		List<Recruiter> recruiterEntities = recruiterRepository.findAllByRecruiterEmailFlag(recruiterEmailFlag);
 		if (CollectionUtils.isEmpty(recruiterEntities))
 			throw new ResourceNotFoundException("No Recruiters Found.");

@@ -12,12 +12,13 @@ $("#skills-tab").on("click", function(){
         skillForm.find('.error').removeClass('error');
     });
 	function populateSkillInfo(response){
-		if($.fn.dataTable.isDataTable("#tblSkills")){
+		if(response.length<=0){
 			return;
 		}
 		table = $('#tblSkills').DataTable(
 				{
 					autoWidth: false,
+					retrieve: true,
 					columns: [
      						{ data: 'skillId' },
 						{ data: 'skillName' },
@@ -67,6 +68,7 @@ $("#skills-tab").on("click", function(){
 			var rowIndex = $(this).closest('tr').index();
 		     $("#rowIndex").val(rowIndex);
 		});
+		$('#tblSkills').show();
 	}
 	
 	function skillLoadFailure(xhr, error){
@@ -77,6 +79,7 @@ $("#skills-tab").on("click", function(){
 			$('#statusSkillMessage').html(reponseBody['message']);
 			$('#statusSkillDiv').show();
 		}else{
+			$('#tblSkills').hide();
 			$('#statusSkillDiv').hide();
 		}
 	}
@@ -167,7 +170,7 @@ $("#skills-tab").on("click", function(){
 			$('#statusSkillMessage').html("New Skill<strong> "+skillName+" </strong> has been created successfully!!");
 			$('#statusSkillDiv').show();
 			if(!$.fn.dataTable.isDataTable("#tblSkills")){
-				populateSkillInfo(response);
+				populateSkillInfo([response]);
 			}else{
 				table.row.add(response).draw(false);
 			}

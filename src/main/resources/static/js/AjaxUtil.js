@@ -49,6 +49,9 @@ AjaxUtil.utils = {};
 	};
 	
 	module().sendAjaxRequest = function(ajaxObj){
+		 if ((typeof ajaxObj == undefined) ||(typeof ajaxObj["url"] == undefined) || (ajaxObj["url"] == null)) {
+			 return;
+		 }
 		ajaxObj["contentType"]="application/json; charset=utf-8";
 		ajaxObj["accept"]="application/json; charset=utf-8";
 		ajaxObj["dataType"]="json";

@@ -17,14 +17,13 @@ $("#recruiters-tab").on("click", function(){
     
     //Recruiter Table
 	function populateRecruiterInfo(response){
-		
-		if($.fn.dataTable.isDataTable("#tblRecruiters")){
+		if(response.length<=0){
 			return;
 		}
 		table = $('#tblRecruiters').DataTable(
 				{
 					autoWidth: false,
-					
+					retrieve: true,
 					columns: [
      					{ data: 'recruiterId' },
 						{ data: 'recruiterName' },
@@ -67,6 +66,7 @@ $("#recruiters-tab").on("click", function(){
                 }		
 		);
 		table.clear().rows.add(response).draw();
+		//$("#tblRecruiters tbody").off('click', '.btnDelete');
 		$("#tblRecruiters tbody").on('click', '.btnDelete', function () {
 			var recruiter = table.row($(this).closest('tr')).data();
 			 $('#confirmDeleteRecruiterModalBody').html("Are you sure you want to delete <strong> "+recruiter.recruiterName+" </strong> ?");
@@ -90,6 +90,7 @@ $("#recruiters-tab").on("click", function(){
 			var rowIndex = $(this).closest('tr').index();
 		     $("#rowIndex").val(rowIndex);
 		});
+		$('#tblRecruiters').show();
 	}
 	
 	function recruiterLoadFailure (xhr, error){
@@ -101,6 +102,7 @@ $("#recruiters-tab").on("click", function(){
 			$('#recruiterstatusMessage').html(reponseBody['message']);
 			$('#recruiterstatusDiv').show();
 		}else{
+			$('#tblRecruiters').hide();
 			$('#recruiterstatusDiv').hide();
 		}
 	}
@@ -191,7 +193,7 @@ $("#recruiters-tab").on("click", function(){
 			$('#recruiterstatusMessage').html("New Recruiter<strong> "+recruiterName+" </strong>has been created successfully!!");
 			$('#recruiterstatusDiv').show();
 			if(!$.fn.dataTable.isDataTable("#tblRecruiters")){
-				populateRecruiterInfo(response);
+				populateRecruiterInfo([response]);
 			}else{
 				table.row.add(response).draw(false);
 			}
