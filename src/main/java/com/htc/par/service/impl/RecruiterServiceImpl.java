@@ -127,7 +127,7 @@ public class RecruiterServiceImpl implements RecruiterService {
 											recruiterTO.getRecruiterEmail()));
 						} else if (isRecruiterPresent && (!anotherRecruiter.getRecruiterActive())) {
 							throw new ResourceDuplicateException(
-									String.format("Another Recruiter with same email id: %s already exist.",
+									String.format("Another In-active Recruiter with same email id: %s already exist.",
 											recruiterTO.getRecruiterEmail()));
 						} else {
 							NullAwareBeanUtil.copyProperties(recruiterTO, recruiterToUpdate);
@@ -141,16 +141,35 @@ public class RecruiterServiceImpl implements RecruiterService {
 							.findByRecruiterPhoneNumber(recruiterTO.getRecruiterPhoneNumber());
 					isRecruiterPresent = recruiterOptional.isPresent();
 					Recruiter anotherRecruiter = (isRecruiterPresent) ? recruiterOptional.get() : null;
+					
+					if(!isRecruiterPresent) {
+						recruiterOptional = recruiterRepository.findByRecruiterEmail(recruiterTO.getRecruiterEmail());
+						boolean	isAnotherRecruiterPresent = recruiterOptional.isPresent();
+						Recruiter RecruiterWithSameEmail = (isAnotherRecruiterPresent) ? recruiterOptional.get() : null;
+						if (isAnotherRecruiterPresent && RecruiterWithSameEmail.getRecruiterActive()) {
+							throw new ResourceDuplicateException(
+									String.format("Recruiter with same email Id: %s already exist.",
+											recruiterTO.getRecruiterEmail()));
+						} else if (isAnotherRecruiterPresent && (!RecruiterWithSameEmail.getRecruiterActive())) {
+							throw new ResourceDuplicateException(
+									String.format("Another In-active Recruiter with same email id: %s already exist.",
+											recruiterTO.getRecruiterEmail()));
+						}else {
+							NullAwareBeanUtil.copyProperties(recruiterTO, recruiterToUpdate);
+							recruiterToUpdate = recruiterRepository.save(recruiterToUpdate);
+							updatedRecruiterTO = getRecruiterTO(recruiterToUpdate);
+						}
+					}
 					if (isRecruiterPresent && anotherRecruiter.getRecruiterActive()) {
 						throw new ResourceDuplicateException(
 								String.format("Recruiter with same mobile number: %s already exist.",
 										recruiterTO.getRecruiterPhoneNumber()));
-					} else if (isRecruiterPresent && (!anotherRecruiter.getRecruiterActive())) {
-						throw new ResourceDuplicateException(
-								String.format("Another Recruiter with same mobile number: %s already exist.",
-										recruiterTO.getRecruiterPhoneNumber()));
-					} else {
-						NullAwareBeanUtil.copyProperties(recruiterTO, recruiterToUpdate);
+						} else if (isRecruiterPresent && (!anotherRecruiter.getRecruiterActive())) {
+							throw new ResourceDuplicateException(
+									String.format("Another Recruiter with same mobile number: %s already exist.",
+											recruiterTO.getRecruiterPhoneNumber()));
+						} else {
+							NullAwareBeanUtil.copyProperties(recruiterTO, recruiterToUpdate);
 
 						recruiterToUpdate = recruiterRepository.save(recruiterToUpdate);
 						updatedRecruiterTO = getRecruiterTO(recruiterToUpdate);
