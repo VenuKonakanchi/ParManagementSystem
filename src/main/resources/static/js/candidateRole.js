@@ -16,13 +16,15 @@ $("#candidate-role-tab").on("click", function(){
     });
     //Role Table
 	function populateRoleInfo(response){
-		if($.fn.dataTable.isDataTable("#tblCandRoles")){
+		
+		if(response.length<=0){
 			return;
 		}
+		
 		table = $('#tblCandRoles').DataTable(
 				{
 					autoWidth: false,
-					
+					retrieve: true,
 					columns: [
      						{ data: 'roleId' },
 						{ data: 'roleName' },
@@ -72,6 +74,7 @@ $("#candidate-role-tab").on("click", function(){
 			var rowIndex = $(this).closest('tr').index();
 		     $("#rowIndex").val(rowIndex);
 		});
+		$('#tblCandRoles').show();
 	}
 	
 	function roleLoadFailure(xhr, error){
@@ -82,6 +85,7 @@ $("#candidate-role-tab").on("click", function(){
 			$('#candRoleStatusMessage').html(reponseBody['message']);
 			$('#candRoleStatusDiv').show();
 		}else{
+			$('#tblCandRoles').hide();
 			$('#candRoleStatusDiv').hide();
 		}
 	}
@@ -173,7 +177,8 @@ $("#candidate-role-tab").on("click", function(){
 			$('#candRoleStatusMessage').html("New Role <strong> "+roleName+" </strong> has been created successfully!!");
 			$('#candRoleStatusDiv').show();
 			if(!$.fn.dataTable.isDataTable("#tblCandRoles")){
-				populateRoleInfo(response);
+				//var newResponse = [response];
+				populateRoleInfo([response]);
 			}else{
 				table.row.add(response).draw(false);
 			}

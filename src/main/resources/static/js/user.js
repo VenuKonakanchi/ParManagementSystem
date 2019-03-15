@@ -19,13 +19,13 @@ $("#user-tab").on("click", function(){
     });
     
 	function populateUserInfo(response){
-		if($.fn.dataTable.isDataTable("#tblUsers")){
+		if(response.length<=0){
 			return;
 		}
 		table = $('#tblUsers').DataTable(
 				{
 					autoWidth: false,
-										
+					retrieve: true,					
 					columns: [
      						{ data: 'userId' },
      						{ data: 'firstName' },
@@ -89,6 +89,7 @@ $("#user-tab").on("click", function(){
 			var rowIndex = $(this).closest('tr').index();
 		     $("#rowIndex").val(rowIndex);
 		});
+		$('#tblUsers').show();
 	}
 	
 	function userLoadFailure(xhr, error){
@@ -99,6 +100,7 @@ $("#user-tab").on("click", function(){
 			$('#userStatusMessage').html(reponseBody['message']);
 			$('#userStatusDiv').show();
 		}else{
+			$('#tblUsers').hide();
 			$('#userStatusDiv').hide();
 		}
 	}
@@ -137,7 +139,7 @@ $("#user-tab").on("click", function(){
 	};
 	
 	function populateRoleInfo (response){
-		
+		$('#userRoleSelect').find('option').not(':first').remove();
 		 $.each(response, function(i, role) {
 	            $('#userRoleSelect').append($('<option></option>').text(role.roleName).attr('value', role.roleId));
 	        });
@@ -208,7 +210,7 @@ $("#user-tab").on("click", function(){
 			$('#userStatusMessage').html("New User with user name <strong>"+ userName  +" </strong> has been created successfully!!");
 			$('#userStatusDiv').show();
 			if(!$.fn.dataTable.isDataTable("#tblUsers")){
-				populateUserInfo(response);
+				populateUserInfo([response]);
 			}else{
 				table.row.add(response).draw(false);
 			}

@@ -15,13 +15,13 @@ $("#external-staffing-info-tab").on("click", function(){
         extStaffForm.find('.error').removeClass('error');
     });
 	function populateExternalStaffInfo(response){
-		if($.fn.dataTable.isDataTable("#tblExtStaffs")){
+		if(response.length<=0){
 			return;
 		}
 		table = $('#tblExtStaffs').DataTable(
 				{
 					autoWidth: false,
-							
+					retrieve: true,	
 					columns: [
      						{ data: 'extStaffId' },
      						{ data: 'extStaffName' },
@@ -72,6 +72,7 @@ $("#external-staffing-info-tab").on("click", function(){
 			var rowIndex = $(this).closest('tr').index();
 		     $("#rowIndex").val(rowIndex);
 		});
+		$('#tblExtStaffs').show();
 	}
 	
 	function extStaffLoadFailure(xhr, error){
@@ -82,6 +83,7 @@ $("#external-staffing-info-tab").on("click", function(){
 			$('#extStaffStatusMessage').html(reponseBody['message']);
 			$('#extStaffStatusDiv').show();
 		}else{
+			$('#tblExtStaffs').hide();
 			$('#extStaffStatusDiv').hide();
 		}
 	}
@@ -119,7 +121,7 @@ $("#external-staffing-info-tab").on("click", function(){
 	};
 	
 	function populateAreaInfo (response){
-		
+		$('#extStaffAreaSelect').find('option').not(':first').remove();
 		 $.each(response, function(i, area) {
 	            $('#extStaffAreaSelect').append($('<option></option>').text(area.areaName).attr('value', area.areaId));
 	        });
@@ -192,7 +194,7 @@ $("#external-staffing-info-tab").on("click", function(){
 			$('#extStaffStatusDiv').show();
 			
 			if(!$.fn.dataTable.isDataTable("#tblExtStaffs")){
-				populateExternalStaffInfo(response);
+				populateExternalStaffInfo([response]);
 			}else{
 				table.row.add(response).draw(false);
 			}

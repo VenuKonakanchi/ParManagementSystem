@@ -15,13 +15,13 @@ $("#pre-screeners-tab").on("click", function(){
     });
     
 	function populatePreScreenerInfo(response){
-		if($.fn.dataTable.isDataTable("#tblPreScreeners")){
+		if(response.length<=0){
 			return;
 		}
 		table = $('#tblPreScreeners').DataTable(
 				{
 					autoWidth: false,
-										
+					retrieve: true,					
 					columns: [
      					{ data: 'preScreenerId' },
 						{ data: 'preScreenerName' },
@@ -71,6 +71,7 @@ $("#pre-screeners-tab").on("click", function(){
 			var rowIndex = $(this).closest('tr').index();
 		     $("#rowIndex").val(rowIndex);
 		});
+		$('#tblPreScreeners').show();
 	}
 	
 	function preScreenerLoadFailure(xhr, error){
@@ -81,6 +82,7 @@ $("#pre-screeners-tab").on("click", function(){
 			$('#preScreenerStatusMessage').html(reponseBody['message']);
 			$('#statusSkillDiv').show();
 		}else{
+			$('#tblPreScreeners').hide();
 			$('#preScreenerStatusDiv').hide();
 		}
 	}
@@ -173,7 +175,7 @@ $("#pre-screeners-tab").on("click", function(){
 			$('#preScreenerStatusMessage').html("New PreScreener<strong> "+preScreenerName+" </strong> has been created successfully!!");
 			$('#preScreenerStatusDiv').show();
 			if(!$.fn.dataTable.isDataTable("#tblPreScreeners")){
-				populatePreScreenerInfo(response);
+				populatePreScreenerInfo([response]);
 			}else{
 				table.row.add(response).draw(false);
 			}

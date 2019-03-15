@@ -30,7 +30,6 @@ public class CandidateServiceImpl implements CandidateService {
 	@Autowired
 	private RecruiterService recruiterService;
 
-
 	@Override
 	public CandidateTO getCandidateById(int candId) throws ResourceNotFoundException {
 		// TODO Auto-generated method stub
@@ -56,7 +55,8 @@ public class CandidateServiceImpl implements CandidateService {
 	}
 
 	@Override
-	public CandidateTO updateCandidate(CandidateTO candidateTO) throws ResourceNotFoundException, ResourceNotUpdatedException, ResourceDuplicateException {
+	public CandidateTO updateCandidate(CandidateTO candidateTO)
+			throws ResourceNotFoundException, ResourceNotUpdatedException, ResourceDuplicateException {
 		try {
 			Optional<Candidate> candidateOptional = candidateRepository.findByCandidateIdAndCandidateActive(
 					candidateTO.getCandidateId(), candidateTO.getCandidateActive());
@@ -69,10 +69,11 @@ public class CandidateServiceImpl implements CandidateService {
 				if (candidateTO.getCandidatePhoneNumber().equals(candidateToUpdate.getCandidatePhoneNumber())) {
 					if (candidateTO.getCandidateEmail().equals(candidateToUpdate.getCandidateEmail())) {
 						NullAwareBeanUtil.copyProperties(candidateTO, candidateToUpdate);
-					//	candidateToUpdate.setSkill(skillService.getSkill(candidateTO.getSkill()));
-						RecruiterTO	recruiterTO = recruiterService.getRecruiterById(candidateTO.getRecruiter().getRecruiterId());
+						// candidateToUpdate.setSkill(skillService.getSkill(candidateTO.getSkill()));
+						RecruiterTO recruiterTO = recruiterService
+								.getRecruiterById(candidateTO.getRecruiter().getRecruiterId());
 						candidateToUpdate.setRecruiter(recruiterService.getRecruiter(recruiterTO));
-						
+
 						candidateToUpdate = candidateRepository.save(candidateToUpdate);
 						candidateTO = getCandidateTO(candidateToUpdate);
 					} else {
@@ -89,9 +90,10 @@ public class CandidateServiceImpl implements CandidateService {
 											candidateTO.getCandidateEmail()));
 						} else {
 							NullAwareBeanUtil.copyProperties(candidateTO, candidateToUpdate);
-						//	candidateToUpdate.setSkill(skillService.getSkill(candidateTO.getSkill()));
-							RecruiterTO	recruiterTO = recruiterService.getRecruiterById(candidateTO.getRecruiter().getRecruiterId());
-							candidateToUpdate.setRecruiter(recruiterService.getRecruiter(recruiterTO));						
+							// candidateToUpdate.setSkill(skillService.getSkill(candidateTO.getSkill()));
+							RecruiterTO recruiterTO = recruiterService
+									.getRecruiterById(candidateTO.getRecruiter().getRecruiterId());
+							candidateToUpdate.setRecruiter(recruiterService.getRecruiter(recruiterTO));
 							candidateToUpdate = candidateRepository.save(candidateToUpdate);
 							candidateTO = getCandidateTO(candidateToUpdate);
 						}
@@ -101,7 +103,28 @@ public class CandidateServiceImpl implements CandidateService {
 							.findByCandidatePhoneNumber(candidateTO.getCandidatePhoneNumber());
 					isCandidatePresent = candidateOptional.isPresent();
 					Candidate anotherCandidate = (isCandidatePresent) ? candidateOptional.get() : null;
-					if (isCandidatePresent && anotherCandidate.getCandidateActive()) {
+					if (!isCandidatePresent) {
+						candidateOptional = candidateRepository.findByCandidateEmail(candidateTO.getCandidateEmail());
+						boolean isAnotherCandidatePresent = candidateOptional.isPresent();
+						Candidate candidateWithSameEmail = (isAnotherCandidatePresent) ? candidateOptional.get() : null;
+						if (isAnotherCandidatePresent && candidateWithSameEmail.getCandidateActive()) {
+							throw new ResourceDuplicateException(
+									String.format("Candidate with same email id: %s already exist.",
+											candidateTO.getCandidateEmail()));
+						} else if (isAnotherCandidatePresent && (!candidateWithSameEmail.getCandidateActive())) {
+							throw new ResourceDuplicateException(
+									String.format("Another In-active candidate with same email id: %s already exist.",
+											candidateTO.getCandidateEmail()));
+						}else {
+							NullAwareBeanUtil.copyProperties(candidateTO, candidateToUpdate);
+							// candidateToUpdate.setSkill(skillService.getSkill(candidateTO.getSkill()));
+							candidateToUpdate = candidateRepository.save(candidateToUpdate);
+							RecruiterTO recruiterTO = recruiterService
+									.getRecruiterById(candidateTO.getRecruiter().getRecruiterId());
+							candidateToUpdate.setRecruiter(recruiterService.getRecruiter(recruiterTO));
+							candidateTO = getCandidateTO(candidateToUpdate);
+						}
+					} else if (isCandidatePresent && anotherCandidate.getCandidateActive()) {
 						throw new ResourceDuplicateException(
 								String.format("Candidate with same mobile number: %s already exist.",
 										candidateTO.getCandidatePhoneNumber()));
@@ -111,9 +134,10 @@ public class CandidateServiceImpl implements CandidateService {
 										candidateTO.getCandidatePhoneNumber()));
 					} else {
 						NullAwareBeanUtil.copyProperties(candidateTO, candidateToUpdate);
-					//	candidateToUpdate.setSkill(skillService.getSkill(candidateTO.getSkill()));
+						// candidateToUpdate.setSkill(skillService.getSkill(candidateTO.getSkill()));
 						candidateToUpdate = candidateRepository.save(candidateToUpdate);
-						RecruiterTO	recruiterTO = recruiterService.getRecruiterById(candidateTO.getRecruiter().getRecruiterId());
+						RecruiterTO recruiterTO = recruiterService
+								.getRecruiterById(candidateTO.getRecruiter().getRecruiterId());
 						candidateToUpdate.setRecruiter(recruiterService.getRecruiter(recruiterTO));
 						candidateTO = getCandidateTO(candidateToUpdate);
 					}
@@ -161,7 +185,8 @@ public class CandidateServiceImpl implements CandidateService {
 			}
 
 			if (candidate != null) {
-				RecruiterTO	recruiterTO = recruiterService.getRecruiterById(candidateTO.getRecruiter().getRecruiterId());
+				RecruiterTO recruiterTO = recruiterService
+						.getRecruiterById(candidateTO.getRecruiter().getRecruiterId());
 				candidate.setRecruiter(recruiterService.getRecruiter(recruiterTO));
 				candidate = candidateRepository.save(candidate);
 				candidateTO = getCandidateTO(candidate);
@@ -198,7 +223,7 @@ public class CandidateServiceImpl implements CandidateService {
 
 		return new CandidateTO(candidate.getCandidateId(), candidate.getCandidateName(),
 				candidate.getCandidatePhoneNumber(), candidate.getCandidateEmail(), candidate.getCandidateActive(),
-				recruiterService.getRecruiterTO(candidate.getRecruiter()),candidate.getCandidateReceivedDate());
+				recruiterService.getRecruiterTO(candidate.getRecruiter()), candidate.getCandidateReceivedDate());
 
 	}
 
@@ -208,7 +233,7 @@ public class CandidateServiceImpl implements CandidateService {
 
 		return new Candidate(candidateTO.getCandidateName(), candidateTO.getCandidatePhoneNumber(),
 				candidateTO.getCandidateEmail(), candidateTO.getCandidateActive(),
-				recruiterService.getRecruiter(candidateTO.getRecruiter()),candidateTO.getCandidateReceivedDate());
+				recruiterService.getRecruiter(candidateTO.getRecruiter()), candidateTO.getCandidateReceivedDate());
 	}
 
 	public CandidateServiceImpl() {
