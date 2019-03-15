@@ -23,6 +23,9 @@ public interface ExternalStaffRepository extends JpaRepository<ExternalStaff, In
 	
 	public List<ExternalStaff> findAllByExtStaffName(@Param("extStaffName") String extStaffName);
 	
+	public List<ExternalStaff> findAllByExtStaffNameAndExtStaffActive(@Param("extStaffName") String extStaffName,
+																		@Param("extStaffActive") boolean extStaffActive);
+	
 	public List<ExternalStaff> findAllByExtStaffActive(@Param("skillActive") boolean skillActive);
 
 }
