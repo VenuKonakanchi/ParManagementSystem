@@ -33,13 +33,13 @@ $("#candidate-master-tab").on("click", function(){
         candidateForm.find('.error').removeClass('error');
     });
 	function populateCandidateInfo(response){
-		if($.fn.dataTable.isDataTable("#tblCandidates")){
+		if(response.length<=0){
 			return;
 		}
 		table = $('#tblCandidates').DataTable(
 				{
 					autoWidth: false,
-										
+					retrieve: true,	
 					columns: [
      						{ data: 'candidateId' },
      						{ data: 'candidateName' },
@@ -76,6 +76,7 @@ $("#candidate-master-tab").on("click", function(){
 		);
 		
 		table.clear().rows.add(response).draw();
+		
 		$("#tblCandidates tbody").on('click', '.btnCandidateDelete', function () {
 			var candidate = table.row($(this).closest('tr')).data();
 			
@@ -102,6 +103,7 @@ $("#candidate-master-tab").on("click", function(){
 			var rowIndex = $(this).closest('tr').index();
 		     $("#rowIndex").val(rowIndex);
 		});
+		$('#tblCandidates').show();
 	}
 	
 	function candidateLoadFailure(xhr, error){
@@ -112,6 +114,7 @@ $("#candidate-master-tab").on("click", function(){
 			$('#candidateStatusMessage').html(reponseBody['message']);
 			$('#candidateStatusDiv').show();
 		}else{
+			$('#tblCandidates').hide();
 			$('#candidateStatusDiv').hide();
 		}
 	}
@@ -154,6 +157,7 @@ $("#candidate-master-tab").on("click", function(){
 	};
 	
 	function populateRecruiterInfo (response){
+		$('#candidateRecruiterSelect').find('option').not(':first').remove();
 		 $.each(response, function(i, recruiter) {
 	            $('#candidateRecruiterSelect').append($('<option></option>').text(recruiter.recruiterName).attr('value', recruiter.recruiterId));
 	        });
@@ -223,7 +227,7 @@ $("#candidate-master-tab").on("click", function(){
 			$('#candidateStatusDiv').show();
 			
 			if(!$.fn.dataTable.isDataTable("#tblCandidates")){
-				populateCandidateInfo(response);
+				populateCandidateInfo([response]);
 			}else{
 				table.row.add(response).draw(false);
 			}
@@ -274,6 +278,11 @@ $("#candidate-master-tab").on("click", function(){
 		  return this.optional(element) || email_regex.test(value);
 		}, "Enter valid email");
 	  
+	  jQuery.validator.addMethod("futureDateCheck", function (value, element) {
+		    var now = new Date();
+		    var receivedDate = new Date(value);
+		    return this.optional(element) || (!(receivedDate > now));
+		},"Received date can not be future date"),
 	  
 	  $("#candidateModal").on('click', '#saveCandidateButton', function () {
 		  $('#candidateModalStatusDiv').hide();
@@ -283,7 +292,7 @@ $("#candidate-master-tab").on("click", function(){
 		  			candidateEmail : {  htcemail: true, email: true,required: true},
 		  			candidatePhoneNumber : { required: true, phoneUS: true },
 		  			candidateRecruiterSelect: {required: true},
-		  			candidateReceivedDate:{required: true}
+		  			candidateReceivedDate:{required: true, futureDateCheck: true}
 			    },
 			    messages: {
 			    	candidateName:{

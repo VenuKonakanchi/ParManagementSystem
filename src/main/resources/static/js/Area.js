@@ -13,19 +13,15 @@ $(document).ready(function(){
         areaForm.find('.error').removeClass('error');
     });
 	function populateAreaInfo(response){
+		
+		if(response.length<=0){
+			return;
+		}
+		
 		table = $('#tblAreas').DataTable(
 				{
 					autoWidth: false,
-					/* dom: 'lBfrtip',
-			       buttons: [
-			            {
-			                text: 'Add New Area',
-			                action: function ( e, dt, node, config ) {
-			                	$('#areaModal').modal('show'); 
-			                }
-			            }
-			        ],*/
-					
+					retrieve: true,
 					columns: [
      					{ data: 'areaId' },
 						{ data: 'areaName' },
@@ -82,6 +78,7 @@ $(document).ready(function(){
 			var rowIndex = $(this).closest('tr').index();
 		     $("#rowIndex").val(rowIndex);
 		});
+		$('#tblAreas').show();
 	}
 	
 	function areaLoadFailure(xhr, error){
@@ -92,6 +89,7 @@ $(document).ready(function(){
 			$('#areaStatusMessage').html(reponseBody['message']);
 			$('#areaStatusDiv').show();
 		}else{
+			$('#tblAreas').hide();
 			$('#areaStatusDiv').hide();
 		}
 	}
@@ -183,7 +181,7 @@ $(document).ready(function(){
 			$('#areaStatusMessage').html("New Area<strong> "+areaName+" </strong> has been created successfully!!");
 			$('#areaStatusDiv').show();
 			if(!$.fn.dataTable.isDataTable("#tblAreas")){
-				populateAreaInfo(response);
+				populateAreaInfo([response]);
 			}else{
 				table.row.add(response).draw(false);
 			}
