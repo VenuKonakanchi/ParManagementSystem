@@ -1,5 +1,6 @@
 $("#external-staffing-info-tab").on("click", function(){
 	
+	$('#extStaffAreaSelect').find('option').not(':first').remove();
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/externalstaff', populateExternalStaffInfo, extStaffLoadFailure);
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/Areas', populateAreaInfo, areaLoadFailure);
 	
@@ -56,7 +57,8 @@ $("#external-staffing-info-tab").on("click", function(){
 		$("#tblExtStaffs tbody").on('click', '.btnExtStaffDelete', function () {
 			var extStaff = table.row($(this).closest('tr')).data();
 			$('#extStaffDeleteConfirmModalBody').html(" Are you sure you, want to delete<strong> "+extStaff.extStaffName+"</strong>?");
-		    $('#extStaffDeleteConfirm').modal({ backdrop: 'static', keyboard: false })
+			$("#extStaffDeleteConfirm").off('click', '#ext-staff-delete-btn');
+			$('#extStaffDeleteConfirm').modal({ backdrop: 'static', keyboard: false })
 	        .on('click', '#ext-staff-delete-btn', function(){
 				var deleteData={};
 				deleteData['extStaffId']=extStaff.extStaffId;
@@ -121,7 +123,6 @@ $("#external-staffing-info-tab").on("click", function(){
 	};
 	
 	function populateAreaInfo (response){
-		$('#extStaffAreaSelect').find('option').not(':first').remove();
 		 $.each(response, function(i, area) {
 	            $('#extStaffAreaSelect').append($('<option></option>').text(area.areaName).attr('value', area.areaId));
 	        });
@@ -193,10 +194,11 @@ $("#external-staffing-info-tab").on("click", function(){
 			$('#extStaffStatusMessage').html("New External Staff <strong>"+extStaffName+"</strong> has been created successfully!!");
 			$('#extStaffStatusDiv').show();
 			
-			if(!$.fn.dataTable.isDataTable("#tblExtStaffs")){
+			if((!$.fn.dataTable.isDataTable("#tblExtStaffs"))||(table==null)||(typeof table == undefined)){
 				populateExternalStaffInfo([response]);
 			}else{
 				table.row.add(response).draw(false);
+				$('#tblExtStaffs').show();
 			}
 		};
 	};

@@ -169,10 +169,11 @@ $("#skills-tab").on("click", function(){
 			$('#statusSkillDiv').addClass("alert alert-success");
 			$('#statusSkillMessage').html("New Skill<strong> "+skillName+" </strong> has been created successfully!!");
 			$('#statusSkillDiv').show();
-			if(!$.fn.dataTable.isDataTable("#tblSkills")){
+			if((!$.fn.dataTable.isDataTable("#tblSkills"))||(table==null)||(typeof table == undefined)){
 				populateSkillInfo([response]);
 			}else{
 				table.row.add(response).draw(false);
+				$('#tblSkills').show();
 			}
 		};
 	};

@@ -1,5 +1,6 @@
 $("#user-tab").on("click", function(){
 	
+	$('#userRoleSelect').find('option').not(':first').remove();
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/users', populateUserInfo, userLoadFailure);
 	AjaxUtil.utils.sendGetRequest('/parmanagement/par/users/roles', populateRoleInfo, roleLoadFailure);
 	
@@ -70,7 +71,8 @@ $("#user-tab").on("click", function(){
 		$("#tblUsers tbody").on('click', '.btnUserDelete', function () {
 			var user = table.row($(this).closest('tr')).data();
 			$('#userDeleteconfirmModalBody').html("Are you sure you want to delete User with UserName :<strong> "+user.userName+" </strong> ?");
-		    $('#userDeleteConfirmModal').modal({ backdrop: 'static', keyboard: false })
+			$("#userDeleteConfirmModal").off('click', '#user-delete-btn');
+			$('#userDeleteConfirmModal').modal({ backdrop: 'static', keyboard: false })
 	        .on('click', '#user-delete-btn', function(){
 				var deleteData={};
 				deleteData['userId']=user.userId;
@@ -139,7 +141,7 @@ $("#user-tab").on("click", function(){
 	};
 	
 	function populateRoleInfo (response){
-		$('#userRoleSelect').find('option').not(':first').remove();
+		
 		 $.each(response, function(i, role) {
 	            $('#userRoleSelect').append($('<option></option>').text(role.roleName).attr('value', role.roleId));
 	        });
@@ -209,10 +211,11 @@ $("#user-tab").on("click", function(){
 			$('#userStatusDiv').addClass("alert alert-success");
 			$('#userStatusMessage').html("New User with user name <strong>"+ userName  +" </strong> has been created successfully!!");
 			$('#userStatusDiv').show();
-			if(!$.fn.dataTable.isDataTable("#tblUsers")){
+			if((!$.fn.dataTable.isDataTable("#tblUsers"))||(table==null)||(typeof table == undefined)){
 				populateUserInfo([response]);
 			}else{
 				table.row.add(response).draw(false);
+				$('#tblUsers').show();
 			}
 		};
 	};
@@ -260,6 +263,7 @@ $("#user-tab").on("click", function(){
 		  return this.optional(element) || email_regex.test(value);
 		}, "Enter valid email");
 	  
+	  $("#userModal").off('click', '#saveUserButton');
 	  $("#userModal").on('click', '#saveUserButton', function () {
 		  $('#userModalStatusDiv').hide();
 		  $('#userForm').validate({

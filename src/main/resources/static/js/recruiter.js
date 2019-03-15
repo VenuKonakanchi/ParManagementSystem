@@ -192,10 +192,11 @@ $("#recruiters-tab").on("click", function(){
 			$('#recruiterstatusDiv').addClass("alert alert-success");
 			$('#recruiterstatusMessage').html("New Recruiter<strong> "+recruiterName+" </strong>has been created successfully!!");
 			$('#recruiterstatusDiv').show();
-			if(!$.fn.dataTable.isDataTable("#tblRecruiters")){
+			if((!$.fn.dataTable.isDataTable("#tblRecruiters"))||(table==null)||(typeof table == undefined)){
 				populateRecruiterInfo([response]);
 			}else{
 				table.row.add(response).draw(false);
+				$('#tblRecruiters').show();
 			}
 		};
 	};
